@@ -1,0 +1,15 @@
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\WM.UnitTestScribe.exe.config
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\WM.UnitTestScribe.exe
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\WM.UnitTestScribe.pdb
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\CommandLine.dll
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\CommandLine.xml
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\obj\Debug\WM.UnitTestScribe.exe
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\obj\Debug\WM.UnitTestScribe.pdb
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\obj\Debug\WM.UnitTestScribe.csprojResolveAssemblyReference.cache
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\ABB.SrcML.Data.dll
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\ABB.SrcML.dll
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\log4net.dll
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\ABB.SrcML.xml
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\ABB.SrcML.Data.xml
+D:\Repositories\ScribeFramework\WM.UnitTestScribe\bin\Debug\log4net.xml
+\\vmware-host\Shared Folders\Documents\SE-project\ScribeFramework-master\WM.UnitTestScribe\bin\Debug\WM.UnitTestScribe.exe.config
