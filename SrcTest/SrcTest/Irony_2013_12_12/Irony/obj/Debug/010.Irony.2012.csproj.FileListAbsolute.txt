@@ -1,0 +1,7 @@
+\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony\bin\Debug\Irony.dll
+\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony\bin\Debug\Irony.pdb
+\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony\obj\Debug\010.Irony.2012.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony\obj\Debug\Irony.Resources.resources
+\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony\obj\Debug\010.Irony.2012.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony\obj\Debug\Irony.dll
+\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony\obj\Debug\Irony.pdb

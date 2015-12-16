@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.SqlServer.TransactSql.ScriptDom</id>
+    <version>12.0.1</version>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SQL Server T-SQL Script DOM. See http://msdn.microsoft.com/library/dd194286.</description>
+    <copyright>Microsoft</copyright>
+    <tags>SqlServer</tags>
+  </metadata>
+</package>

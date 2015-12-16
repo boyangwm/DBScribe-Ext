@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\SE-project\testcode\RiskIt\src\com\riskIt\data\TypeWageDataStructure.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">riskIt</name><op:operator pos:line="1" pos:column="19">.</op:operator><name pos:line="1" pos:column="20">data</name></name>;</package>
+
+<import pos:line="3" pos:column="1">import <name><name pos:line="3" pos:column="8">com</name><op:operator pos:line="3" pos:column="11">.</op:operator><name pos:line="3" pos:column="12">riskIt</name><op:operator pos:line="3" pos:column="18">.</op:operator><name pos:line="3" pos:column="19">interfaces</name><op:operator pos:line="3" pos:column="29">.</op:operator><name pos:line="3" pos:column="30">TypeWageDataStructureInterface</name></name>;</import>
+
+<comment type="block" format="javadoc" pos:line="5" pos:column="1">/**
+ * EducationWageDataStructure.java
+ * Purpose: Data Structure to hold final list of education level, weekWage and
+ * 	workWeeks for CalculateByEducation.java
+ * 
+ * @author Bryan Angone
+ * @version 1.0 7-12-09
+ */</comment>
+
+<class><specifier pos:line="14" pos:column="1">public</specifier> class <name pos:line="14" pos:column="14">TypeWageDataStructure</name> <super><implements pos:line="14" pos:column="36">implements <name pos:line="14" pos:column="47">TypeWageDataStructureInterface</name></implements></super><block pos:line="14" pos:column="77">{
+	
+	<decl_stmt><decl><type><specifier pos:line="16" pos:column="9">private</specifier> <specifier pos:line="16" pos:column="17">final</specifier> <name pos:line="16" pos:column="23">String</name></type> <name pos:line="16" pos:column="30">type</name></decl>;</decl_stmt>
+	<decl_stmt><decl><type><specifier pos:line="17" pos:column="9">private</specifier> <specifier pos:line="17" pos:column="17">final</specifier> <name pos:line="17" pos:column="23">double</name></type> <name pos:line="17" pos:column="30">weekWage</name></decl>;</decl_stmt>
+	<decl_stmt><decl><type><specifier pos:line="18" pos:column="9">private</specifier> <specifier pos:line="18" pos:column="17">final</specifier> <name pos:line="18" pos:column="23">double</name></type> <name pos:line="18" pos:column="30">workWeeks</name></decl>;</decl_stmt>
+	
+	<constructor><specifier pos:line="20" pos:column="9">public</specifier> <name pos:line="20" pos:column="16">TypeWageDataStructure</name><parameter_list pos:line="20" pos:column="37">(<param><decl><type><name pos:line="20" pos:column="38">String</name></type> <name pos:line="20" pos:column="45">type</name></decl></param>, <param><decl><type><name pos:line="20" pos:column="51">double</name></type> <name pos:line="20" pos:column="58">weekWage</name></decl></param>, <param><decl><type><name pos:line="20" pos:column="68">double</name></type> <name pos:line="20" pos:column="75">workWeeks</name></decl></param>)</parameter_list><block pos:line="20" pos:column="85">{
+		<expr_stmt><expr><name><name pos:line="21" pos:column="17">this</name><op:operator pos:line="21" pos:column="21">.</op:operator><name pos:line="21" pos:column="22">type</name></name> <op:operator pos:line="21" pos:column="27">=</op:operator> <name pos:line="21" pos:column="29">type</name></expr>;</expr_stmt>
+		<expr_stmt><expr><name><name pos:line="22" pos:column="17">this</name><op:operator pos:line="22" pos:column="21">.</op:operator><name pos:line="22" pos:column="22">weekWage</name></name> <op:operator pos:line="22" pos:column="31">=</op:operator> <name pos:line="22" pos:column="33">weekWage</name></expr>;</expr_stmt>
+		<expr_stmt><expr><name><name pos:line="23" pos:column="17">this</name><op:operator pos:line="23" pos:column="21">.</op:operator><name pos:line="23" pos:column="22">workWeeks</name></name> <op:operator pos:line="23" pos:column="32">=</op:operator> <name pos:line="23" pos:column="34">workWeeks</name></expr>;</expr_stmt>
+	}</block></constructor>
+	
+	<function><type><specifier pos:line="26" pos:column="9">public</specifier> <name pos:line="26" pos:column="16">String</name></type> <name pos:line="26" pos:column="23">getType</name><parameter_list pos:line="26" pos:column="30">()</parameter_list><block pos:line="26" pos:column="32">{
+		<return pos:line="27" pos:column="17">return <expr><name pos:line="27" pos:column="24">type</name></expr>;</return>
+	}</block></function>
+	
+	<function><type><specifier pos:line="30" pos:column="9">public</specifier> <name pos:line="30" pos:column="16">double</name></type> <name pos:line="30" pos:column="23">getWeekWage</name><parameter_list pos:line="30" pos:column="34">()</parameter_list><block pos:line="30" pos:column="36">{
+		<return pos:line="31" pos:column="17">return <expr><name pos:line="31" pos:column="24">weekWage</name></expr>;</return>
+	}</block></function>
+	
+	<function><type><specifier pos:line="34" pos:column="9">public</specifier> <name pos:line="34" pos:column="16">double</name></type> <name pos:line="34" pos:column="23">getWorkWeeks</name><parameter_list pos:line="34" pos:column="35">()</parameter_list><block pos:line="34" pos:column="37">{
+		<return pos:line="35" pos:column="17">return <expr><name pos:line="35" pos:column="24">workWeeks</name></expr>;</return>
+	}</block></function>
+
+}</block></class>
+</unit>

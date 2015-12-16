@@ -1,0 +1,3 @@
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SrcTest\SrcTest\bin\Debug\SrcTest.exe.config
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SrcTest\SrcTest\obj\Debug\SrcTest.exe
+\\vmware-host\shared folders\documents\visual studio 2013\Projects\SrcTest\SrcTest\obj\Debug\SrcTest.pdb

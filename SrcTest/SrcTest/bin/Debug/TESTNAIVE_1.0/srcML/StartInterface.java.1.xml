@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\SE-project\testcode\RiskIt\src\com\riskIt\interfaces\StartInterface.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">riskIt</name><op:operator pos:line="1" pos:column="19">.</op:operator><name pos:line="1" pos:column="20">interfaces</name></name>;</package>
+
+<comment type="block" format="javadoc" pos:line="3" pos:column="1">/**
+ * StartInterface.java
+ * Purpose: Interface for all GUI classes.
+ * 
+ * @author Bryan Angone
+ * @version 1.0 7-12-09
+ */</comment>
+
+<class type="interface"><specifier pos:line="11" pos:column="1">public</specifier> interface <name pos:line="11" pos:column="18">StartInterface</name> <block pos:line="11" pos:column="33">{
+	
+	<function_decl><type><specifier pos:line="13" pos:column="9">public</specifier> <name pos:line="13" pos:column="16">void</name></type> <name pos:line="13" pos:column="21">start</name><parameter_list pos:line="13" pos:column="26">()</parameter_list>;</function_decl>
+
+}</block></class>
+</unit>

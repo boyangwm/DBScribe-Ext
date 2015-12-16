@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\SE-project\testcode\RiskIt\src\com\riskIt\interfaces\CalculateByOccupationOrIndustryCodeInterface.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">riskIt</name><op:operator pos:line="1" pos:column="19">.</op:operator><name pos:line="1" pos:column="20">interfaces</name></name>;</package>
+
+<import pos:line="3" pos:column="1">import <name><name pos:line="3" pos:column="8">java</name><op:operator pos:line="3" pos:column="12">.</op:operator><name pos:line="3" pos:column="13">util</name><op:operator pos:line="3" pos:column="17">.</op:operator><name pos:line="3" pos:column="18">ArrayList</name></name>;</import>
+<import pos:line="4" pos:column="1">import <name><name pos:line="4" pos:column="8">java</name><op:operator pos:line="4" pos:column="12">.</op:operator><name pos:line="4" pos:column="13">util</name><op:operator pos:line="4" pos:column="17">.</op:operator><name pos:line="4" pos:column="18">HashMap</name></name>;</import>
+
+<comment type="block" format="javadoc" pos:line="6" pos:column="1">/**
+ * CalculateByOccupationOrIndustryCodeInterface.java
+ * Purpose: Interface for CalculateByOccupationOrIndustryCode
+ * 
+ * @author Bryan Angone
+ * @version 1.0 7-12-09
+ */</comment>
+
+<class type="interface"><specifier pos:line="14" pos:column="1">public</specifier> interface <name pos:line="14" pos:column="18">CalculateByOccupationOrIndustryCodeInterface</name> <block pos:line="14" pos:column="63">{
+
+	<function_decl><type><specifier pos:line="16" pos:column="9">public</specifier> <name><name pos:line="16" pos:column="16">ArrayList</name><argument_list pos:line="16" pos:column="25">&lt;<argument><name pos:line="16" pos:column="26">Integer</name></argument>&gt;</argument_list></name></type> <name pos:line="16" pos:column="35">getOccupationCodeList</name><parameter_list pos:line="16" pos:column="56">()</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="18" pos:column="9">public</specifier> <name><name pos:line="18" pos:column="16">ArrayList</name><argument_list pos:line="18" pos:column="25">&lt;<argument><name pos:line="18" pos:column="26">Integer</name></argument>&gt;</argument_list></name></type> <name pos:line="18" pos:column="35">getIndustryCodeList</name><parameter_list pos:line="18" pos:column="54">()</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="20" pos:column="9">public</specifier> <name><name pos:line="20" pos:column="16">HashMap</name><argument_list pos:line="20" pos:column="23">&lt;<argument><name pos:line="20" pos:column="24">Integer</name></argument>, <argument><name pos:line="20" pos:column="33">String</name></argument>&gt;</argument_list></name></type> <name pos:line="20" pos:column="41">getOccupationCodeAndNameMap</name><parameter_list pos:line="20" pos:column="68">()</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="22" pos:column="9">public</specifier> <name><name pos:line="22" pos:column="16">HashMap</name><argument_list pos:line="22" pos:column="23">&lt;<argument><name pos:line="22" pos:column="24">Integer</name></argument>, <argument><name pos:line="22" pos:column="33">String</name></argument>&gt;</argument_list></name></type> <name pos:line="22" pos:column="41">getIndustryCodeAndNameMap</name><parameter_list pos:line="22" pos:column="66">()</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="24" pos:column="9">public</specifier> <name pos:line="24" pos:column="16">boolean</name></type> <name pos:line="24" pos:column="24">isValidOccupationCode</name><parameter_list pos:line="24" pos:column="45">(<param><decl><type><name pos:line="24" pos:column="46">int</name></type> <name pos:line="24" pos:column="50">code</name></decl></param>)</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="26" pos:column="9">public</specifier> <name pos:line="26" pos:column="16">boolean</name></type> <name pos:line="26" pos:column="24">isValidIndustryCode</name><parameter_list pos:line="26" pos:column="43">(<param><decl><type><name pos:line="26" pos:column="44">int</name></type> <name pos:line="26" pos:column="48">code</name></decl></param>)</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="28" pos:column="9">public</specifier> <name pos:line="28" pos:column="16">double</name></type> <name pos:line="28" pos:column="23">calculateIncomeByOccupationCode</name> <parameter_list pos:line="28" pos:column="55">(<param><decl><type><name pos:line="28" pos:column="56">int</name></type> <name pos:line="28" pos:column="60">code</name></decl></param>)</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="30" pos:column="9">public</specifier> <name pos:line="30" pos:column="16">double</name></type> <name pos:line="30" pos:column="23">calculateWeeklyWageByOccupationCode</name> <parameter_list pos:line="30" pos:column="59">(<param><decl><type><name pos:line="30" pos:column="60">int</name></type> <name pos:line="30" pos:column="64">code</name></decl></param>)</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="32" pos:column="9">public</specifier> <name pos:line="32" pos:column="16">double</name></type> <name pos:line="32" pos:column="23">calculateIncomeByIndustryCode</name> <parameter_list pos:line="32" pos:column="53">(<param><decl><type><name pos:line="32" pos:column="54">int</name></type> <name pos:line="32" pos:column="58">code</name></decl></param>)</parameter_list>;</function_decl>
+	
+	<function_decl><type><specifier pos:line="34" pos:column="9">public</specifier> <name pos:line="34" pos:column="16">double</name></type> <name pos:line="34" pos:column="23">calculateWeeklyWageByIndustryCode</name> <parameter_list pos:line="34" pos:column="57">(<param><decl><type><name pos:line="34" pos:column="58">int</name></type> <name pos:line="34" pos:column="62">code</name></decl></param>)</parameter_list>;</function_decl>
+
+}</block></class>
+</unit>

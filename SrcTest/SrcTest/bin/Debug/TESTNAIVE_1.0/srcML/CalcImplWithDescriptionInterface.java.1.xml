@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\SE-project\testcode\RiskIt\src\com\riskIt\interfaces\CalcImplWithDescriptionInterface.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">riskIt</name><op:operator pos:line="1" pos:column="19">.</op:operator><name pos:line="1" pos:column="20">interfaces</name></name>;</package>
+
+<comment type="block" format="javadoc" pos:line="3" pos:column="1">/**
+ * CalcImplWithDescriptionInterface.java
+ * Purpose: Interface for implementation classes to
+ * 	allow calculation classes to use dynamic binding 
+ * 	and state to determine how they will run.  Specialization
+ * 	needed to deal with occupation and industry code values.
+ * 
+ * @author Bryan Angone
+ * @version 1.0 7-12-09
+ */</comment>
+
+<class type="interface"><specifier pos:line="14" pos:column="1">public</specifier> interface <name pos:line="14" pos:column="18">CalcImplWithDescriptionInterface</name> <super><extends pos:line="14" pos:column="51">extends <name pos:line="14" pos:column="59">CalcImplInterface</name></extends></super> <block pos:line="14" pos:column="77">{
+
+	<function_decl><type><specifier pos:line="16" pos:column="9">public</specifier> <name pos:line="16" pos:column="16">String</name></type> <name pos:line="16" pos:column="23">getDescription</name><parameter_list pos:line="16" pos:column="37">()</parameter_list>;</function_decl>
+}</block></class>
+</unit>

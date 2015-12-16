@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Data.Schema_unofficial</id>
+    <version>10.0.30319.1</version>
+    <title>Microsoft.Data.Schema (unofficial)</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <projectUrl>https://msdn.microsoft.com/en-us/library/microsoft.data.schema.aspx</projectUrl>
+    <iconUrl>https://upload.wikimedia.org/wikipedia/de/thumb/8/8c/Microsoft_SQL_Server_Logo.svg/690px-Microsoft_SQL_Server_Logo.svg.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Unofficial package of Microsoft.Data.Schema.dll if you need it as reference</description>
+    <copyright>© Microsoft® Corporation. All rights reserved.</copyright>
+    <tags>Microsoft.Data.Schema SSDT SqlServer DataTools</tags>
+    <dependencies>
+      <dependency id="System.Data.SqlServerCe_unofficial" version="4.0.8482.1" />
+      <dependency id="Microsoft.Data.Schema.ScriptDom_unofficial" version="10.0.30319.1" />
+      <dependency id="Microsoft.Data.Schema.Utilities_unofficial" version="10.0.30319.1" />
+    </dependencies>
+  </metadata>
+</package>

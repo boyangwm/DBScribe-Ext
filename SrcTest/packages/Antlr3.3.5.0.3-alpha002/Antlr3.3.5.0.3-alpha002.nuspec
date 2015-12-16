@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/01/nuspec.xsd">
+  <metadata minClientVersion="2.5">
+    <id>Antlr3</id>
+    <version>3.5.0.3-alpha002</version>
+    <title>ANTLR 3</title>
+    <authors>Sam Harwell,  Terence Parr</authors>
+    <owners>Sam Harwell,  Terence Parr</owners>
+    <licenseUrl>https://raw.github.com/sharwell/antlr4cs/master/LICENSE.txt</licenseUrl>
+    <projectUrl>https://github.com/sharwell/antlr4cs</projectUrl>
+    <iconUrl>https://raw.github.com/antlr/website-antlr4/master/images/icons/antlr.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>The C# target of the ANTLR 3 parser generator. This package supports projects targeting .NET 2.0 or newer, and built using Visual Studio 2008 or newer.</description>
+    <summary>The C# target of the ANTLR 3 parser generator.</summary>
+    <releaseNotes>https://github.com/sharwell/antlr4cs/releases/v3.5.0.3-alpha002</releaseNotes>
+    <copyright>Copyright © Sam Harwell 2013</copyright>
+    <language>en-us</language>
+    <tags>antlr antlr3 parsing</tags>
+    <dependencies>
+      <dependency id="Antlr3.Runtime" version="3.5.0.3-alpha002" />
+      <dependency id="Antlr3.Runtime.Debug" version="3.5.0.3-alpha002" />
+      <dependency id="StringTemplate3" version="3.5.0.3-alpha002" />
+    </dependencies>
+  </metadata>
+</package>
