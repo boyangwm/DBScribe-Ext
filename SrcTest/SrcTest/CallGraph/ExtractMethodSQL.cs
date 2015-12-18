@@ -441,7 +441,7 @@ namespace WM.UnitTestScribe.CallGraph {
             foreach(var table in this.tablesInfo)
             {
                 table.generateDescription(db);
-                if (table.directMethods.Count>0)
+                if (table.directMethods.Count>0 || table.columns.Find(x => x.directMethods.Count>0)!=null)
                 {
                     SingleSummary tcSummary = new SingleSummary(table.title, table.attribute, table.methodsDes,table.name);
                     AllTableSummary.Add(tcSummary);

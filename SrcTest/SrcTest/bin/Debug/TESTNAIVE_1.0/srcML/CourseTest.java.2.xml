@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\UMAS\src\com\umas\testcode\CourseTest.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">umas</name><op:operator pos:line="1" pos:column="17">.</op:operator><name pos:line="1" pos:column="18">testcode</name></name>;</package>
+<import pos:line="2" pos:column="1">import static <name><name pos:line="2" pos:column="15">org</name><op:operator pos:line="2" pos:column="18">.</op:operator><name pos:line="2" pos:column="19">junit</name><op:operator pos:line="2" pos:column="24">.</op:operator><name pos:line="2" pos:column="25">Assert</name></name>.*;</import>
+
+<import pos:line="4" pos:column="1">import <name><name pos:line="4" pos:column="8">java</name><op:operator pos:line="4" pos:column="12">.</op:operator><name pos:line="4" pos:column="13">util</name><op:operator pos:line="4" pos:column="17">.</op:operator><name pos:line="4" pos:column="18">ArrayList</name></name>;</import>
+<import pos:line="5" pos:column="1">import <name><name pos:line="5" pos:column="8">java</name><op:operator pos:line="5" pos:column="12">.</op:operator><name pos:line="5" pos:column="13">util</name><op:operator pos:line="5" pos:column="17">.</op:operator><name pos:line="5" pos:column="18">HashMap</name></name>;</import>
+<import pos:line="6" pos:column="1">import <name><name pos:line="6" pos:column="8">java</name><op:operator pos:line="6" pos:column="12">.</op:operator><name pos:line="6" pos:column="13">util</name><op:operator pos:line="6" pos:column="17">.</op:operator><name pos:line="6" pos:column="18">LinkedHashMap</name></name>;</import>
+
+<import pos:line="8" pos:column="1">import <name><name pos:line="8" pos:column="8">org</name><op:operator pos:line="8" pos:column="11">.</op:operator><name pos:line="8" pos:column="12">junit</name><op:operator pos:line="8" pos:column="17">.</op:operator><name pos:line="8" pos:column="18">Before</name></name>;</import>
+<import pos:line="9" pos:column="1">import <name><name pos:line="9" pos:column="8">org</name><op:operator pos:line="9" pos:column="11">.</op:operator><name pos:line="9" pos:column="12">junit</name><op:operator pos:line="9" pos:column="17">.</op:operator><name pos:line="9" pos:column="18">Test</name></name>;</import>
+<import pos:line="10" pos:column="1">import <name><name pos:line="10" pos:column="8">com</name><op:operator pos:line="10" pos:column="11">.</op:operator><name pos:line="10" pos:column="12">umas</name><op:operator pos:line="10" pos:column="16">.</op:operator><name pos:line="10" pos:column="17">code</name></name>.*;</import>
+
+<comment type="block" format="javadoc" pos:line="12" pos:column="1">/************************@author Simant Purohit*************************/</comment>
+
+<class><specifier pos:line="14" pos:column="1">public</specifier> class <name pos:line="14" pos:column="14">CourseTest</name> <block pos:line="14" pos:column="25">{
+
+	<decl_stmt><decl><type><specifier pos:line="16" pos:column="9">public</specifier> <specifier pos:line="16" pos:column="16">static</specifier> <name pos:line="16" pos:column="23">Course</name></type> <name pos:line="16" pos:column="30">course</name></decl>;</decl_stmt>
+	<decl_stmt><decl><type><specifier pos:line="17" pos:column="9">public</specifier> <specifier pos:line="17" pos:column="16">static</specifier> <name pos:line="17" pos:column="23">Department</name></type> <name pos:line="17" pos:column="34">department</name></decl>;</decl_stmt>
+	
+	<function><type><annotation pos:line="19" pos:column="9">@<name pos:line="19" pos:column="10">Before</name></annotation>
+	<specifier pos:line="20" pos:column="9">public</specifier> <name pos:line="20" pos:column="16">void</name></type> <name pos:line="20" pos:column="21">setUp</name><parameter_list pos:line="20" pos:column="26">()</parameter_list> <throws pos:line="20" pos:column="29">throws <argument><expr><name pos:line="20" pos:column="36">Exception</name></expr></argument></throws> <block pos:line="20" pos:column="46">{
+		<comment type="block" pos:line="21" pos:column="17">/*
+		 * Initializing existing course with the corresponding department
+		 */</comment>
+		<expr_stmt><expr><name pos:line="24" pos:column="17">course</name> <op:operator pos:line="24" pos:column="24">=</op:operator> <op:operator pos:line="24" pos:column="26">new</op:operator> <call><name pos:line="24" pos:column="30">Course</name><argument_list pos:line="24" pos:column="36">(<argument><expr><lit:literal type="number" pos:line="24" pos:column="37">102</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name pos:line="25" pos:column="17">department</name> <op:operator pos:line="25" pos:column="28">=</op:operator> <call><name><name pos:line="25" pos:column="30">course</name><op:operator pos:line="25" pos:column="36">.</op:operator><name pos:line="25" pos:column="37">getDepartment</name></name><argument_list pos:line="25" pos:column="50">()</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><call><name><name pos:line="26" pos:column="17">course</name><op:operator pos:line="26" pos:column="23">.</op:operator><name pos:line="26" pos:column="24">updateCourse</name></name><argument_list pos:line="26" pos:column="36">(<argument><expr><lit:literal type="string" pos:line="26" pos:column="37">"CS300"</lit:literal></expr></argument>, <argument><expr><name pos:line="26" pos:column="46">department</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name pos:line="27" pos:column="17">course</name> <op:operator pos:line="27" pos:column="24">=</op:operator> <op:operator pos:line="27" pos:column="26">new</op:operator> <call><name pos:line="27" pos:column="30">Course</name><argument_list pos:line="27" pos:column="36">(<argument><expr><lit:literal type="number" pos:line="27" pos:column="37">102</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		
+	}</block></function>
+	
+	<function><type><specifier pos:line="31" pos:column="9">public</specifier> <name pos:line="31" pos:column="16">void</name></type> <name pos:line="31" pos:column="21">testCourseID</name><parameter_list pos:line="31" pos:column="33">()</parameter_list><block pos:line="31" pos:column="35">{
+		<comment type="block" pos:line="32" pos:column="17">/*
+		 * initialize a course which is existing the database using ID
+		 */</comment>
+		<decl_stmt><decl><type><name pos:line="35" pos:column="17">Course</name></type> <name pos:line="35" pos:column="24">c</name> <init pos:line="35" pos:column="26">= <expr><lit:literal type="null" pos:line="35" pos:column="28">null</lit:literal></expr></init></decl>;</decl_stmt>
+		<try pos:line="36" pos:column="17">try <block pos:line="36" pos:column="21">{
+			<expr_stmt><expr><name pos:line="37" pos:column="25">c</name> <op:operator pos:line="37" pos:column="27">=</op:operator> <op:operator pos:line="37" pos:column="29">new</op:operator> <call><name pos:line="37" pos:column="33">Course</name><argument_list pos:line="37" pos:column="39">(<argument><expr><lit:literal type="number" pos:line="37" pos:column="40">102</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="38" pos:column="19">catch <parameter_list pos:line="38" pos:column="25">(<param><decl><type><name><name pos:line="38" pos:column="26">Course</name><op:operator pos:line="38" pos:column="32">.</op:operator><name pos:line="38" pos:column="33">CourseDoesNotExistException</name></name></type> <name pos:line="38" pos:column="61">e</name></decl></param>)</parameter_list> <block pos:line="38" pos:column="64">{
+			<expr_stmt><expr><call><name><name pos:line="39" pos:column="25">e</name><op:operator pos:line="39" pos:column="26">.</op:operator><name pos:line="39" pos:column="27">printStackTrace</name></name><argument_list pos:line="39" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		<expr_stmt><expr><call><name pos:line="41" pos:column="17">assertNotNull</name><argument_list pos:line="41" pos:column="30">(<argument><expr><name pos:line="41" pos:column="31">c</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="44" pos:column="9">@<name pos:line="44" pos:column="10">Test</name><argument_list pos:line="44" pos:column="14">(<argument><expr><name pos:line="44" pos:column="15">expected</name> <op:operator pos:line="44" pos:column="24">=</op:operator> <name><name pos:line="44" pos:column="26">Course</name><op:operator pos:line="44" pos:column="32">.</op:operator><name pos:line="44" pos:column="33">CourseDoesNotExistException</name><op:operator pos:line="44" pos:column="60">.</op:operator><name pos:line="44" pos:column="61">class</name></name></expr></argument>)</argument_list></annotation>
+	<specifier pos:line="45" pos:column="9">public</specifier> <name pos:line="45" pos:column="16">void</name></type> <name pos:line="45" pos:column="21">testCourseID2</name><parameter_list pos:line="45" pos:column="34">()</parameter_list> <throws pos:line="45" pos:column="37">throws <argument><expr><name><name pos:line="45" pos:column="44">Course</name><op:operator pos:line="45" pos:column="50">.</op:operator><name pos:line="45" pos:column="51">CourseDoesNotExistException</name></name></expr></argument></throws><block pos:line="45" pos:column="78">{
+		<comment type="block" pos:line="46" pos:column="17">/*
+		 * initialize a course which is not existing the database using ID
+		 */</comment>
+		<decl_stmt><decl><type><name pos:line="49" pos:column="17">Course</name></type> <name pos:line="49" pos:column="24">c</name> <init pos:line="49" pos:column="26">= <expr><op:operator pos:line="49" pos:column="28">new</op:operator> <call><name pos:line="49" pos:column="32">Course</name><argument_list pos:line="49" pos:column="38">(<argument><expr><lit:literal type="number" pos:line="49" pos:column="39">5000</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="50" pos:column="17">assertNull</name><argument_list pos:line="50" pos:column="27">(<argument><expr><name pos:line="50" pos:column="28">c</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><specifier pos:line="53" pos:column="9">public</specifier> <name pos:line="53" pos:column="16">void</name></type> <name pos:line="53" pos:column="21">testCourseString</name><parameter_list pos:line="53" pos:column="37">()</parameter_list><block pos:line="53" pos:column="39">{
+		<comment type="block" pos:line="54" pos:column="17">/*
+		 * initialize a course which is existing the database using course name
+		 */</comment>
+		<decl_stmt><decl><type><name pos:line="57" pos:column="17">Course</name></type> <name pos:line="57" pos:column="24">c</name> <init pos:line="57" pos:column="26">= <expr><lit:literal type="null" pos:line="57" pos:column="28">null</lit:literal></expr></init></decl>;</decl_stmt>
+		<try pos:line="58" pos:column="17">try <block pos:line="58" pos:column="21">{
+			<expr_stmt><expr><name pos:line="59" pos:column="25">c</name> <op:operator pos:line="59" pos:column="27">=</op:operator> <op:operator pos:line="59" pos:column="29">new</op:operator> <call><name pos:line="59" pos:column="33">Course</name><argument_list pos:line="59" pos:column="39">(<argument><expr><lit:literal type="string" pos:line="59" pos:column="40">"CS422"</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="60" pos:column="19">catch <parameter_list pos:line="60" pos:column="25">(<param><decl><type><name><name pos:line="60" pos:column="26">Course</name><op:operator pos:line="60" pos:column="32">.</op:operator><name pos:line="60" pos:column="33">CourseDoesNotExistException</name></name></type> <name pos:line="60" pos:column="61">e</name></decl></param>)</parameter_list> <block pos:line="60" pos:column="64">{
+			<expr_stmt><expr><call><name><name pos:line="61" pos:column="25">e</name><op:operator pos:line="61" pos:column="26">.</op:operator><name pos:line="61" pos:column="27">printStackTrace</name></name><argument_list pos:line="61" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		<expr_stmt><expr><call><name pos:line="63" pos:column="17">assertNotNull</name><argument_list pos:line="63" pos:column="30">(<argument><expr><name pos:line="63" pos:column="31">c</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="66" pos:column="9">@<name pos:line="66" pos:column="10">Test</name><argument_list pos:line="66" pos:column="14">(<argument><expr><name pos:line="66" pos:column="15">expected</name> <op:operator pos:line="66" pos:column="24">=</op:operator> <name><name pos:line="66" pos:column="26">Course</name><op:operator pos:line="66" pos:column="32">.</op:operator><name pos:line="66" pos:column="33">CourseDoesNotExistException</name><op:operator pos:line="66" pos:column="60">.</op:operator><name pos:line="66" pos:column="61">class</name></name></expr></argument>)</argument_list></annotation>
+	<specifier pos:line="67" pos:column="9">public</specifier> <name pos:line="67" pos:column="16">void</name></type> <name pos:line="67" pos:column="21">testCourseString2</name><parameter_list pos:line="67" pos:column="38">()</parameter_list> <throws pos:line="67" pos:column="41">throws <argument><expr><name><name pos:line="67" pos:column="48">Course</name><op:operator pos:line="67" pos:column="54">.</op:operator><name pos:line="67" pos:column="55">CourseDoesNotExistException</name></name></expr></argument></throws><block pos:line="67" pos:column="82">{
+		<comment type="block" pos:line="68" pos:column="17">/*
+		 * initialize a course which is not existing the database using String
+		 */</comment>
+		<decl_stmt><decl><type><name pos:line="71" pos:column="17">Course</name></type> <name pos:line="71" pos:column="24">c</name> <init pos:line="71" pos:column="26">= <expr><op:operator pos:line="71" pos:column="28">new</op:operator> <call><name pos:line="71" pos:column="32">Course</name><argument_list pos:line="71" pos:column="38">(<argument><expr><lit:literal type="string" pos:line="71" pos:column="39">"calkfjdalkdjaszjkhkjn"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="74" pos:column="9">@<name pos:line="74" pos:column="10">Test</name><argument_list pos:line="74" pos:column="14">(<argument><expr><name pos:line="74" pos:column="15">expected</name> <op:operator pos:line="74" pos:column="24">=</op:operator> <name><name pos:line="74" pos:column="26">Course</name><op:operator pos:line="74" pos:column="32">.</op:operator><name pos:line="74" pos:column="33">CourseDoesNotExistException</name><op:operator pos:line="74" pos:column="60">.</op:operator><name pos:line="74" pos:column="61">class</name></name></expr></argument>)</argument_list></annotation>
+	<specifier pos:line="75" pos:column="9">public</specifier> <name pos:line="75" pos:column="16">void</name></type> <name pos:line="75" pos:column="21">testCourseString3</name><parameter_list pos:line="75" pos:column="38">()</parameter_list> <throws pos:line="75" pos:column="41">throws <argument><expr><name><name pos:line="75" pos:column="48">Course</name><op:operator pos:line="75" pos:column="54">.</op:operator><name pos:line="75" pos:column="55">CourseDoesNotExistException</name></name></expr></argument></throws><block pos:line="75" pos:column="82">{
+		<comment type="block" pos:line="76" pos:column="17">/*
+		 * initialize a course with a null parameter
+		 */</comment>
+		<decl_stmt><decl><type><name pos:line="79" pos:column="17">Course</name></type> <name pos:line="79" pos:column="24">c</name> <init pos:line="79" pos:column="26">= <expr><op:operator pos:line="79" pos:column="28">new</op:operator> <call><name pos:line="79" pos:column="32">Course</name><argument_list pos:line="79" pos:column="38">(<argument><expr><lit:literal type="null" pos:line="79" pos:column="39">null</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="82" pos:column="9">@<name pos:line="82" pos:column="10">Test</name></annotation>
+	<specifier pos:line="83" pos:column="9">public</specifier> <name pos:line="83" pos:column="16">void</name></type> <name pos:line="83" pos:column="21">testGetDepartment</name><parameter_list pos:line="83" pos:column="38">()</parameter_list> <block pos:line="83" pos:column="41">{
+		<comment type="block" pos:line="84" pos:column="17">/*
+		 * Retrieve the departments
+		 */</comment>
+		<decl_stmt><decl><type><name pos:line="87" pos:column="17">Department</name></type> <name pos:line="87" pos:column="28">d</name> <init pos:line="87" pos:column="30">= <expr><call><name><name pos:line="87" pos:column="32">course</name><op:operator pos:line="87" pos:column="38">.</op:operator><name pos:line="87" pos:column="39">getDepartment</name></name><argument_list pos:line="87" pos:column="52">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="88" pos:column="17">assertNotNull</name><argument_list pos:line="88" pos:column="30">(<argument><expr><name pos:line="88" pos:column="31">d</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="91" pos:column="9">@<name pos:line="91" pos:column="10">Test</name></annotation>
+	<specifier pos:line="92" pos:column="9">public</specifier> <name pos:line="92" pos:column="16">void</name></type> <name pos:line="92" pos:column="21">testGetCourseID</name><parameter_list pos:line="92" pos:column="36">()</parameter_list> <block pos:line="92" pos:column="39">{
+		<comment type="block" pos:line="93" pos:column="17">/*
+		 * Retrieve course id
+		 */</comment>
+		<decl_stmt><decl><type><name pos:line="96" pos:column="17">int</name></type> <name pos:line="96" pos:column="21">id</name> <init pos:line="96" pos:column="24">= <expr><call><name><name pos:line="96" pos:column="26">course</name><op:operator pos:line="96" pos:column="32">.</op:operator><name pos:line="96" pos:column="33">getCourseID</name></name><argument_list pos:line="96" pos:column="44">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="97" pos:column="17">assertEquals</name><argument_list pos:line="97" pos:column="29">(<argument><expr><lit:literal type="number" pos:line="97" pos:column="30">102</lit:literal></expr></argument>, <argument><expr><name pos:line="97" pos:column="35">id</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+
+	
+	<function><type><annotation pos:line="102" pos:column="9">@<name pos:line="102" pos:column="10">Test</name><argument_list pos:line="102" pos:column="14">(<argument><expr><name pos:line="102" pos:column="15">expected</name> <op:operator pos:line="102" pos:column="24">=</op:operator> <name><name pos:line="102" pos:column="26">Course</name><op:operator pos:line="102" pos:column="32">.</op:operator><name pos:line="102" pos:column="33">CourseAlreadyExistsException</name><op:operator pos:line="102" pos:column="61">.</op:operator><name pos:line="102" pos:column="62">class</name></name></expr></argument>)</argument_list></annotation>
+	<specifier pos:line="103" pos:column="9">public</specifier> <name pos:line="103" pos:column="16">void</name></type> <name pos:line="103" pos:column="21">testAddCourse</name><parameter_list pos:line="103" pos:column="34">()</parameter_list> <throws pos:line="103" pos:column="37">throws <argument><expr><name><name pos:line="103" pos:column="44">Course</name><op:operator pos:line="103" pos:column="50">.</op:operator><name pos:line="103" pos:column="51">CourseAlreadyExistsException</name></name></expr></argument></throws> <block pos:line="103" pos:column="80">{
+		<comment type="block" pos:line="104" pos:column="17">/*
+		 * Adding a new course which is existing in the database
+		 */</comment>
+		
+		<expr_stmt><expr><call><name><name pos:line="108" pos:column="17">Course</name><op:operator pos:line="108" pos:column="23">.</op:operator><name pos:line="108" pos:column="24">addCourse</name></name><argument_list pos:line="108" pos:column="33">(<argument><expr><lit:literal type="string" pos:line="108" pos:column="34">"CS422"</lit:literal></expr></argument>, <argument><expr><name pos:line="108" pos:column="43">department</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		
+	}</block></function>
+
+	<function><type><annotation pos:line="112" pos:column="9">@<name pos:line="112" pos:column="10">Test</name><argument_list pos:line="112" pos:column="14">(<argument><expr><name pos:line="112" pos:column="15">expected</name> <op:operator pos:line="112" pos:column="24">=</op:operator> <name><name pos:line="112" pos:column="26">Course</name><op:operator pos:line="112" pos:column="32">.</op:operator><name pos:line="112" pos:column="33">CourseAlreadyExistsException</name><op:operator pos:line="112" pos:column="61">.</op:operator><name pos:line="112" pos:column="62">class</name></name></expr></argument>)</argument_list></annotation>
+	<specifier pos:line="113" pos:column="9">public</specifier> <name pos:line="113" pos:column="16">void</name></type> <name pos:line="113" pos:column="21">testAddCourse2</name><parameter_list pos:line="113" pos:column="35">()</parameter_list> <throws pos:line="113" pos:column="38">throws <argument><expr><name><name pos:line="113" pos:column="45">Course</name><op:operator pos:line="113" pos:column="51">.</op:operator><name pos:line="113" pos:column="52">CourseAlreadyExistsException</name></name></expr></argument></throws> <block pos:line="113" pos:column="81">{
+		<comment type="block" pos:line="114" pos:column="17">/*
+		 * Adding a new course which is not existing in the database
+		 * Success at the first run, fails later
+		 */</comment>
+		
+		<expr_stmt><expr><call><name><name pos:line="119" pos:column="17">Course</name><op:operator pos:line="119" pos:column="23">.</op:operator><name pos:line="119" pos:column="24">addCourse</name></name><argument_list pos:line="119" pos:column="33">(<argument><expr><lit:literal type="string" pos:line="119" pos:column="34">"CS425"</lit:literal></expr></argument>, <argument><expr><name pos:line="119" pos:column="43">department</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="122" pos:column="9">@<name pos:line="122" pos:column="10">Test</name></annotation>
+	<specifier pos:line="123" pos:column="9">public</specifier> <name pos:line="123" pos:column="16">void</name></type> <name pos:line="123" pos:column="21">testAddCourse3</name><parameter_list pos:line="123" pos:column="35">()</parameter_list> <throws pos:line="123" pos:column="38">throws <argument><expr><name><name pos:line="123" pos:column="45">Course</name><op:operator pos:line="123" pos:column="51">.</op:operator><name pos:line="123" pos:column="52">CourseAlreadyExistsException</name></name></expr></argument></throws> <block pos:line="123" pos:column="81">{
+		<comment type="block" pos:line="124" pos:column="17">/*
+		 * Adding a new course which is not existing in the database
+		 * Success at the first run, fails later
+		 */</comment>
+		
+		<decl_stmt><decl><type><name pos:line="129" pos:column="17">boolean</name></type> <name pos:line="129" pos:column="25">check</name> <init pos:line="129" pos:column="31">= <expr><call><name><name pos:line="129" pos:column="33">Course</name><op:operator pos:line="129" pos:column="39">.</op:operator><name pos:line="129" pos:column="40">addCourse</name></name><argument_list pos:line="129" pos:column="49">(<argument><expr><lit:literal type="null" pos:line="129" pos:column="50">null</lit:literal></expr></argument>, <argument><expr><lit:literal type="null" pos:line="129" pos:column="56">null</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="130" pos:column="17">assertFalse</name><argument_list pos:line="130" pos:column="28">(<argument><expr><name pos:line="130" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+		
+	<function><type><annotation pos:line="133" pos:column="9">@<name pos:line="133" pos:column="10">Test</name></annotation>
+	<specifier pos:line="134" pos:column="9">public</specifier> <name pos:line="134" pos:column="16">void</name></type> <name pos:line="134" pos:column="21">testUpdateCourse</name><parameter_list pos:line="134" pos:column="37">()</parameter_list> <block pos:line="134" pos:column="40">{
+		<decl_stmt><decl><type><name pos:line="135" pos:column="17">boolean</name></type> <name pos:line="135" pos:column="25">check</name> <init pos:line="135" pos:column="31">= <expr><call><name><name pos:line="135" pos:column="33">course</name><op:operator pos:line="135" pos:column="39">.</op:operator><name pos:line="135" pos:column="40">updateCourse</name></name><argument_list pos:line="135" pos:column="52">(<argument><expr><lit:literal type="string" pos:line="135" pos:column="53">"CS359"</lit:literal></expr></argument>, <argument><expr><name pos:line="135" pos:column="62">department</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="136" pos:column="17">assertTrue</name><argument_list pos:line="136" pos:column="27">(<argument><expr><name pos:line="136" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="139" pos:column="9">@<name pos:line="139" pos:column="10">Test</name></annotation>
+	<specifier pos:line="140" pos:column="9">public</specifier> <name pos:line="140" pos:column="16">void</name></type> <name pos:line="140" pos:column="21">testGetAllCourses</name><parameter_list pos:line="140" pos:column="38">()</parameter_list> <block pos:line="140" pos:column="41">{
+		<decl_stmt><decl><type><name><name pos:line="141" pos:column="17">HashMap</name><argument_list pos:line="141" pos:column="24">&lt;<argument><name pos:line="141" pos:column="25">Integer</name></argument>, <argument><name pos:line="141" pos:column="34">Course</name></argument>&gt;</argument_list></name></type> <name pos:line="141" pos:column="42">courses</name> <init pos:line="141" pos:column="50">= <expr><call><name><name pos:line="141" pos:column="52">Course</name><op:operator pos:line="141" pos:column="58">.</op:operator><name pos:line="141" pos:column="59">getAllCourses</name></name><argument_list pos:line="141" pos:column="72">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="142" pos:column="17">assertNotNull</name><argument_list pos:line="142" pos:column="30">(<argument><expr><name pos:line="142" pos:column="31">courses</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="145" pos:column="9">@<name pos:line="145" pos:column="10">Test</name></annotation>
+	<specifier pos:line="146" pos:column="9">public</specifier> <name pos:line="146" pos:column="16">void</name></type> <name pos:line="146" pos:column="21">testGetCurrentOfferings</name><parameter_list pos:line="146" pos:column="44">()</parameter_list> <block pos:line="146" pos:column="47">{
+		<decl_stmt><decl><type><name><name pos:line="147" pos:column="17">LinkedHashMap</name><argument_list pos:line="147" pos:column="30">&lt;<argument><name pos:line="147" pos:column="31">Integer</name></argument>, <argument><name pos:line="147" pos:column="40">CourseOffered</name></argument>&gt;</argument_list></name></type> <name pos:line="147" pos:column="55">courses</name> <init pos:line="147" pos:column="63">= <expr><call><name><name pos:line="147" pos:column="65">course</name><op:operator pos:line="147" pos:column="71">.</op:operator><name pos:line="147" pos:column="72">getCurrentOfferings</name></name><argument_list pos:line="147" pos:column="91">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="148" pos:column="17">assertNotNull</name><argument_list pos:line="148" pos:column="30">(<argument><expr><name pos:line="148" pos:column="31">courses</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="151" pos:column="9">@<name pos:line="151" pos:column="10">Test</name></annotation>
+	<specifier pos:line="152" pos:column="9">public</specifier> <name pos:line="152" pos:column="16">void</name></type> <name pos:line="152" pos:column="21">testGetCoursesOfDepartment</name><parameter_list pos:line="152" pos:column="47">()</parameter_list> <block pos:line="152" pos:column="50">{
+		<decl_stmt><decl><type><name><name pos:line="153" pos:column="17">ArrayList</name><argument_list pos:line="153" pos:column="26">&lt;<argument><name pos:line="153" pos:column="27">Course</name></argument>&gt;</argument_list></name></type> <name pos:line="153" pos:column="35">courses</name> <init pos:line="153" pos:column="43">= <expr><call><name><name pos:line="153" pos:column="45">Course</name><op:operator pos:line="153" pos:column="51">.</op:operator><name pos:line="153" pos:column="52">getCoursesOfDepartment</name></name><argument_list pos:line="153" pos:column="74">(<argument><expr><name pos:line="153" pos:column="75">department</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="154" pos:column="17">assertNotNull</name><argument_list pos:line="154" pos:column="30">(<argument><expr><name pos:line="154" pos:column="31">courses</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+}</block></class>
+</unit>

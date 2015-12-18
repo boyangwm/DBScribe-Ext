@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE server>
+<server>
+  <!-- ==================================================================== -->
+  <!-- Returns import service                                               -->
+  <!-- ==================================================================== -->
+  <mbean code="fina2.returns.ImportService" name="FinA:service=ReturnsImportService"
+	xmbean-dd="resource:fina2/returns/import-service-xmbean.xml">
+		<depends>jboss.j2ee:service=EJB,jndiName=fina2/returns/ImportManagerSession</depends>
+	</mbean>
+</server>

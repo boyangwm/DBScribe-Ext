@@ -109,46 +109,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportGenerator\FinalGenerator.cs" />
-    <Compile Include="ReportGenerator\HomeGenerator.cs" />
     <Compile Include="SqlGrammar.cs" />
     <Compile Include="dbColumn.cs" />
     <Compile Include="dbTable.cs" />
     <Compile Include="sqlStmtParser.cs" />
-    <Compile Include="Stereotype\CSharpMethodAnalyzer.cs" />
-    <Compile Include="Stereotype\MethodAnalyzer.cs" />
-    <Compile Include="Stereotype\Rules\CsharpMethodRuleCollector.cs" />
-    <Compile Include="Stereotype\Rules\MethodRule.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleCollaborator.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleCollector.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleCommand.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleConstructor.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleController.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleEmpty.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleFactory.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleGet.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleLocalController.cs" />
-    <Compile Include="Stereotype\Rules\MethodRulePredicate.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleProperty.cs" />
-    <Compile Include="Stereotype\Rules\MethodRuleSet.cs" />
-    <Compile Include="Stereotype\StereotypedMethod.cs" />
-    <Compile Include="Stereotype\Taxonomy\MethodStereotype.cs" />
-    <Compile Include="Stereotype\Taxonomy\Stereotype.cs" />
-    <Compile Include="Stereotype\VariableInfo.cs" />
-    <Compile Include="Summary\AssertSTInfo.cs" />
-    <Compile Include="Summary\AssignmentPath.cs" />
-    <Compile Include="Summary\SummaryGenerator.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Summary\SwumSummary.cs" />
-    <Compile Include="Summary\TestCaseAnalyzer.cs" />
     <Compile Include="Summary\SingleSummary.cs" />
-    <Compile Include="Summary\TestCaseSummary.cs" />
-    <Compile Include="Summary\VariableAndStmt.cs" />
-    <Compile Include="Summary\VariableAssignmentManager.cs" />
-    <Compile Include="Summary\VariableInfo.cs" />
-    <Compile Include="TestCaseDetector\Src2XML.cs" />
-    <Compile Include="TestCaseDetector\TestCaseDetector.cs" />
-    <Compile Include="TestCaseDetector\TestCaseID.cs" />
     <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -164,12 +130,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templet\FocalAssert.st">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templet\Hello.st">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Templet\Home.st">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Templet\MethodBody.st">

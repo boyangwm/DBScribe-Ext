@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>DBSchemaScribe Report</title>
+﻿<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>DBSchemaScribe Report</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -38,7 +38,7 @@ $(document).ready(function () {
 
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> DBScribeSchema Report</h2> 
+		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> DBSchemaScribe Report</h2> 
 			<div class="panel panel-default">
 			<div class="panel-heading">DataBase Information</div><div class="panel-body" style="max-height:550px;overflow-x: scroll;overflow-y: scroll">
 
@@ -71,6 +71,10 @@ $(document).ready(function () {
 						<a href="#Column:INDUSTRYCODE,Table:job">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:INDUSTRYCODE,Table:job</a><br>
 						
 						<a href="#Column:OCCUPATIONCODE,Table:job">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:OCCUPATIONCODE,Table:job</a><br>
+						
+						<a href="#Table:migration">·Table:migration</a><br>
+						
+						<a href="#Column:SSN,Table:migration">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:SSN,Table:migration</a><br>
 						
 						<a href="#Table:occupation">·Table:occupation</a><br>
 						
@@ -484,11 +488,61 @@ $(document).ready(function () {
 							</div>
 						</div>
 						
-						<div class="panel panel-primary"><a id="Table:occupation"></a>
-							<div class="panel-heading"><b>16. &nbsp;Table:occupation</b></div>
+						<div class="panel panel-primary"><a id="Table:migration"></a>
+							<div class="panel-heading"><b>16. &nbsp;Table:migration</b></div>
 							<div class="panel-body">
 												<p align="right">
 													<div id="16" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:migration</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: SSN, MIGRATIONCODE, MIGRATIONDISTANCE, MIGRATIONMOVE, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b>
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:SSN,Table:migration"></a>
+							<div class="panel-heading"><b>17. &nbsp;Column:SSN,Table:migration</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="17" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:SSN,Table:migration</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: migration. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:occupation"></a>
+							<div class="panel-heading"><b>18. &nbsp;Table:occupation</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="18" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -510,10 +564,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:OCCUPATIONCODE,Table:occupation"></a>
-							<div class="panel-heading"><b>17. &nbsp;Column:OCCUPATIONCODE,Table:occupation</b></div>
+							<div class="panel-heading"><b>19. &nbsp;Column:OCCUPATIONCODE,Table:occupation</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="17" class="modal modal-wide fade">
+													<div id="19" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -535,10 +589,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:OCCUPATION,Table:occupation"></a>
-							<div class="panel-heading"><b>18. &nbsp;Column:OCCUPATION,Table:occupation</b></div>
+							<div class="panel-heading"><b>20. &nbsp;Column:OCCUPATION,Table:occupation</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="18" class="modal modal-wide fade">
+													<div id="20" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -560,10 +614,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Table:userrecord"></a>
-							<div class="panel-heading"><b>19. &nbsp;Table:userrecord</b></div>
+							<div class="panel-heading"><b>21. &nbsp;Table:userrecord</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="19" class="modal modal-wide fade">
+													<div id="21" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -585,10 +639,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:ZIP,Table:userrecord"></a>
-							<div class="panel-heading"><b>20. &nbsp;Column:ZIP,Table:userrecord</b></div>
+							<div class="panel-heading"><b>22. &nbsp;Column:ZIP,Table:userrecord</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="20" class="modal modal-wide fade">
+													<div id="22" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -610,10 +664,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:SSN,Table:userrecord"></a>
-							<div class="panel-heading"><b>21. &nbsp;Column:SSN,Table:userrecord</b></div>
+							<div class="panel-heading"><b>23. &nbsp;Column:SSN,Table:userrecord</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="21" class="modal modal-wide fade">
+													<div id="23" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -635,10 +689,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:MARITAL,Table:userrecord"></a>
-							<div class="panel-heading"><b>22. &nbsp;Column:MARITAL,Table:userrecord</b></div>
+							<div class="panel-heading"><b>24. &nbsp;Column:MARITAL,Table:userrecord</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="22" class="modal modal-wide fade">
+													<div id="24" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -660,10 +714,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Table:wage"></a>
-							<div class="panel-heading"><b>23. &nbsp;Table:wage</b></div>
+							<div class="panel-heading"><b>25. &nbsp;Table:wage</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="23" class="modal modal-wide fade">
+													<div id="25" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -685,10 +739,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:INDUSTRYCODE,Table:wage"></a>
-							<div class="panel-heading"><b>24. &nbsp;Column:INDUSTRYCODE,Table:wage</b></div>
+							<div class="panel-heading"><b>26. &nbsp;Column:INDUSTRYCODE,Table:wage</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="24" class="modal modal-wide fade">
+													<div id="26" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -710,10 +764,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:OCCUPATIONCODE,Table:wage"></a>
-							<div class="panel-heading"><b>25. &nbsp;Column:OCCUPATIONCODE,Table:wage</b></div>
+							<div class="panel-heading"><b>27. &nbsp;Column:OCCUPATIONCODE,Table:wage</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="25" class="modal modal-wide fade">
+													<div id="27" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -735,10 +789,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Table:youth"></a>
-							<div class="panel-heading"><b>26. &nbsp;Table:youth</b></div>
+							<div class="panel-heading"><b>28. &nbsp;Table:youth</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="26" class="modal modal-wide fade">
+													<div id="28" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -760,10 +814,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:SSN,Table:youth"></a>
-							<div class="panel-heading"><b>27. &nbsp;Column:SSN,Table:youth</b></div>
+							<div class="panel-heading"><b>29. &nbsp;Column:SSN,Table:youth</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="27" class="modal modal-wide fade">
+													<div id="29" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -785,10 +839,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Table:ziptable"></a>
-							<div class="panel-heading"><b>28. &nbsp;Table:ziptable</b></div>
+							<div class="panel-heading"><b>30. &nbsp;Table:ziptable</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="28" class="modal modal-wide fade">
+													<div id="30" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -810,10 +864,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:ZIP,Table:ziptable"></a>
-							<div class="panel-heading"><b>29. &nbsp;Column:ZIP,Table:ziptable</b></div>
+							<div class="panel-heading"><b>31. &nbsp;Column:ZIP,Table:ziptable</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="29" class="modal modal-wide fade">
+													<div id="31" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">
@@ -835,10 +889,10 @@ $(document).ready(function () {
 						</div>
 						
 						<div class="panel panel-primary"><a id="Column:STATENAME,Table:ziptable"></a>
-							<div class="panel-heading"><b>30. &nbsp;Column:STATENAME,Table:ziptable</b></div>
+							<div class="panel-heading"><b>32. &nbsp;Column:STATENAME,Table:ziptable</b></div>
 							<div class="panel-body">
 												<p align="right">
-													<div id="30" class="modal modal-wide fade">
+													<div id="32" class="modal modal-wide fade">
 													  <div class="modal-dialog">
 														<div class="modal-content">
 														  <div class="modal-header">

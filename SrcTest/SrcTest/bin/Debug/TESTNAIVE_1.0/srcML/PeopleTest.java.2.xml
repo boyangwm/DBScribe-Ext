@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\UMAS\src\com\umas\testcode\PeopleTest.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">umas</name><op:operator pos:line="1" pos:column="17">.</op:operator><name pos:line="1" pos:column="18">testcode</name></name>;</package>
+<import pos:line="2" pos:column="1">import static <name><name pos:line="2" pos:column="15">org</name><op:operator pos:line="2" pos:column="18">.</op:operator><name pos:line="2" pos:column="19">junit</name><op:operator pos:line="2" pos:column="24">.</op:operator><name pos:line="2" pos:column="25">Assert</name></name>.*;</import>
+
+<import pos:line="4" pos:column="1">import <name><name pos:line="4" pos:column="8">org</name><op:operator pos:line="4" pos:column="11">.</op:operator><name pos:line="4" pos:column="12">junit</name><op:operator pos:line="4" pos:column="17">.</op:operator><name pos:line="4" pos:column="18">Test</name></name>;</import>
+
+<import pos:line="6" pos:column="1">import <name><name pos:line="6" pos:column="8">com</name><op:operator pos:line="6" pos:column="11">.</op:operator><name pos:line="6" pos:column="12">umas</name><op:operator pos:line="6" pos:column="16">.</op:operator><name pos:line="6" pos:column="17">code</name></name>.*;</import>
+
+
+<class><specifier pos:line="9" pos:column="1">public</specifier> class <name pos:line="9" pos:column="14">PeopleTest</name> <block pos:line="9" pos:column="25">{
+
+	<function><type><annotation pos:line="11" pos:column="9">@<name pos:line="11" pos:column="10">Test</name></annotation>
+	<specifier pos:line="12" pos:column="9">public</specifier> <name pos:line="12" pos:column="16">void</name></type> <name pos:line="12" pos:column="21">testPeopleInt1</name><parameter_list pos:line="12" pos:column="35">()</parameter_list> <block pos:line="12" pos:column="38">{
+		
+		<try pos:line="14" pos:column="17">try <block pos:line="14" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="15" pos:column="25">People</name></type> <name pos:line="15" pos:column="32">p</name><init pos:line="15" pos:column="33">=<expr><op:operator pos:line="15" pos:column="34">new</op:operator> <call><name pos:line="15" pos:column="38">People</name><argument_list pos:line="15" pos:column="44">(<argument><expr><lit:literal type="number" pos:line="15" pos:column="45">1</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="16" pos:column="25">assertNotNull</name><argument_list pos:line="16" pos:column="38">(<argument><expr><name pos:line="16" pos:column="39">p</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="17" pos:column="19">catch <parameter_list pos:line="17" pos:column="25">(<param><decl><type><name><name pos:line="17" pos:column="26">People</name><op:operator pos:line="17" pos:column="32">.</op:operator><name pos:line="17" pos:column="33">PersonDoesNotExistException</name></name></type> <name pos:line="17" pos:column="61">e</name></decl></param>)</parameter_list> <block pos:line="17" pos:column="64">{
+			<comment type="line" pos:line="18" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="19" pos:column="25">e</name><op:operator pos:line="19" pos:column="26">.</op:operator><name pos:line="19" pos:column="27">printStackTrace</name></name><argument_list pos:line="19" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		
+	}</block></function>
+	
+	<function><type><annotation pos:line="24" pos:column="9">@<name pos:line="24" pos:column="10">Test</name></annotation>
+	<specifier pos:line="25" pos:column="9">public</specifier> <name pos:line="25" pos:column="16">void</name></type> <name pos:line="25" pos:column="21">testPeopleInt2</name><parameter_list pos:line="25" pos:column="35">()</parameter_list> <block pos:line="25" pos:column="38">{
+		
+		<try pos:line="27" pos:column="17">try <block pos:line="27" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="28" pos:column="25">People</name></type> <name pos:line="28" pos:column="32">p</name><init pos:line="28" pos:column="33">=<expr><op:operator pos:line="28" pos:column="34">new</op:operator> <call><name pos:line="28" pos:column="38">People</name><argument_list pos:line="28" pos:column="44">(<argument><expr><lit:literal type="number" pos:line="28" pos:column="45">1000</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="29" pos:column="25">assertEquals</name><argument_list pos:line="29" pos:column="37">(<argument><expr><lit:literal type="number" pos:line="29" pos:column="38">0</lit:literal></expr></argument>, <argument><expr><call><name><name pos:line="29" pos:column="41">p</name><op:operator pos:line="29" pos:column="42">.</op:operator><name pos:line="29" pos:column="43">getUIN</name></name><argument_list pos:line="29" pos:column="49">()</argument_list></call></expr></argument>, <argument><expr><lit:literal type="number" pos:line="29" pos:column="53">0</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="30" pos:column="19">catch <parameter_list pos:line="30" pos:column="25">(<param><decl><type><name><name pos:line="30" pos:column="26">People</name><op:operator pos:line="30" pos:column="32">.</op:operator><name pos:line="30" pos:column="33">PersonDoesNotExistException</name></name></type> <name pos:line="30" pos:column="61">e</name></decl></param>)</parameter_list> <block pos:line="30" pos:column="64">{
+			<comment type="line" pos:line="31" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="32" pos:column="25">e</name><op:operator pos:line="32" pos:column="26">.</op:operator><name pos:line="32" pos:column="27">printStackTrace</name></name><argument_list pos:line="32" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		
+	}</block></function>
+	
+
+	<function><type><annotation pos:line="38" pos:column="9">@<name pos:line="38" pos:column="10">Test</name></annotation>
+	<specifier pos:line="39" pos:column="9">public</specifier> <name pos:line="39" pos:column="16">void</name></type> <name pos:line="39" pos:column="21">testPeopleString1</name><parameter_list pos:line="39" pos:column="38">()</parameter_list> <block pos:line="39" pos:column="41">{
+		
+		<decl_stmt><decl><type><name pos:line="41" pos:column="17">People</name></type> <name pos:line="41" pos:column="24">p</name><init pos:line="41" pos:column="25">=<expr><op:operator pos:line="41" pos:column="26">new</op:operator> <call><name pos:line="41" pos:column="30">People</name><argument_list pos:line="41" pos:column="36">(<argument><expr><lit:literal type="string" pos:line="41" pos:column="37">"leona"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="42" pos:column="17">assertEquals</name><argument_list pos:line="42" pos:column="29">(<argument><expr><lit:literal type="number" pos:line="42" pos:column="30">581</lit:literal></expr></argument>, <argument><expr><call><name><name pos:line="42" pos:column="35">p</name><op:operator pos:line="42" pos:column="36">.</op:operator><name pos:line="42" pos:column="37">getUIN</name></name><argument_list pos:line="42" pos:column="43">()</argument_list></call></expr></argument>, <argument><expr><lit:literal type="number" pos:line="42" pos:column="47">0</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		
+		
+	}</block></function>
+	
+	<function><type><annotation pos:line="47" pos:column="9">@<name pos:line="47" pos:column="10">Test</name></annotation>
+	<specifier pos:line="48" pos:column="9">public</specifier> <name pos:line="48" pos:column="16">void</name></type> <name pos:line="48" pos:column="21">testPeopleString2</name><parameter_list pos:line="48" pos:column="38">()</parameter_list> <block pos:line="48" pos:column="41">{
+		
+		<decl_stmt><decl><type><name pos:line="50" pos:column="17">People</name></type> <name pos:line="50" pos:column="24">p</name><init pos:line="50" pos:column="25">=<expr><op:operator pos:line="50" pos:column="26">new</op:operator> <call><name pos:line="50" pos:column="30">People</name><argument_list pos:line="50" pos:column="36">(<argument><expr><lit:literal type="string" pos:line="50" pos:column="37">"alibaba"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="51" pos:column="17">assertEquals</name><argument_list pos:line="51" pos:column="29">(<argument><expr><lit:literal type="number" pos:line="51" pos:column="30">0</lit:literal></expr></argument>, <argument><expr><call><name><name pos:line="51" pos:column="33">p</name><op:operator pos:line="51" pos:column="34">.</op:operator><name pos:line="51" pos:column="35">getUIN</name></name><argument_list pos:line="51" pos:column="41">()</argument_list></call></expr></argument>, <argument><expr><lit:literal type="number" pos:line="51" pos:column="45">0</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		
+		
+	}</block></function>
+	
+	<function><type><annotation pos:line="56" pos:column="9">@<name pos:line="56" pos:column="10">Test</name></annotation>
+	<specifier pos:line="57" pos:column="9">public</specifier> <name pos:line="57" pos:column="16">void</name></type> <name pos:line="57" pos:column="21">testPeopleString3</name><parameter_list pos:line="57" pos:column="38">()</parameter_list> <block pos:line="57" pos:column="41">{
+		
+		<decl_stmt><decl><type><name pos:line="59" pos:column="17">People</name></type> <name pos:line="59" pos:column="24">p</name><init pos:line="59" pos:column="25">=<expr><op:operator pos:line="59" pos:column="26">new</op:operator> <call><name pos:line="59" pos:column="30">People</name><argument_list pos:line="59" pos:column="36">(<argument><expr><lit:literal type="null" pos:line="59" pos:column="37">null</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="60" pos:column="17">assertEquals</name><argument_list pos:line="60" pos:column="29">(<argument><expr><lit:literal type="number" pos:line="60" pos:column="30">0</lit:literal></expr></argument>, <argument><expr><call><name><name pos:line="60" pos:column="33">p</name><op:operator pos:line="60" pos:column="34">.</op:operator><name pos:line="60" pos:column="35">getUIN</name></name><argument_list pos:line="60" pos:column="41">()</argument_list></call></expr></argument>, <argument><expr><lit:literal type="number" pos:line="60" pos:column="45">0</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		
+		
+	}</block></function>
+	
+	<function><type><annotation pos:line="65" pos:column="9">@<name pos:line="65" pos:column="10">Test</name></annotation>
+	<specifier pos:line="66" pos:column="9">public</specifier> <name pos:line="66" pos:column="16">void</name></type> <name pos:line="66" pos:column="21">testPeopleString4</name><parameter_list pos:line="66" pos:column="38">()</parameter_list> <block pos:line="66" pos:column="41">{
+		
+		<decl_stmt><decl><type><name pos:line="68" pos:column="17">People</name></type> <name pos:line="68" pos:column="24">p</name><init pos:line="68" pos:column="25">=<expr><op:operator pos:line="68" pos:column="26">new</op:operator> <call><name pos:line="68" pos:column="30">People</name><argument_list pos:line="68" pos:column="36">(<argument><expr><lit:literal type="string" pos:line="68" pos:column="37">""</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="69" pos:column="17">assertEquals</name><argument_list pos:line="69" pos:column="29">(<argument><expr><lit:literal type="number" pos:line="69" pos:column="30">0</lit:literal></expr></argument>, <argument><expr><call><name><name pos:line="69" pos:column="33">p</name><op:operator pos:line="69" pos:column="34">.</op:operator><name pos:line="69" pos:column="35">getUIN</name></name><argument_list pos:line="69" pos:column="41">()</argument_list></call></expr></argument>, <argument><expr><lit:literal type="number" pos:line="69" pos:column="45">0</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		
+		
+	}</block></function>
+	
+
+	<function><type><annotation pos:line="75" pos:column="9">@<name pos:line="75" pos:column="10">Test</name></annotation>
+	<specifier pos:line="76" pos:column="9">public</specifier> <name pos:line="76" pos:column="16">void</name></type> <name pos:line="76" pos:column="21">testGeneratePassword1</name><parameter_list pos:line="76" pos:column="42">()</parameter_list> <block pos:line="76" pos:column="45">{
+		
+		<decl_stmt><decl><type><name pos:line="78" pos:column="17">String</name></type> <name pos:line="78" pos:column="24">check</name><init pos:line="78" pos:column="29">=<expr><call><name><name pos:line="78" pos:column="30">People</name><op:operator pos:line="78" pos:column="36">.</op:operator><name pos:line="78" pos:column="37">generatePassword</name></name><argument_list pos:line="78" pos:column="53">(<argument><expr><lit:literal type="number" pos:line="78" pos:column="54">8</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="79" pos:column="17">assertEquals</name><argument_list pos:line="79" pos:column="29">(<argument><expr><lit:literal type="number" pos:line="79" pos:column="30">8</lit:literal></expr></argument>, <argument><expr><call><name><name pos:line="79" pos:column="33">check</name><op:operator pos:line="79" pos:column="38">.</op:operator><name pos:line="79" pos:column="39">length</name></name><argument_list pos:line="79" pos:column="45">()</argument_list></call></expr></argument>, <argument><expr><lit:literal type="number" pos:line="79" pos:column="49">0</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="82" pos:column="9">@<name pos:line="82" pos:column="10">Test</name></annotation>
+	<specifier pos:line="83" pos:column="9">public</specifier> <name pos:line="83" pos:column="16">void</name></type> <name pos:line="83" pos:column="21">testGeneratePassword2</name><parameter_list pos:line="83" pos:column="42">()</parameter_list> <block pos:line="83" pos:column="45">{
+		
+		<decl_stmt><decl><type><name pos:line="85" pos:column="17">String</name></type> <name pos:line="85" pos:column="24">check</name><init pos:line="85" pos:column="29">=<expr><call><name><name pos:line="85" pos:column="30">People</name><op:operator pos:line="85" pos:column="36">.</op:operator><name pos:line="85" pos:column="37">generatePassword</name></name><argument_list pos:line="85" pos:column="53">(<argument><expr><lit:literal type="number" pos:line="85" pos:column="54">0</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="86" pos:column="17">assertEquals</name><argument_list pos:line="86" pos:column="29">(<argument><expr><lit:literal type="number" pos:line="86" pos:column="30">0</lit:literal></expr></argument>, <argument><expr><call><name><name pos:line="86" pos:column="33">check</name><op:operator pos:line="86" pos:column="38">.</op:operator><name pos:line="86" pos:column="39">length</name></name><argument_list pos:line="86" pos:column="45">()</argument_list></call></expr></argument>, <argument><expr><lit:literal type="number" pos:line="86" pos:column="49">0</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+
+	<function><type><annotation pos:line="90" pos:column="9">@<name pos:line="90" pos:column="10">Test</name></annotation>
+	<specifier pos:line="91" pos:column="9">public</specifier> <name pos:line="91" pos:column="16">void</name></type> <name pos:line="91" pos:column="21">testCheckIfUserNameExists1</name><parameter_list pos:line="91" pos:column="47">()</parameter_list> <block pos:line="91" pos:column="50">{
+		
+		<decl_stmt><decl><type><name pos:line="93" pos:column="17">boolean</name></type> <name pos:line="93" pos:column="25">check</name><init pos:line="93" pos:column="30">=<expr><call><name><name pos:line="93" pos:column="31">People</name><op:operator pos:line="93" pos:column="37">.</op:operator><name pos:line="93" pos:column="38">checkIfUserNameExists</name></name><argument_list pos:line="93" pos:column="59">(<argument><expr><lit:literal type="string" pos:line="93" pos:column="60">"leona"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="94" pos:column="17">assertTrue</name><argument_list pos:line="94" pos:column="27">(<argument><expr><name pos:line="94" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="97" pos:column="9">@<name pos:line="97" pos:column="10">Test</name></annotation>
+	<specifier pos:line="98" pos:column="9">public</specifier> <name pos:line="98" pos:column="16">void</name></type> <name pos:line="98" pos:column="21">testCheckIfUserNameExists2</name><parameter_list pos:line="98" pos:column="47">()</parameter_list> <block pos:line="98" pos:column="50">{
+		
+		<decl_stmt><decl><type><name pos:line="100" pos:column="17">boolean</name></type> <name pos:line="100" pos:column="25">check</name><init pos:line="100" pos:column="30">=<expr><call><name><name pos:line="100" pos:column="31">People</name><op:operator pos:line="100" pos:column="37">.</op:operator><name pos:line="100" pos:column="38">checkIfUserNameExists</name></name><argument_list pos:line="100" pos:column="59">(<argument><expr><lit:literal type="string" pos:line="100" pos:column="60">"alibaba"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="101" pos:column="17">assertFalse</name><argument_list pos:line="101" pos:column="28">(<argument><expr><name pos:line="101" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="104" pos:column="9">@<name pos:line="104" pos:column="10">Test</name></annotation>
+	<specifier pos:line="105" pos:column="9">public</specifier> <name pos:line="105" pos:column="16">void</name></type> <name pos:line="105" pos:column="21">testCheckIfUserNameExists3</name><parameter_list pos:line="105" pos:column="47">()</parameter_list> <block pos:line="105" pos:column="50">{
+		
+		<decl_stmt><decl><type><name pos:line="107" pos:column="17">boolean</name></type> <name pos:line="107" pos:column="25">check</name><init pos:line="107" pos:column="30">=<expr><call><name><name pos:line="107" pos:column="31">People</name><op:operator pos:line="107" pos:column="37">.</op:operator><name pos:line="107" pos:column="38">checkIfUserNameExists</name></name><argument_list pos:line="107" pos:column="59">(<argument><expr><lit:literal type="string" pos:line="107" pos:column="60">""</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="108" pos:column="17">assertFalse</name><argument_list pos:line="108" pos:column="28">(<argument><expr><name pos:line="108" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	
+	<function><type><annotation pos:line="112" pos:column="9">@<name pos:line="112" pos:column="10">Test</name></annotation>
+	<specifier pos:line="113" pos:column="9">public</specifier> <name pos:line="113" pos:column="16">void</name></type> <name pos:line="113" pos:column="21">testCheckIfUserNameExists4</name><parameter_list pos:line="113" pos:column="47">()</parameter_list> <block pos:line="113" pos:column="50">{
+		
+		<decl_stmt><decl><type><name pos:line="115" pos:column="17">boolean</name></type> <name pos:line="115" pos:column="25">check</name><init pos:line="115" pos:column="30">=<expr><call><name><name pos:line="115" pos:column="31">People</name><op:operator pos:line="115" pos:column="37">.</op:operator><name pos:line="115" pos:column="38">checkIfUserNameExists</name></name><argument_list pos:line="115" pos:column="59">(<argument><expr><lit:literal type="null" pos:line="115" pos:column="60">null</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="116" pos:column="17">assertFalse</name><argument_list pos:line="116" pos:column="28">(<argument><expr><name pos:line="116" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="119" pos:column="9">@<name pos:line="119" pos:column="10">Test</name></annotation>
+	<specifier pos:line="120" pos:column="9">public</specifier> <name pos:line="120" pos:column="16">void</name></type> <name pos:line="120" pos:column="21">testAddUserDetailsIntoLoginTable</name><parameter_list pos:line="120" pos:column="53">()</parameter_list> <block pos:line="120" pos:column="56">{
+		
+		<decl_stmt><decl><type><name pos:line="122" pos:column="17">boolean</name></type> <name pos:line="122" pos:column="25">check</name><init pos:line="122" pos:column="30">=<expr><call><name><name pos:line="122" pos:column="31">People</name><op:operator pos:line="122" pos:column="37">.</op:operator><name pos:line="122" pos:column="38">addUserDetailsIntoLoginTable</name></name><argument_list pos:line="122" pos:column="66">(<argument><expr><lit:literal type="string" pos:line="122" pos:column="67">"leona"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="122" pos:column="76">"aaaaaaa"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="123" pos:column="17">assertFalse</name><argument_list pos:line="123" pos:column="28">(<argument><expr><name pos:line="123" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="126" pos:column="9">@<name pos:line="126" pos:column="10">Test</name></annotation>
+	<specifier pos:line="127" pos:column="9">public</specifier> <name pos:line="127" pos:column="16">void</name></type> <name pos:line="127" pos:column="21">testUpdateUserNameIntoLoginTable</name><parameter_list pos:line="127" pos:column="53">()</parameter_list> <block pos:line="127" pos:column="56">{
+		
+		<decl_stmt><decl><type><name pos:line="129" pos:column="17">boolean</name></type> <name pos:line="129" pos:column="25">check</name><init pos:line="129" pos:column="30">=<expr><call><name><name pos:line="129" pos:column="31">People</name><op:operator pos:line="129" pos:column="37">.</op:operator><name pos:line="129" pos:column="38">updateUserNameIntoLoginTable</name></name><argument_list pos:line="129" pos:column="66">(<argument><expr><lit:literal type="string" pos:line="129" pos:column="67">"leona"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="129" pos:column="76">"leonard"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="130" pos:column="17">assertTrue</name><argument_list pos:line="130" pos:column="27">(<argument><expr><name pos:line="130" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="133" pos:column="9">@<name pos:line="133" pos:column="10">Test</name></annotation>
+	<specifier pos:line="134" pos:column="9">public</specifier> <name pos:line="134" pos:column="16">void</name></type> <name pos:line="134" pos:column="21">testUpdateNameIntoPeopleTable</name><parameter_list pos:line="134" pos:column="50">()</parameter_list> <block pos:line="134" pos:column="53">{
+		
+		<decl_stmt><decl><type><name pos:line="136" pos:column="17">boolean</name></type> <name pos:line="136" pos:column="25">check</name><init pos:line="136" pos:column="30">=<expr><call><name><name pos:line="136" pos:column="31">People</name><op:operator pos:line="136" pos:column="37">.</op:operator><name pos:line="136" pos:column="38">updateNameIntoPeopleTable</name></name><argument_list pos:line="136" pos:column="63">(<argument><expr><lit:literal type="string" pos:line="136" pos:column="64">"leonard"</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="136" pos:column="75">581</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="137" pos:column="17">assertTrue</name><argument_list pos:line="137" pos:column="27">(<argument><expr><name pos:line="137" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="140" pos:column="9">@<name pos:line="140" pos:column="10">Test</name></annotation>
+	<specifier pos:line="141" pos:column="9">public</specifier> <name pos:line="141" pos:column="16">void</name></type> <name pos:line="141" pos:column="21">testUpdateDeptIntoPeopleTable</name><parameter_list pos:line="141" pos:column="50">()</parameter_list> <block pos:line="141" pos:column="53">{
+		
+		<decl_stmt><decl><type><name pos:line="143" pos:column="17">boolean</name></type> <name pos:line="143" pos:column="25">check</name><init pos:line="143" pos:column="30">=<expr><call><name><name pos:line="143" pos:column="31">People</name><op:operator pos:line="143" pos:column="37">.</op:operator><name pos:line="143" pos:column="38">updateDeptIntoPeopleTable</name></name><argument_list pos:line="143" pos:column="63">(<argument><expr><lit:literal type="number" pos:line="143" pos:column="64">26</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="143" pos:column="68">581</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<if pos:line="144" pos:column="17">if<condition pos:line="144" pos:column="19">(<expr><name pos:line="144" pos:column="20">check</name></expr>)</condition><then><block pos:line="144" pos:column="26">{
+			<decl_stmt><decl><type><name pos:line="145" pos:column="25">boolean</name></type> <name pos:line="145" pos:column="33">check1</name><init pos:line="145" pos:column="39">=<expr><call><name><name pos:line="145" pos:column="40">People</name><op:operator pos:line="145" pos:column="46">.</op:operator><name pos:line="145" pos:column="47">updateDeptIntoPeopleTable</name></name><argument_list pos:line="145" pos:column="72">(<argument><expr><lit:literal type="number" pos:line="145" pos:column="73">1</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="145" pos:column="76">581</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="146" pos:column="25">assertTrue</name><argument_list pos:line="146" pos:column="35">(<argument><expr><name pos:line="146" pos:column="36">check1</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block></then></if>
+		
+		
+	}</block></function>
+
+	<function><type><annotation pos:line="152" pos:column="9">@<name pos:line="152" pos:column="10">Test</name></annotation>
+	<specifier pos:line="153" pos:column="9">public</specifier> <name pos:line="153" pos:column="16">void</name></type> <name pos:line="153" pos:column="21">testAddUserDetailsIntoLoginTableCheck1</name><parameter_list pos:line="153" pos:column="59">()</parameter_list> <block pos:line="153" pos:column="62">{
+		
+		<decl_stmt><decl><type><name pos:line="155" pos:column="17">boolean</name></type> <name pos:line="155" pos:column="25">check</name><init pos:line="155" pos:column="30">=<expr><call><name><name pos:line="155" pos:column="31">People</name><op:operator pos:line="155" pos:column="37">.</op:operator><name pos:line="155" pos:column="38">addUserDetailsIntoLoginTableCheck</name></name><argument_list pos:line="155" pos:column="71">(<argument><expr><lit:literal type="string" pos:line="155" pos:column="72">"leona"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="156" pos:column="17">assertTrue</name><argument_list pos:line="156" pos:column="27">(<argument><expr><name pos:line="156" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="159" pos:column="9">@<name pos:line="159" pos:column="10">Test</name></annotation>
+	<specifier pos:line="160" pos:column="9">public</specifier> <name pos:line="160" pos:column="16">void</name></type> <name pos:line="160" pos:column="21">testAddUserDetailsIntoLoginTableCheck2</name><parameter_list pos:line="160" pos:column="59">()</parameter_list> <block pos:line="160" pos:column="62">{
+		
+		<decl_stmt><decl><type><name pos:line="162" pos:column="17">boolean</name></type> <name pos:line="162" pos:column="25">check</name><init pos:line="162" pos:column="30">=<expr><call><name><name pos:line="162" pos:column="31">People</name><op:operator pos:line="162" pos:column="37">.</op:operator><name pos:line="162" pos:column="38">addUserDetailsIntoLoginTableCheck</name></name><argument_list pos:line="162" pos:column="71">(<argument><expr><lit:literal type="string" pos:line="162" pos:column="72">"alibaba"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="163" pos:column="17">assertFalse</name><argument_list pos:line="163" pos:column="28">(<argument><expr><name pos:line="163" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+
+
+	<function><type><annotation pos:line="168" pos:column="9">@<name pos:line="168" pos:column="10">Test</name></annotation>
+	<specifier pos:line="169" pos:column="9">public</specifier> <name pos:line="169" pos:column="16">void</name></type> <name pos:line="169" pos:column="21">testAddIntoDatabase</name><parameter_list pos:line="169" pos:column="40">()</parameter_list> <block pos:line="169" pos:column="43">{
+		
+		<comment type="line" pos:line="171" pos:column="17">//this test cannot be performed as it would cause inconsistency into the database</comment>
+	}</block></function>
+
+	<function><type><annotation pos:line="174" pos:column="9">@<name pos:line="174" pos:column="10">Test</name></annotation>
+	<specifier pos:line="175" pos:column="9">public</specifier> <name pos:line="175" pos:column="16">void</name></type> <name pos:line="175" pos:column="21">testAddIntoDatabaseCheck</name><parameter_list pos:line="175" pos:column="45">()</parameter_list> <block pos:line="175" pos:column="48">{
+		
+		<try pos:line="177" pos:column="17">try <block pos:line="177" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="178" pos:column="25">boolean</name></type> <name pos:line="178" pos:column="33">check</name><init pos:line="178" pos:column="38">=<expr><call><name><name pos:line="178" pos:column="39">People</name><op:operator pos:line="178" pos:column="45">.</op:operator><name pos:line="178" pos:column="46">addIntoDatabaseCheck</name></name><argument_list pos:line="178" pos:column="66">(<argument><expr><lit:literal type="string" pos:line="178" pos:column="67">"leona"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="179" pos:column="25">assertTrue</name><argument_list pos:line="179" pos:column="35">(<argument><expr><name pos:line="179" pos:column="36">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="180" pos:column="19">catch <parameter_list pos:line="180" pos:column="25">(<param><decl><type><name><name pos:line="180" pos:column="26">People</name><op:operator pos:line="180" pos:column="32">.</op:operator><name pos:line="180" pos:column="33">loginDetailsnotAdded</name></name></type> <name pos:line="180" pos:column="54">e</name></decl></param>)</parameter_list> <block pos:line="180" pos:column="57">{
+			<comment type="line" pos:line="181" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="182" pos:column="25">e</name><op:operator pos:line="182" pos:column="26">.</op:operator><name pos:line="182" pos:column="27">printStackTrace</name></name><argument_list pos:line="182" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		
+	}</block></function>
+	
+	<function><type><annotation pos:line="187" pos:column="9">@<name pos:line="187" pos:column="10">Test</name></annotation>
+	<specifier pos:line="188" pos:column="9">public</specifier> <name pos:line="188" pos:column="16">void</name></type> <name pos:line="188" pos:column="21">testAddIntoDatabaseCheck2</name><parameter_list pos:line="188" pos:column="46">()</parameter_list> <block pos:line="188" pos:column="49">{
+		
+		<try pos:line="190" pos:column="17">try <block pos:line="190" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="191" pos:column="25">boolean</name></type> <name pos:line="191" pos:column="33">check</name><init pos:line="191" pos:column="38">=<expr><call><name><name pos:line="191" pos:column="39">People</name><op:operator pos:line="191" pos:column="45">.</op:operator><name pos:line="191" pos:column="46">addIntoDatabaseCheck</name></name><argument_list pos:line="191" pos:column="66">(<argument><expr><lit:literal type="string" pos:line="191" pos:column="67">"alibaba"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="192" pos:column="25">assertFalse</name><argument_list pos:line="192" pos:column="36">(<argument><expr><name pos:line="192" pos:column="37">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="193" pos:column="19">catch <parameter_list pos:line="193" pos:column="25">(<param><decl><type><name><name pos:line="193" pos:column="26">People</name><op:operator pos:line="193" pos:column="32">.</op:operator><name pos:line="193" pos:column="33">loginDetailsnotAdded</name></name></type> <name pos:line="193" pos:column="54">e</name></decl></param>)</parameter_list> <block pos:line="193" pos:column="57">{
+			<comment type="line" pos:line="194" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="195" pos:column="25">e</name><op:operator pos:line="195" pos:column="26">.</op:operator><name pos:line="195" pos:column="27">printStackTrace</name></name><argument_list pos:line="195" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		
+	}</block></function>
+	
+	<function><type><annotation pos:line="200" pos:column="9">@<name pos:line="200" pos:column="10">Test</name></annotation>
+	<specifier pos:line="201" pos:column="9">public</specifier> <name pos:line="201" pos:column="16">void</name></type> <name pos:line="201" pos:column="21">testAddIntoDatabaseCheck3</name><parameter_list pos:line="201" pos:column="46">()</parameter_list> <block pos:line="201" pos:column="49">{
+		
+		<try pos:line="203" pos:column="17">try <block pos:line="203" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="204" pos:column="25">boolean</name></type> <name pos:line="204" pos:column="33">check</name><init pos:line="204" pos:column="38">=<expr><call><name><name pos:line="204" pos:column="39">People</name><op:operator pos:line="204" pos:column="45">.</op:operator><name pos:line="204" pos:column="46">addIntoDatabaseCheck</name></name><argument_list pos:line="204" pos:column="66">(<argument><expr><lit:literal type="string" pos:line="204" pos:column="67">""</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="205" pos:column="25">assertFalse</name><argument_list pos:line="205" pos:column="36">(<argument><expr><name pos:line="205" pos:column="37">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="206" pos:column="19">catch <parameter_list pos:line="206" pos:column="25">(<param><decl><type><name><name pos:line="206" pos:column="26">People</name><op:operator pos:line="206" pos:column="32">.</op:operator><name pos:line="206" pos:column="33">loginDetailsnotAdded</name></name></type> <name pos:line="206" pos:column="54">e</name></decl></param>)</parameter_list> <block pos:line="206" pos:column="57">{
+			<comment type="line" pos:line="207" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="208" pos:column="25">e</name><op:operator pos:line="208" pos:column="26">.</op:operator><name pos:line="208" pos:column="27">printStackTrace</name></name><argument_list pos:line="208" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		
+	}</block></function>
+	
+	<function><type><annotation pos:line="213" pos:column="9">@<name pos:line="213" pos:column="10">Test</name></annotation>
+	<specifier pos:line="214" pos:column="9">public</specifier> <name pos:line="214" pos:column="16">void</name></type> <name pos:line="214" pos:column="21">testAddIntoDatabaseCheck4</name><parameter_list pos:line="214" pos:column="46">()</parameter_list> <block pos:line="214" pos:column="49">{
+		
+		<try pos:line="216" pos:column="17">try <block pos:line="216" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="217" pos:column="25">boolean</name></type> <name pos:line="217" pos:column="33">check</name><init pos:line="217" pos:column="38">=<expr><call><name><name pos:line="217" pos:column="39">People</name><op:operator pos:line="217" pos:column="45">.</op:operator><name pos:line="217" pos:column="46">addIntoDatabaseCheck</name></name><argument_list pos:line="217" pos:column="66">(<argument><expr><lit:literal type="null" pos:line="217" pos:column="67">null</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="218" pos:column="25">assertFalse</name><argument_list pos:line="218" pos:column="36">(<argument><expr><name pos:line="218" pos:column="37">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="219" pos:column="19">catch <parameter_list pos:line="219" pos:column="25">(<param><decl><type><name><name pos:line="219" pos:column="26">People</name><op:operator pos:line="219" pos:column="32">.</op:operator><name pos:line="219" pos:column="33">loginDetailsnotAdded</name></name></type> <name pos:line="219" pos:column="54">e</name></decl></param>)</parameter_list> <block pos:line="219" pos:column="57">{
+			<comment type="line" pos:line="220" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="221" pos:column="25">e</name><op:operator pos:line="221" pos:column="26">.</op:operator><name pos:line="221" pos:column="27">printStackTrace</name></name><argument_list pos:line="221" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+		
+	}</block></function>
+
+	<function><type><annotation pos:line="226" pos:column="9">@<name pos:line="226" pos:column="10">Test</name></annotation>
+	<specifier pos:line="227" pos:column="9">public</specifier> <name pos:line="227" pos:column="16">void</name></type> <name pos:line="227" pos:column="21">testDeleteFromDatabaseByUIN</name><parameter_list pos:line="227" pos:column="48">()</parameter_list> <block pos:line="227" pos:column="51">{
+		
+		<comment type="line" pos:line="229" pos:column="17">//this test cannot be performed as it would cause inconsistency into the database</comment>
+	}</block></function>
+
+	<function><type><annotation pos:line="232" pos:column="9">@<name pos:line="232" pos:column="10">Test</name></annotation>
+	<specifier pos:line="233" pos:column="9">public</specifier> <name pos:line="233" pos:column="16">void</name></type> <name pos:line="233" pos:column="21">testDeleteFromDatabaseByUserName</name><parameter_list pos:line="233" pos:column="53">()</parameter_list> <block pos:line="233" pos:column="56">{
+		
+		<comment type="line" pos:line="235" pos:column="17">//this test cannot be performed as it would cause inconsistency into the database</comment>
+	}</block></function>
+
+	<function><type><annotation pos:line="238" pos:column="9">@<name pos:line="238" pos:column="10">Test</name></annotation>
+	<specifier pos:line="239" pos:column="9">public</specifier> <name pos:line="239" pos:column="16">void</name></type> <name pos:line="239" pos:column="21">testDeleteFromDatabaseByUserNameCheck1</name><parameter_list pos:line="239" pos:column="59">()</parameter_list> <block pos:line="239" pos:column="62">{
+		
+		<decl_stmt><decl><type><name pos:line="241" pos:column="17">boolean</name></type> <name pos:line="241" pos:column="25">check</name><init pos:line="241" pos:column="30">=<expr><call><name><name pos:line="241" pos:column="31">People</name><op:operator pos:line="241" pos:column="37">.</op:operator><name pos:line="241" pos:column="38">deleteFromDatabaseByUserNameCheck</name></name><argument_list pos:line="241" pos:column="71">(<argument><expr><lit:literal type="string" pos:line="241" pos:column="72">"leona"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="242" pos:column="17">assertTrue</name><argument_list pos:line="242" pos:column="27">(<argument><expr><name pos:line="242" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="245" pos:column="9">@<name pos:line="245" pos:column="10">Test</name></annotation>
+	<specifier pos:line="246" pos:column="9">public</specifier> <name pos:line="246" pos:column="16">void</name></type> <name pos:line="246" pos:column="21">testDeleteFromDatabaseByUserNameCheck2</name><parameter_list pos:line="246" pos:column="59">()</parameter_list> <block pos:line="246" pos:column="62">{
+		
+		<decl_stmt><decl><type><name pos:line="248" pos:column="17">boolean</name></type> <name pos:line="248" pos:column="25">check</name><init pos:line="248" pos:column="30">=<expr><call><name><name pos:line="248" pos:column="31">People</name><op:operator pos:line="248" pos:column="37">.</op:operator><name pos:line="248" pos:column="38">deleteFromDatabaseByUserNameCheck</name></name><argument_list pos:line="248" pos:column="71">(<argument><expr><lit:literal type="string" pos:line="248" pos:column="72">"alibaba"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="249" pos:column="17">assertFalse</name><argument_list pos:line="249" pos:column="28">(<argument><expr><name pos:line="249" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="252" pos:column="9">@<name pos:line="252" pos:column="10">Test</name></annotation>
+	<specifier pos:line="253" pos:column="9">public</specifier> <name pos:line="253" pos:column="16">void</name></type> <name pos:line="253" pos:column="21">testDeleteFromDatabaseByUserNameCheck3</name><parameter_list pos:line="253" pos:column="59">()</parameter_list> <block pos:line="253" pos:column="62">{
+		
+		<decl_stmt><decl><type><name pos:line="255" pos:column="17">boolean</name></type> <name pos:line="255" pos:column="25">check</name><init pos:line="255" pos:column="30">=<expr><call><name><name pos:line="255" pos:column="31">People</name><op:operator pos:line="255" pos:column="37">.</op:operator><name pos:line="255" pos:column="38">deleteFromDatabaseByUserNameCheck</name></name><argument_list pos:line="255" pos:column="71">(<argument><expr><lit:literal type="string" pos:line="255" pos:column="72">""</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="256" pos:column="17">assertFalse</name><argument_list pos:line="256" pos:column="28">(<argument><expr><name pos:line="256" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="259" pos:column="9">@<name pos:line="259" pos:column="10">Test</name></annotation>
+	<specifier pos:line="260" pos:column="9">public</specifier> <name pos:line="260" pos:column="16">void</name></type> <name pos:line="260" pos:column="21">testDeleteFromDatabaseByUserNameCheck4</name><parameter_list pos:line="260" pos:column="59">()</parameter_list> <block pos:line="260" pos:column="62">{
+		
+		<decl_stmt><decl><type><name pos:line="262" pos:column="17">boolean</name></type> <name pos:line="262" pos:column="25">check</name><init pos:line="262" pos:column="30">=<expr><call><name><name pos:line="262" pos:column="31">People</name><op:operator pos:line="262" pos:column="37">.</op:operator><name pos:line="262" pos:column="38">deleteFromDatabaseByUserNameCheck</name></name><argument_list pos:line="262" pos:column="71">(<argument><expr><lit:literal type="null" pos:line="262" pos:column="72">null</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="263" pos:column="17">assertFalse</name><argument_list pos:line="263" pos:column="28">(<argument><expr><name pos:line="263" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="266" pos:column="9">@<name pos:line="266" pos:column="10">Test</name></annotation>
+	<specifier pos:line="267" pos:column="9">public</specifier> <name pos:line="267" pos:column="16">void</name></type> <name pos:line="267" pos:column="21">testDeleteFromDatabaseByUINCheck1</name><parameter_list pos:line="267" pos:column="54">()</parameter_list> <block pos:line="267" pos:column="57">{
+		
+		<decl_stmt><decl><type><name pos:line="269" pos:column="17">boolean</name></type> <name pos:line="269" pos:column="25">check</name><init pos:line="269" pos:column="30">=<expr><call><name><name pos:line="269" pos:column="31">People</name><op:operator pos:line="269" pos:column="37">.</op:operator><name pos:line="269" pos:column="38">deleteFromDatabaseByUINCheck</name></name><argument_list pos:line="269" pos:column="66">(<argument><expr><lit:literal type="number" pos:line="269" pos:column="67">581</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="270" pos:column="17">assertTrue</name><argument_list pos:line="270" pos:column="27">(<argument><expr><name pos:line="270" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="273" pos:column="9">@<name pos:line="273" pos:column="10">Test</name></annotation>
+	<specifier pos:line="274" pos:column="9">public</specifier> <name pos:line="274" pos:column="16">void</name></type> <name pos:line="274" pos:column="21">testDeleteFromDatabaseByUINCheck2</name><parameter_list pos:line="274" pos:column="54">()</parameter_list> <block pos:line="274" pos:column="57">{
+		
+		<decl_stmt><decl><type><name pos:line="276" pos:column="17">boolean</name></type> <name pos:line="276" pos:column="25">check</name><init pos:line="276" pos:column="30">=<expr><call><name><name pos:line="276" pos:column="31">People</name><op:operator pos:line="276" pos:column="37">.</op:operator><name pos:line="276" pos:column="38">deleteFromDatabaseByUINCheck</name></name><argument_list pos:line="276" pos:column="66">(<argument><expr><lit:literal type="number" pos:line="276" pos:column="67">1000</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="277" pos:column="17">assertFalse</name><argument_list pos:line="277" pos:column="28">(<argument><expr><name pos:line="277" pos:column="29">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+
+	<function><type><annotation pos:line="281" pos:column="9">@<name pos:line="281" pos:column="10">Test</name></annotation>
+	<specifier pos:line="282" pos:column="9">public</specifier> <name pos:line="282" pos:column="16">void</name></type> <name pos:line="282" pos:column="21">testRetireveDetailsByUIN1</name><parameter_list pos:line="282" pos:column="46">()</parameter_list> <block pos:line="282" pos:column="49">{
+		
+		<try pos:line="284" pos:column="17">try <block pos:line="284" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="285" pos:column="25">People</name></type> <name pos:line="285" pos:column="32">p</name><init pos:line="285" pos:column="33">=<expr><call><name><name pos:line="285" pos:column="34">People</name><op:operator pos:line="285" pos:column="40">.</op:operator><name pos:line="285" pos:column="41">retireveDetailsByUIN</name></name><argument_list pos:line="285" pos:column="61">(<argument><expr><lit:literal type="number" pos:line="285" pos:column="62">581</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="286" pos:column="25">assertNotNull</name><argument_list pos:line="286" pos:column="38">(<argument><expr><name pos:line="286" pos:column="39">p</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="287" pos:column="19">catch <parameter_list pos:line="287" pos:column="25">(<param><decl><type><name><name pos:line="287" pos:column="26">People</name><op:operator pos:line="287" pos:column="32">.</op:operator><name pos:line="287" pos:column="33">PersonDoesNotExistException</name></name></type> <name pos:line="287" pos:column="61">e</name></decl></param>)</parameter_list> <block pos:line="287" pos:column="64">{
+			<comment type="line" pos:line="288" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="289" pos:column="25">e</name><op:operator pos:line="289" pos:column="26">.</op:operator><name pos:line="289" pos:column="27">printStackTrace</name></name><argument_list pos:line="289" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+	}</block></function>
+	
+	<function><type><annotation pos:line="293" pos:column="9">@<name pos:line="293" pos:column="10">Test</name></annotation>
+	<specifier pos:line="294" pos:column="9">public</specifier> <name pos:line="294" pos:column="16">void</name></type> <name pos:line="294" pos:column="21">testRetireveDetailsByUIN2</name><parameter_list pos:line="294" pos:column="46">()</parameter_list> <block pos:line="294" pos:column="49">{
+		
+		<try pos:line="296" pos:column="17">try <block pos:line="296" pos:column="21">{
+			<decl_stmt><decl><type><name pos:line="297" pos:column="25">People</name></type> <name pos:line="297" pos:column="32">p</name><init pos:line="297" pos:column="33">=<expr><call><name><name pos:line="297" pos:column="34">People</name><op:operator pos:line="297" pos:column="40">.</op:operator><name pos:line="297" pos:column="41">retireveDetailsByUIN</name></name><argument_list pos:line="297" pos:column="61">(<argument><expr><lit:literal type="number" pos:line="297" pos:column="62">1000</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+			<expr_stmt><expr><call><name pos:line="298" pos:column="25">assertNull</name><argument_list pos:line="298" pos:column="35">(<argument><expr><name pos:line="298" pos:column="36">p</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="299" pos:column="19">catch <parameter_list pos:line="299" pos:column="25">(<param><decl><type><name><name pos:line="299" pos:column="26">People</name><op:operator pos:line="299" pos:column="32">.</op:operator><name pos:line="299" pos:column="33">PersonDoesNotExistException</name></name></type> <name pos:line="299" pos:column="61">e</name></decl></param>)</parameter_list> <block pos:line="299" pos:column="64">{
+			<comment type="line" pos:line="300" pos:column="25">// TODO Auto-generated catch block</comment>
+			<expr_stmt><expr><call><name><name pos:line="301" pos:column="25">e</name><op:operator pos:line="301" pos:column="26">.</op:operator><name pos:line="301" pos:column="27">printStackTrace</name></name><argument_list pos:line="301" pos:column="42">()</argument_list></call></expr>;</expr_stmt>
+		}</block></catch></try>
+	}</block></function>
+
+	<function><type><annotation pos:line="305" pos:column="9">@<name pos:line="305" pos:column="10">Test</name></annotation>
+	<specifier pos:line="306" pos:column="9">public</specifier> <name pos:line="306" pos:column="16">void</name></type> <name pos:line="306" pos:column="21">testRetireveDetailsByuserName</name><parameter_list pos:line="306" pos:column="50">()</parameter_list> <block pos:line="306" pos:column="53">{
+
+		<decl_stmt><decl><type><name pos:line="308" pos:column="17">People</name></type> <name pos:line="308" pos:column="24">p</name><init pos:line="308" pos:column="25">=<expr><call><name><name pos:line="308" pos:column="26">People</name><op:operator pos:line="308" pos:column="32">.</op:operator><name pos:line="308" pos:column="33">retireveDetailsByuserName</name></name><argument_list pos:line="308" pos:column="58">(<argument><expr><lit:literal type="string" pos:line="308" pos:column="59">"leona"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="309" pos:column="17">assertNotNull</name><argument_list pos:line="309" pos:column="30">(<argument><expr><name pos:line="309" pos:column="31">p</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="312" pos:column="9">@<name pos:line="312" pos:column="10">Test</name></annotation>
+	<specifier pos:line="313" pos:column="9">public</specifier> <name pos:line="313" pos:column="16">void</name></type> <name pos:line="313" pos:column="21">testRetireveDetailsByuserName2</name><parameter_list pos:line="313" pos:column="51">()</parameter_list> <block pos:line="313" pos:column="54">{
+
+		<decl_stmt><decl><type><name pos:line="315" pos:column="17">People</name></type> <name pos:line="315" pos:column="24">p</name><init pos:line="315" pos:column="25">=<expr><call><name><name pos:line="315" pos:column="26">People</name><op:operator pos:line="315" pos:column="32">.</op:operator><name pos:line="315" pos:column="33">retireveDetailsByuserName</name></name><argument_list pos:line="315" pos:column="58">(<argument><expr><lit:literal type="string" pos:line="315" pos:column="59">"alibaba"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="316" pos:column="17">assertNull</name><argument_list pos:line="316" pos:column="27">(<argument><expr><name pos:line="316" pos:column="28">p</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+
+}</block></class>
+</unit>

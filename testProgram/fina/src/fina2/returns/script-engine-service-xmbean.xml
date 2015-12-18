@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mbean PUBLIC "-//JBoss//DTD JBOSS XMBEAN 1.1//EN"
+   "http://www.jboss.org/j2ee/dtd/jboss_xmbean_1_1.dtd" [
+	<!ATTLIST interceptor
+	proxyName CDATA #IMPLIED
+>
+]>
+<!-- ==================================================================== -->
+<!-- FinA Returns Import Service                                          -->
+<!-- ==================================================================== -->
+<mbean>
+  <description>FinA Return Script Engine Service</description>
+  <class>fina2.returns.ScriptEngineService</class>
+  &defaultAttributes;
+  &defaultOperations;
+</mbean>
+

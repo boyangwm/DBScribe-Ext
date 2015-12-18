@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE server>
+<server>
+  <!-- ==================================================================== -->
+  <!-- Returns import service                                               -->
+  <!-- ==================================================================== -->
+  <mbean code="fina2.returns.ProcessService" name="FinA:service=ReturnsProcessService"
+	xmbean-dd="resource:fina2/returns/process-service-xmbean.xml">
+		<depends>jboss.j2ee:service=EJB,jndiName=fina2/upload/UploadFileSession</depends>
+	</mbean>
+</server>

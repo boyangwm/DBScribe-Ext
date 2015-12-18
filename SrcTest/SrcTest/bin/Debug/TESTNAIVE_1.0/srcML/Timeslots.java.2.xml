@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\UMAS\src\com\umas\code\Timeslots.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">umas</name><op:operator pos:line="1" pos:column="17">.</op:operator><name pos:line="1" pos:column="18">code</name></name>;</package>
+
+
+<comment type="block" format="javadoc" pos:line="4" pos:column="1">/****************@author Simant Purohit*********************************/</comment>
+
+<import pos:line="6" pos:column="1">import <name><name pos:line="6" pos:column="8">java</name><op:operator pos:line="6" pos:column="12">.</op:operator><name pos:line="6" pos:column="13">sql</name><op:operator pos:line="6" pos:column="16">.</op:operator><name pos:line="6" pos:column="17">Connection</name></name>;</import>
+<import pos:line="7" pos:column="1">import <name><name pos:line="7" pos:column="8">java</name><op:operator pos:line="7" pos:column="12">.</op:operator><name pos:line="7" pos:column="13">sql</name><op:operator pos:line="7" pos:column="16">.</op:operator><name pos:line="7" pos:column="17">PreparedStatement</name></name>;</import>
+<import pos:line="8" pos:column="1">import <name><name pos:line="8" pos:column="8">java</name><op:operator pos:line="8" pos:column="12">.</op:operator><name pos:line="8" pos:column="13">sql</name><op:operator pos:line="8" pos:column="16">.</op:operator><name pos:line="8" pos:column="17">ResultSet</name></name>;</import>
+<import pos:line="9" pos:column="1">import <name><name pos:line="9" pos:column="8">java</name><op:operator pos:line="9" pos:column="12">.</op:operator><name pos:line="9" pos:column="13">sql</name><op:operator pos:line="9" pos:column="16">.</op:operator><name pos:line="9" pos:column="17">SQLException</name></name>;</import>
+
+
+<class><specifier pos:line="12" pos:column="1">public</specifier> class <name pos:line="12" pos:column="14">Timeslots</name> <block pos:line="12" pos:column="24">{
+	<decl_stmt><decl><type><specifier pos:line="13" pos:column="9">private</specifier> <name pos:line="13" pos:column="17">int</name></type> <name pos:line="13" pos:column="21">timeSlotID</name></decl>;</decl_stmt>
+	<decl_stmt><decl><type><specifier pos:line="14" pos:column="9">private</specifier> <name pos:line="14" pos:column="17">int</name></type> <name pos:line="14" pos:column="21">startHour</name></decl>;</decl_stmt>
+	<decl_stmt><decl><type><specifier pos:line="15" pos:column="9">private</specifier> <name pos:line="15" pos:column="17">int</name></type> <name pos:line="15" pos:column="21">endHour</name></decl>;</decl_stmt>
+	<decl_stmt><decl><type><specifier pos:line="16" pos:column="9">private</specifier> <name pos:line="16" pos:column="17">int</name></type> <name pos:line="16" pos:column="21">timeslotType</name></decl>;</decl_stmt>
+	
+	<comment type="block" format="javadoc" pos:line="18" pos:column="9">/**
+	 * @return the timeSlotID
+	 */</comment>
+	<function><type><specifier pos:line="21" pos:column="9">public</specifier> <name pos:line="21" pos:column="16">int</name></type> <name pos:line="21" pos:column="20">getTimeSlotID</name><parameter_list pos:line="21" pos:column="33">()</parameter_list> <block pos:line="21" pos:column="36">{
+		<return pos:line="22" pos:column="17">return <expr><name pos:line="22" pos:column="24">timeSlotID</name></expr>;</return>
+	}</block></function>
+
+	<comment type="block" format="javadoc" pos:line="25" pos:column="9">/**
+	 * @return the startHour
+	 */</comment>
+	<function><type><specifier pos:line="28" pos:column="9">public</specifier> <name pos:line="28" pos:column="16">int</name></type> <name pos:line="28" pos:column="20">getStartHour</name><parameter_list pos:line="28" pos:column="32">()</parameter_list> <block pos:line="28" pos:column="35">{
+		<return pos:line="29" pos:column="17">return <expr><name pos:line="29" pos:column="24">startHour</name></expr>;</return>
+	}</block></function>
+
+	<comment type="block" format="javadoc" pos:line="32" pos:column="9">/**
+	 * @return the endHour
+	 */</comment>
+	<function><type><specifier pos:line="35" pos:column="9">public</specifier> <name pos:line="35" pos:column="16">int</name></type> <name pos:line="35" pos:column="20">getEndHour</name><parameter_list pos:line="35" pos:column="30">()</parameter_list> <block pos:line="35" pos:column="33">{
+		<return pos:line="36" pos:column="17">return <expr><name pos:line="36" pos:column="24">endHour</name></expr>;</return>
+	}</block></function>
+
+	<comment type="block" format="javadoc" pos:line="39" pos:column="9">/**
+	 * @return the timeslotType
+	 */</comment>
+	<function><type><specifier pos:line="42" pos:column="9">public</specifier> <name pos:line="42" pos:column="16">int</name></type> <name pos:line="42" pos:column="20">getTimeslotType</name><parameter_list pos:line="42" pos:column="35">()</parameter_list> <block pos:line="42" pos:column="38">{
+		<return pos:line="43" pos:column="17">return <expr><name pos:line="43" pos:column="24">timeslotType</name></expr>;</return>
+	}</block></function>
+
+	<comment type="block" pos:line="46" pos:column="9">/*
+	 * Initializes the timeslot object using the timeslot id
+	 * Throws a illegal argument exception if the timeslot with the passed id does not exist 
+	 */</comment>
+	<constructor><specifier pos:line="50" pos:column="9">public</specifier> <name pos:line="50" pos:column="16">Timeslots</name><parameter_list pos:line="50" pos:column="25">(<param><decl><type><name pos:line="50" pos:column="26">int</name></type> <name pos:line="50" pos:column="30">timeSlotID</name></decl></param>)</parameter_list><block pos:line="50" pos:column="41">{
+		<try pos:line="51" pos:column="17">try<block pos:line="51" pos:column="20">{
+			<decl_stmt><decl><type><name pos:line="52" pos:column="25">Connection</name></type> <name pos:line="52" pos:column="36">conn</name> <init pos:line="52" pos:column="41">= <expr><call><name><name pos:line="52" pos:column="43">Database</name><op:operator pos:line="52" pos:column="51">.</op:operator><name pos:line="52" pos:column="52">getConnection</name></name><argument_list pos:line="52" pos:column="65">()</argument_list></call></expr></init></decl>;</decl_stmt>
+			
+			<try pos:line="54" pos:column="25">try<block pos:line="54" pos:column="28">{
+				<if pos:line="55" pos:column="33">if<condition pos:line="55" pos:column="35">(<expr><name pos:line="55" pos:column="36">conn</name> <op:operator pos:line="55" pos:column="41">!=</op:operator> <lit:literal type="null" pos:line="55" pos:column="44">null</lit:literal></expr>)</condition><then><block pos:line="55" pos:column="49">{
+					
+					<comment type="block" pos:line="57" pos:column="41">/*
+					 * query to retrieve all time slots and check if the time slot already exists
+					 */</comment>
+					<decl_stmt><decl><type><name pos:line="60" pos:column="41">String</name></type> <name pos:line="60" pos:column="48">findString</name> <init pos:line="60" pos:column="59">= <expr><lit:literal type="string" pos:line="60" pos:column="61">"Select * "</lit:literal>
+							<op:operator pos:line="61" pos:column="57">+</op:operator> <lit:literal type="string" pos:line="61" pos:column="59">"FROM timeslots "</lit:literal>
+							<op:operator pos:line="62" pos:column="57">+</op:operator> <lit:literal type="string" pos:line="62" pos:column="59">"WHERE TimeSlotID= ?"</lit:literal></expr></init></decl>;</decl_stmt>
+					<decl_stmt><decl><type><name pos:line="63" pos:column="41">PreparedStatement</name></type> <name pos:line="63" pos:column="59">statement</name> <init pos:line="63" pos:column="69">= <expr><call><name><name pos:line="63" pos:column="71">conn</name><op:operator pos:line="63" pos:column="75">.</op:operator><name pos:line="63" pos:column="76">prepareStatement</name></name><argument_list pos:line="63" pos:column="92">(<argument><expr><name pos:line="63" pos:column="93">findString</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name><name pos:line="64" pos:column="41">statement</name><op:operator pos:line="64" pos:column="50">.</op:operator><name pos:line="64" pos:column="51">setInt</name></name><argument_list pos:line="64" pos:column="57">(<argument><expr><lit:literal type="number" pos:line="64" pos:column="58">1</lit:literal></expr></argument>, <argument><expr><name pos:line="64" pos:column="61">timeSlotID</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<decl_stmt><decl><type><name pos:line="65" pos:column="41">ResultSet</name></type> <name pos:line="65" pos:column="51">rs</name> <init pos:line="65" pos:column="54">= <expr><call><name><name pos:line="65" pos:column="56">statement</name><op:operator pos:line="65" pos:column="65">.</op:operator><name pos:line="65" pos:column="66">executeQuery</name></name><argument_list pos:line="65" pos:column="78">()</argument_list></call></expr></init></decl>;</decl_stmt>
+					
+					<comment type="block" pos:line="67" pos:column="41">/*
+					 * TIme slot exists, initialize all the instance variables
+					 */</comment>
+					<if pos:line="70" pos:column="41">if<condition pos:line="70" pos:column="43">(<expr><call><name><name pos:line="70" pos:column="44">rs</name><op:operator pos:line="70" pos:column="46">.</op:operator><name pos:line="70" pos:column="47">first</name></name><argument_list pos:line="70" pos:column="52">()</argument_list></call></expr>)</condition><then><block pos:line="70" pos:column="55">{
+						<expr_stmt><expr><call><name><name pos:line="71" pos:column="49">DBAnnotation</name><op:operator pos:line="71" pos:column="61">.</op:operator><name pos:line="71" pos:column="62">annoate</name></name><argument_list pos:line="71" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="71" pos:column="70">"startHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="71" pos:column="83">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="71" pos:column="96">"StartHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="71" pos:column="109">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<decl_stmt><decl><type><name pos:line="72" pos:column="49">int</name></type> <name pos:line="72" pos:column="53">startHour</name> <init pos:line="72" pos:column="63">= <expr><call><name><name pos:line="72" pos:column="65">rs</name><op:operator pos:line="72" pos:column="67">.</op:operator><name pos:line="72" pos:column="68">getInt</name></name><argument_list pos:line="72" pos:column="74">(<argument><expr><lit:literal type="string" pos:line="72" pos:column="75">"StartHour"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+						
+						<expr_stmt><expr><call><name><name pos:line="74" pos:column="49">DBAnnotation</name><op:operator pos:line="74" pos:column="61">.</op:operator><name pos:line="74" pos:column="62">annoate</name></name><argument_list pos:line="74" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="74" pos:column="70">"endHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="74" pos:column="81">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="74" pos:column="94">"EndHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="74" pos:column="105">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<decl_stmt><decl><type><name pos:line="75" pos:column="49">int</name></type> <name pos:line="75" pos:column="53">endHour</name> <init pos:line="75" pos:column="61">= <expr><call><name><name pos:line="75" pos:column="63">rs</name><op:operator pos:line="75" pos:column="65">.</op:operator><name pos:line="75" pos:column="66">getInt</name></name><argument_list pos:line="75" pos:column="72">(<argument><expr><lit:literal type="string" pos:line="75" pos:column="73">"EndHour"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+						
+						<expr_stmt><expr><call><name><name pos:line="77" pos:column="49">DBAnnotation</name><op:operator pos:line="77" pos:column="61">.</op:operator><name pos:line="77" pos:column="62">annoate</name></name><argument_list pos:line="77" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="77" pos:column="70">"timeSlotType"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="77" pos:column="86">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="77" pos:column="99">"TimeslotType"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="77" pos:column="115">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<decl_stmt><decl><type><name pos:line="78" pos:column="49">int</name></type> <name pos:line="78" pos:column="53">timeSlotType</name> <init pos:line="78" pos:column="66">= <expr><call><name><name pos:line="78" pos:column="68">rs</name><op:operator pos:line="78" pos:column="70">.</op:operator><name pos:line="78" pos:column="71">getInt</name></name><argument_list pos:line="78" pos:column="77">(<argument><expr><lit:literal type="string" pos:line="78" pos:column="78">"TimeslotType"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+						
+						<expr_stmt><expr><name><name pos:line="80" pos:column="49">this</name><op:operator pos:line="80" pos:column="53">.</op:operator><name pos:line="80" pos:column="54">timeSlotID</name></name> <op:operator pos:line="80" pos:column="65">=</op:operator> <name pos:line="80" pos:column="67">timeSlotID</name></expr>;</expr_stmt>
+						<expr_stmt><expr><name><name pos:line="81" pos:column="49">this</name><op:operator pos:line="81" pos:column="53">.</op:operator><name pos:line="81" pos:column="54">startHour</name></name> <op:operator pos:line="81" pos:column="64">=</op:operator> <name pos:line="81" pos:column="66">startHour</name></expr>;</expr_stmt>
+						<expr_stmt><expr><name><name pos:line="82" pos:column="49">this</name><op:operator pos:line="82" pos:column="53">.</op:operator><name pos:line="82" pos:column="54">endHour</name></name> <op:operator pos:line="82" pos:column="62">=</op:operator> <name pos:line="82" pos:column="64">endHour</name></expr>;</expr_stmt>
+						<expr_stmt><expr><name><name pos:line="83" pos:column="49">this</name><op:operator pos:line="83" pos:column="53">.</op:operator><name pos:line="83" pos:column="54">timeslotType</name></name> <op:operator pos:line="83" pos:column="67">=</op:operator> <name pos:line="83" pos:column="69">timeSlotType</name></expr>;</expr_stmt>
+					}</block></then>
+					
+					<else pos:line="86" pos:column="41">else<block pos:line="86" pos:column="45">{
+						<comment type="block" pos:line="87" pos:column="49">/*
+						 * the time slot doesn't exist
+						 */</comment>
+						<throw pos:line="90" pos:column="49">throw <expr><op:operator pos:line="90" pos:column="55">new</op:operator> <call><name pos:line="90" pos:column="59">IllegalArgumentException</name><argument_list pos:line="90" pos:column="83">(<argument><expr><lit:literal type="string" pos:line="90" pos:column="84">"Timeslot does not exist"</lit:literal></expr></argument>)</argument_list></call></expr>;</throw>
+					}</block></else></if>
+				}</block></then></if>
+			}</block>
+			
+			<catch pos:line="95" pos:column="25">catch<parameter_list pos:line="95" pos:column="30">(<param><decl><type><name pos:line="95" pos:column="31">SQLException</name></type> <name pos:line="95" pos:column="44">e</name></decl></param>)</parameter_list><block pos:line="95" pos:column="46">{
+				<comment type="block" pos:line="96" pos:column="33">/*
+				 * Catches any exception related to the sql query
+				 */</comment>
+				<expr_stmt><expr><call><name><name pos:line="99" pos:column="33">System</name><op:operator pos:line="99" pos:column="39">.</op:operator><name pos:line="99" pos:column="40">out</name><op:operator pos:line="99" pos:column="43">.</op:operator><name pos:line="99" pos:column="44">println</name></name><argument_list pos:line="99" pos:column="51">(<argument><expr><call><name><name pos:line="99" pos:column="52">e</name><op:operator pos:line="99" pos:column="53">.</op:operator><name pos:line="99" pos:column="54">getMessage</name></name><argument_list pos:line="99" pos:column="64">()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></catch></try>
+						
+		}</block>
+		
+		<finally pos:line="104" pos:column="17">finally<block pos:line="104" pos:column="24">{
+		}</block></finally></try>
+	}</block></constructor>
+	
+	<comment type="block" pos:line="108" pos:column="9">/*
+	 * Initialize a time sllot by using the start and end hour arguments
+	 * If the timeslot combination does not exist, a exception is thrown else the object is initialized
+	 * 
+	 */</comment>
+	<constructor><specifier pos:line="113" pos:column="9">public</specifier> <name pos:line="113" pos:column="16">Timeslots</name><parameter_list pos:line="113" pos:column="25">(<param><decl><type><name pos:line="113" pos:column="26">int</name></type> <name pos:line="113" pos:column="30">startHour</name></decl></param>, <param><decl><type><name pos:line="113" pos:column="41">int</name></type> <name pos:line="113" pos:column="45">endHour</name></decl></param>)</parameter_list><block pos:line="113" pos:column="53">{
+		<try pos:line="114" pos:column="17">try<block pos:line="114" pos:column="20">{
+			<decl_stmt><decl><type><name pos:line="115" pos:column="25">Connection</name></type> <name pos:line="115" pos:column="36">conn</name> <init pos:line="115" pos:column="41">= <expr><call><name><name pos:line="115" pos:column="43">Database</name><op:operator pos:line="115" pos:column="51">.</op:operator><name pos:line="115" pos:column="52">getConnection</name></name><argument_list pos:line="115" pos:column="65">()</argument_list></call></expr></init></decl>;</decl_stmt>
+			
+			<try pos:line="117" pos:column="25">try<block pos:line="117" pos:column="28">{
+				<if pos:line="118" pos:column="33">if<condition pos:line="118" pos:column="35">(<expr><name pos:line="118" pos:column="36">conn</name> <op:operator pos:line="118" pos:column="41">!=</op:operator> <lit:literal type="null" pos:line="118" pos:column="44">null</lit:literal></expr>)</condition><then><block pos:line="118" pos:column="49">{
+					
+					<decl_stmt><decl><type><name pos:line="120" pos:column="41">String</name></type> <name pos:line="120" pos:column="48">findString</name> <init pos:line="120" pos:column="59">= <expr><lit:literal type="string" pos:line="120" pos:column="61">"Select *"</lit:literal>
+							<op:operator pos:line="121" pos:column="57">+</op:operator> <lit:literal type="string" pos:line="121" pos:column="59">"FROM timeslots "</lit:literal>
+							<op:operator pos:line="122" pos:column="57">+</op:operator> <lit:literal type="string" pos:line="122" pos:column="59">"WHERE starthour = ? and endhour = ?"</lit:literal></expr></init></decl>;</decl_stmt>
+					<decl_stmt><decl><type><name pos:line="123" pos:column="41">PreparedStatement</name></type> <name pos:line="123" pos:column="59">statement</name> <init pos:line="123" pos:column="69">= <expr><call><name><name pos:line="123" pos:column="71">conn</name><op:operator pos:line="123" pos:column="75">.</op:operator><name pos:line="123" pos:column="76">prepareStatement</name></name><argument_list pos:line="123" pos:column="92">(<argument><expr><name pos:line="123" pos:column="93">findString</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name><name pos:line="124" pos:column="41">statement</name><op:operator pos:line="124" pos:column="50">.</op:operator><name pos:line="124" pos:column="51">setInt</name></name><argument_list pos:line="124" pos:column="57">(<argument><expr><lit:literal type="number" pos:line="124" pos:column="58">1</lit:literal></expr></argument>, <argument><expr><name pos:line="124" pos:column="61">startHour</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<expr_stmt><expr><call><name><name pos:line="125" pos:column="41">statement</name><op:operator pos:line="125" pos:column="50">.</op:operator><name pos:line="125" pos:column="51">setInt</name></name><argument_list pos:line="125" pos:column="57">(<argument><expr><lit:literal type="number" pos:line="125" pos:column="58">2</lit:literal></expr></argument>, <argument><expr><name pos:line="125" pos:column="61">endHour</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<decl_stmt><decl><type><name pos:line="126" pos:column="41">ResultSet</name></type> <name pos:line="126" pos:column="51">rs</name> <init pos:line="126" pos:column="54">= <expr><call><name><name pos:line="126" pos:column="56">statement</name><op:operator pos:line="126" pos:column="65">.</op:operator><name pos:line="126" pos:column="66">executeQuery</name></name><argument_list pos:line="126" pos:column="78">()</argument_list></call></expr></init></decl>;</decl_stmt>
+					
+					<comment type="block" pos:line="128" pos:column="41">/*
+					 * if the time slot exists, initialize the instance variables
+					 */</comment>
+					<if pos:line="131" pos:column="41">if<condition pos:line="131" pos:column="43">(<expr><call><name><name pos:line="131" pos:column="44">rs</name><op:operator pos:line="131" pos:column="46">.</op:operator><name pos:line="131" pos:column="47">first</name></name><argument_list pos:line="131" pos:column="52">()</argument_list></call></expr>)</condition><then><block pos:line="131" pos:column="55">{
+						<expr_stmt><expr><call><name><name pos:line="132" pos:column="49">DBAnnotation</name><op:operator pos:line="132" pos:column="61">.</op:operator><name pos:line="132" pos:column="62">annoate</name></name><argument_list pos:line="132" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="132" pos:column="70">"startHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="132" pos:column="83">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="132" pos:column="96">"StartHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="132" pos:column="109">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<decl_stmt><decl><type><name pos:line="133" pos:column="49">int</name></type> <name pos:line="133" pos:column="53">timeslotID</name> <init pos:line="133" pos:column="64">= <expr><call><name><name pos:line="133" pos:column="66">rs</name><op:operator pos:line="133" pos:column="68">.</op:operator><name pos:line="133" pos:column="69">getInt</name></name><argument_list pos:line="133" pos:column="75">(<argument><expr><lit:literal type="string" pos:line="133" pos:column="76">"TimeslotID"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+						
+						<expr_stmt><expr><call><name><name pos:line="135" pos:column="49">DBAnnotation</name><op:operator pos:line="135" pos:column="61">.</op:operator><name pos:line="135" pos:column="62">annoate</name></name><argument_list pos:line="135" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="135" pos:column="70">"startHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="135" pos:column="83">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="135" pos:column="96">"StartHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="135" pos:column="109">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<decl_stmt><decl><type><name pos:line="136" pos:column="49">int</name></type> <name pos:line="136" pos:column="53">sHour</name> <init pos:line="136" pos:column="59">= <expr><call><name><name pos:line="136" pos:column="61">rs</name><op:operator pos:line="136" pos:column="63">.</op:operator><name pos:line="136" pos:column="64">getInt</name></name><argument_list pos:line="136" pos:column="70">(<argument><expr><lit:literal type="string" pos:line="136" pos:column="71">"StartHour"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+						
+						<expr_stmt><expr><call><name><name pos:line="138" pos:column="49">DBAnnotation</name><op:operator pos:line="138" pos:column="61">.</op:operator><name pos:line="138" pos:column="62">annoate</name></name><argument_list pos:line="138" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="138" pos:column="70">"endHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="138" pos:column="81">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="138" pos:column="94">"EndHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="138" pos:column="105">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<decl_stmt><decl><type><name pos:line="139" pos:column="49">int</name></type> <name pos:line="139" pos:column="53">eHour</name> <init pos:line="139" pos:column="59">= <expr><call><name><name pos:line="139" pos:column="61">rs</name><op:operator pos:line="139" pos:column="63">.</op:operator><name pos:line="139" pos:column="64">getInt</name></name><argument_list pos:line="139" pos:column="70">(<argument><expr><lit:literal type="string" pos:line="139" pos:column="71">"EndHour"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+						
+						<expr_stmt><expr><call><name><name pos:line="141" pos:column="49">DBAnnotation</name><op:operator pos:line="141" pos:column="61">.</op:operator><name pos:line="141" pos:column="62">annoate</name></name><argument_list pos:line="141" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="141" pos:column="70">"timeSlotType"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="141" pos:column="86">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="141" pos:column="99">"TimeslotType"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="141" pos:column="115">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<decl_stmt><decl><type><name pos:line="142" pos:column="49">int</name></type> <name pos:line="142" pos:column="53">timeSlotType</name> <init pos:line="142" pos:column="66">= <expr><call><name><name pos:line="142" pos:column="68">rs</name><op:operator pos:line="142" pos:column="70">.</op:operator><name pos:line="142" pos:column="71">getInt</name></name><argument_list pos:line="142" pos:column="77">(<argument><expr><lit:literal type="string" pos:line="142" pos:column="78">"TimeslotType"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+						
+						<expr_stmt><expr><name><name pos:line="144" pos:column="49">this</name><op:operator pos:line="144" pos:column="53">.</op:operator><name pos:line="144" pos:column="54">timeSlotID</name></name> <op:operator pos:line="144" pos:column="65">=</op:operator> <name pos:line="144" pos:column="67">timeslotID</name></expr>;</expr_stmt>
+						<expr_stmt><expr><name><name pos:line="145" pos:column="49">this</name><op:operator pos:line="145" pos:column="53">.</op:operator><name pos:line="145" pos:column="54">startHour</name></name> <op:operator pos:line="145" pos:column="64">=</op:operator> <name pos:line="145" pos:column="66">sHour</name></expr>;</expr_stmt>
+						<expr_stmt><expr><name><name pos:line="146" pos:column="49">this</name><op:operator pos:line="146" pos:column="53">.</op:operator><name pos:line="146" pos:column="54">endHour</name></name> <op:operator pos:line="146" pos:column="62">=</op:operator> <name pos:line="146" pos:column="64">eHour</name></expr>;</expr_stmt>
+						<expr_stmt><expr><name><name pos:line="147" pos:column="49">this</name><op:operator pos:line="147" pos:column="53">.</op:operator><name pos:line="147" pos:column="54">timeslotType</name></name> <op:operator pos:line="147" pos:column="67">=</op:operator> <name pos:line="147" pos:column="69">timeSlotType</name></expr>;</expr_stmt>
+					}</block></then>
+					
+					<else pos:line="150" pos:column="41">else<block pos:line="150" pos:column="45">{
+						<comment type="block" pos:line="151" pos:column="49">/*
+						 * the timeslot doesnt exist
+						 */</comment>
+						<throw pos:line="154" pos:column="49">throw <expr><op:operator pos:line="154" pos:column="55">new</op:operator> <call><name pos:line="154" pos:column="59">IllegalArgumentException</name><argument_list pos:line="154" pos:column="83">(<argument><expr><lit:literal type="string" pos:line="154" pos:column="84">"Timeslot does not exist"</lit:literal></expr></argument>)</argument_list></call></expr>;</throw>
+					}</block></else></if>
+				}</block></then></if>
+			}</block>
+			
+			<catch pos:line="159" pos:column="25">catch<parameter_list pos:line="159" pos:column="30">(<param><decl><type><name pos:line="159" pos:column="31">SQLException</name></type> <name pos:line="159" pos:column="44">e</name></decl></param>)</parameter_list><block pos:line="159" pos:column="46">{
+				<expr_stmt><expr><call><name><name pos:line="160" pos:column="33">System</name><op:operator pos:line="160" pos:column="39">.</op:operator><name pos:line="160" pos:column="40">out</name><op:operator pos:line="160" pos:column="43">.</op:operator><name pos:line="160" pos:column="44">println</name></name><argument_list pos:line="160" pos:column="51">(<argument><expr><call><name><name pos:line="160" pos:column="52">e</name><op:operator pos:line="160" pos:column="53">.</op:operator><name pos:line="160" pos:column="54">getMessage</name></name><argument_list pos:line="160" pos:column="64">()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			}</block></catch></try>
+			
+			
+		}</block>
+		
+		<finally pos:line="166" pos:column="17">finally<block pos:line="166" pos:column="24">{
+		}</block></finally></try>
+	}</block></constructor>
+	
+	<comment type="block" pos:line="170" pos:column="9">/*
+	 * Add the time slot with the specified start hor and end hour and the time slot type to the database
+	 */</comment>
+	<function><type><specifier pos:line="173" pos:column="9">public</specifier> <specifier pos:line="173" pos:column="16">static</specifier> <name pos:line="173" pos:column="23">boolean</name></type> <name pos:line="173" pos:column="31">addTimeSlot</name><parameter_list pos:line="173" pos:column="42">(<param><decl><type><name pos:line="173" pos:column="43">int</name></type> <name pos:line="173" pos:column="47">startHour</name></decl></param>, <param><decl><type><name pos:line="173" pos:column="58">int</name></type> <name pos:line="173" pos:column="62">endHour</name></decl></param>, <param><decl><type><name pos:line="173" pos:column="71">int</name></type> <name pos:line="173" pos:column="75">type</name></decl></param>)</parameter_list> <throws pos:line="173" pos:column="81">throws <argument><expr><name pos:line="173" pos:column="88">IllegalArgumentException</name></expr></argument></throws><block pos:line="173" pos:column="112">{
+		<comment type="block" pos:line="174" pos:column="17">/*
+		 * Checks the format and the length of hours and type of time slot along with the hours
+		 * Time slot type 1 is a one hour long time slot an type 2 is a 2 hour long time slots
+		 * If the checks are passed, the program proceeds with adding the time slots to the database
+		 */</comment>
+		<if pos:line="179" pos:column="17">if<condition pos:line="179" pos:column="19">(<expr><op:operator pos:line="179" pos:column="20">!</op:operator><call><name pos:line="179" pos:column="21">areHoursCorrect</name><argument_list pos:line="179" pos:column="36">(<argument><expr><name pos:line="179" pos:column="37">startHour</name></expr></argument>, <argument><expr><name pos:line="179" pos:column="48">endHour</name></expr></argument>)</argument_list></call> <op:operator pos:line="179" pos:column="57">||</op:operator> <op:operator pos:line="179" pos:column="60">!</op:operator><call><name pos:line="179" pos:column="61">isTypeCorrect</name><argument_list pos:line="179" pos:column="74">(<argument><expr><name pos:line="179" pos:column="75">startHour</name></expr></argument>,<argument><expr><name pos:line="179" pos:column="85">endHour</name></expr></argument>,<argument><expr><name pos:line="179" pos:column="93">type</name></expr></argument>)</argument_list></call></expr>)</condition><then pos:line="179" pos:column="99">
+			<throw pos:line="180" pos:column="25">throw <expr><op:operator pos:line="180" pos:column="31">new</op:operator> <call><name pos:line="180" pos:column="35">IllegalArgumentException</name><argument_list pos:line="180" pos:column="59">(<argument><expr><lit:literal type="string" pos:line="180" pos:column="60">"Arguments incorrect"</lit:literal></expr></argument>)</argument_list></call></expr>;</throw></then></if>
+		
+		<decl_stmt><decl><type><name pos:line="182" pos:column="17">boolean</name></type> <name pos:line="182" pos:column="25">isAdded</name> <init pos:line="182" pos:column="33">= <expr><lit:literal type="boolean" pos:line="182" pos:column="35">true</lit:literal></expr></init></decl>;</decl_stmt>
+		
+		<try pos:line="184" pos:column="17">try<block pos:line="184" pos:column="20">{
+			<decl_stmt><decl><type><name pos:line="185" pos:column="25">Connection</name></type> <name pos:line="185" pos:column="36">conn</name> <init pos:line="185" pos:column="41">= <expr><call><name><name pos:line="185" pos:column="43">Database</name><op:operator pos:line="185" pos:column="51">.</op:operator><name pos:line="185" pos:column="52">getConnection</name></name><argument_list pos:line="185" pos:column="65">()</argument_list></call></expr></init></decl>;</decl_stmt>
+			
+			<try pos:line="187" pos:column="25">try<block pos:line="187" pos:column="28">{
+				<if pos:line="188" pos:column="33">if<condition pos:line="188" pos:column="35">(<expr><name pos:line="188" pos:column="36">conn</name> <op:operator pos:line="188" pos:column="41">!=</op:operator> <lit:literal type="null" pos:line="188" pos:column="44">null</lit:literal></expr>)</condition><then><block pos:line="188" pos:column="49">{
+					
+					<comment type="line" pos:line="190" pos:column="41">//query to retrieve all time slots and check if the time slot already exists</comment>
+					<decl_stmt><decl><type><name pos:line="191" pos:column="41">String</name></type> <name pos:line="191" pos:column="48">findString</name> <init pos:line="191" pos:column="59">= <expr><lit:literal type="string" pos:line="191" pos:column="61">"Select * "</lit:literal>
+							<op:operator pos:line="192" pos:column="57">+</op:operator> <lit:literal type="string" pos:line="192" pos:column="59">"FROM timeslots "</lit:literal>
+							<op:operator pos:line="193" pos:column="57">+</op:operator> <lit:literal type="string" pos:line="193" pos:column="59">"WHERE starthour = ? and endhour = ?"</lit:literal></expr></init></decl>;</decl_stmt>
+					<decl_stmt><decl><type><name pos:line="194" pos:column="41">PreparedStatement</name></type> <name pos:line="194" pos:column="59">statement</name> <init pos:line="194" pos:column="69">= <expr><call><name><name pos:line="194" pos:column="71">conn</name><op:operator pos:line="194" pos:column="75">.</op:operator><name pos:line="194" pos:column="76">prepareStatement</name></name><argument_list pos:line="194" pos:column="92">(<argument><expr><name pos:line="194" pos:column="93">findString</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+					<expr_stmt><expr><call><name><name pos:line="195" pos:column="41">statement</name><op:operator pos:line="195" pos:column="50">.</op:operator><name pos:line="195" pos:column="51">setInt</name></name><argument_list pos:line="195" pos:column="57">(<argument><expr><lit:literal type="number" pos:line="195" pos:column="58">1</lit:literal></expr></argument>, <argument><expr><name pos:line="195" pos:column="61">startHour</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<expr_stmt><expr><call><name><name pos:line="196" pos:column="41">statement</name><op:operator pos:line="196" pos:column="50">.</op:operator><name pos:line="196" pos:column="51">setInt</name></name><argument_list pos:line="196" pos:column="57">(<argument><expr><lit:literal type="number" pos:line="196" pos:column="58">2</lit:literal></expr></argument>, <argument><expr><name pos:line="196" pos:column="61">endHour</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+					<decl_stmt><decl><type><name pos:line="197" pos:column="41">ResultSet</name></type> <name pos:line="197" pos:column="51">rs</name> <init pos:line="197" pos:column="54">= <expr><call><name><name pos:line="197" pos:column="56">statement</name><op:operator pos:line="197" pos:column="65">.</op:operator><name pos:line="197" pos:column="66">executeQuery</name></name><argument_list pos:line="197" pos:column="78">()</argument_list></call></expr></init></decl>;</decl_stmt>
+					
+					<if pos:line="199" pos:column="41">if<condition pos:line="199" pos:column="43">(<expr><call><name><name pos:line="199" pos:column="44">rs</name><op:operator pos:line="199" pos:column="46">.</op:operator><name pos:line="199" pos:column="47">first</name></name><argument_list pos:line="199" pos:column="52">()</argument_list></call></expr>)</condition><then><block pos:line="199" pos:column="55">{
+						<comment type="block" pos:line="200" pos:column="49">/*
+						 * time slot with similar parameters already exists, hence the exception
+						 */</comment>
+						<throw pos:line="203" pos:column="49">throw <expr><op:operator pos:line="203" pos:column="55">new</op:operator> <call><name pos:line="203" pos:column="59">IllegalArgumentException</name><argument_list pos:line="203" pos:column="83">(<argument><expr><lit:literal type="string" pos:line="203" pos:column="84">"Already existing timeslot"</lit:literal></expr></argument>)</argument_list></call></expr>;</throw>
+					}</block></then>
+					
+					<else pos:line="206" pos:column="41">else<block pos:line="206" pos:column="45">{
+						<comment type="block" pos:line="207" pos:column="49">/*
+						 * the new time slot can be added as all the pre-conditions are satisfied
+						 */</comment>
+						<expr_stmt><expr><call><name><name pos:line="210" pos:column="49">System</name><op:operator pos:line="210" pos:column="55">.</op:operator><name pos:line="210" pos:column="56">out</name><op:operator pos:line="210" pos:column="59">.</op:operator><name pos:line="210" pos:column="60">println</name></name><argument_list pos:line="210" pos:column="67">(<argument><expr><lit:literal type="string" pos:line="210" pos:column="68">"Adding new timeslot:"</lit:literal><op:operator pos:line="210" pos:column="90">+</op:operator><name pos:line="210" pos:column="91">startHour</name><op:operator pos:line="210" pos:column="100">+</op:operator><lit:literal type="string" pos:line="210" pos:column="101">" to "</lit:literal><op:operator pos:line="210" pos:column="107">+</op:operator><name pos:line="210" pos:column="108">endHour</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+												
+						<decl_stmt><decl><type><name pos:line="212" pos:column="49">String</name></type> <name pos:line="212" pos:column="56">addString</name> <init pos:line="212" pos:column="66">= <expr><lit:literal type="string" pos:line="212" pos:column="68">"INSERT INTO timeslots "</lit:literal>
+								<op:operator pos:line="213" pos:column="65">+</op:operator> <lit:literal type="string" pos:line="213" pos:column="67">"(StartHour, EndHour, TimeslotType) "</lit:literal>
+								<op:operator pos:line="214" pos:column="65">+</op:operator> <lit:literal type="string" pos:line="214" pos:column="67">"Values(?,?,?);"</lit:literal></expr></init></decl>;</decl_stmt>
+						<expr_stmt><expr><name pos:line="215" pos:column="49">statement</name> <op:operator pos:line="215" pos:column="59">=</op:operator> <call><name><name pos:line="215" pos:column="61">conn</name><op:operator pos:line="215" pos:column="65">.</op:operator><name pos:line="215" pos:column="66">prepareStatement</name></name><argument_list pos:line="215" pos:column="82">(<argument><expr><name pos:line="215" pos:column="83">addString</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<expr_stmt><expr><call><name><name pos:line="216" pos:column="49">statement</name><op:operator pos:line="216" pos:column="58">.</op:operator><name pos:line="216" pos:column="59">setInt</name></name><argument_list pos:line="216" pos:column="65">(<argument><expr><lit:literal type="number" pos:line="216" pos:column="66">1</lit:literal></expr></argument>, <argument><expr><name pos:line="216" pos:column="69">startHour</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<expr_stmt><expr><call><name><name pos:line="217" pos:column="49">statement</name><op:operator pos:line="217" pos:column="58">.</op:operator><name pos:line="217" pos:column="59">setInt</name></name><argument_list pos:line="217" pos:column="65">(<argument><expr><lit:literal type="number" pos:line="217" pos:column="66">2</lit:literal></expr></argument>, <argument><expr><name pos:line="217" pos:column="69">endHour</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<expr_stmt><expr><call><name><name pos:line="218" pos:column="49">statement</name><op:operator pos:line="218" pos:column="58">.</op:operator><name pos:line="218" pos:column="59">setInt</name></name><argument_list pos:line="218" pos:column="65">(<argument><expr><lit:literal type="number" pos:line="218" pos:column="66">3</lit:literal></expr></argument>, <argument><expr><name pos:line="218" pos:column="69">type</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<expr_stmt><expr><call><name><name pos:line="219" pos:column="49">statement</name><op:operator pos:line="219" pos:column="58">.</op:operator><name pos:line="219" pos:column="59">executeUpdate</name></name><argument_list pos:line="219" pos:column="72">()</argument_list></call></expr>;</expr_stmt>
+						
+						<expr_stmt><expr><call><name><name pos:line="221" pos:column="49">DBAnnotation</name><op:operator pos:line="221" pos:column="61">.</op:operator><name pos:line="221" pos:column="62">annoate</name></name><argument_list pos:line="221" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="221" pos:column="70">"startHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="221" pos:column="83">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="221" pos:column="96">"StartHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="221" pos:column="109">false</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<expr_stmt><expr><call><name><name pos:line="222" pos:column="49">DBAnnotation</name><op:operator pos:line="222" pos:column="61">.</op:operator><name pos:line="222" pos:column="62">annoate</name></name><argument_list pos:line="222" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="222" pos:column="70">"endHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="222" pos:column="81">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="222" pos:column="94">"EndHour"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="222" pos:column="105">false</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<expr_stmt><expr><call><name><name pos:line="223" pos:column="49">DBAnnotation</name><op:operator pos:line="223" pos:column="61">.</op:operator><name pos:line="223" pos:column="62">annoate</name></name><argument_list pos:line="223" pos:column="69">(<argument><expr><lit:literal type="string" pos:line="223" pos:column="70">"type"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="223" pos:column="78">"timeslots"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="223" pos:column="91">"TimeslotType"</lit:literal></expr></argument>, <argument><expr><lit:literal type="boolean" pos:line="223" pos:column="107">false</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						
+						<expr_stmt><expr><call><name><name pos:line="225" pos:column="49">Database</name><op:operator pos:line="225" pos:column="57">.</op:operator><name pos:line="225" pos:column="58">commitTransaction</name></name><argument_list pos:line="225" pos:column="75">(<argument><expr><name pos:line="225" pos:column="76">conn</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+						<expr_stmt><expr><name pos:line="226" pos:column="49">isAdded</name> <op:operator pos:line="226" pos:column="57">=</op:operator> <lit:literal type="boolean" pos:line="226" pos:column="59">true</lit:literal></expr>;</expr_stmt>
+					}</block></else></if>
+				}</block></then></if>
+			}</block>
+			
+			<catch pos:line="231" pos:column="25">catch<parameter_list pos:line="231" pos:column="30">(<param><decl><type><name pos:line="231" pos:column="31">SQLException</name></type> <name pos:line="231" pos:column="44">e</name></decl></param>)</parameter_list><block pos:line="231" pos:column="46">{
+				<expr_stmt><expr><call><name><name pos:line="232" pos:column="33">System</name><op:operator pos:line="232" pos:column="39">.</op:operator><name pos:line="232" pos:column="40">out</name><op:operator pos:line="232" pos:column="43">.</op:operator><name pos:line="232" pos:column="44">println</name></name><argument_list pos:line="232" pos:column="51">(<argument><expr><call><name><name pos:line="232" pos:column="52">e</name><op:operator pos:line="232" pos:column="53">.</op:operator><name pos:line="232" pos:column="54">getMessage</name></name><argument_list pos:line="232" pos:column="64">()</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+				
+			}</block></catch></try>
+			
+		}</block>
+		
+		<finally pos:line="238" pos:column="17">finally<block pos:line="238" pos:column="24">{
+		}</block></finally></try>
+		
+		<return pos:line="241" pos:column="17">return <expr><name pos:line="241" pos:column="24">isAdded</name></expr>;</return>
+
+	}</block></function>
+	
+	<comment type="block" pos:line="245" pos:column="9">/*
+	 * Checks if the start and end hours mentioned are correct
+	 */</comment>
+	<function><type><specifier pos:line="248" pos:column="9">public</specifier> <specifier pos:line="248" pos:column="16">static</specifier> <name pos:line="248" pos:column="23">boolean</name></type> <name pos:line="248" pos:column="31">areHoursCorrect</name><parameter_list pos:line="248" pos:column="46">(<param><decl><type><name pos:line="248" pos:column="47">int</name></type> <name pos:line="248" pos:column="51">startHour</name></decl></param>, <param><decl><type><name pos:line="248" pos:column="62">int</name></type> <name pos:line="248" pos:column="66">endHour</name></decl></param>)</parameter_list><block pos:line="248" pos:column="74">{
+		<if pos:line="249" pos:column="17">if<condition pos:line="249" pos:column="19">(<expr><name><name pos:line="249" pos:column="20">startHour</name> <argument_list pos:line="249" pos:column="30">&lt; <argument><lit:literal type="number" pos:line="249" pos:column="32">6</lit:literal> <op:operator pos:line="249" pos:column="34">||</op:operator> <name pos:line="249" pos:column="37">startHour</name></argument> &gt;</argument_list></name> <lit:literal type="number" pos:line="249" pos:column="49">20</lit:literal></expr>)</condition><then pos:line="249" pos:column="52">
+			<return pos:line="250" pos:column="25">return <expr><lit:literal type="boolean" pos:line="250" pos:column="32">false</lit:literal></expr>;</return></then></if>
+		<if pos:line="251" pos:column="17">if<condition pos:line="251" pos:column="19">(<expr><name pos:line="251" pos:column="20">endHour</name><op:operator pos:line="251" pos:column="27">&gt;</op:operator><lit:literal type="number" pos:line="251" pos:column="28">21</lit:literal> <op:operator pos:line="251" pos:column="31">||</op:operator> <name pos:line="251" pos:column="34">endHour</name> <op:operator pos:line="251" pos:column="42">&lt;</op:operator> <lit:literal type="number" pos:line="251" pos:column="44">7</lit:literal></expr>)</condition><then pos:line="251" pos:column="46">
+			<return pos:line="252" pos:column="25">return <expr><lit:literal type="boolean" pos:line="252" pos:column="32">false</lit:literal></expr>;</return></then></if>
+		<if pos:line="253" pos:column="17">if<condition pos:line="253" pos:column="19">(<expr><op:operator pos:line="253" pos:column="20">(</op:operator><name pos:line="253" pos:column="21">endHour</name> <op:operator pos:line="253" pos:column="29">-</op:operator> <name pos:line="253" pos:column="31">startHour</name><op:operator pos:line="253" pos:column="40">)</op:operator> <op:operator pos:line="253" pos:column="42">&lt;</op:operator> <lit:literal type="number" pos:line="253" pos:column="44">1</lit:literal></expr>)</condition><then pos:line="253" pos:column="46">
+			<return pos:line="254" pos:column="25">return <expr><lit:literal type="boolean" pos:line="254" pos:column="32">false</lit:literal></expr>;</return></then></if>
+		<if pos:line="255" pos:column="17">if<condition pos:line="255" pos:column="19">(<expr><op:operator pos:line="255" pos:column="20">(</op:operator><name pos:line="255" pos:column="21">endHour</name> <op:operator pos:line="255" pos:column="29">-</op:operator> <name pos:line="255" pos:column="31">startHour</name><op:operator pos:line="255" pos:column="40">)</op:operator> <op:operator pos:line="255" pos:column="42">&gt;</op:operator> <lit:literal type="number" pos:line="255" pos:column="44">2</lit:literal></expr>)</condition><then pos:line="255" pos:column="46">
+			<return pos:line="256" pos:column="25">return <expr><lit:literal type="boolean" pos:line="256" pos:column="32">false</lit:literal></expr>;</return></then>
+		<else pos:line="257" pos:column="17">else 
+			<return pos:line="258" pos:column="25">return <expr><lit:literal type="boolean" pos:line="258" pos:column="32">true</lit:literal></expr>;</return></else></if>
+	}</block></function>
+	
+	<comment type="block" pos:line="261" pos:column="9">/*
+	 * Checks if any time conflict exists between two specified time slot objects
+	 */</comment>
+	<function><type><specifier pos:line="264" pos:column="9">public</specifier> <specifier pos:line="264" pos:column="16">static</specifier> <name pos:line="264" pos:column="23">boolean</name></type> <name pos:line="264" pos:column="31">isConflict</name><parameter_list pos:line="264" pos:column="41">(<param><decl><type><name pos:line="264" pos:column="42">Timeslots</name></type> <name pos:line="264" pos:column="52">t1</name></decl></param>, <param><decl><type><name pos:line="264" pos:column="56">Timeslots</name></type> <name pos:line="264" pos:column="66">t2</name></decl></param>)</parameter_list><block pos:line="264" pos:column="69">{
+		<decl_stmt><decl><type><name pos:line="265" pos:column="17">int</name></type> <name pos:line="265" pos:column="21">t1Type</name> <init pos:line="265" pos:column="28">= <expr><call><name><name pos:line="265" pos:column="30">t1</name><op:operator pos:line="265" pos:column="32">.</op:operator><name pos:line="265" pos:column="33">getTimeslotType</name></name><argument_list pos:line="265" pos:column="48">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<decl_stmt><decl><type><name pos:line="266" pos:column="17">int</name></type> <name pos:line="266" pos:column="21">t2Type</name> <init pos:line="266" pos:column="28">= <expr><call><name><name pos:line="266" pos:column="30">t2</name><op:operator pos:line="266" pos:column="32">.</op:operator><name pos:line="266" pos:column="33">getTimeslotType</name></name><argument_list pos:line="266" pos:column="48">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		
+		<comment type="line" pos:line="268" pos:column="17">//System.out.println("Looking for conflict between timeslots "+t1+" and:"+t2);</comment>
+		
+		<if pos:line="270" pos:column="17">if<condition pos:line="270" pos:column="19">(<expr><name pos:line="270" pos:column="20">t1Type</name> <op:operator pos:line="270" pos:column="27">!=</op:operator> <name pos:line="270" pos:column="30">t2Type</name></expr>)</condition><then><block pos:line="270" pos:column="37">{
+			<return pos:line="271" pos:column="25">return <expr><lit:literal type="boolean" pos:line="271" pos:column="32">false</lit:literal></expr>;</return>
+		}</block></then></if>
+		
+		<decl_stmt><decl><type><name pos:line="274" pos:column="17">int</name></type> <name pos:line="274" pos:column="21">t1s</name> <init pos:line="274" pos:column="25">= <expr><call><name><name pos:line="274" pos:column="27">t1</name><op:operator pos:line="274" pos:column="29">.</op:operator><name pos:line="274" pos:column="30">getStartHour</name></name><argument_list pos:line="274" pos:column="42">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<decl_stmt><decl><type><name pos:line="275" pos:column="17">int</name></type> <name pos:line="275" pos:column="21">t1e</name> <init pos:line="275" pos:column="25">= <expr><call><name><name pos:line="275" pos:column="27">t1</name><op:operator pos:line="275" pos:column="29">.</op:operator><name pos:line="275" pos:column="30">getEndHour</name></name><argument_list pos:line="275" pos:column="40">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<decl_stmt><decl><type><name pos:line="276" pos:column="17">int</name></type> <name pos:line="276" pos:column="21">t2s</name> <init pos:line="276" pos:column="25">= <expr><call><name><name pos:line="276" pos:column="27">t2</name><op:operator pos:line="276" pos:column="29">.</op:operator><name pos:line="276" pos:column="30">getStartHour</name></name><argument_list pos:line="276" pos:column="42">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		<decl_stmt><decl><type><name pos:line="277" pos:column="17">int</name></type> <name pos:line="277" pos:column="21">t2e</name> <init pos:line="277" pos:column="25">= <expr><call><name><name pos:line="277" pos:column="27">t2</name><op:operator pos:line="277" pos:column="29">.</op:operator><name pos:line="277" pos:column="30">getEndHour</name></name><argument_list pos:line="277" pos:column="40">()</argument_list></call></expr></init></decl>;</decl_stmt>
+		
+		<if pos:line="279" pos:column="17">if<condition pos:line="279" pos:column="19">(<expr><name pos:line="279" pos:column="20">t1s</name> <op:operator pos:line="279" pos:column="24">==</op:operator> <name pos:line="279" pos:column="27">t2s</name> <op:operator pos:line="279" pos:column="31">||</op:operator> <name pos:line="279" pos:column="34">t1e</name> <op:operator pos:line="279" pos:column="38">==</op:operator> <name pos:line="279" pos:column="41">t2e</name></expr>)</condition><then pos:line="279" pos:column="45">
+			<return pos:line="280" pos:column="25">return <expr><lit:literal type="boolean" pos:line="280" pos:column="32">true</lit:literal></expr>;</return></then></if>
+		<if pos:line="281" pos:column="17">if<condition pos:line="281" pos:column="19">(<expr><call><name pos:line="281" pos:column="20">isInBetween</name><argument_list pos:line="281" pos:column="31">(<argument><expr><name pos:line="281" pos:column="32">t1s</name></expr></argument>, <argument><expr><name pos:line="281" pos:column="37">t1e</name></expr></argument>, <argument><expr><name pos:line="281" pos:column="42">t2s</name></expr></argument>)</argument_list></call></expr>)</condition><then pos:line="281" pos:column="47">
+			<return pos:line="282" pos:column="25">return <expr><lit:literal type="boolean" pos:line="282" pos:column="32">true</lit:literal></expr>;</return></then></if>
+		<if pos:line="283" pos:column="17">if<condition pos:line="283" pos:column="19">(<expr><call><name pos:line="283" pos:column="20">isInBetween</name><argument_list pos:line="283" pos:column="31">(<argument><expr><name pos:line="283" pos:column="32">t1s</name></expr></argument>, <argument><expr><name pos:line="283" pos:column="37">t1e</name></expr></argument>, <argument><expr><name pos:line="283" pos:column="42">t2e</name></expr></argument>)</argument_list></call></expr>)</condition><then pos:line="283" pos:column="47">
+			<return pos:line="284" pos:column="25">return <expr><lit:literal type="boolean" pos:line="284" pos:column="32">true</lit:literal></expr>;</return></then></if>
+		<if pos:line="285" pos:column="17">if<condition pos:line="285" pos:column="19">(<expr><call><name pos:line="285" pos:column="20">isInBetween</name><argument_list pos:line="285" pos:column="31">(<argument><expr><name pos:line="285" pos:column="32">t2s</name></expr></argument>, <argument><expr><name pos:line="285" pos:column="37">t2e</name></expr></argument>, <argument><expr><name pos:line="285" pos:column="42">t1s</name></expr></argument>)</argument_list></call></expr>)</condition><then pos:line="285" pos:column="47">
+			<return pos:line="286" pos:column="25">return <expr><lit:literal type="boolean" pos:line="286" pos:column="32">true</lit:literal></expr>;</return></then></if>
+		<if pos:line="287" pos:column="17">if<condition pos:line="287" pos:column="19">(<expr><call><name pos:line="287" pos:column="20">isInBetween</name><argument_list pos:line="287" pos:column="31">(<argument><expr><name pos:line="287" pos:column="32">t2s</name></expr></argument>, <argument><expr><name pos:line="287" pos:column="37">t2e</name></expr></argument>, <argument><expr><name pos:line="287" pos:column="42">t1e</name></expr></argument>)</argument_list></call></expr>)</condition><then pos:line="287" pos:column="47">
+			<return pos:line="288" pos:column="25">return <expr><lit:literal type="boolean" pos:line="288" pos:column="32">true</lit:literal></expr>;</return></then></if>
+		
+		
+		<return pos:line="291" pos:column="17">return <expr><lit:literal type="boolean" pos:line="291" pos:column="24">false</lit:literal></expr>;</return>
+	}</block></function>
+	
+	<comment type="block" pos:line="294" pos:column="9">/*
+	 * Checks if the specified time slot (tocheck) falls between the start and end hours
+	 */</comment>
+	<function><type><specifier pos:line="297" pos:column="9">public</specifier> <specifier pos:line="297" pos:column="16">static</specifier> <name pos:line="297" pos:column="23">boolean</name></type> <name pos:line="297" pos:column="31">isInBetween</name><parameter_list pos:line="297" pos:column="42">(<param><decl><type><name pos:line="297" pos:column="43">int</name></type> <name pos:line="297" pos:column="47">start</name></decl></param>, <param><decl><type><name pos:line="297" pos:column="54">int</name></type> <name pos:line="297" pos:column="58">end</name></decl></param>, <param><decl><type><name pos:line="297" pos:column="63">int</name></type> <name pos:line="297" pos:column="67">toCheck</name></decl></param>)</parameter_list><block pos:line="297" pos:column="75">{
+		<if pos:line="298" pos:column="17">if<condition pos:line="298" pos:column="19">(<expr><name><name pos:line="298" pos:column="20">toCheck</name><argument_list pos:line="298" pos:column="27">&lt;<argument><name pos:line="298" pos:column="28">end</name> <op:operator pos:line="298" pos:column="32">&amp;&amp;</op:operator> <name pos:line="298" pos:column="35">toCheck</name></argument>&gt;</argument_list></name><name pos:line="298" pos:column="43">start</name></expr>)</condition><then><block pos:line="298" pos:column="49">{
+			<return pos:line="299" pos:column="25">return <expr><lit:literal type="boolean" pos:line="299" pos:column="32">true</lit:literal></expr>;</return>
+		}</block></then>
+		
+		<else pos:line="302" pos:column="17">else
+			<return pos:line="303" pos:column="25">return <expr><lit:literal type="boolean" pos:line="303" pos:column="32">false</lit:literal></expr>;</return></else></if>
+		
+		
+	}</block></function>
+
+	<comment type="block" pos:line="308" pos:column="9">/*
+	 * Checks if the type of time slot mentioned is either 1 or two
+	 * Also checks if the time slot type 1 is one hour time slot and time slot 2 is a two hour time slot
+	 */</comment>
+	<function><type><specifier pos:line="312" pos:column="9">public</specifier> <specifier pos:line="312" pos:column="16">static</specifier> <name pos:line="312" pos:column="23">boolean</name></type> <name pos:line="312" pos:column="31">isTypeCorrect</name><parameter_list pos:line="312" pos:column="44">(<param><decl><type><name pos:line="312" pos:column="45">int</name></type> <name pos:line="312" pos:column="49">startHour</name></decl></param>, <param><decl><type><name pos:line="312" pos:column="60">int</name></type> <name pos:line="312" pos:column="64">endHour</name></decl></param>, <param><decl><type><name pos:line="312" pos:column="73">int</name></type> <name pos:line="312" pos:column="77">type</name></decl></param>)</parameter_list><block pos:line="312" pos:column="82">{
+		<decl_stmt><decl><type><name pos:line="313" pos:column="17">boolean</name></type> <name pos:line="313" pos:column="25">flag</name> <init pos:line="313" pos:column="30">= <expr><lit:literal type="boolean" pos:line="313" pos:column="32">false</lit:literal></expr></init></decl>;</decl_stmt>
+		
+		<if pos:line="315" pos:column="17">if<condition pos:line="315" pos:column="19">(<expr><name pos:line="315" pos:column="20">type</name> <op:operator pos:line="315" pos:column="25">!=</op:operator> <lit:literal type="number" pos:line="315" pos:column="28">1</lit:literal> <op:operator pos:line="315" pos:column="30">&amp;&amp;</op:operator> <name pos:line="315" pos:column="33">type</name> <op:operator pos:line="315" pos:column="38">!=</op:operator> <lit:literal type="number" pos:line="315" pos:column="41">2</lit:literal></expr>)</condition><then pos:line="315" pos:column="43">
+			<expr_stmt><expr><name pos:line="316" pos:column="25">flag</name> <op:operator pos:line="316" pos:column="30">=</op:operator> <lit:literal type="boolean" pos:line="316" pos:column="32">false</lit:literal></expr>;</expr_stmt></then></if>
+		
+		<if pos:line="318" pos:column="17">if<condition pos:line="318" pos:column="19">(<expr><name pos:line="318" pos:column="20">type</name> <op:operator pos:line="318" pos:column="25">==</op:operator> <lit:literal type="number" pos:line="318" pos:column="28">1</lit:literal></expr>)</condition><then><block pos:line="318" pos:column="30">{
+			<if pos:line="319" pos:column="25">if<condition pos:line="319" pos:column="27">(<expr><name pos:line="319" pos:column="28">endHour</name> <op:operator pos:line="319" pos:column="36">-</op:operator> <name pos:line="319" pos:column="38">startHour</name> <op:operator pos:line="319" pos:column="48">!=</op:operator> <lit:literal type="number" pos:line="319" pos:column="51">1</lit:literal></expr>)</condition><then pos:line="319" pos:column="53">
+				<expr_stmt><expr><name pos:line="320" pos:column="33">flag</name> <op:operator pos:line="320" pos:column="38">=</op:operator> <lit:literal type="boolean" pos:line="320" pos:column="40">false</lit:literal></expr>;</expr_stmt></then>
+			<else pos:line="321" pos:column="25">else 
+				<expr_stmt><expr><name pos:line="322" pos:column="33">flag</name> <op:operator pos:line="322" pos:column="38">=</op:operator> <lit:literal type="boolean" pos:line="322" pos:column="40">true</lit:literal></expr>;</expr_stmt></else></if>
+		}</block></then></if>
+		
+		<if pos:line="325" pos:column="17">if<condition pos:line="325" pos:column="19">(<expr><name pos:line="325" pos:column="20">type</name> <op:operator pos:line="325" pos:column="25">==</op:operator> <lit:literal type="number" pos:line="325" pos:column="28">2</lit:literal></expr>)</condition><then><block pos:line="325" pos:column="30">{
+			<if pos:line="326" pos:column="25">if<condition pos:line="326" pos:column="27">(<expr><name pos:line="326" pos:column="28">endHour</name> <op:operator pos:line="326" pos:column="36">-</op:operator> <name pos:line="326" pos:column="38">startHour</name> <op:operator pos:line="326" pos:column="48">!=</op:operator> <lit:literal type="number" pos:line="326" pos:column="51">2</lit:literal></expr>)</condition><then pos:line="326" pos:column="53">
+				<expr_stmt><expr><name pos:line="327" pos:column="33">flag</name> <op:operator pos:line="327" pos:column="38">=</op:operator> <lit:literal type="boolean" pos:line="327" pos:column="40">false</lit:literal></expr>;</expr_stmt></then>
+			<else pos:line="328" pos:column="25">else 
+				<expr_stmt><expr><name pos:line="329" pos:column="33">flag</name> <op:operator pos:line="329" pos:column="38">=</op:operator> <lit:literal type="boolean" pos:line="329" pos:column="40">true</lit:literal></expr>;</expr_stmt></else></if>
+		}</block></then></if>
+		
+		<return pos:line="332" pos:column="17">return <expr><name pos:line="332" pos:column="24">flag</name></expr>;</return>
+	}</block></function>
+	
+	
+	<comment type="block" pos:line="336" pos:column="9">/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */</comment>
+	<function><type><specifier pos:line="340" pos:column="9">public</specifier> <name pos:line="340" pos:column="16">String</name></type> <name pos:line="340" pos:column="23">toString</name><parameter_list pos:line="340" pos:column="31">()</parameter_list><block pos:line="340" pos:column="33">{
+		<decl_stmt><decl><type><name pos:line="341" pos:column="17">String</name></type> <name pos:line="341" pos:column="24">toReturn</name><init pos:line="341" pos:column="32">=<expr><lit:literal type="string" pos:line="341" pos:column="33">""</lit:literal></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><name pos:line="342" pos:column="17">toReturn</name><op:operator pos:line="342" pos:column="25">+=</op:operator><lit:literal type="string" pos:line="342" pos:column="27">"\nStart Hour:"</lit:literal><op:operator pos:line="342" pos:column="42">+</op:operator><call><name><name pos:line="342" pos:column="43">this</name><op:operator pos:line="342" pos:column="47">.</op:operator><name pos:line="342" pos:column="48">getStartHour</name></name><argument_list pos:line="342" pos:column="60">()</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name pos:line="343" pos:column="17">toReturn</name><op:operator pos:line="343" pos:column="25">+=</op:operator><lit:literal type="string" pos:line="343" pos:column="27">"\nEnd Hour:"</lit:literal><op:operator pos:line="343" pos:column="40">+</op:operator><call><name><name pos:line="343" pos:column="41">this</name><op:operator pos:line="343" pos:column="45">.</op:operator><name pos:line="343" pos:column="46">getEndHour</name></name><argument_list pos:line="343" pos:column="56">()</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name pos:line="344" pos:column="17">toReturn</name><op:operator pos:line="344" pos:column="25">+=</op:operator><lit:literal type="string" pos:line="344" pos:column="27">"\nTimeslot ID:"</lit:literal><op:operator pos:line="344" pos:column="43">+</op:operator><call><name><name pos:line="344" pos:column="44">this</name><op:operator pos:line="344" pos:column="48">.</op:operator><name pos:line="344" pos:column="49">getTimeSlotID</name></name><argument_list pos:line="344" pos:column="62">()</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name pos:line="345" pos:column="17">toReturn</name><op:operator pos:line="345" pos:column="25">+=</op:operator><lit:literal type="string" pos:line="345" pos:column="27">"\nTimeslot Type:"</lit:literal><op:operator pos:line="345" pos:column="45">+</op:operator><call><name><name pos:line="345" pos:column="46">this</name><op:operator pos:line="345" pos:column="50">.</op:operator><name pos:line="345" pos:column="51">getTimeslotType</name></name><argument_list pos:line="345" pos:column="66">()</argument_list></call></expr>;</expr_stmt>
+		<return pos:line="346" pos:column="17">return <expr><name pos:line="346" pos:column="24">toReturn</name></expr>;</return>
+	}</block></function>
+		
+}</block></class>
+
+
+</unit>

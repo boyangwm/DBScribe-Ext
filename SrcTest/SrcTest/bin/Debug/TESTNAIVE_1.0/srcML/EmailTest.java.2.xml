@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\UMAS\src\com\umas\testcode\EmailTest.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name><name pos:line="1" pos:column="9">com</name><op:operator pos:line="1" pos:column="12">.</op:operator><name pos:line="1" pos:column="13">umas</name><op:operator pos:line="1" pos:column="17">.</op:operator><name pos:line="1" pos:column="18">testcode</name></name>;</package>
+<import pos:line="2" pos:column="1">import static <name><name pos:line="2" pos:column="15">org</name><op:operator pos:line="2" pos:column="18">.</op:operator><name pos:line="2" pos:column="19">junit</name><op:operator pos:line="2" pos:column="24">.</op:operator><name pos:line="2" pos:column="25">Assert</name></name>.*;</import>
+
+<import pos:line="4" pos:column="1">import <name><name pos:line="4" pos:column="8">org</name><op:operator pos:line="4" pos:column="11">.</op:operator><name pos:line="4" pos:column="12">junit</name><op:operator pos:line="4" pos:column="17">.</op:operator><name pos:line="4" pos:column="18">Before</name></name>;</import>
+<import pos:line="5" pos:column="1">import <name><name pos:line="5" pos:column="8">org</name><op:operator pos:line="5" pos:column="11">.</op:operator><name pos:line="5" pos:column="12">junit</name><op:operator pos:line="5" pos:column="17">.</op:operator><name pos:line="5" pos:column="18">Test</name></name>;</import>
+<import pos:line="6" pos:column="1">import <name><name pos:line="6" pos:column="8">com</name><op:operator pos:line="6" pos:column="11">.</op:operator><name pos:line="6" pos:column="12">umas</name><op:operator pos:line="6" pos:column="16">.</op:operator><name pos:line="6" pos:column="17">code</name></name>.*;</import>
+
+<comment type="block" format="javadoc" pos:line="8" pos:column="1">/************************@author Simant Purohit*************************/</comment>
+
+<class><specifier pos:line="10" pos:column="1">public</specifier> class <name pos:line="10" pos:column="14">EmailTest</name> <block pos:line="10" pos:column="24">{
+
+	<decl_stmt><decl><type><specifier pos:line="12" pos:column="9">public</specifier> <specifier pos:line="12" pos:column="16">static</specifier> <name pos:line="12" pos:column="23">Email</name></type> <name pos:line="12" pos:column="29">email</name></decl>;</decl_stmt>
+	<function><type><annotation pos:line="13" pos:column="9">@<name pos:line="13" pos:column="10">Before</name></annotation>
+	<specifier pos:line="14" pos:column="9">public</specifier> <name pos:line="14" pos:column="16">void</name></type> <name pos:line="14" pos:column="21">setUp</name><parameter_list pos:line="14" pos:column="26">()</parameter_list> <throws pos:line="14" pos:column="29">throws <argument><expr><name pos:line="14" pos:column="36">Exception</name></expr></argument></throws> <block pos:line="14" pos:column="46">{
+		<expr_stmt><expr><name pos:line="15" pos:column="17">email</name> <op:operator pos:line="15" pos:column="23">=</op:operator> <call><name><name pos:line="15" pos:column="25">Email</name><op:operator pos:line="15" pos:column="30">.</op:operator><name pos:line="15" pos:column="31">getInstance</name></name><argument_list pos:line="15" pos:column="42">(<argument><expr><lit:literal type="string" pos:line="15" pos:column="43">"umas.uic@gmail.com"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="15" pos:column="65">"cs597project"</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="18" pos:column="9">@<name pos:line="18" pos:column="10">Test</name></annotation>
+	<specifier pos:line="19" pos:column="9">public</specifier> <specifier pos:line="19" pos:column="16">final</specifier> <name pos:line="19" pos:column="22">void</name></type> <name pos:line="19" pos:column="27">testGetInstance</name><parameter_list pos:line="19" pos:column="42">()</parameter_list> <block pos:line="19" pos:column="45">{
+		<expr_stmt><expr><call><name pos:line="20" pos:column="17">assertNotNull</name><argument_list pos:line="20" pos:column="30">(<argument><expr><call><name><name pos:line="20" pos:column="31">Email</name><op:operator pos:line="20" pos:column="36">.</op:operator><name pos:line="20" pos:column="37">getInstance</name></name><argument_list pos:line="20" pos:column="48">(<argument><expr><lit:literal type="string" pos:line="20" pos:column="49">"umas.uic@gmail.com"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="20" pos:column="71">"cs597project"</lit:literal></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+
+	<function><type><annotation pos:line="23" pos:column="9">@<name pos:line="23" pos:column="10">Test</name></annotation>
+	<specifier pos:line="24" pos:column="9">public</specifier> <specifier pos:line="24" pos:column="16">final</specifier> <name pos:line="24" pos:column="22">void</name></type> <name pos:line="24" pos:column="27">testSendEmail</name><parameter_list pos:line="24" pos:column="40">()</parameter_list> <block pos:line="24" pos:column="43">{
+		<decl_stmt><decl><type><name pos:line="25" pos:column="17">boolean</name></type> <name pos:line="25" pos:column="25">check</name> <init pos:line="25" pos:column="31">= <expr><call><name><name pos:line="25" pos:column="33">email</name><op:operator pos:line="25" pos:column="38">.</op:operator><name pos:line="25" pos:column="39">sendEmail</name></name><argument_list pos:line="25" pos:column="48">(<argument><expr><lit:literal type="string" pos:line="25" pos:column="49">"xyzdkajasd@umas.edu"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="25" pos:column="72">"Test Mail from JUnit"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="25" pos:column="96">"Test success"</lit:literal></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+		<expr_stmt><expr><call><name pos:line="26" pos:column="17">assertTrue</name><argument_list pos:line="26" pos:column="27">(<argument><expr><name pos:line="26" pos:column="28">check</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+	}</block></function>
+	
+	<function><type><annotation pos:line="29" pos:column="9">@<name pos:line="29" pos:column="10">Test</name></annotation>
+	<specifier pos:line="30" pos:column="9">public</specifier> <specifier pos:line="30" pos:column="16">final</specifier> <name pos:line="30" pos:column="22">void</name></type> <name pos:line="30" pos:column="27">testSendEmail2</name><parameter_list pos:line="30" pos:column="41">()</parameter_list> <block pos:line="30" pos:column="44">{
+		<comment type="block" pos:line="31" pos:column="17">/*
+		 * Sending a email to a id that is not formatted email address (abc@xyz.com/edu)
+		 */</comment>
+		<try pos:line="34" pos:column="17">try<block pos:line="34" pos:column="20">{
+			<expr_stmt><expr><call><name><name pos:line="35" pos:column="25">email</name><op:operator pos:line="35" pos:column="30">.</op:operator><name pos:line="35" pos:column="31">sendEmail</name></name><argument_list pos:line="35" pos:column="40">(<argument><expr><lit:literal type="string" pos:line="35" pos:column="41">"xyzdkajasd"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="35" pos:column="55">"Test Mail from JUnit"</lit:literal></expr></argument>, <argument><expr><lit:literal type="string" pos:line="35" pos:column="79">"Test success"</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		}</block>
+		<catch pos:line="37" pos:column="17">catch<parameter_list pos:line="37" pos:column="22">(<param><decl><type><name pos:line="37" pos:column="23">Exception</name></type> <name pos:line="37" pos:column="33">e</name></decl></param>)</parameter_list><block pos:line="37" pos:column="35">{
+		}</block></catch></try>
+	}</block></function>
+}</block></class>
+</unit>
