@@ -18,62 +18,10 @@ namespace WM.UnitTestScribe
 {
     public class Program
     {
-        /// <summary> Subject application location </summary>
-        public static readonly string LocalProj = @"C:\SE-project\testcode\RiskIt"; 
-        /// <summary> SrcML directory location </summary>
-        public static readonly string SrcmlLoc = @"C:\SE-project\testcode\SrcML";
+        public static readonly string LocalProj = @"C:\GitHub\testProgram\RiskIt";
+        public static readonly string SrcmlLoc = @"C:\GitHub\tool\SrcML";
         public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=riskit;";
-        /*public static List<string> GetSqlFile(string varFileName)
-        {
-            List<string> alSql = new List<string>();
-            if (!File.Exists(varFileName))
-            {
-                Console.WriteLine("NO DB!");
-                return alSql;
-            }
-            StreamReader rs = new StreamReader(varFileName, System.Text.Encoding.Default);//注意编码
-            string commandText = "";
-            string varLine = "";
-            while (rs.Peek() > -1)
-            {
-                varLine = rs.ReadLine();
-                if (varLine == "")
-                {
-                    continue;
-                }
-                if (varLine.Last() == '-' || varLine.Last() == ';' || varLine.Last() == '"')
-                {
-                    commandText += varLine;
-                    alSql.Add(commandText);
-                    commandText = "";
-                }
-                else
-                {
-                    commandText += varLine;
-                    //commandText = commandText.Replace("@database_name=N'dbhr'", string.Format("@database_name=N'{0}'", dbname));
-                    //commandText += "\r\n";
-                }
-            }
-            rs.Close();
-            return alSql;
-        }
 
-        private static void DisplayData(System.Data.DataTable table)
-        {
-            foreach (System.Data.DataRow row in table.Rows)
-            {
-                foreach (System.Data.DataColumn col in table.Columns)
-                {
-                    Console.WriteLine("{0} = {1}", col.ColumnName, row[col]);
-                }
-                Console.WriteLine("============================");
-            }
-        }*/
-
-        /// <summary>
-        /// Command line testing
-        /// </summary>
-        /// <param name="args"></param>
         static void Main(string[] args)
         {
 
@@ -85,39 +33,7 @@ namespace WM.UnitTestScribe
             var dbsingle = new dataSchemer(myConnectionString);
             Console.WriteLine("ConnectData Success");
             Console.WriteLine();
-            /*HashSet<TestCaseSummary> allS;
-            List<AssertSTInfo> listassert;
-            TestCaseSummary s1= new TestCaseSummary("abc",listassert,m);
-            HomeGenerator hgTest = new HomeGenerator(allS);
-            Console.ReadKey();*/
-            SummaryGenerator smTest = new SummaryGenerator(LocalProj,SrcmlLoc);
-
-
-            //database test
-            /*var sqlfile = GetSqlFile(LocalProjDB);
-            foreach (var query in sqlfile)
-            {
-                Console.WriteLine(query.ToString());
-                Console.WriteLine();
-                Console.ReadKey(true);
-            }
-            Console.WriteLine("DB READING FINISHED!");
-            Console.ReadKey(true);*/
-
-            /*string connectionString = GetConnectionString();
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                // Connect to the database then retrieve the schema information.
-                connection.Open();
-                DataTable table = connection.GetSchema("Tables");
-
-                // Display the contents of the table.
-                DisplayData(table);
-                Console.WriteLine("Press any key to continue.");
-                Console.ReadKey(true);
-            }*/
-
-
+            SummaryGenerator smTest = new SummaryGenerator(LocalProj, SrcmlLoc);
 
             if (!CommandLine.Parser.Default.ParseArguments(args, options,
                 (verb, verbOptions) =>
@@ -134,9 +50,9 @@ namespace WM.UnitTestScribe
                 var generator = new ExtractMethodSQL(callGraphOp.LocationsPath, callGraphOp.SrcMLPath);
                 generator.run(dbsingle);
             }
-            else if (invokedVerb == "hello")
+            else
             {
-                Console.WriteLine("print hello");
+                Console.WriteLine("Run command, try again!");
 
             }
         }

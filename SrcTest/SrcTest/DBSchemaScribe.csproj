@@ -101,7 +101,9 @@
     <Compile Include="CallGraph\CallGraph.cs" />
     <Compile Include="CallGraph\CGManager.cs" />
     <Compile Include="CallGraph\ExtractMethodSQL.cs" />
-    <Compile Include="CallGraph\InvokeCallGraphGenerator.cs" />
+    <Compile Include="CallGraph\InvokeCallGraphGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="dataSchemer.cs" />
     <Compile Include="desMethod.cs" />
     <Compile Include="Program.cs" />
@@ -134,10 +136,12 @@
     <Compile Include="Stereotype\VariableInfo.cs" />
     <Compile Include="Summary\AssertSTInfo.cs" />
     <Compile Include="Summary\AssignmentPath.cs" />
-    <Compile Include="Summary\SummaryGenerator.cs" />
+    <Compile Include="Summary\SummaryGenerator.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Summary\SwumSummary.cs" />
     <Compile Include="Summary\TestCaseAnalyzer.cs" />
-    <Compile Include="Summary\ColumnSummary.cs" />
+    <Compile Include="Summary\SingleSummary.cs" />
     <Compile Include="Summary\TestCaseSummary.cs" />
     <Compile Include="Summary\VariableAndStmt.cs" />
     <Compile Include="Summary\VariableAssignmentManager.cs" />
@@ -152,7 +156,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="App.config" />
-    <Fakes Include="Fakes\System.Data.fakes" />
     <None Include="packages.config" />
     <None Include="Templet\AssertionTemplate.st">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

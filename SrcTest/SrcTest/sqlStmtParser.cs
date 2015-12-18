@@ -46,7 +46,10 @@ namespace WM.UnitTestScribe {
             {
                 if (node.Term.Name == targetText) 
                 { 
-                    ids.Add(node.ChildNodes.First().Token.Text);  
+                    foreach (var target in node.ChildNodes)
+                    {
+                        if (target.Token != null) ids.Add(target.Token.Text);
+                    } 
                 }
                 foreach (var subid in CheckTree(child, targetText))
                 {
@@ -56,25 +59,34 @@ namespace WM.UnitTestScribe {
             return ids;
         }
 
-        public List<string> getFromId()
+        public List<string> getTableId()
         {
             List<string> ids = new List<string>();
             if (stmtPoints == null) return ids;
             var point = stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "fromClauseOpt");
             if (point != null) return CheckTree(point, "Id");
-            point = stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "FROM");
-            if (point == null) return ids;
-            ids.Add(stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "Id").ChildNodes.First().Token.Text);
+            point = stmtPoints.Find((ParseTreeNode pfrom) => (pfrom.Term.Name == "FROM" || pfrom.Term.Name == "TABLE"));
+            if (point != null || stmtType.Term.Name == "insertStmt" || stmtType.Term.Name == "updateStmt" || stmtType.Term.Name == "deleteStmt")
+            {
+                ids.Add(stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "Id").ChildNodes.First().Token.Text);
+            }
             return ids;
         }
 
-        public List<string> getWhereId()
+        public List<string> getColumnId()
         {
             List<string> ids = new List<string>();
+            List<string> ids2 = new List<string>();
 
             if (stmtPoints == null) return ids;
-            var point = stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "whereClauseOpt");
-            return CheckTree(point, "Id");
+            var point = stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "whereClauseOpt" || pfrom.Term.Name == "fieldDefList");
+            ids=CheckTree(point, "Id");
+            ids2 = CheckTree(point, "string");
+            foreach(var tempId in ids2)
+            {
+                ids.Add(tempId);
+            }
+            return ids;
         }
         //public getWhereId()
     }

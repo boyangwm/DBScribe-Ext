@@ -1,7 +1,0 @@
-\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony.Interpreter\bin\Debug\Irony.Interpreter.dll
-\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony.Interpreter\bin\Debug\Irony.Interpreter.pdb
-\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony.Interpreter\bin\Debug\Irony.dll
-\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony.Interpreter\bin\Debug\Irony.pdb
-\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony.Interpreter\obj\Debug\015.Irony.Interpreter.2012.csprojResolveAssemblyReference.cache
-\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony.Interpreter\obj\Debug\Irony.Interpreter.dll
-\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\SrcTest\SrcTest\Irony_2013_12_12\Irony.Interpreter\obj\Debug\Irony.Interpreter.pdb

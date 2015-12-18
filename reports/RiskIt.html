@@ -1,0 +1,871 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>DBSchemaScribe Report</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert"> </script>
+ <style>
+.modal.modal-wide .modal-dialog {
+  width: 90%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+p {word-wrap: break-word; }
+</style>
+<script>
+$(".modal-wide").on("show.bs.modal", function() {
+  var height = $(window).height() - 200;
+  $(this).find(".modal-body").css("max-height", height);
+});
+</script>
+<style>
+div.tooltip-inner {
+    max-width: 1500px;
+}
+</style>
+<script>
+$(document).ready(function () {
+  $("a").tooltip({
+    'selector': '',
+    'placement': 'bottom',
+    'container':'body'
+  });
+});
+</script>
+ </head>
+ <body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> DBScribeSchema Report</h2> 
+			<div class="panel panel-default">
+			<div class="panel-heading">DataBase Information</div><div class="panel-body" style="max-height:550px;overflow-x: scroll;overflow-y: scroll">
+
+						<a href="#Table:education">·Table:education</a><br>
+						
+						<a href="#Column:SSN,Table:education">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:SSN,Table:education</a><br>
+						
+						<a href="#Column:EDUCATION,Table:education">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:EDUCATION,Table:education</a><br>
+						
+						<a href="#Table:employmentstat">·Table:employmentstat</a><br>
+						
+						<a href="#Column:SSN,Table:employmentstat">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:SSN,Table:employmentstat</a><br>
+						
+						<a href="#Column:EMPLOYMENTSTAT,Table:employmentstat">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:EMPLOYMENTSTAT,Table:employmentstat</a><br>
+						
+						<a href="#Table:industry">·Table:industry</a><br>
+						
+						<a href="#Column:INDUSTRYCODE,Table:industry">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:INDUSTRYCODE,Table:industry</a><br>
+						
+						<a href="#Column:INDUSTRY,Table:industry">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:INDUSTRY,Table:industry</a><br>
+						
+						<a href="#Table:investment">·Table:investment</a><br>
+						
+						<a href="#Column:SSN,Table:investment">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:SSN,Table:investment</a><br>
+						
+						<a href="#Table:job">·Table:job</a><br>
+						
+						<a href="#Column:SSN,Table:job">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:SSN,Table:job</a><br>
+						
+						<a href="#Column:INDUSTRYCODE,Table:job">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:INDUSTRYCODE,Table:job</a><br>
+						
+						<a href="#Column:OCCUPATIONCODE,Table:job">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:OCCUPATIONCODE,Table:job</a><br>
+						
+						<a href="#Table:occupation">·Table:occupation</a><br>
+						
+						<a href="#Column:OCCUPATIONCODE,Table:occupation">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:OCCUPATIONCODE,Table:occupation</a><br>
+						
+						<a href="#Column:OCCUPATION,Table:occupation">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:OCCUPATION,Table:occupation</a><br>
+						
+						<a href="#Table:userrecord">·Table:userrecord</a><br>
+						
+						<a href="#Column:ZIP,Table:userrecord">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:ZIP,Table:userrecord</a><br>
+						
+						<a href="#Column:SSN,Table:userrecord">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:SSN,Table:userrecord</a><br>
+						
+						<a href="#Column:MARITAL,Table:userrecord">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:MARITAL,Table:userrecord</a><br>
+						
+						<a href="#Table:wage">·Table:wage</a><br>
+						
+						<a href="#Column:INDUSTRYCODE,Table:wage">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:INDUSTRYCODE,Table:wage</a><br>
+						
+						<a href="#Column:OCCUPATIONCODE,Table:wage">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:OCCUPATIONCODE,Table:wage</a><br>
+						
+						<a href="#Table:youth">·Table:youth</a><br>
+						
+						<a href="#Column:SSN,Table:youth">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:SSN,Table:youth</a><br>
+						
+						<a href="#Table:ziptable">·Table:ziptable</a><br>
+						
+						<a href="#Column:ZIP,Table:ziptable">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:ZIP,Table:ziptable</a><br>
+						
+						<a href="#Column:STATENAME,Table:ziptable">&nbsp&nbsp&nbsp&nbsp&nbsp&nbspColumn:STATENAME,Table:ziptable</a><br>
+						
+			
+			</div>
+			</div>
+		</div>
+		<div class="col-xs-9" style="float:right;right:0px">
+		
+
+						<div class="panel panel-primary"><a id="Table:education"></a>
+							<div class="panel-heading"><b>1. &nbsp;Table:education</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="1" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:education</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: SSN, EDUCATION, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.createNewUser. This method could create new user  .</p> Method: com.riskIt.controller.CalculateByEducation.getEducationLevelList. This method could get education level list  .</p> Method: com.riskIt.controller.CalculateByEducation.calculateValue. This method could calculate value  .</p> Method: com.riskIt.controller.Requirements19_24.initializeSsnToEducationMap. This method could initialize ssn to education map|ssn to education map.<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.inputForCreateUser. This method could input sub menu choices for create user.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.Requirements19_24.ComputeAverageEducation. This method could Compute average education  .</p> Method: com.riskIt.controller.Requirements19_24.ComputeAverageEducationString. This method could Compute average education string  .</p> Method: com.riskIt.ui.SubMenuChoices19_24.ComputeAverageEducationMenu. This method could Compute average education menu  .</p> Method: com.riskIt.controller.Requirements19_24.FindCccupationIndustryWithHighestLowestEducation. This method could Find cccupation industry with highest lowest education.</p> Method: com.riskIt.ui.SubMenuChoices19_24.FindOccIndustryWithHighestLowestEducationMenu. This method could Find occ industry with highest lowest education menu.<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.controller.CalculateByEducation.isInEducationList. This method could Check if a String is calculate by education in education list.</p> Method: com.riskIt.controller.CalculateByEducation.calculateIncomeByEducationLevel. This method could calculate income by education level.</p> Method: com.riskIt.controller.CalculateByEducation.calculateWeeklyWageByEducationLevel. This method could calculate weekly wage by education level.</p> Method: com.riskIt.controller.CalculateByEducation.calculateIncomeByAllEducationLevels. This method could calculate income by all education levels.</p> Method: com.riskIt.controller.CalculateByEducation.calculateWeeklyWageByAllEducationLevels. This method could calculate weekly wage by all education levels.
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:SSN,Table:education"></a>
+							<div class="panel-heading"><b>2. &nbsp;Column:SSN,Table:education</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="2" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:SSN,Table:education</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: education. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.controller.UserManager.filterEducation. This method could filter education  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:EDUCATION,Table:education"></a>
+							<div class="panel-heading"><b>3. &nbsp;Column:EDUCATION,Table:education</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="3" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:EDUCATION,Table:education</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: education. It contains data with type char . The max length of data is 50 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.UserManager.filterEducation. This method could filter education  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:employmentstat"></a>
+							<div class="panel-heading"><b>4. &nbsp;Table:employmentstat</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="4" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:employmentstat</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: SSN, UNEMPLOYMENTREASON, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.createNewUser. This method could create new user  .<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.inputForCreateUser. This method could input sub menu choices for create user.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:SSN,Table:employmentstat"></a>
+							<div class="panel-heading"><b>5. &nbsp;Column:SSN,Table:employmentstat</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="5" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:SSN,Table:employmentstat</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: employmentstat. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:EMPLOYMENTSTAT,Table:employmentstat"></a>
+							<div class="panel-heading"><b>6. &nbsp;Column:EMPLOYMENTSTAT,Table:employmentstat</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="6" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:EMPLOYMENTSTAT,Table:employmentstat</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: employmentstat. It contains data with type char . The max length of data is 50 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:industry"></a>
+							<div class="panel-heading"><b>7. &nbsp;Table:industry</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="7" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:industry</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: INDUSTRYCODE, INDUSTRY, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.getIndustryCodeList. This method could get industry code list  .</p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.getIndustryCodeAndNameMap. This method could get industry code and name map  .<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.isValidIndustryCode. This method could Check if an int is valid industry code  .</p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.getIndustryCodeAndNameMap. This method could get industry code and name map  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:INDUSTRYCODE,Table:industry"></a>
+							<div class="panel-heading"><b>8. &nbsp;Column:INDUSTRYCODE,Table:industry</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="8" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:INDUSTRYCODE,Table:industry</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: industry. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:INDUSTRY,Table:industry"></a>
+							<div class="panel-heading"><b>9. &nbsp;Column:INDUSTRY,Table:industry</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="9" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:INDUSTRY,Table:industry</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: industry. It contains data with type char . The max length of data is 50 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:investment"></a>
+							<div class="panel-heading"><b>10. &nbsp;Table:investment</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="10" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:investment</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: SSN, CAPITALGAINS, CAPITALLOSSES, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.createNewUser. This method could create new user  .</p> Method: com.riskIt.controller.EstimateIncome.calculateSlopesAndIntercepts. This method could calculate slopes and intercepts  .<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.inputForCreateUser. This method could input sub menu choices for create user.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.EstimateIncome.EstimateIncome. This method could Instantiate estimateincome  .<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.util.Factory.getEstimateIncome. This method could get estimate income  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:SSN,Table:investment"></a>
+							<div class="panel-heading"><b>11. &nbsp;Column:SSN,Table:investment</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="11" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:SSN,Table:investment</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: investment. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.controller.UserManager.filterEstimatedIncome. This method could filter estimated income  .</p> Method: com.riskIt.controller.ZipcodeManager.getAllZipcodes. This method could get all zipcodes  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.</p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:job"></a>
+							<div class="panel-heading"><b>12. &nbsp;Table:job</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="12" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:job</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: SSN, WORKCLASS, INDUSTRYCODE, OCCUPATIONCODE, UNIONMEMBER, EMPLOYERSIZE, WEEKWAGE, SELFEMPLOYED, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.createNewUser. This method could create new user  .</p> Method: com.riskIt.controller.CalculateByEducation.calculateValue. This method could calculate value  .</p> Method: com.riskIt.controller.CalculateByRace.calculateValue. This method could calculate value  .</p> Method: com.riskIt.controller.CalculateByState.calculateIncome. This method could calculate income  .</p> Method: com.riskIt.controller.EstimateIncome.calculateSlopesAndIntercepts. This method could calculate slopes and intercepts  .</p> Method: com.riskIt.controller.Requirements19_24.initializeSsnToWeekWageMap. This method could initialize ssn to week wage map|ssn to week wage map.<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.inputForCreateUser. This method could input sub menu choices for create user.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.EstimateIncome.EstimateIncome. This method could Instantiate estimateincome  .</p> Method: com.riskIt.controller.Requirements19_24.CalculateAverageWageForOccupationForAllStates. This method could Calculate average wage for occupation for all states|result states.</p> Method: com.riskIt.controller.Requirements19_24.RecommendBestStateToWork. This method could Recommend best state to work.</p> Method: com.riskIt.ui.SubMenuChoices19_24.RecommendBestStateToWorkMenu. This method could Recommend best state to work menu.</p> Method: com.riskIt.controller.Requirements19_24.CalculateLikelinessToMoveFactor. This method could Calculate likeliness to move factor.</p> Method: com.riskIt.ui.SubMenuChoices19_24.CalculateLikelinessToMoveFactorMenu. This method could Calculate likeliness to move factor menu.<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.controller.CalculateByEducation.calculateIncomeByEducationLevel. This method could calculate income by education level.</p> Method: com.riskIt.controller.CalculateByEducation.calculateWeeklyWageByEducationLevel. This method could calculate weekly wage by education level.</p> Method: com.riskIt.controller.CalculateByEducation.calculateIncomeByAllEducationLevels. This method could calculate income by all education levels.</p> Method: com.riskIt.controller.CalculateByEducation.calculateWeeklyWageByAllEducationLevels. This method could calculate weekly wage by all education levels.</p> Method: com.riskIt.controller.CalculateByRace.calculateWeeklyWageByRace. This method could calculate weekly wage by race|race.</p> Method: com.riskIt.controller.CalculateByRace.calculateWeelkyWageByAllRaces. This method could calculate weelky wage by all races.</p> Method: com.riskIt.controller.CalculateByRace.calculateIncomeByRace. This method could calculate income by race|race.</p> Method: com.riskIt.controller.CalculateByRace.calculateIncomeByAllRaces. This method could calculate income by all races.</p> Method: com.riskIt.controller.CalculateByState.calculateIncomeByState. This method could calculate income by state|state.</p> Method: com.riskIt.controller.CalculateByState.calculateWeeklyWageByState. This method could calculate weekly wage by state|state.</p> Method: com.riskIt.controller.CalculateByState.calculateIncomeByAllStates. This method could calculate income by all states.</p> Method: com.riskIt.controller.CalculateByState.calculagteWeeklyWageByAllState. This method could calculagte weekly wage by all state.</p> Method: com.riskIt.util.Factory.getEstimateIncome. This method could get estimate income  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testLiklinessToMoveFactor.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:SSN,Table:job"></a>
+							<div class="panel-heading"><b>13. &nbsp;Column:SSN,Table:job</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="13" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:SSN,Table:job</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: job. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.controller.UserManager.filterOccupation. This method could filter occupation  .</p> Method: com.riskIt.controller.UserManager.filterEstimatedIncome. This method could filter estimated income  .</p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .</p> Method: com.riskIt.controller.ZipcodeManager.getAllZipcodes. This method could get all zipcodes  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.</p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:INDUSTRYCODE,Table:job"></a>
+							<div class="panel-heading"><b>14. &nbsp;Column:INDUSTRYCODE,Table:job</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="14" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:INDUSTRYCODE,Table:job</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: job. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.UserManager.updatewagetable. This method could updatewagetable industrycode  .</p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:OCCUPATIONCODE,Table:job"></a>
+							<div class="panel-heading"><b>15. &nbsp;Column:OCCUPATIONCODE,Table:job</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="15" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:OCCUPATIONCODE,Table:job</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: job. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.UserManager.filterOccupation. This method could filter occupation  .</p> Method: com.riskIt.controller.UserManager.updatewagetable. This method could updatewagetable industrycode  .</p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:occupation"></a>
+							<div class="panel-heading"><b>16. &nbsp;Table:occupation</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="16" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:occupation</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: OCCUPATIONCODE, OCCUPATION, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.getOccupationCodeList. This method could get occupation code list  .</p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.getOccupationCodeAndNameMap. This method could get occupation code and name map  .<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.isValidOccupationCode. This method could Check if an int is valid occupation code  .</p> Method: com.riskIt.controller.CalculateByOccupationOrIndustryCode.getOccupationCodeAndNameMap. This method could get occupation code and name map  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:OCCUPATIONCODE,Table:occupation"></a>
+							<div class="panel-heading"><b>17. &nbsp;Column:OCCUPATIONCODE,Table:occupation</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="17" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:OCCUPATIONCODE,Table:occupation</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: occupation. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.UserManager.filterOccupation. This method could filter occupation  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:OCCUPATION,Table:occupation"></a>
+							<div class="panel-heading"><b>18. &nbsp;Column:OCCUPATION,Table:occupation</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="18" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:OCCUPATION,Table:occupation</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: occupation. It contains data with type char . The max length of data is 50 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.UserManager.filterOccupation. This method could filter occupation  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:userrecord"></a>
+							<div class="panel-heading"><b>19. &nbsp;Table:userrecord</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="19" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:userrecord</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: NAME, ZIP, SSN, AGE, SEX, MARITAL, RACE, TAXSTAT, DETAIL, HOUSEHOLDDETAIL, FATHERORIGIN, MOTHERORIGIN, BIRTHCOUNTRY, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:11 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.createNewUser. This method could create new user  .</p> Method: com.riskIt.controller.CalculateByRace.getRaceList. This method could get race list  .</p> Method: com.riskIt.controller.CalculateByRace.calculateValue. This method could calculate value  .</p> Method: com.riskIt.controller.Requirements19_24.initializeSsnToZipMap. This method could initialize ssn to zip map|ssn to zip map.<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.inputForCreateUser. This method could input sub menu choices for create user.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.Requirements19_24.FindTopStatesByCode. This method could Find top states by code|code.</p> Method: com.riskIt.controller.Requirements19_24.FindTopStatesByCategory. This method could Find top states by category|category.</p> Method: com.riskIt.ui.SubMenuChoices19_24.FindTopStatesMenu. This method could Find top states menu  .</p> Method: com.riskIt.controller.Requirements19_24.CalculateAverageWageForOccupationForAllStates. This method could Calculate average wage for occupation for all states|result states.</p> Method: com.riskIt.controller.Requirements19_24.RecommendBestStateToWork. This method could Recommend best state to work.</p> Method: com.riskIt.ui.SubMenuChoices19_24.RecommendBestStateToWorkMenu. This method could Recommend best state to work menu.</p> Method: com.riskIt.controller.Requirements19_24.CalculateLikelinessToMoveFactor. This method could Calculate likeliness to move factor.</p> Method: com.riskIt.ui.SubMenuChoices19_24.CalculateLikelinessToMoveFactorMenu. This method could Calculate likeliness to move factor menu.<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.controller.CalculateByRace.isInRaceList. This method could Check if a String is calculate by race in race list.</p> Method: com.riskIt.controller.CalculateByRace.calculateWeeklyWageByRace. This method could calculate weekly wage by race|race.</p> Method: com.riskIt.controller.CalculateByRace.calculateWeelkyWageByAllRaces. This method could calculate weelky wage by all races.</p> Method: com.riskIt.controller.CalculateByRace.calculateIncomeByRace. This method could calculate income by race|race.</p> Method: com.riskIt.controller.CalculateByRace.calculateIncomeByAllRaces. This method could calculate income by all races.</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testLiklinessToMoveFactor.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:ZIP,Table:userrecord"></a>
+							<div class="panel-heading"><b>20. &nbsp;Column:ZIP,Table:userrecord</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="20" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:ZIP,Table:userrecord</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: userrecord. It contains data with type char . The max length of data is 5 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.filterZipcode. This method could filter zipcode  .</p> Method: com.riskIt.controller.UserManager.calculateUnEmploymentRate. This method could calculate un employment rate  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .</p> Method: com.riskIt.controller.ZipcodeManager.getAllZipcodes. This method could get all zipcodes  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:SSN,Table:userrecord"></a>
+							<div class="panel-heading"><b>21. &nbsp;Column:SSN,Table:userrecord</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="21" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:SSN,Table:userrecord</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: userrecord. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.createNewUser. This method could create new user  .</p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.controller.UserManager.calculateUnEmploymentRate. This method could calculate un employment rate  .</p> Method: com.riskIt.controller.UserManager.filterEducation. This method could filter education  .</p> Method: com.riskIt.controller.UserManager.filterOccupation. This method could filter occupation  .</p> Method: com.riskIt.controller.UserManager.filterEstimatedIncome. This method could filter estimated income  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .</p> Method: com.riskIt.controller.ZipcodeManager.getAllZipcodes. This method could get all zipcodes  .</p> Method: com.riskIt.controller.ZipcodeManager.getOneZipcode. This method could get one zipcode  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.inputForCreateUser. This method could input sub menu choices for create user.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .</p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.</p> Method: com.riskIt.controller.AgentManager.calculateScore. This method could calculate score  .</p> Method: com.riskIt.controller.AgentManager.calculateActualPremium. This method could calculate actual premium  .</p> Method: com.riskIt.controller.AgentManager.calculateTotalValue. This method could calculate total value  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .</p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:MARITAL,Table:userrecord"></a>
+							<div class="panel-heading"><b>22. &nbsp;Column:MARITAL,Table:userrecord</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="22" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:MARITAL,Table:userrecord</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: userrecord. It contains data with type char . The max length of data is 50 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.filterMaritalStatus. This method could filter marital status  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.browseUserByChoice. This method could browse user by choice.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:wage"></a>
+							<div class="panel-heading"><b>23. &nbsp;Table:wage</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="23" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:wage</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: INDUSTRYCODE, OCCUPATIONCODE, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:INDUSTRYCODE,Table:wage"></a>
+							<div class="panel-heading"><b>24. &nbsp;Column:INDUSTRYCODE,Table:wage</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="24" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:INDUSTRYCODE,Table:wage</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: wage. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.updatewagetable. This method could updatewagetable industrycode  .</p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:OCCUPATIONCODE,Table:wage"></a>
+							<div class="panel-heading"><b>25. &nbsp;Column:OCCUPATIONCODE,Table:wage</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="25" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:OCCUPATIONCODE,Table:wage</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: wage. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.updatewagetable. This method could updatewagetable industrycode  .</p> Method: com.riskIt.controller.UserManager.updatetable. This method could updatetable ssn  .</p> Method: com.riskIt.controller.UserManager.userinformation. This method could userinformation ssn  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:youth"></a>
+							<div class="panel-heading"><b>26. &nbsp;Table:youth</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="26" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:youth</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: SSN, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.createNewUser. This method could create new user  .<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.ui.SubMenuChoices.inputForCreateUser. This method could input sub menu choices for create user.</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:SSN,Table:youth"></a>
+							<div class="panel-heading"><b>27. &nbsp;Column:SSN,Table:youth</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="27" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:SSN,Table:youth</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: youth. It contains data with type int . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.controller.AgentManager.deleteUser. This method could delete user  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table:ziptable"></a>
+							<div class="panel-heading"><b>28. &nbsp;Table:ziptable</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="28" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table:ziptable</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: ZIP, CITY, STATENAME, WM.UnitTestScribe.dbColumn.  The create time of table: 2015/11/19 21:34:12 . It contails 0  items totally. </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.CalculateByState.getStateList. This method could get state list  .</p> Method: com.riskIt.controller.CalculateByState.calculateIncome. This method could calculate income  .</p> Method: com.riskIt.controller.Requirements19_24.initializeZipToStateMap. This method could initialize zip to state map|zip to state map.<br><br><b>Methods might access this table:</b></p> Method: com.riskIt.controller.Requirements19_24.FindTopStatesByCode. This method could Find top states by code|code.</p> Method: com.riskIt.controller.Requirements19_24.FindTopStatesByCategory. This method could Find top states by category|category.</p> Method: com.riskIt.ui.SubMenuChoices19_24.FindTopStatesMenu. This method could Find top states menu  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.Requirements19_24.CalculateAverageWageForOccupationForAllStates. This method could Calculate average wage for occupation for all states|result states.</p> Method: com.riskIt.controller.Requirements19_24.RecommendBestStateToWork. This method could Recommend best state to work.</p> Method: com.riskIt.ui.SubMenuChoices19_24.RecommendBestStateToWorkMenu. This method could Recommend best state to work menu.</p> Method: com.riskIt.controller.Requirements19_24.CalculateLikelinessToMoveFactor. This method could Calculate likeliness to move factor.</p> Method: com.riskIt.ui.SubMenuChoices19_24.CalculateLikelinessToMoveFactorMenu. This method could Calculate likeliness to move factor menu.<br><br><b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.controller.CalculateByState.isInStateList. This method could Check if a String is calculate by state in state list.</p> Method: com.riskIt.controller.CalculateByState.calculateIncomeByState. This method could calculate income by state|state.</p> Method: com.riskIt.controller.CalculateByState.calculateWeeklyWageByState. This method could calculate weekly wage by state|state.</p> Method: com.riskIt.controller.CalculateByState.calculateIncomeByAllStates. This method could calculate income by all states.</p> Method: com.riskIt.controller.CalculateByState.calculagteWeeklyWageByAllState. This method could calculagte weekly wage by all state.</p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testLiklinessToMoveFactor.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:ZIP,Table:ziptable"></a>
+							<div class="panel-heading"><b>29. &nbsp;Column:ZIP,Table:ziptable</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="29" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:ZIP,Table:ziptable</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ziptable. It contains data with type char . The max length of data is 5 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateUnEmploymentRate. This method could calculate un employment rate  .</p> Method: com.riskIt.controller.UserManager.updatestability. This method could updatestability zipcode  .</p> Method: com.riskIt.controller.ZipcodeManager.getOneZipcode. This method could get one zipcode  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.controller.AgentManager.calculateActualPremium. This method could calculate actual premium  .</p> Method: com.riskIt.controller.AgentManager.calculateTotalValue. This method could calculate total value  .</p> Method: com.riskIt.controller.UserManager.calculateQuoteForCustomer. This method could calculate quote for customer.</p> Method: com.riskIt.ui.SubMenuChoices.inputForUserQuotes. This method could input sub menu choices for user quotes.</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .</p> Method: com.riskIt.ui.SubMenuChoices.sendInvitation. This method could send invitation  .</p> Method: com.riskIt.ui.SubMenuChoices.agentMenu. This method could handle agent menu  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentLogin. This method could get agent login  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .</p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .</p> Method: com.riskIt.app.testCalculateScoreDriver.main. This method could main args  .</p> Method: com.riskIt.app.testCustomerQuotesDriver.main. This method could main args  .</p> Method: com.riskIt.ui.SubMenuChoices.AgentAndUser. This method could handle agent and user  .
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column:STATENAME,Table:ziptable"></a>
+							<div class="panel-heading"><b>30. &nbsp;Column:STATENAME,Table:ziptable</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="30" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column:STATENAME,Table:ziptable</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ziptable. It contains data with type char . The max length of data is 20 . </p><br><b>Methods directly access this table:</b></p> Method: com.riskIt.controller.UserManager.calculateUnEmploymentRate. This method could calculate un employment rate  .<br><br> <b>Methods might access this table:</b></p> Method: com.riskIt.ui.MenuChoices.mainMenu. This method could main menu  .<br><br> <b>Methods might access this table and in the highest level:</b></p> Method: com.riskIt.app.MainClass.main. This method could main args  .
+							</p>
+							</div>
+						</div>
+						
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</body>
+</html>

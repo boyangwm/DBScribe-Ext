@@ -1,4 +1,4 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>UnitTestScribe report</title>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>DBSchemaScribe Report</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -9,6 +9,7 @@
 }
 .modal-wide .modal-body {
   overflow-y: auto;
+  overflow-x: auto;
 }
 p {word-wrap: break-word; }
 </style>
@@ -37,13 +38,14 @@ div.tooltip-inner {
 
 <div class="container">
 	<div class="row">
-		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> UnitTestScribe report</h2> 
+		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> DBScribeSchema Report</h2> 
 			<div class="panel panel-default">
-			<div class="panel-heading">Methods</div><div class="panel-body" style="max-height:600px;overflow-x: scroll;overflow-y: scroll">
+			<div class="panel-heading">DataBase Information</div><div class="panel-body" style="max-height:550px;overflow-x: scroll;overflow-y: scroll">
 			$ 
-			MethodLinkID:
-			{mid| 
-			<a href="#$mid$">$mid$()</a><br>
+			Items,
+			Links:
+			{item,lk| 
+			<a href="#$lk$">$item$</a><br>
 			}
 			$
 			
@@ -52,9 +54,9 @@ div.tooltip-inner {
 		</div>
 		<div class="col-xs-9" style="float:right;right:0px">
 		
-			$IDNum, 
-			MethodSignature,
-			MethodBodyDesc:
+			$IDNum,
+			Title, 
+			Content:
 			{id, ms ,mbd| 
 			<div class="panel panel-primary"><a id="$ms$"></a>
 				<div class="panel-heading"><b>$id$. &nbsp;$ms$</b></div>

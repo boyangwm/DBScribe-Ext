@@ -12,11 +12,13 @@ using ABB.SrcML.Data;
 
 namespace WM.UnitTestScribe.ReportGenerator {
     public class FinalGenerator {
-        public HashSet<ColumnSummary> AllTestSummary { get; private set; }
+        public HashSet<SingleSummary> AllTableSummary { get; private set; }
+        public HashSet<SingleSummary> AllColumnSummary { get; private set; }
 
 
-        public FinalGenerator(HashSet<ColumnSummary> allTestSummary) {
-            this.AllTestSummary = allTestSummary;
+        public FinalGenerator(HashSet<SingleSummary> allTableSummary, HashSet<SingleSummary> allColumnSummary) {
+            this.AllTableSummary = allTableSummary;
+            this.AllColumnSummary = allColumnSummary;
         }
 
 
@@ -25,52 +27,38 @@ namespace WM.UnitTestScribe.ReportGenerator {
             StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");
             StringTemplate st = group.GetInstanceOf("CourseHome");
             int ID = 1;
-            List<String> allMethodSigniture = new List<string>();
-            foreach (var testSummary in AllTestSummary) {
-                string methodSignature = testSummary.title;
+            List<String> allTableSigniture = new List<string>();
+            List<String> allShift = new List<string>();
+            foreach (var testSummary in AllTableSummary) {
                 st.SetAttribute("IDNum", ID++);
-                st.SetAttribute("MethodSignature", methodSignature);
-                //var method = testSummary.Method;
-                //var methodString = GetEntireMethodString(method);
-                //st.SetAttribute("SourceCode", methodString);
-                //st.SetAttribute("SwumDesc", testSummary.SwumSummary.ToLower());
-                st.SetAttribute("MethodBodyDesc", testSummary.attributions + "</p>" + testSummary.methodInfo);
-                allMethodSigniture.Add(methodSignature);
+                st.SetAttribute("Title", testSummary.title);
+                st.SetAttribute("Content", testSummary.attributions + "</p>" + testSummary.methodInfo);
+                allTableSigniture.Add("·" + testSummary.title);
+                allShift.Add(testSummary.title);
+                foreach (var subSummary in AllColumnSummary)
+                {
+                    if (subSummary.tableName != testSummary.tableName) continue;
+                    st.SetAttribute("IDNum", ID++);
+                    st.SetAttribute("Title", subSummary.title);
+                    st.SetAttribute("Content", subSummary.attributions + "</p>" + subSummary.methodInfo);
+                    allTableSigniture.Add("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + subSummary.title);
+                    allShift.Add(subSummary.title);
+                }
+                
             }
-            allMethodSigniture.Sort();
+            //allTableSigniture.Sort();
             //hyper index
-            foreach (var ms in allMethodSigniture) {
-                st.SetAttribute("MethodLinkID", ms);
-
+            for (int i=0; i < allTableSigniture.Count; i++) 
+            {
+                st.SetAttribute("Items", allTableSigniture[i]);
+                st.SetAttribute("Links", allShift[i]);
             }
 
-
-            //st.SetAttribute("Message", "hello ");
-            String result = st.ToString(); // yields "int x = 0;"
-            //Console.WriteLine(result);
+            String result = st.ToString();
 
             StreamWriter writetext = new StreamWriter(path);
             writetext.WriteLine(result);
             writetext.Close();
-
-        }
-
-
-        public string GetEntireMethodString(MethodDefinition method) {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("\n" + method.ToString() + "{" + "(line " + method.PrimaryLocation.StartingLineNumber + ")" + "\n");
-            int methodRelativeLoc = method.PrimaryLocation.StartingColumnNumber;
-            var allST = method.GetDescendants<Statement>();
-            foreach (var st in allST) {
-                for (int i = 0; i <= st.PrimaryLocation.StartingColumnNumber - methodRelativeLoc; i++) {
-                    sb.Append(" ");
-                }
-                sb.Append(st.ToString().Replace(" . ", ".") + "(line " + st.PrimaryLocation.StartingLineNumber + ")" + "\n");
-                //sb.Append(System.Net.WebUtility.HtmlEncode(st.ToString()).Replace(" . ", ".") + "(line " + st.PrimaryLocation.StartingLineNumber + ")" + "<br>");
-
-            }
-            sb.Append("}");
-            return sb.ToString();
 
         }
 

@@ -12,12 +12,16 @@ namespace WM.UnitTestScribe
     {
         public string swumsummary;
         public List<MethodDefinition> followmethods;
+        public List<MethodDefinition> finalmethods;
+        public MethodDefinition methodself;
         public string name;
-        public desMethod(string mName, string sum, List<MethodDefinition> followers)
+        public desMethod(MethodDefinition m, string sum, List<MethodDefinition> followers, List<MethodDefinition> finals)
         {
             this.swumsummary = sum;
-            this.name = mName;
+            this.methodself = m;
+            this.name = m.GetFullName();
             this.followmethods = followers;
+            this.finalmethods = finals;
         }
     }
 

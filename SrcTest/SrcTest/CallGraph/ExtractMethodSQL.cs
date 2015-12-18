@@ -19,7 +19,8 @@ namespace WM.UnitTestScribe.CallGraph {
 
         /// <summary> SrcML directory location </summary>
         public string SrcmlLoc;
-        public HashSet<ColumnSummary> AllTestSummary;
+        public HashSet<SingleSummary> AllTableSummary;
+        public HashSet<SingleSummary> AllColumnSummary;
         public List<dbTable> tablesInfo;
         public List<desMethod> methodsInfo;
         dataSchemer db;
@@ -28,7 +29,8 @@ namespace WM.UnitTestScribe.CallGraph {
         {
             this.LocalProj = localProj;
             this.SrcmlLoc = srcmlloc;
-            AllTestSummary = new HashSet<ColumnSummary>();
+            this.AllTableSummary = new HashSet<SingleSummary>();
+            this.AllColumnSummary = new HashSet<SingleSummary>();
             tablesInfo = new List<dbTable>();
             methodsInfo = new List<desMethod>();
         }
@@ -210,24 +212,22 @@ namespace WM.UnitTestScribe.CallGraph {
                     cgm.BuildCallGraph(methods);
 
                     int sqlCount = 0;
-                    int functionCount = 0;
                     int previoussql = 0;
                     
                     /* Code for checking unknown case
                       */int vno = 0;
                     int i = 0;
 
-                    List<string> unSolvedSQLs = new List<string>(); //unsolved for UMAS
-                    unSolvedSQLs.Add("retreiveMatchingStudents");
-                    unSolvedSQLs.Add("rePost");
-                    unSolvedSQLs.Add("deleteUser");
+                    List<string> forTestMethods = new List<string>(); //unsolved for UMAS
+                    forTestMethods.Add("createNewUser");
+                    forTestMethods.Add("calculateScore");
 
                     foreach (MethodDefinition m in methods) {
                         //Console.WriteLine("Method Name : {0}", m.GetFullName());
                         /* Code for checking unknown case
                           */vno = 1; i = 0;
                             desMethod methodDes;
-                        foreach (var vari in unSolvedSQLs)
+                        foreach (var vari in forTestMethods)
                         {
                             if (vari == m.Name) { vno = i;}                          
                             i++;
@@ -246,21 +246,14 @@ namespace WM.UnitTestScribe.CallGraph {
                                     DeclarationStatement ds=(DeclarationStatement)stat;
                                     var cont = ds.Content;
                                     var decls = ds.GetDeclarations();
-                                    //Console.WriteLine("Statment1: " + cont);
                                     foreach (var decld in decls)
                                     {
                                         if (decld.VariableType.ToString().Equals("String", StringComparison.OrdinalIgnoreCase) || decld.VariableType.ToString().Equals("StringBuilder", StringComparison.OrdinalIgnoreCase) || decld.VariableType.ToString().Equals("StringBuffer", StringComparison.OrdinalIgnoreCase)) ;
                                         {
                                             targetstring = "";
-                                            //Console.WriteLine("Statment: " + decld + " , Variable:  " + decld.Name);
                                             targetstring = Rebuildstring(decld.Name.ToString(), stat, variables);
                                             UpdateVariable(decld.Name, variables, targetstring);
                                             FindRelated(m, decld, variables);
-                                            /*foreach (var ss in variables)
-                                            {
-                                                Console.WriteLine("variable "+ss[0]+ ",   contont: "+ ss[1]);
-                                            }
-                                            Console.WriteLine("----");*/
                                         }
                                     }
                                 }
@@ -272,11 +265,7 @@ namespace WM.UnitTestScribe.CallGraph {
                                             sqlStmtParser p1 = new sqlStmtParser(TakeQuotOff(exp.ToString()));
                                             if (p1.isStmt == true)
                                             {
-                                                //sqlCount++;
-                                                //updateConnection(p1,m);
                                                 UpdateVariable("pureString",variables, TakeQuotOff(exp.ToString()));
-                                                //Console.WriteLine("SQL --> " + expl.Text);
-                                                //Console.WriteLine("Yes it is! TYPE: " + p1.stmtType);
                                             }
                                     }
                                 }
@@ -303,49 +292,26 @@ namespace WM.UnitTestScribe.CallGraph {
                                     }
                                     else
                                     {
-                                       // Console.WriteLine("Woops :(");
                                     }
-                                    //Console.WriteLine();
                                 }
                             }
                             if (sqlCount > previoussql)
                             {
-                                functionCount++;
                                 var declaringClass = m.GetAncestors<TypeDefinition>().FirstOrDefault();
-                                var nameSpaceName = GetNamespaceByMethod(m);
                                 var className = "";
                                 if (declaringClass != null)
                                 {
                                     className = declaringClass.Name;
                                 }
-                                Console.WriteLine(nameSpaceName + "," + className + "," + m.Name);
+                                Console.WriteLine(m.GetFullName());
 
                                 previoussql = sqlCount;
-
-                                //Console.WriteLine(nameSpaceName + "," + className + "," + m.Name + "Swum Description : " + desc);
-                                //Console.ReadKey(true);
-
-
                             }
-                            
-                            //SwumSummary sum = new SwumSummary(m);
-                            //sum.BasicSummary();
-
-                            //InvokeCallGraphGenerator tracer = new InvokeCallGraphGenerator(m, cgm);
-                            
-                            /*Console.WriteLine("Analyzing for Method " + m.GetFullName() +" Finished!");
-                            Console.WriteLine("Method Info: " + sum.Describe());
-                            //Console.WriteLine("Trace this method from it: ");
-                            //tracer.traceFromMethod();
-                            Console.WriteLine("Trace methods to it: ");
-                            tracer.traceToMethod();
-                            Console.WriteLine();
-                            Console.ReadKey();*/
                         }
                     }
 
 
-                    Console.WriteLine("Method Analyzing Finished! Total SQL found: " + sqlCount + ". Total Mehtods: " + functionCount + " / " + methods.Count());
+                    Console.WriteLine("Method Analyzing Finished! Total SQL found: " + sqlCount);
                     GenerateSummary();
                     Console.ReadKey(true);
 
@@ -366,13 +332,22 @@ namespace WM.UnitTestScribe.CallGraph {
                     if (method.name == m.GetFullName()) return method;
                 }
             }
+            typeM = newMethodInfo(m,cgm);
+            return typeM;
+        }
+
+        public desMethod newMethodInfo(MethodDefinition m, CGManager cgm)
+        {
+            desMethod typeM;
             SwumSummary swumSummary = new SwumSummary(m);
             swumSummary.BasicSummary();
             List<MethodDefinition> followers = new List<MethodDefinition>();
+            List<MethodDefinition> finals = new List<MethodDefinition>();
             string desc = swumSummary.Describe();
             InvokeCallGraphGenerator tracer = new InvokeCallGraphGenerator(m, cgm);
             followers = tracer.traceToMethod();
-            typeM=new desMethod(m.GetFullName(), desc, followers);
+            finals = tracer.traceToLastMethod();
+            typeM = new desMethod(m, desc, followers, finals);
             methodsInfo.Add(typeM);
             return typeM;
         }
@@ -383,7 +358,7 @@ namespace WM.UnitTestScribe.CallGraph {
                 dbTable tempTable = new dbTable(tableName);
                 foreach (var columnName in db.getColumnName(tableName))
                 {
-                    tempTable.columns.Add(new dbColumn(columnName));
+                    tempTable.columns.Add(new dbColumn(tableName, columnName));
                 }
                 tablesInfo.Add(tempTable);
             }
@@ -391,9 +366,9 @@ namespace WM.UnitTestScribe.CallGraph {
         public void updateConnection(sqlStmtParser p1, desMethod m, CGManager cgm)
         {
             //if ((p1.stmtType.ToString() != "selectStmt") && (p1.stmtType.ToString() != "insertStmt") && (p1.stmtType.ToString() != "updateStmt") && (p1.stmtType.ToString() != "deleteStmt")) return;
-            if (p1.getFromId() == null) return;
+            if (p1.getTableId() == null) return;
             List<string> idList= new List<string>();
-            foreach (var id in p1.getFromId())
+            foreach (var id in p1.getTableId())
             {
                 if (id != null)
                 {
@@ -401,7 +376,7 @@ namespace WM.UnitTestScribe.CallGraph {
                 }
             }
 
-            if (p1.getWhereId().Count==0)
+            if (p1.getColumnId().Count==0)
             {
                 foreach (var id in idList)
                 {
@@ -409,28 +384,23 @@ namespace WM.UnitTestScribe.CallGraph {
                     {
                         if (tablesInfo[i].name.Equals(id, StringComparison.OrdinalIgnoreCase))
                         {
-                            string description = "Method: " + m.name + ", function: " + m.swumsummary + ";";
-                            if (tablesInfo[i].directMethods.Find(x => x == description) == null)
+                            tablesInfo[i].insertMethod(m, "direct");
+                            foreach (var mm in m.followmethods)
                             {
-                                tablesInfo[i].directMethods.Add(description);
+                                tablesInfo[i].insertMethod(getMethodInfo(mm, cgm),"follow");
                             }
-                            foreach(var mm in m.followmethods)
+                            foreach (var mm in m.finalmethods)
                             {
-                                var mmdes = getMethodInfo(mm, cgm);
-                                string mmdescription = "Method: " + mmdes.name + ", function: " + mmdes.swumsummary + ";";
-                                if (tablesInfo[i].followMehtods.Find(x => x == mmdescription) == null)
-                                {
-                                    tablesInfo[i].followMehtods.Add(mmdescription);
-                                }
+                                tablesInfo[i].insertMethod(getMethodInfo(mm, cgm),"final");
                             }
-                            break;
+                        break;
                         }
                     }
                 }
                 return;
             }
 
-            foreach (var col in p1.getWhereId())
+            foreach (var col in p1.getColumnId())
             {
                 if (col != null)
                 {
@@ -445,19 +415,14 @@ namespace WM.UnitTestScribe.CallGraph {
                                 {
                                     if (tempcol[j].name.Equals(col, StringComparison.OrdinalIgnoreCase))
                                     {
-                                        string description = "Method: " + m.name + ", function: " + m.swumsummary + ";";
-                                        if (tempcol[j].directMethods.Find(x => x == description) == null)
-                                        {
-                                            tempcol[j].directMethods.Add(description);
-                                        }
+                                        tempcol[j].insertMethod(m,"direct");
                                         foreach (var mm in m.followmethods)
                                         {
-                                            var mmdes = getMethodInfo(mm, cgm);
-                                            string mmdescription = "Method: " + mmdes.name + ", function: " + mmdes.swumsummary + ";";
-                                            if (tempcol[j].followMehtods.Find(x => x == mmdescription) == null)
-                                            {
-                                                tempcol[j].followMehtods.Add(mmdescription);
-                                            }
+                                            tempcol[j].insertMethod(getMethodInfo(mm, cgm),"follow");
+                                        }
+                                        foreach (var mm in m.finalmethods)
+                                        {
+                                            tempcol[j].insertMethod(getMethodInfo(mm, cgm),"final");
                                         }
                                         break;
                                     }
@@ -475,125 +440,22 @@ namespace WM.UnitTestScribe.CallGraph {
             Console.WriteLine("Now let's generate summary..");
             foreach(var table in this.tablesInfo)
             {
+                table.generateDescription(db);
                 if (table.directMethods.Count>0)
                 {
-                    string title = "Table: " + table.name;
-                    string description = "The create time of table: " + db.GetOneTableInfo(table.name, "CREATE_TIME");
-                    string methodInfo = "Directed related Methods:";
-                    foreach (var m in table.directMethods)
-                    {
-                        methodInfo += "</p>" + m;
-                    }
-                    if (table.followMehtods.Count>0)
-                    {
-                        methodInfo += "</p> Tracing Methods:";
-                        foreach (var m in table.followMehtods)
-                        {
-                            methodInfo += "</p>" + m;
-                        }
-                    }
-                    ColumnSummary tcSummary = new ColumnSummary(title, description, methodInfo);
-                    AllTestSummary.Add(tcSummary);
+                    SingleSummary tcSummary = new SingleSummary(table.title, table.attribute, table.methodsDes,table.name);
+                    AllTableSummary.Add(tcSummary);
                 }
                 foreach(var column in table.columns)
                 {
+                    column.generateDescription(db);
                     if (column.directMethods.Count == 0) continue;
-                    string title = "Table: " + table.name + " , column: " + column.name;
-                    string description = "The type is: " + db.GetOneColumnInfo(table.name, column.name, "COLUMN_TYPE");
-                    string methodInfo = "Directed related Methods:";
-                    foreach (var m in column.directMethods)
-                    {
-                        methodInfo += "</p>" + m;
-                    }
-                    if (column.followMehtods.Count > 0)
-                    {
-                        methodInfo += "</p> Tracing Methods:";
-                        foreach (var m in column.followMehtods)
-                        {
-                            methodInfo += "</p>" + m;
-                        }
-                    }
-                    ColumnSummary tcSummary = new ColumnSummary(title, description, methodInfo);
-                    AllTestSummary.Add(tcSummary);
+                    SingleSummary tcSummary = new SingleSummary(column.title, column.attribute, column.methodsDes,table.name);
+                    AllColumnSummary.Add(tcSummary);
                 }
             }
-            FinalGenerator homePageGenerator = new FinalGenerator(this.AllTestSummary);
+            FinalGenerator homePageGenerator = new FinalGenerator(this.AllTableSummary, this.AllColumnSummary);
             homePageGenerator.Generate(@"c:\temp\test.html");
         }
-        private string GetNamespaceByMethod(MethodDefinition md)
-        {
-            var allNameSpace = md.GetAncestors<NamespaceDefinition>();
-            string nameSpace = "";
-            foreach (var ns in allNameSpace)
-            {
-                if (ns.Name == "")
-                {
-                    continue;
-                }
-                if (nameSpace == "")
-                {
-                    nameSpace += ns.Name;
-                }
-                else
-                {
-                    nameSpace = ns.Name + "." + nameSpace;
-                }
-
-            }
-            return nameSpace;
-        }
     }
-
-    /*internal class SQLVisitor : TSqlFragmentVisitor
-    {
-        private int SELECTcount = 0;
-        private int INSERTcount = 0;
-        private int UPDATEcount = 0;
-        private int DELETEcount = 0;
-
-        private string GetNodeTokenText(TSqlFragment fragment)
-        {
-            StringBuilder tokenText = new StringBuilder();
-            for (int counter = fragment.FirstTokenIndex; counter <= fragment.LastTokenIndex; counter++)
-            {
-                tokenText.Append(fragment.ScriptTokenStream[counter].Text);
-            }
-
-            return tokenText.ToString();
-        }
-
-        // SELECTs 
-        public override void ExplicitVisit(SelectStatement node)
-        {
-            //Console.WriteLine("found SELECT statement with text: " + GetNodeTokenText(node)); 
-            SELECTcount++;
-        }
-
-        // INSERTs 
-        public override void ExplicitVisit(InsertStatement node)
-        {
-            INSERTcount++;
-        }
-
-        // UPDATEs 
-        public override void ExplicitVisit(UpdateStatement node)
-        {
-            UPDATEcount++;
-        }
-
-        // DELETEs 
-        public override void ExplicitVisit(DeleteStatement node)
-        {
-            DELETEcount++;
-        }
-
-        public void DumpStatistics()
-        {
-            Console.WriteLine(string.Format("Found {0} SELECTs, {1} INSERTs, {2} UPDATEs & {3} DELETEs",
-                this.SELECTcount,
-                this.INSERTcount,
-                this.UPDATEcount,
-                this.DELETEcount));
-        }
-    }*/ 
 }
