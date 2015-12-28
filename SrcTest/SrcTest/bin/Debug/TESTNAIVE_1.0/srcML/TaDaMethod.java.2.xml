@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\RiskIt\src\tada\TaDaMethod.java" pos:tabs="8"><package pos:line="1" pos:column="1">package <name pos:line="1" pos:column="9">tada</name>;</package>
+
+<import pos:line="3" pos:column="1">import <name><name pos:line="3" pos:column="8">java</name><op:operator pos:line="3" pos:column="12">.</op:operator><name pos:line="3" pos:column="13">lang</name><op:operator pos:line="3" pos:column="17">.</op:operator><name pos:line="3" pos:column="18">annotation</name><op:operator pos:line="3" pos:column="28">.</op:operator><name pos:line="3" pos:column="29">Retention</name></name>;</import>
+<import pos:line="4" pos:column="1">import <name><name pos:line="4" pos:column="8">java</name><op:operator pos:line="4" pos:column="12">.</op:operator><name pos:line="4" pos:column="13">lang</name><op:operator pos:line="4" pos:column="17">.</op:operator><name pos:line="4" pos:column="18">annotation</name><op:operator pos:line="4" pos:column="28">.</op:operator><name pos:line="4" pos:column="29">RetentionPolicy</name></name>;</import>
+
+<class type="interface"><annotation pos:line="6" pos:column="1">@<name pos:line="6" pos:column="2">Retention</name><argument_list pos:line="6" pos:column="11">(<argument><expr><name><name pos:line="6" pos:column="12">RetentionPolicy</name><op:operator pos:line="6" pos:column="27">.</op:operator><name pos:line="6" pos:column="28">RUNTIME</name></name></expr></argument>)</argument_list></annotation>
+<specifier pos:line="7" pos:column="1">public</specifier> <annotation pos:line="7" pos:column="8">@interface</annotation> <name pos:line="7" pos:column="19">TaDaMethod</name> <block pos:line="7" pos:column="30">{
+	<function_decl><type><name pos:line="8" pos:column="9">String</name><index pos:line="8" pos:column="15">[]</index></type> <name pos:line="8" pos:column="18">variablesToTrack</name><parameter_list pos:line="8" pos:column="34">()</parameter_list>;</function_decl>
+	<function_decl><type><name pos:line="9" pos:column="9">String</name><index pos:line="9" pos:column="15">[]</index></type> <name pos:line="9" pos:column="18">correspondingDatabaseAttribute</name><parameter_list pos:line="9" pos:column="48">()</parameter_list>;</function_decl>
+}</block></class>
+</unit>

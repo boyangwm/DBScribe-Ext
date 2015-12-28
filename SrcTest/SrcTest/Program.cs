@@ -18,9 +18,9 @@ namespace WM.UnitTestScribe
 {
     public class Program
     {
-        public static readonly string LocalProj = @"C:\GitHub\testProgram\UMAS";
+        public static readonly string LocalProj = @"C:\GitHub\testProgram\RiskIt";
         public static readonly string SrcmlLoc = @"C:\GitHub\tool\SrcML";
-        public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=university;";
+        public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=riskit;";
 
         static void Main(string[] args)
         {

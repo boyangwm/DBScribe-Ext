@@ -23,6 +23,7 @@ namespace WM.UnitTestScribe.CallGraph {
         public HashSet<SingleSummary> AllColumnSummary;
         public List<dbTable> tablesInfo;
         public List<desMethod> methodsInfo;
+        public List<string> directMethods;
         dataSchemer db;
 
         public ExtractMethodSQL(string localProj, string srcmlloc)
@@ -31,8 +32,9 @@ namespace WM.UnitTestScribe.CallGraph {
             this.SrcmlLoc = srcmlloc;
             this.AllTableSummary = new HashSet<SingleSummary>();
             this.AllColumnSummary = new HashSet<SingleSummary>();
-            tablesInfo = new List<dbTable>();
-            methodsInfo = new List<desMethod>();
+            this.tablesInfo = new List<dbTable>();
+            this.methodsInfo = new List<desMethod>();
+            this.directMethods = new List<string>();
         }
 
         public int CheckExist(string Name, List<string[]> variables)
@@ -59,7 +61,7 @@ namespace WM.UnitTestScribe.CallGraph {
         public void UpdateVariable(string Name, List<string[]> variables, string cont)
         {
             int vno = 0;
-            if (Name=="pureString")
+            if (Name=="pureString" || Name=="argument")
             {
                 variables.Add(new string[] { Name, cont }); 
                 return;
@@ -107,13 +109,17 @@ namespace WM.UnitTestScribe.CallGraph {
                 LiteralUse expl = (LiteralUse)exp;
                 teststring = TakeQuotOff(expl.Text);
                 return teststring;
-                //Console.Write(exp + "   l   ");
             }
-            teststring = GetVariableCont(exp.ToString(), variables);
-                //Console.Write(exp + "   v   ");
-            if (teststring=="") teststring = exp.ToString();
-            //Console.WriteLine();
-            return teststring;
+
+
+            if (exp is VariableUse)
+            {
+                teststring = GetVariableCont(exp.ToString(), variables);
+                if (teststring == "") teststring = exp.ToString();
+                return teststring;
+            }
+
+            return "expression";
         }
 
         public string Rebuildstring(string varname, Statement targetstat, List<string[]> variables)
@@ -219,21 +225,28 @@ namespace WM.UnitTestScribe.CallGraph {
                     int i = 0;
 
                     List<string> forTestMethods = new List<string>(); //unsolved for UMAS
-                    forTestMethods.Add("createNewUser");
-                    forTestMethods.Add("calculateScore");
+                    /*forTestMethods.Add("calculateResult"); 
+                    forTestMethods.Add("getValues");
+                    forTestMethods.Add("FindTopIndustryCode");
+                    forTestMethods.Add("FindTopOccupationCode");
+                    forTestMethods.Add("CalculateAverageWageForOccupationForAllStates");
+                    forTestMethods.Add("CalculateLikelinessToMoveFactor");
+                    forTestMethods.Add("ComputeAverageEducation");
+                    forTestMethods.Add("FindCccupationIndustryWithHighestLowestEducation");
+                    forTestMethods.Add("FindTopStatesByCategory");
+                    forTestMethods.Add("RecommendBestStateToWork");
+                    forTestMethods.Add("inputForCreateUser");*/
 
                     foreach (MethodDefinition m in methods) {
-                        //Console.WriteLine("Method Name : {0}", m.GetFullName());
-                        /* Code for checking unknown case
-                          */vno = 1; i = 0;
-                            desMethod methodDes;
+                        vno = 1; i = 0;
+                        desMethod methodDes;
                         foreach (var vari in forTestMethods)
                         {
                             if (vari == m.Name) { vno = i;}                          
                             i++;
                         }
-                        if (vno < 0) continue;/**/
-                        //if (m.Name != "createAgentTable") continue;
+                        if (vno < 0) continue;
+                        i = 0;
                         var stats = m.GetDescendants<Statement>();
                         variables.Clear();
                         //Console.WriteLine("Method: " + m.Name);
@@ -243,12 +256,13 @@ namespace WM.UnitTestScribe.CallGraph {
                             if (stat.Content != null) // && string.Compare(stat.GetXmlName(),"DeclStmt")==0) || string.Compare(stat.GetXmlName(),"Statement")==0))
                             {
                                 if (stat is DeclarationStatement){
+
                                     DeclarationStatement ds=(DeclarationStatement)stat;
                                     var cont = ds.Content;
                                     var decls = ds.GetDeclarations();
                                     foreach (var decld in decls)
                                     {
-                                        if (decld.VariableType.ToString().Equals("String", StringComparison.OrdinalIgnoreCase) || decld.VariableType.ToString().Equals("StringBuilder", StringComparison.OrdinalIgnoreCase) || decld.VariableType.ToString().Equals("StringBuffer", StringComparison.OrdinalIgnoreCase)) ;
+                                        if (decld.VariableType.ToString().Equals("String", StringComparison.OrdinalIgnoreCase) || decld.VariableType.ToString().Equals("StringBuilder", StringComparison.OrdinalIgnoreCase) || decld.VariableType.ToString().Equals("StringBuffer", StringComparison.OrdinalIgnoreCase))
                                         {
                                             targetstring = "";
                                             targetstring = Rebuildstring(decld.Name.ToString(), stat, variables);
@@ -261,12 +275,40 @@ namespace WM.UnitTestScribe.CallGraph {
                                 {
                                     foreach (var exp in stat.Content.GetDescendantsAndSelf())
                                     {
-                                        if (exp.GetDescendants().Count() > 0) continue;
-                                            sqlStmtParser p1 = new sqlStmtParser(TakeQuotOff(exp.ToString()));
-                                            if (p1.isStmt == true)
+                                        if (exp is MethodCall)
+                                        {
+                                            MethodCall mc = (MethodCall)exp;
+                                            if (mc.Arguments.Count == 0) continue;
+                                            var arg = mc.Arguments[0];
+                                            if (arg.Components.Count == 0) continue;
+                                            var exps = arg.Components;
+                                            string callPara="";
+                                            for (i = 0; i < exps.Count; i++)
                                             {
-                                                UpdateVariable("pureString",variables, TakeQuotOff(exp.ToString()));
+                                                var texp = exps.ElementAt(i);
+                                                if (texp is LiteralUse || texp is VariableUse)
+                                                {
+                                                    callPara += GetExpCont(texp, variables);
+                                                    continue;
+                                                }
+                                                if ((texp is OperatorUse) && texp.ToString() == "+" && i + 1 < exps.Count)
+                                                {
+                                                    i = i + 1; callPara += GetExpCont(exps.ElementAt(i), variables); continue;
+                                                }
                                             }
+                                            /*sqlStmtParser argp = new sqlStmtParser(callPara);
+                                            if (argp.isStmt == true)
+                                            {*/
+                                                UpdateVariable("argument", variables, callPara);
+                                            
+                                        }
+                                        if (exp.GetDescendants().Count() > 0) continue;
+                                        if ((exp is LiteralUse) == false) continue;
+                                        /*sqlStmtParser p1 = new sqlStmtParser(TakeQuotOff(exp.ToString()));
+                                        if (p1.isStmt == true)
+                                        {*/
+                                            UpdateVariable("pureString",variables, TakeQuotOff(exp.ToString()));
+                                        
                                     }
                                 }
                             }                        
@@ -278,9 +320,7 @@ namespace WM.UnitTestScribe.CallGraph {
                             {
                                 if (list[1]!="")
                                 {
-                                    //Console.WriteLine(list[0] + " --> " + list[1]);
                                     sqlStmtParser p1 = new sqlStmtParser(list[1]);
-                                    //sqlStmtParser p1 = new sqlStmtParser("INSERT INTO education VALUES (1)");
                                     if (p1.isStmt == true)
                                     {
                                         Console.WriteLine(list[0] + " --> " + list[1]);
@@ -290,9 +330,7 @@ namespace WM.UnitTestScribe.CallGraph {
                                         methodDes = getMethodInfo(m,cgm);
                                         updateConnection(p1,methodDes,cgm);
                                     }
-                                    else
-                                    {
-                                    }
+                                    else {}
                                 }
                             }
                             if (sqlCount > previoussql)
@@ -304,15 +342,27 @@ namespace WM.UnitTestScribe.CallGraph {
                                     className = declaringClass.Name;
                                 }
                                 Console.WriteLine(m.GetFullName());
-
+                                directMethods.Add(m.GetFullName());
                                 previoussql = sqlCount;
                             }
                         }
                     }
 
 
-                    Console.WriteLine("Method Analyzing Finished! Total SQL found: " + sqlCount);
-                    GenerateSummary();
+                    Console.WriteLine("Method Analyzing Finished! Total SQLs found: " + sqlCount+ ", total methods: " + directMethods.Count);
+                   /* string fileContent="";
+                    string filePath = @"C:\temp\final.txt";
+                    foreach (var dm in directMethods)
+                    {
+                        fileContent = fileContent + dm + "\r\n";
+                    }
+                    using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
+                    {
+                        StreamWriter sw = new StreamWriter(fs);
+                        sw.Write(fileContent);
+                        sw.Close();
+                    }*/
+                    //GenerateSummary();
                     Console.ReadKey(true);
 
                 } finally {
@@ -339,11 +389,12 @@ namespace WM.UnitTestScribe.CallGraph {
         public desMethod newMethodInfo(MethodDefinition m, CGManager cgm)
         {
             desMethod typeM;
-            SwumSummary swumSummary = new SwumSummary(m);
-            swumSummary.BasicSummary();
+            //SwumSummary swumSummary = new SwumSummary(m);
+            //swumSummary.BasicSummary();
             List<MethodDefinition> followers = new List<MethodDefinition>();
             List<MethodDefinition> finals = new List<MethodDefinition>();
-            string desc = swumSummary.Describe();
+            //string desc = swumSummary.Describe();
+            string desc = "";
             InvokeCallGraphGenerator tracer = new InvokeCallGraphGenerator(m, cgm);
             followers = tracer.traceToMethod();
             finals = tracer.traceToLastMethod();
