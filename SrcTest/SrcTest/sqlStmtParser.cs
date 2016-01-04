@@ -37,7 +37,7 @@ namespace WM.UnitTestScribe {
             return beforestring.Replace("?", "1");
         }
 
-        public List<string> CheckTree(ParseTreeNode node, string targetText)
+        /*public List<string> CheckTree(ParseTreeNode node, string targetText)
         {
             List<string> ids = new List<string>();
             if (node == null) return ids;
@@ -57,9 +57,42 @@ namespace WM.UnitTestScribe {
                 }
             }
             return ids;
+        }*/
+
+        public List<string> CheckEntireTree(ParseTreeNode node, string targetText)
+        {
+            List<string> ids = new List<string>();
+            if (node == null) return ids;
+            if (node.ChildNodes == null) return ids;
+            foreach (ParseTreeNode child in node.ChildNodes)
+            {
+                if (child.Term.Name == targetText)
+                {
+                    foreach (var target in child.ChildNodes)
+                    {
+                        if (target.Token != null) ids.Add(target.Token.Text);
+                    }
+                }
+                else
+                {
+                    if (child.ChildNodes != null)
+                    {
+                        ids = AddList(ids, CheckEntireTree(child, targetText));
+                    }
+                }
+            }
+            return ids;
         }
 
-        public List<string> getTableId()
+        public List<string> AddList(List<string> mainList, List<string> addList)
+        {
+            foreach(var term in addList)
+            {
+                if (mainList.Find(x => x==term)==null) mainList.Add(term);
+            }
+            return mainList;
+        }
+        /*public List<string> getTableId()
         {
             List<string> ids = new List<string>();
             if (stmtPoints == null) return ids;
@@ -71,9 +104,17 @@ namespace WM.UnitTestScribe {
                 ids.Add(stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "Id").ChildNodes.First().Token.Text);
             }
             return ids;
+        }*/
+
+        public List<string> getAllIds()
+        {
+            List<string> ids = new List<string>();
+            if (stmtPoints == null) return ids;
+            ids=CheckEntireTree(stmtType,"Id");
+            return ids;
         }
 
-        public List<string> getColumnId()
+        /*public List<string> getColumnId()
         {
             List<string> ids = new List<string>();
             List<string> ids2 = new List<string>();
@@ -87,8 +128,7 @@ namespace WM.UnitTestScribe {
                 ids.Add(tempId);
             }
             return ids;
-        }
-        //public getWhereId()
+        }*/
     }
     
 }

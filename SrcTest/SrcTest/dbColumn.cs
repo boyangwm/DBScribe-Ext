@@ -13,6 +13,7 @@ namespace WM.UnitTestScribe
         public List<desMethod> directMethods;
         public List<desMethod> followMehtods;
         public List<desMethod> finalMethods;
+        public List<dbMethodSql> relationships;
         public string title;
         public string attribute;
         public string methodsDes;
@@ -25,62 +26,98 @@ namespace WM.UnitTestScribe
             this.finalMethods = new List<desMethod>();
             this.name = clName;
             this.tableName = tlName;
-            this.title = "Column:" + clName+",Table:" +tableName;
+            this.title = "Column: " + clName+", Table: " +tableName;
             this.attribute = "";
             this.methodsDes = "";
+            this.relationships = new List<dbMethodSql>();
         }
 
+        public string TakeSpaceOff(string ori)
+        {
+            string result = "";
+            if (ori.Last() == ' ') result = ori.Substring(0, ori.Length - 1);
+            else result = ori;
+            return result;
+        }
+
+        public List<string> getRelationships(string name)
+        {
+            dbMethodSql tempMS = relationships.Find(x => x.methodName == name);
+            return tempMS.sqlSequence;
+        }
+
+        public void insertRelationships(string name, string sql)
+        {
+            if (relationships.Find(x => x.methodName == name) == null)
+            {
+                relationships.Add(new dbMethodSql(name));
+            }
+            var tempMS = relationships.Find(x => x.methodName == name);
+            if (tempMS.sqlSequence.Find(x => x == sql) == null)
+            {
+                tempMS.sqlSequence.Add(sql);
+            }
+            return;
+        }
         public void generateDescription(dataSchemer db)
         {
-            attribute += "This column belongs to Table: " + tableName +". It contains data with type " + db.GetOneColumnInfo(tableName ,name, "DATA_TYPE")+". ";
+            attribute += "This column belongs to Table: " + tableName +". It contains data with type <b>" + TakeSpaceOff(db.GetOneColumnInfo(tableName ,name, "DATA_TYPE"))+"</b>. ";
             string length = db.GetOneColumnInfo(tableName, name, "CHARACTER_MAXIMUM_LENGTH");
             if (length != " ") attribute += "The max length of data is " + length + ". ";
-            methodsDes = "<br><b>Methods directly access this table:</b>";
+            if (directMethods.Count == 0)
+            {
+                methodsDes = "<br><b>No method interacts with this column directly.</b>";
+                return;
+            }
+            methodsDes = "<br><b>Methods directly access this column:</b>";
             foreach (var m in directMethods)
             {
-                methodsDes += "</p> Method: " + m.name + ". This method could " + m.swumsummary + ".";
+                methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column");
             }
             if (followMehtods.Count > 0)
             {
-                methodsDes += "<br><br> <b>Methods might access this table:</b>";
+                methodsDes += "<br><br> <b>Methods might access this column:</b>";
                 foreach (var m in followMehtods)
                 {
-                    methodsDes += "</p> Method: " + m.name + ". This method could " + m.swumsummary + ".";
+                    methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column");
                 }
             }
             if (finalMethods.Count > 0)
             {
-                methodsDes += "<br><br> <b>Methods might access this table and in the highest level:</b>";
+                methodsDes += "<br><br> <b>Methods might access this column and in the highest level:</b>";
                 foreach (var m in finalMethods)
                 {
-                    methodsDes += "</p> Method: " + m.name + ". This method could " + m.swumsummary + ".";
+                    methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column");
                 }
             }
         }
-        public void insertMethod(desMethod m, string instruction)
+        public void insertMethod(desMethod m, string opt, string instruction)
         {
             if (instruction == "direct")
             {
-                if (this.directMethods.Find(x => x == m) == null)
+                if (this.directMethods.Find(x => x.name == m.name) == null)
                 {
                     this.directMethods.Add(m);
                 }
+                insertRelationships(m.name, opt);
                 return;
             }
             if (instruction == "follow")
             {
-                if (this.followMehtods.Find(x => x == m) == null)
+                if (this.followMehtods.Find(x => x.name == m.name) == null)
                 {
                     this.followMehtods.Add(m);
                 }
+                insertRelationships(m.name, opt);
                 return;
             }
             if (instruction == "final")
             {
-                if (this.finalMethods.Find(x => x == m) == null)
+                if (this.finalMethods.Find(x => x.name == m.name) == null)
                 {
                     this.finalMethods.Add(m);
                 }
+                insertRelationships(m.name, opt);
                 return;
             }
             return;

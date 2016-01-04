@@ -21,6 +21,7 @@ namespace WM.UnitTestScribe.CallGraph {
             List<MethodDefinition> relatedM = new List<MethodDefinition>();
             foreach (List<MethodDefinition> path in pathToM)
             {
+                if (path.Count == 1) continue;
                 foreach (MethodDefinition mc in path)
                 {
                     if (mc.GetFullName() != m.GetFullName() && mc.GetFullName() != path.Last().GetFullName())
@@ -37,7 +38,7 @@ namespace WM.UnitTestScribe.CallGraph {
             List<MethodDefinition> relatedM = new List<MethodDefinition>();
             foreach (List<MethodDefinition> path in pathToM)
             {
-                relatedM.Add(path.Last());
+                if (path.Count>1) relatedM.Add(path.Last());
             }
             return relatedM;
         }

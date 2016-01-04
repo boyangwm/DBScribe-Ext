@@ -105,6 +105,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="dataSchemer.cs" />
+    <Compile Include="dbMethodSql.cs" />
     <Compile Include="desMethod.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,22 +124,19 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Templet\AssertionTemplate.st">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Include="Templet\CourseHome.st">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templet\FocalAssert.st">
+    <None Include="Templet\GenerateScript.st">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templet\MethodBody.st">
+    <None Include="Templet\ProjectSummary.st">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templet\MyTestTemplate.st">
+    <None Include="Templet\MethodDes.st">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Templet\PathTemplate.st">
+    <None Include="Templet\TableLeft.st">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

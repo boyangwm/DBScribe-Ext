@@ -35,20 +35,31 @@ div.tooltip-inner {
 </script>
  </head>
  <body>
-
+ $
+ Function:
+ {fc|
+ $fc$
+ }
+ $
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> DBScribeSchema Report</h2> 
+			<div><p>Summary:
+			$
+			ProjectSum:
+			{ps|
+			$ps$
+			}
+			$
+			</p></div>
 			<div class="panel panel-default">
 			<div class="panel-heading">DataBase Information</div><div class="panel-body" style="max-height:550px;overflow-x: scroll;overflow-y: scroll">
 			$ 
-			Items,
-			Links:
-			{item,lk| 
-			<a href="#$lk$">$item$</a><br>
+			Index:
+			{ix| 
+			$ix$
 			}
 			$
-			
 			</div>
 			</div>
 		</div>

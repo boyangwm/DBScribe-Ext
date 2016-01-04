@@ -13,12 +13,14 @@ namespace WM.UnitTestScribe.Summary {
         public string attributions;
         public string methodInfo;
         public string tableName;
+        public string tableIndex;
 
-        public SingleSummary(string title, string description, string methodInfo, string table) {
+        public SingleSummary(string title, string description, string methodInfo, string table, string tIndex) {
             this.title = title;
             this.attributions=description;
             this.methodInfo = methodInfo;
             this.tableName = table;
+            this.tableIndex = tIndex;
         }
 
     }

@@ -11,6 +11,7 @@ using Irony.Parsing;
 using Microsoft.SqlServer.TransactSql.ScriptDom;
 using WM.UnitTestScribe.ReportGenerator;
 using WM.UnitTestScribe.Summary;
+using Antlr3.ST;
 
 namespace WM.UnitTestScribe.CallGraph {
     class ExtractMethodSQL {
@@ -97,6 +98,13 @@ namespace WM.UnitTestScribe.CallGraph {
             string result = "";
             if (ori.First() == '"' && ori.Last() == '"' && ori.Length > 1) result = ori.Substring(1, ori.Length - 2);
             else result = ori;
+            return result;
+        }
+
+        public string TakePointOff(string ori)
+        {
+            string result = "";
+            result = ori.Replace(".", "");
             return result;
         }
 
@@ -221,24 +229,16 @@ namespace WM.UnitTestScribe.CallGraph {
                     int previoussql = 0;
                     
                     /* Code for checking unknown case
-                      */int vno = 0;
+                  */int vno = 0;
                     int i = 0;
 
                     List<string> forTestMethods = new List<string>(); //unsolved for UMAS
-                    /*forTestMethods.Add("calculateResult"); 
+                    //forTestMethods.Add("calculateResult"); 
                     forTestMethods.Add("getValues");
                     forTestMethods.Add("FindTopIndustryCode");
-                    forTestMethods.Add("FindTopOccupationCode");
-                    forTestMethods.Add("CalculateAverageWageForOccupationForAllStates");
-                    forTestMethods.Add("CalculateLikelinessToMoveFactor");
-                    forTestMethods.Add("ComputeAverageEducation");
-                    forTestMethods.Add("FindCccupationIndustryWithHighestLowestEducation");
-                    forTestMethods.Add("FindTopStatesByCategory");
-                    forTestMethods.Add("RecommendBestStateToWork");
-                    forTestMethods.Add("inputForCreateUser");*/
 
                     foreach (MethodDefinition m in methods) {
-                        vno = 1; i = 0;
+                        vno = -1; i = 0;
                         desMethod methodDes;
                         foreach (var vari in forTestMethods)
                         {
@@ -296,18 +296,12 @@ namespace WM.UnitTestScribe.CallGraph {
                                                     i = i + 1; callPara += GetExpCont(exps.ElementAt(i), variables); continue;
                                                 }
                                             }
-                                            /*sqlStmtParser argp = new sqlStmtParser(callPara);
-                                            if (argp.isStmt == true)
-                                            {*/
-                                                UpdateVariable("argument", variables, callPara);
+                                            UpdateVariable("argument", variables, callPara);
                                             
                                         }
                                         if (exp.GetDescendants().Count() > 0) continue;
                                         if ((exp is LiteralUse) == false) continue;
-                                        /*sqlStmtParser p1 = new sqlStmtParser(TakeQuotOff(exp.ToString()));
-                                        if (p1.isStmt == true)
-                                        {*/
-                                            UpdateVariable("pureString",variables, TakeQuotOff(exp.ToString()));
+                                        UpdateVariable("pureString",variables, TakeQuotOff(exp.ToString()));
                                         
                                     }
                                 }
@@ -315,7 +309,6 @@ namespace WM.UnitTestScribe.CallGraph {
                         }
                         if (variables.Count > 0)
                         {
-                            //Console.WriteLine("---Total List for method: " + m.Name + " ---");
                             foreach (var list in variables)
                             {
                                 if (list[1]!="")
@@ -328,7 +321,7 @@ namespace WM.UnitTestScribe.CallGraph {
                                         Console.WriteLine();
                                         sqlCount++;
                                         methodDes = getMethodInfo(m,cgm);
-                                        updateConnection(p1,methodDes,cgm);
+                                        updateConnection(p1,methodDes,cgm,p1.stmtType.ToString());
                                     }
                                     else {}
                                 }
@@ -342,6 +335,8 @@ namespace WM.UnitTestScribe.CallGraph {
                                     className = declaringClass.Name;
                                 }
                                 Console.WriteLine(m.GetFullName());
+                                Console.WriteLine("============================");
+                                Console.WriteLine();
                                 directMethods.Add(m.GetFullName());
                                 previoussql = sqlCount;
                             }
@@ -350,19 +345,23 @@ namespace WM.UnitTestScribe.CallGraph {
 
 
                     Console.WriteLine("Method Analyzing Finished! Total SQLs found: " + sqlCount+ ", total methods: " + directMethods.Count);
-                   /* string fileContent="";
-                    string filePath = @"C:\temp\final.txt";
-                    foreach (var dm in directMethods)
+                    StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");
+                    StringTemplate stsum = group.GetInstanceOf("ProjectSummary");
+                    int tableCount=0;
+                    int totalCount=0;
+                    foreach(var tempT in tablesInfo)
                     {
-                        fileContent = fileContent + dm + "\r\n";
+                        if (tempT.directMethods.Count>0) {tableCount++;totalCount++;}
+                        foreach (var tempC in tempT.columns)
+                        {
+                            if (tempC.directMethods.Count>0) totalCount++;
+                        }
                     }
-                    using (FileStream fs = new FileStream(filePath, FileMode.OpenOrCreate))
-                    {
-                        StreamWriter sw = new StreamWriter(fs);
-                        sw.Write(fileContent);
-                        sw.Close();
-                    }*/
-                    //GenerateSummary();
+                    stsum.SetAttribute("TableNumber",tableCount);
+                    stsum.SetAttribute("AllNumber",totalCount);
+                    stsum.SetAttribute("MethodNumber",directMethods.Count);
+                    GenerateSummary(stsum.ToString());
+                    Console.WriteLine("Report has been generated! Press any key to exit..");
                     Console.ReadKey(true);
 
                 } finally {
@@ -389,12 +388,11 @@ namespace WM.UnitTestScribe.CallGraph {
         public desMethod newMethodInfo(MethodDefinition m, CGManager cgm)
         {
             desMethod typeM;
-            //SwumSummary swumSummary = new SwumSummary(m);
-            //swumSummary.BasicSummary();
+            SwumSummary swumSummary = new SwumSummary(m);
+            swumSummary.BasicSummary();
             List<MethodDefinition> followers = new List<MethodDefinition>();
             List<MethodDefinition> finals = new List<MethodDefinition>();
-            //string desc = swumSummary.Describe();
-            string desc = "";
+            string desc = swumSummary.Describe();
             InvokeCallGraphGenerator tracer = new InvokeCallGraphGenerator(m, cgm);
             followers = tracer.traceToMethod();
             finals = tracer.traceToLastMethod();
@@ -414,79 +412,70 @@ namespace WM.UnitTestScribe.CallGraph {
                 tablesInfo.Add(tempTable);
             }
         }
-        public void updateConnection(sqlStmtParser p1, desMethod m, CGManager cgm)
-        {
-            //if ((p1.stmtType.ToString() != "selectStmt") && (p1.stmtType.ToString() != "insertStmt") && (p1.stmtType.ToString() != "updateStmt") && (p1.stmtType.ToString() != "deleteStmt")) return;
-            if (p1.getTableId() == null) return;
-            List<string> idList= new List<string>();
-            foreach (var id in p1.getTableId())
+        public void updateConnection(sqlStmtParser p1, desMethod m, CGManager cgm, string opt)
+        { 
+            List<string> idList = p1.getAllIds();
+            if (idList== null) return;
+            List<dbTable> tableIds = new List<dbTable>();
+            List<dbColumn> columnIds = new List<dbColumn>();
+
+            foreach (var id in idList)
             {
                 if (id != null)
                 {
-                    if (tablesInfo.Find(x => x.name.Equals(id, StringComparison.OrdinalIgnoreCase)) != null) idList.Add(id);
-                }
-            }
-
-            if (p1.getColumnId().Count==0)
-            {
-                foreach (var id in idList)
-                {
-                    for (var i = 0; i < tablesInfo.Count; i++)
+                    if (tablesInfo.Find(x => x.name.Equals(id, StringComparison.OrdinalIgnoreCase)) != null)
                     {
-                        if (tablesInfo[i].name.Equals(id, StringComparison.OrdinalIgnoreCase))
+                        var tempTable = tablesInfo.Find(x => x.name.Equals(id, StringComparison.OrdinalIgnoreCase));
+                        tableIds.Add(tempTable);
+                        foreach (var col in tempTable.columns)
                         {
-                            tablesInfo[i].insertMethod(m, "direct");
-                            foreach (var mm in m.followmethods)
-                            {
-                                tablesInfo[i].insertMethod(getMethodInfo(mm, cgm),"follow");
-                            }
-                            foreach (var mm in m.finalmethods)
-                            {
-                                tablesInfo[i].insertMethod(getMethodInfo(mm, cgm),"final");
-                            }
-                        break;
+                            if (idList.Find(x => x.Equals(col.name, StringComparison.OrdinalIgnoreCase)) != null) columnIds.Add(col);
                         }
                     }
                 }
-                return;
             }
 
-            foreach (var col in p1.getColumnId())
+            for (int i = 0; i < tablesInfo.Count; i++)
             {
-                if (col != null)
+                if (tableIds.Find(x => x == tablesInfo[i]) != null)
                 {
-                    foreach (var id in idList)
+                    tablesInfo[i].insertMethod(m, opt, "direct");
+                    foreach (var mm in m.followmethods)
                     {
-                        for (var i = 0; i < tablesInfo.Count; i++)
+                        var tempMeDes = getMethodInfo(mm, cgm);
+                        tablesInfo[i].insertMethod(tempMeDes, opt, "follow");
+                    }
+                    foreach (var mm in m.finalmethods)
+                    {
+                        var tempMeDes = getMethodInfo(mm, cgm);
+                        tablesInfo[i].insertMethod(tempMeDes, opt, "final");
+                    }
+                }
+            }
+            if (columnIds.Count == 0) return;
+
+            for (int i=0; i < tablesInfo.Count; i++)
+            {
+                for (int j=0; j<tablesInfo[i].columns.Count; j++)
+                {
+                    if (columnIds.Find(x => x == tablesInfo[i].columns[j]) != null)
+                    {
+                        tablesInfo[i].columns[j].insertMethod(m, opt, "direct");
+                        foreach (var mm in m.followmethods)
                         {
-                            if (tablesInfo[i].name == id)
-                            {
-                                List<dbColumn> tempcol = tablesInfo[i].columns;
-                                for (var j=0; j<tempcol.Count;j++)
-                                {
-                                    if (tempcol[j].name.Equals(col, StringComparison.OrdinalIgnoreCase))
-                                    {
-                                        tempcol[j].insertMethod(m,"direct");
-                                        foreach (var mm in m.followmethods)
-                                        {
-                                            tempcol[j].insertMethod(getMethodInfo(mm, cgm),"follow");
-                                        }
-                                        foreach (var mm in m.finalmethods)
-                                        {
-                                            tempcol[j].insertMethod(getMethodInfo(mm, cgm),"final");
-                                        }
-                                        break;
-                                    }
-                                }
-                                tablesInfo[i].columns = tempcol;
-                                break;
-                            }
+                            var tempMeDes = getMethodInfo(mm, cgm);
+                            tablesInfo[i].columns[j].insertMethod(tempMeDes, opt, "follow");
                         }
-                    }                    
+                        foreach (var mm in m.finalmethods)
+                        {
+                            var tempMeDes = getMethodInfo(mm, cgm);
+                            tablesInfo[i].columns[j].insertMethod(tempMeDes, opt, "final");
+                        }
+                    }
                 }
             }
         }
-        public void GenerateSummary()
+        public void GenerateSummary(string stsum)
         {
             Console.WriteLine("Now let's generate summary..");
             foreach(var table in this.tablesInfo)
@@ -494,18 +483,26 @@ namespace WM.UnitTestScribe.CallGraph {
                 table.generateDescription(db);
                 if (table.directMethods.Count>0 || table.columns.Find(x => x.directMethods.Count>0)!=null)
                 {
-                    SingleSummary tcSummary = new SingleSummary(table.title, table.attribute, table.methodsDes,table.name);
+                    SingleSummary tcSummary = new SingleSummary(table.title, table.attribute, table.methodsDes,table.name,table.generateLeftIndex());
                     AllTableSummary.Add(tcSummary);
                 }
                 foreach(var column in table.columns)
                 {
                     column.generateDescription(db);
                     if (column.directMethods.Count == 0) continue;
-                    SingleSummary tcSummary = new SingleSummary(column.title, column.attribute, column.methodsDes,table.name);
+                    SingleSummary tcSummary = new SingleSummary(column.title, column.attribute, column.methodsDes,table.name,"");
                     AllColumnSummary.Add(tcSummary);
                 }
             }
-            FinalGenerator homePageGenerator = new FinalGenerator(this.AllTableSummary, this.AllColumnSummary);
+            StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");
+            StringTemplate st = group.GetInstanceOf("GenerateScript");
+            foreach(var me in methodsInfo)
+            {
+                st.SetAttribute("FunctionName",TakePointOff(me.name));
+                st.SetAttribute("MethodFullName",me.name);
+                st.SetAttribute("MethodName", me.methodself.Name);
+            }
+            FinalGenerator homePageGenerator = new FinalGenerator(this.AllTableSummary, this.AllColumnSummary,st.ToString(),stsum);
             homePageGenerator.Generate(@"c:\temp\test.html");
         }
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Irony;
 using Irony.Parsing;
 using ABB.SrcML.Data;
+using Antlr3.ST;
 
 namespace WM.UnitTestScribe {
     class dbTable
@@ -14,6 +15,7 @@ namespace WM.UnitTestScribe {
         public List<desMethod> directMethods;
         public List<desMethod> followMehtods;
         public List<desMethod> finalMethods;
+        public List<dbMethodSql> relationships;
         public string name;
         public string title;
         public string attribute;
@@ -25,34 +27,83 @@ namespace WM.UnitTestScribe {
             this.followMehtods = new List<desMethod>();
             this.finalMethods = new List<desMethod>();
             this.name = tbName;
-            this.title = "Table:" + name;
+            this.title = "Table: " + name;
             this.attribute = "";
             this.methodsDes = "";
+            this.relationships = new List<dbMethodSql>();
+        }
+
+        public List<string> getRelationships(string name)
+        {
+            dbMethodSql tempMS = relationships.Find(x => x.methodName == name);
+            return tempMS.sqlSequence;
+        }
+
+        public void insertRelationships(string name, string sql)
+        {
+            if (relationships.Find(x => x.methodName == name) == null)
+            {
+                relationships.Add(new dbMethodSql(name));
+            }
+            var tempMS = relationships.Find(x => x.methodName == name);
+            if (tempMS.sqlSequence.Find(x => x == sql) == null)
+            {
+                tempMS.sqlSequence.Add(sql);
+            }
+            return;
+        }
+
+        public string TakeSpaceOff(string ori)
+        {
+            string result = "";
+            if (ori.Last() == ' ') result = ori.Substring(0, ori.Length - 1);
+            else result = ori;
+            return result;
+        }
+
+        public string generateLeftIndex ()
+        {
+            StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");
+            StringTemplate st = group.GetInstanceOf("TableLeft");
+            string finalstring = "";
+            finalstring += "<a href=\"#" + this.title +"\">" + this.title +"</a><br>";
+            foreach (var col in this.columns)
+            {
+                if (col.directMethods.Count==0) continue;
+                st.SetAttribute("Columns", "Column:"+col.name);
+                st.SetAttribute("Links", col.title);
+            }
+            finalstring += st.ToString();
+            return finalstring;
         }
 
         public void generateDescription (dataSchemer db)
         {
             attribute = "This table contains columns: ";
-            foreach (var column in columns)
+            foreach (var col in this.columns)
             {
-                if (column==columns.Last()) continue;
-                attribute += column.name + ", ";
+                if (col.directMethods.Count == 0) continue;
+                attribute += "<a href=\"#" + col.title + "\">" + col.name + "</a>" + ", ";
             }
-
-            attribute += columns.Last()+". ";
-            attribute += " The create time of table: " + db.GetOneTableInfo(name, "CREATE_TIME") + ". ";
+            attribute += " etc. ";
+            attribute += " This table is created at" + TakeSpaceOff(db.GetOneTableInfo(name, "CREATE_TIME")) + ". ";
             attribute += "It contails " + db.GetOneTableInfo(name, "TABLE_ROWS") + " items totally. ";
+            if (directMethods.Count==0)
+            {
+                methodsDes = "<br><b>No method interacts with this table directly.</b>";
+                return;
+            }
             methodsDes = "<br><b>Methods directly access this table:</b>";
                     foreach (var m in directMethods)
                     {
-                        methodsDes += "</p> Method: " + m.name + ". This method could " + m.swumsummary + ".";
+                        methodsDes += m.getHtmlDescribe(getRelationships(m.name),"table");
                     }
                     if (followMehtods.Count>0)
                     {
                         methodsDes += "<br><br><b>Methods might access this table:</b>";
                         foreach (var m in followMehtods)
                         {
-                            methodsDes += "</p> Method: " + m.name + ". This method could " + m.swumsummary + ".";
+                            methodsDes += m.getHtmlDescribe(getRelationships(m.name), "table");
                         }
                     }
                     if (finalMethods.Count > 0)
@@ -60,34 +111,37 @@ namespace WM.UnitTestScribe {
                         methodsDes += "<br><br><b>Methods might access this table and in the highest level:</b>";
                         foreach (var m in finalMethods)
                         {
-                            methodsDes += "</p> Method: " + m.name + ". This method could " + m.swumsummary + ".";
+                            methodsDes += m.getHtmlDescribe(getRelationships(m.name), "table");
                         }
                     }
         }
-        public void insertMethod (desMethod m, string instruction)
+        public void insertMethod(desMethod m, string opt, string instruction)
         {
-            if (instruction=="direct")
+            if (instruction == "direct")
             {
-                if (this.directMethods.Find(x => x==m)==null)
+                if (this.directMethods.Find(x => x.name == m.name) == null)
                 {
                     this.directMethods.Add(m);
                 }
+                insertRelationships(m.name, opt);
                 return;
             }
             if (instruction == "follow")
             {
-                if (this.followMehtods.Find(x => x == m) == null)
+                if (this.followMehtods.Find(x => x.name == m.name) == null)
                 {
                     this.followMehtods.Add(m);
                 }
+                insertRelationships(m.name, opt);
                 return;
             }
             if (instruction == "final")
             {
-                if (this.finalMethods.Find(x => x == m) == null)
+                if (this.finalMethods.Find(x => x.name == m.name) == null)
                 {
                     this.finalMethods.Add(m);
                 }
+                insertRelationships(m.name, opt);
                 return;
             }
             return;
