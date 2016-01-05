@@ -31,8 +31,6 @@ namespace WM.UnitTestScribe.ReportGenerator {
             StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");
             StringTemplate st = group.GetInstanceOf("CourseHome");
             int ID = 1;
-            //List<String> allTableSigniture = new List<string>();
-            //List<String> allShift = new List<string>();
             st.SetAttribute("Function", AllShiftFunction);
             st.SetAttribute("ProjectSum", projectSum);
             foreach (var testSummary in AllTableSummary) {
@@ -40,28 +38,17 @@ namespace WM.UnitTestScribe.ReportGenerator {
                 st.SetAttribute("Title", testSummary.title);
                 st.SetAttribute("Content", testSummary.attributions + "</p>" + testSummary.methodInfo);
                 st.SetAttribute("Index", testSummary.tableIndex);
-                //allShift.Add(testSummary.title);
                 foreach (var subSummary in AllColumnSummary)
                 {
                     if (subSummary.tableName != testSummary.tableName) continue;
                     st.SetAttribute("IDNum", ID++);
                     st.SetAttribute("Title", subSummary.title);
                     st.SetAttribute("Content", subSummary.attributions + "</p>" + subSummary.methodInfo);
-                    //allTableSigniture.Add("&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + subSummary.title);
-                    //allShift.Add(subSummary.title);
                 }
                 
             }
-            //allTableSigniture.Sort();
-            //hyper index
-            /*for (int i=0; i < allTableSigniture.Count; i++) 
-            {
-                st.SetAttribute("Items", allTableSigniture[i]);
-                st.SetAttribute("Links", allShift[i]);
-            }*/
 
             String result = st.ToString();
-
             StreamWriter writetext = new StreamWriter(path);
             writetext.WriteLine(result);
             writetext.Close();

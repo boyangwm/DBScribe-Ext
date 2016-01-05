@@ -100,23 +100,24 @@
   <ItemGroup>
     <Compile Include="CallGraph\CallGraph.cs" />
     <Compile Include="CallGraph\CGManager.cs" />
-    <Compile Include="CallGraph\ExtractMethodSQL.cs" />
     <Compile Include="CallGraph\InvokeCallGraphGenerator.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="dataSchemer.cs" />
-    <Compile Include="dbMethodSql.cs" />
-    <Compile Include="desMethod.cs" />
+    <Compile Include="DatabaseInfo\dataSchemer.cs" />
+    <Compile Include="DatabaseInfo\dbColumn.cs" />
+    <Compile Include="DatabaseInfo\dbTable.cs" />
+    <Compile Include="MethodInfo\dbMethodSql.cs" />
+    <Compile Include="MethodInfo\dbMethodMapper.cs" />
+    <Compile Include="ReportGenerator\infoCollector.cs" />
+    <Compile Include="MethodInfo\desMethod.cs" />
+    <Compile Include="MethodInfo\ExtractMethodSQL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportGenerator\FinalGenerator.cs" />
-    <Compile Include="SqlGrammar.cs" />
-    <Compile Include="dbColumn.cs" />
-    <Compile Include="dbTable.cs" />
-    <Compile Include="sqlStmtParser.cs" />
+    <Compile Include="sqlAnalyzer\SqlGrammar.cs" />
+    <Compile Include="sqlAnalyzer\sqlStmtParser.cs" />
     <Compile Include="Summary\SwumSummary.cs" />
     <Compile Include="Summary\SingleSummary.cs" />
-    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ABB.Swum.dll.config">

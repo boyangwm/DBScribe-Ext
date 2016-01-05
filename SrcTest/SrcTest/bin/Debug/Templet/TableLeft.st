@@ -8,5 +8,4 @@
   }
   $
 </select>
-<p />
-<p>----------------------</p>
+<hr style="height:2px;border:none;border-top:2px solid royalblue;" />

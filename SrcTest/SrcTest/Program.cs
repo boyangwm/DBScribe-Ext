@@ -13,6 +13,9 @@ using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using WM.UnitTestScribe.ReportGenerator;
 using WM.UnitTestScribe.Summary;
+using WM.UnitTestScribe.DatabaseInfo;
+using WM.UnitTestScribe.MethodInfo;
+using WM.UnitTestScribe.sqlAnalyzer;
 
 namespace WM.UnitTestScribe
 {
@@ -22,97 +25,26 @@ namespace WM.UnitTestScribe
         public static readonly string SrcmlLoc = @"C:\GitHub\tool\SrcML";
         public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=riskit;";
 
-        static void Main(string[] args)
+        static void Main()
         {
-
-            args = new string[] { "extractor", "--loc", LocalProj, "--srcmlPath", SrcmlLoc };
-            var options = new Options();
-            string invokedVerb = null;
-            object invokedVerbOptions = null;
-
-            var dbsingle = new dataSchemer(myConnectionString);
-            Console.WriteLine("ConnectData Success");
+            var theDB = new dataSchemer(myConnectionString);
+            Console.WriteLine("Connecting database success!");
+            Console.WriteLine();
+            
+            var extractor = new ExtractMethodSQL(LocalProj, SrcmlLoc, theDB);
+            extractor.run();
+            Console.WriteLine("Building callGraph and extracting SQL sequences success!");
             Console.WriteLine();
 
-            if (!CommandLine.Parser.Default.ParseArguments(args, options,
-                (verb, verbOptions) =>
-                {
-                    invokedVerb = verb;
-                    invokedVerbOptions = verbOptions;
-                }))
-            {
-                Environment.Exit(CommandLine.Parser.DefaultExitCodeFail);
-            }
-            if (invokedVerb == "extractor")
-            {
-                var callGraphOp = (CallgraphOptions)invokedVerbOptions;
-                var generator = new ExtractMethodSQL(callGraphOp.LocationsPath, callGraphOp.SrcMLPath);
-                generator.run(dbsingle);
-            }
-            else
-            {
-                Console.WriteLine("Run command, try again!");
+            var mapper = new dbMethodMapper(extractor, theDB);
+            mapper.run();
+            Console.WriteLine("Mapping database with methods success!");
+            Console.WriteLine();
 
-            }
-        }
-
-
-        private class Options
-        {
-            [VerbOption("extractor", HelpText = "Analyze stereotype of methods in the project")]
-            public CallgraphOptions StereotypeVerb { get; set; }
-
-
-            [VerbOption("findAllTestCases", HelpText = "find all test cases in a project")]
-            public TestCaseOptions FindAllTestCaseVerb { get; set; }
-
-            [VerbOption("hello", HelpText = "Print hello for testing")]
-            public HelloOptions HelloVerb { get; set; }
-
-            [HelpVerbOption]
-            public string GetUsage(string verb)
-            {
-                return HelpText.AutoBuild(this, verb);
-            }
-        }
-
-
-
-
-        /// <summary>
-        /// Stereotype detector
-        /// </summary>
-        private class CallgraphOptions
-        {
-            /// <summary> Subject application location </summary>
-            [Option("loc", Required = true, HelpText = "The subject project folder")]
-            public string LocationsPath { get; set; }
-
-            [Option("srcmlPath", Required = true, HelpText = "The path to Srcml.exe")]
-            public string SrcMLPath { get; set; }
-        }
-
-
-
-        /// <summary>
-        /// Options for findAllTestCases
-        /// </summary>
-        private class TestCaseOptions
-        {
-            /// <summary> Subject application location </summary>
-            [Option("loc", Required = true, HelpText = "The subject project folder")]
-            public string LocationsPath { get; set; }
-
-            [Option("srcmlPath", Required = true, HelpText = "The path to Srcml.exe")]
-            public string SrcMLPath { get; set; }
-        }
-
-
-        /// <summary>
-        /// print hello for testing 
-        /// </summary>
-        private class HelloOptions
-        {
+            var reporter = new infoCollector(extractor, theDB);
+            reporter.run();
+            Console.WriteLine("Report has been generated! Press any key to exit..");
+            Console.ReadKey(true);
         }
     }
 
