@@ -1,0 +1,1249 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>DBSchemaScribe Report</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert"> </script>
+ <style>
+.modal.modal-wide .modal-dialog {
+  width: 90%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+p {word-wrap: break-word; }
+</style>
+<script>
+$(".modal-wide").on("show.bs.modal", function() {
+  var height = $(window).height() - 200;
+  $(this).find(".modal-body").css("max-height", height);
+});
+</script>
+<style>
+div.tooltip-inner {
+    max-width: 1500px;
+}
+</style>
+<script>
+$(document).ready(function () {
+  $("a").tooltip({
+    'selector': '',
+    'placement': 'bottom',
+    'container':'body'
+  });
+});
+</script>
+ </head>
+ <body>
+  <script>
+  function clickDBMSDBMSingresar(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.ingresar"?"ingresar":"DBMS.DBMS.ingresar";
+  }
+  function clickDBMSDBMStrabajaEnLaboratorio(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.trabajaEnLaboratorio"?"trabajaEnLaboratorio":"DBMS.DBMS.trabajaEnLaboratorio";
+  }
+  function clickDBMSDBMStrabajaEnSeccion(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.trabajaEnSeccion"?"trabajaEnSeccion":"DBMS.DBMS.trabajaEnSeccion";
+  }
+  function clickDBMSDBMSnombreLaboratorio(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.nombreLaboratorio"?"nombreLaboratorio":"DBMS.DBMS.nombreLaboratorio";
+  }
+  function clickDBMSDBMSnombreSeccion(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.nombreSeccion"?"nombreSeccion":"DBMS.DBMS.nombreSeccion";
+  }
+  function clickDBMSDBMSgestionIns(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.gestionIns"?"gestionIns":"DBMS.DBMS.gestionIns";
+  }
+  function clickDBMSDBMSagregar(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.agregar"?"agregar":"DBMS.DBMS.agregar";
+  }
+  function clickDBMSDBMSmodificar(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.modificar"?"modificar":"DBMS.DBMS.modificar";
+  }
+  function clickDBMSDBMSeliminar(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.eliminar"?"eliminar":"DBMS.DBMS.eliminar";
+  }
+  function clickDBMSDBMSvisualizar(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.visualizar"?"visualizar":"DBMS.DBMS.visualizar";
+  }
+  function clickDBMSDBMSconsultar(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.consultar"?"consultar":"DBMS.DBMS.consultar";
+  }
+  function clickDBMSDBMSlistarLaboratorios(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.listarLaboratorios"?"listarLaboratorios":"DBMS.DBMS.listarLaboratorios";
+  }
+  function clickDBMSDBMSlistarSecciones(obj){
+  obj.innerHTML = obj.innerHTML == "DBMS.DBMS.listarSecciones"?"listarSecciones":"DBMS.DBMS.listarSecciones";
+  }
+
+  </script>
+  
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> DBScribeSchema Report</h2> 
+			<div><p>Summary:
+						This project contains <b>6</b> tables. <b>31</b> tables or columns are accessed with code.
+						<b>16</b> methods contain SQL local invocations.
+
+						
+			</p></div>
+			<div class="panel panel-default">
+			<div class="panel-heading">DataBase Information</div><div class="panel-body" style="max-height:550px;overflow-x: scroll;overflow-y: scroll">
+
+						<a href="#Table: insumo">Table: insumo</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: codigo, Table: insumo">Column:codigo</option>
+						      <option value="#Column: nombre, Table: insumo">Column:nombre</option>
+						      <option value="#Column: seccion, Table: insumo">Column:seccion</option>
+						      <option value="#Column: laboratorio, Table: insumo">Column:laboratorio</option>
+						      <option value="#Column: existe, Table: insumo">Column:existe</option>
+						      <option value="#Column: marca, Table: insumo">Column:marca</option>
+						      <option value="#Column: modelo, Table: insumo">Column:modelo</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: item_insumo">Table: item_insumo</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: insumo, Table: item_insumo">Column:insumo</option>
+						      <option value="#Column: id, Table: item_insumo">Column:id</option>
+						      <option value="#Column: numero, Table: item_insumo">Column:numero</option>
+						      <option value="#Column: serial, Table: item_insumo">Column:serial</option>
+						      <option value="#Column: estado, Table: item_insumo">Column:estado</option>
+						      <option value="#Column: visible, Table: item_insumo">Column:visible</option>
+						      <option value="#Column: existeItem, Table: item_insumo">Column:existeItem</option>
+						      <option value="#Column: observacion, Table: item_insumo">Column:observacion</option>
+						      <option value="#Column: fechaMod, Table: item_insumo">Column:fechaMod</option>
+						      <option value="#Column: fechaAgr, Table: item_insumo">Column:fechaAgr</option>
+						      <option value="#Column: fechaEli, Table: item_insumo">Column:fechaEli</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: laboratorio">Table: laboratorio</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: codlab, Table: laboratorio">Column:codlab</option>
+						      <option value="#Column: nombre, Table: laboratorio">Column:nombre</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: seccion">Table: seccion</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: codsec, Table: seccion">Column:codsec</option>
+						      <option value="#Column: nombre, Table: seccion">Column:nombre</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: trabaja">Table: trabaja</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: trabajador, Table: trabaja">Column:trabajador</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: usuario">Table: usuario</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: usbid, Table: usuario">Column:usbid</option>
+						      <option value="#Column: contrasena, Table: usuario">Column:contrasena</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+			</div>
+			</div>
+		</div>
+		<div class="col-xs-9" style="float:right;right:0px">
+		
+
+						<div class="panel panel-primary"><a id="Table: insumo"></a>
+							<div class="panel-heading"><b>1. &nbsp;Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="1" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: codigo, Table: insumo">codigo</a>, <a href="#Column: nombre, Table: insumo">nombre</a>, <a href="#Column: seccion, Table: insumo">seccion</a>, <a href="#Column: laboratorio, Table: insumo">laboratorio</a>, <a href="#Column: existe, Table: insumo">existe</a>, <a href="#Column: marca, Table: insumo">marca</a>, <a href="#Column: modelo, Table: insumo">modelo</a>,  etc.  This table is created at2016/1/7 11:40:36. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data into this table. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update this table. 
+
+							<br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: codigo, Table: insumo"></a>
+							<div class="panel-heading"><b>2. &nbsp;Column: codigo, Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="2" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: codigo, Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: insumo. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: nombre, Table: insumo"></a>
+							<div class="panel-heading"><b>3. &nbsp;Column: nombre, Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="3" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: nombre, Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: insumo. It contains data with type <b>char</b>. The max length of data is 100. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: seccion, Table: insumo"></a>
+							<div class="panel-heading"><b>4. &nbsp;Column: seccion, Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="4" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: seccion, Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: insumo. It contains data with type <b>char</b>. The max length of data is 5. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: laboratorio, Table: insumo"></a>
+							<div class="panel-heading"><b>5. &nbsp;Column: laboratorio, Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="5" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: laboratorio, Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: insumo. It contains data with type <b>char</b>. The max length of data is 5. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: existe, Table: insumo"></a>
+							<div class="panel-heading"><b>6. &nbsp;Column: existe, Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="6" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: existe, Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: insumo. It contains data with type <b>tinyint</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: marca, Table: insumo"></a>
+							<div class="panel-heading"><b>7. &nbsp;Column: marca, Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="7" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: marca, Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: insumo. It contains data with type <b>char</b>. The max length of data is 50. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: modelo, Table: insumo"></a>
+							<div class="panel-heading"><b>8. &nbsp;Column: modelo, Table: insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="8" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: modelo, Table: insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: insumo. It contains data with type <b>char</b>. The max length of data is 30. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: item_insumo"></a>
+							<div class="panel-heading"><b>9. &nbsp;Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="9" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: insumo, Table: item_insumo">insumo</a>, <a href="#Column: id, Table: item_insumo">id</a>, <a href="#Column: numero, Table: item_insumo">numero</a>, <a href="#Column: serial, Table: item_insumo">serial</a>, <a href="#Column: estado, Table: item_insumo">estado</a>, <a href="#Column: visible, Table: item_insumo">visible</a>, <a href="#Column: existeItem, Table: item_insumo">existeItem</a>, <a href="#Column: observacion, Table: item_insumo">observacion</a>, <a href="#Column: fechaMod, Table: item_insumo">fechaMod</a>, <a href="#Column: fechaAgr, Table: item_insumo">fechaAgr</a>, <a href="#Column: fechaEli, Table: item_insumo">fechaEli</a>,  etc.  This table is created at2016/1/7 11:40:36. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would select some data from this table. 
+							This method would insert data into this table. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would select some data from this table. 
+							This method would update this table. 
+
+							<br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would select some data from this table. 
+							This method would update this table. 
+
+							<br> Method: <u id="DBMSDBMSvisualizar" onclick="clickDBMSDBMSvisualizar(this);">visualizar</u>. This method could visualizar insumo.
+
+							This method would update this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would select some data from this table. 
+							This method would update this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: insumo, Table: item_insumo"></a>
+							<div class="panel-heading"><b>10. &nbsp;Column: insumo, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="10" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: insumo, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>bigint</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: id, Table: item_insumo"></a>
+							<div class="panel-heading"><b>11. &nbsp;Column: id, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="11" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: id, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would select data which is related to this column. 
+							This method would update data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSvisualizar" onclick="clickDBMSDBMSvisualizar(this);">visualizar</u>. This method could visualizar insumo.
+
+							This method would update data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: numero, Table: item_insumo"></a>
+							<div class="panel-heading"><b>12. &nbsp;Column: numero, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="12" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: numero, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would select data which is related to this column. 
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would select data which is related to this column. 
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: serial, Table: item_insumo"></a>
+							<div class="panel-heading"><b>13. &nbsp;Column: serial, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="13" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: serial, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>char</b>. The max length of data is 20. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: estado, Table: item_insumo"></a>
+							<div class="panel-heading"><b>14. &nbsp;Column: estado, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="14" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: estado, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>char</b>. The max length of data is 30. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: visible, Table: item_insumo"></a>
+							<div class="panel-heading"><b>15. &nbsp;Column: visible, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="15" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: visible, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>tinyint</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSvisualizar" onclick="clickDBMSDBMSvisualizar(this);">visualizar</u>. This method could visualizar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: existeItem, Table: item_insumo"></a>
+							<div class="panel-heading"><b>16. &nbsp;Column: existeItem, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="16" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: existeItem, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>tinyint</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: observacion, Table: item_insumo"></a>
+							<div class="panel-heading"><b>17. &nbsp;Column: observacion, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="17" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: observacion, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>char</b>. The max length of data is 140. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: fechaMod, Table: item_insumo"></a>
+							<div class="panel-heading"><b>18. &nbsp;Column: fechaMod, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="18" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: fechaMod, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>timestamp</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSmodificar" onclick="clickDBMSDBMSmodificar(this);">modificar</u>. This method could modificar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: fechaAgr, Table: item_insumo"></a>
+							<div class="panel-heading"><b>19. &nbsp;Column: fechaAgr, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="19" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: fechaAgr, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>timestamp</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: fechaEli, Table: item_insumo"></a>
+							<div class="panel-heading"><b>20. &nbsp;Column: fechaEli, Table: item_insumo</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="20" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: fechaEli, Table: item_insumo</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: item_insumo. It contains data with type <b>timestamp</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="DBMSDBMSeliminar" onclick="clickDBMSDBMSeliminar(this);">eliminar</u>. This method could eliminar insumo.
+
+							This method would update data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: laboratorio"></a>
+							<div class="panel-heading"><b>21. &nbsp;Table: laboratorio</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="21" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: laboratorio</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: codlab, Table: laboratorio">codlab</a>, <a href="#Column: nombre, Table: laboratorio">nombre</a>,  etc.  This table is created at2016/1/7 11:40:35. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="DBMSDBMSnombreLaboratorio" onclick="clickDBMSDBMSnombreLaboratorio(this);">nombreLaboratorio</u>. This method could nombre laboratorio.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data into this table. 
+
+							<br> Method: <u id="DBMSDBMSlistarLaboratorios" onclick="clickDBMSDBMSlistarLaboratorios(this);">listarLaboratorios</u>. This method could listar laboratorios.
+
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: codlab, Table: laboratorio"></a>
+							<div class="panel-heading"><b>22. &nbsp;Column: codlab, Table: laboratorio</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="22" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: codlab, Table: laboratorio</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: laboratorio. It contains data with type <b>char</b>. The max length of data is 20. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSnombreLaboratorio" onclick="clickDBMSDBMSnombreLaboratorio(this);">nombreLaboratorio</u>. This method could nombre laboratorio.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: nombre, Table: laboratorio"></a>
+							<div class="panel-heading"><b>23. &nbsp;Column: nombre, Table: laboratorio</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="23" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: nombre, Table: laboratorio</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: laboratorio. It contains data with type <b>char</b>. The max length of data is 20. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSlistarLaboratorios" onclick="clickDBMSDBMSlistarLaboratorios(this);">listarLaboratorios</u>. This method could listar laboratorios.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: seccion"></a>
+							<div class="panel-heading"><b>24. &nbsp;Table: seccion</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="24" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: seccion</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: codsec, Table: seccion">codsec</a>, <a href="#Column: nombre, Table: seccion">nombre</a>,  etc.  This table is created at2016/1/7 11:40:36. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="DBMSDBMSnombreSeccion" onclick="clickDBMSDBMSnombreSeccion(this);">nombreSeccion</u>. This method could nombre seccion.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data into this table. 
+
+							<br> Method: <u id="DBMSDBMSlistarSecciones" onclick="clickDBMSDBMSlistarSecciones(this);">listarSecciones</u>. This method could listar secciones.
+
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: codsec, Table: seccion"></a>
+							<div class="panel-heading"><b>25. &nbsp;Column: codsec, Table: seccion</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="25" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: codsec, Table: seccion</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: seccion. It contains data with type <b>char</b>. The max length of data is 5. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSnombreSeccion" onclick="clickDBMSDBMSnombreSeccion(this);">nombreSeccion</u>. This method could nombre seccion.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: nombre, Table: seccion"></a>
+							<div class="panel-heading"><b>26. &nbsp;Column: nombre, Table: seccion</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="26" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: nombre, Table: seccion</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: seccion. It contains data with type <b>char</b>. The max length of data is 70. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSgestionIns" onclick="clickDBMSDBMSgestionIns(this);">gestionIns</u>. This method could gestion ins.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSagregar" onclick="clickDBMSDBMSagregar(this);">agregar</u>. This method could agregar insumo.
+
+							This method would insert data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMSlistarSecciones" onclick="clickDBMSDBMSlistarSecciones(this);">listarSecciones</u>. This method could listar secciones.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: trabaja"></a>
+							<div class="panel-heading"><b>27. &nbsp;Table: trabaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="27" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: trabaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: trabajador, Table: trabaja">trabajador</a>,  etc.  This table is created at2016/1/7 11:40:36. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="DBMSDBMStrabajaEnLaboratorio" onclick="clickDBMSDBMStrabajaEnLaboratorio(this);">trabajaEnLaboratorio</u>. This method could trabaja en laboratorio.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="DBMSDBMStrabajaEnSeccion" onclick="clickDBMSDBMStrabajaEnSeccion(this);">trabajaEnSeccion</u>. This method could trabaja en seccion.
+
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: trabajador, Table: trabaja"></a>
+							<div class="panel-heading"><b>28. &nbsp;Column: trabajador, Table: trabaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="28" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: trabajador, Table: trabaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: trabaja. It contains data with type <b>char</b>. The max length of data is 25. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMStrabajaEnLaboratorio" onclick="clickDBMSDBMStrabajaEnLaboratorio(this);">trabajaEnLaboratorio</u>. This method could trabaja en laboratorio.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="DBMSDBMStrabajaEnSeccion" onclick="clickDBMSDBMStrabajaEnSeccion(this);">trabajaEnSeccion</u>. This method could trabaja en seccion.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: usuario"></a>
+							<div class="panel-heading"><b>29. &nbsp;Table: usuario</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="29" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: usuario</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: usbid, Table: usuario">usbid</a>, <a href="#Column: contrasena, Table: usuario">contrasena</a>,  etc.  This table is created at2016/1/7 11:40:35. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="DBMSDBMSingresar" onclick="clickDBMSDBMSingresar(this);">ingresar</u>. This method could ingresar login.
+
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: usbid, Table: usuario"></a>
+							<div class="panel-heading"><b>30. &nbsp;Column: usbid, Table: usuario</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="30" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: usbid, Table: usuario</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: usuario. It contains data with type <b>char</b>. The max length of data is 25. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSingresar" onclick="clickDBMSDBMSingresar(this);">ingresar</u>. This method could ingresar login.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: contrasena, Table: usuario"></a>
+							<div class="panel-heading"><b>31. &nbsp;Column: contrasena, Table: usuario</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="31" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: contrasena, Table: usuario</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: usuario. It contains data with type <b>char</b>. The max length of data is 30. </p><br><b>Methods directly access this column:</b><br> Method: <u id="DBMSDBMSingresar" onclick="clickDBMSDBMSingresar(this);">ingresar</u>. This method could ingresar login.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</body>
+</html>

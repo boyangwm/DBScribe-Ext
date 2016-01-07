@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\xinco\src\com\bluecubs\xinco\client\object\XincoProgressBar.java" pos:tabs="8"><comment type="block" format="javadoc" pos:line="1" pos:column="1">/**
+ *Copyright 2009 blueCubs.com
+ *
+ *Licensed under the Apache License, Version 2.0 (the "License");
+ *you may not use this file except in compliance with the License.
+ *You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *Unless required by applicable law or agreed to in writing, software
+ *distributed under the License is distributed on an "AS IS" BASIS,
+ *WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *See the License for the specific language governing permissions and
+ *limitations under the License.
+ *
+ *************************************************************
+ * This project supports the blueCubs vision of giving back
+ * to the community in exchange for free software!
+ * More information on: http://www.bluecubs.org
+ *************************************************************
+ *
+ * Name:            XincoProgressBar
+ *
+ * Description:     XincoProgressBar
+ *
+ * Original Author: Javier A. Ortiz
+ * Date:            2006
+ *
+ * Modifications:
+ *
+ * Who?             When?             What?
+ * 
+ *
+ *************************************************************
+ * XincoProgressBar.java
+ *
+ * Created on December 19, 2006, 4:16 PM
+ */</comment>
+
+<package pos:line="40" pos:column="1">package <name><name pos:line="40" pos:column="9">com</name><op:operator pos:line="40" pos:column="12">.</op:operator><name pos:line="40" pos:column="13">bluecubs</name><op:operator pos:line="40" pos:column="21">.</op:operator><name pos:line="40" pos:column="22">xinco</name><op:operator pos:line="40" pos:column="27">.</op:operator><name pos:line="40" pos:column="28">client</name><op:operator pos:line="40" pos:column="34">.</op:operator><name pos:line="40" pos:column="35">object</name></name>;</package>
+
+<import pos:line="42" pos:column="1">import <name><name pos:line="42" pos:column="8">com</name><op:operator pos:line="42" pos:column="11">.</op:operator><name pos:line="42" pos:column="12">bluecubs</name><op:operator pos:line="42" pos:column="20">.</op:operator><name pos:line="42" pos:column="21">xinco</name><op:operator pos:line="42" pos:column="26">.</op:operator><name pos:line="42" pos:column="27">client</name><op:operator pos:line="42" pos:column="33">.</op:operator><name pos:line="42" pos:column="34">XincoExplorer</name></name>;</import>
+<import pos:line="43" pos:column="1">import <name><name pos:line="43" pos:column="8">java</name><op:operator pos:line="43" pos:column="12">.</op:operator><name pos:line="43" pos:column="13">awt</name><op:operator pos:line="43" pos:column="16">.</op:operator><name pos:line="43" pos:column="17">Color</name></name>;</import>
+<import pos:line="44" pos:column="1">import <name><name pos:line="44" pos:column="8">java</name><op:operator pos:line="44" pos:column="12">.</op:operator><name pos:line="44" pos:column="13">awt</name><op:operator pos:line="44" pos:column="16">.</op:operator><name pos:line="44" pos:column="17">Dimension</name></name>;</import>
+<import pos:line="45" pos:column="1">import <name><name pos:line="45" pos:column="8">java</name><op:operator pos:line="45" pos:column="12">.</op:operator><name pos:line="45" pos:column="13">awt</name><op:operator pos:line="45" pos:column="16">.</op:operator><name pos:line="45" pos:column="17">Rectangle</name></name>;</import>
+<import pos:line="46" pos:column="1">import <name><name pos:line="46" pos:column="8">java</name><op:operator pos:line="46" pos:column="12">.</op:operator><name pos:line="46" pos:column="13">util</name><op:operator pos:line="46" pos:column="17">.</op:operator><name pos:line="46" pos:column="18">ResourceBundle</name></name>;</import>
+<import pos:line="47" pos:column="1">import <name><name pos:line="47" pos:column="8">javax</name><op:operator pos:line="47" pos:column="13">.</op:operator><name pos:line="47" pos:column="14">swing</name><op:operator pos:line="47" pos:column="19">.</op:operator><name pos:line="47" pos:column="20">JFrame</name></name>;</import>
+<import pos:line="48" pos:column="1">import <name><name pos:line="48" pos:column="8">javax</name><op:operator pos:line="48" pos:column="13">.</op:operator><name pos:line="48" pos:column="14">swing</name><op:operator pos:line="48" pos:column="19">.</op:operator><name pos:line="48" pos:column="20">JPanel</name></name>;</import>
+<import pos:line="49" pos:column="1">import <name><name pos:line="49" pos:column="8">javax</name><op:operator pos:line="49" pos:column="13">.</op:operator><name pos:line="49" pos:column="14">swing</name><op:operator pos:line="49" pos:column="19">.</op:operator><name pos:line="49" pos:column="20">JProgressBar</name></name>;</import>
+
+<comment type="block" format="javadoc" pos:line="51" pos:column="1">/**
+ *
+ * @author Javier A. Ortiz
+ */</comment>
+<class><specifier pos:line="55" pos:column="1">public</specifier> class <name pos:line="55" pos:column="14">XincoProgressBar</name> <super><extends pos:line="55" pos:column="31">extends <name pos:line="55" pos:column="39">JFrame</name></extends></super><block pos:line="55" pos:column="45">{
+    <decl_stmt><decl><type><specifier pos:line="56" pos:column="5">private</specifier>	<name pos:line="56" pos:column="17">JProgressBar</name></type>    <name pos:line="56" pos:column="33">progress</name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="57" pos:column="5">private</specifier>	<name pos:line="57" pos:column="17">JPanel</name></type>          <name pos:line="57" pos:column="33">topPanel</name></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="58" pos:column="5">private</specifier> <name pos:line="58" pos:column="13">XincoExplorer</name></type> <name pos:line="58" pos:column="27">explorer</name></decl>;</decl_stmt>
+    
+    <constructor><specifier pos:line="60" pos:column="5">public</specifier> <name pos:line="60" pos:column="12">XincoProgressBar</name><parameter_list pos:line="60" pos:column="28">(<param><decl><type><name pos:line="60" pos:column="29">XincoExplorer</name></type> <name pos:line="60" pos:column="43">explorer</name></decl></param>)</parameter_list> <block pos:line="60" pos:column="53">{
+        <expr_stmt><expr><call><name><name pos:line="61" pos:column="9">this</name><op:operator pos:line="61" pos:column="13">.</op:operator><name pos:line="61" pos:column="14">setAlwaysOnTop</name></name><argument_list pos:line="61" pos:column="28">(<argument><expr><lit:literal type="boolean" pos:line="61" pos:column="29">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><name><name pos:line="62" pos:column="9">this</name><op:operator pos:line="62" pos:column="13">.</op:operator><name pos:line="62" pos:column="14">explorer</name></name><op:operator pos:line="62" pos:column="22">=</op:operator><name pos:line="62" pos:column="23">explorer</name></expr>;</expr_stmt>
+        <decl_stmt><decl><type><name pos:line="63" pos:column="9">ResourceBundle</name></type> <name pos:line="63" pos:column="24">xerb</name> <init pos:line="63" pos:column="29">= <expr><call><name><name pos:line="63" pos:column="31">this</name><op:operator pos:line="63" pos:column="35">.</op:operator><name pos:line="63" pos:column="36">explorer</name><op:operator pos:line="63" pos:column="44">.</op:operator><name pos:line="63" pos:column="45">getResourceBundle</name></name><argument_list pos:line="63" pos:column="62">()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><call><name pos:line="64" pos:column="9">setTitle</name><argument_list pos:line="64" pos:column="17">(<argument><expr><call><name><name pos:line="64" pos:column="18">xerb</name><op:operator pos:line="64" pos:column="22">.</op:operator><name pos:line="64" pos:column="23">getString</name></name><argument_list pos:line="64" pos:column="32">(<argument><expr><lit:literal type="string" pos:line="64" pos:column="33">"message.progressbar.title"</lit:literal></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name pos:line="65" pos:column="9">setSize</name><argument_list pos:line="65" pos:column="16">( <argument><expr><lit:literal type="number" pos:line="65" pos:column="18">700</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="65" pos:column="23">65</lit:literal></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name pos:line="66" pos:column="9">setBackground</name><argument_list pos:line="66" pos:column="22">( <argument><expr><name><name pos:line="66" pos:column="24">Color</name><op:operator pos:line="66" pos:column="29">.</op:operator><name pos:line="66" pos:column="30">gray</name></name></expr></argument> )</argument_list></call></expr>;</expr_stmt>      
+        <expr_stmt><expr><name pos:line="67" pos:column="9">topPanel</name> <op:operator pos:line="67" pos:column="18">=</op:operator> <op:operator pos:line="67" pos:column="20">new</op:operator> <call><name pos:line="67" pos:column="24">JPanel</name><argument_list pos:line="67" pos:column="30">()</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="68" pos:column="9">topPanel</name><op:operator pos:line="68" pos:column="17">.</op:operator><name pos:line="68" pos:column="18">setPreferredSize</name></name><argument_list pos:line="68" pos:column="34">( <argument><expr><op:operator pos:line="68" pos:column="36">new</op:operator> <call><name pos:line="68" pos:column="40">Dimension</name><argument_list pos:line="68" pos:column="49">( <argument><expr><lit:literal type="number" pos:line="68" pos:column="51">700</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="68" pos:column="56">40</lit:literal></expr></argument> )</argument_list></call></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name pos:line="69" pos:column="9">getContentPane</name><argument_list pos:line="69" pos:column="23">()</argument_list></call><op:operator pos:line="69" pos:column="25">.</op:operator><call><name pos:line="69" pos:column="26">add</name><argument_list pos:line="69" pos:column="29">( <argument><expr><name pos:line="69" pos:column="31">topPanel</name></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        
+        <comment type="line" pos:line="71" pos:column="9">// Create progress bar</comment>
+        
+        <expr_stmt><expr><name pos:line="73" pos:column="9">progress</name> <op:operator pos:line="73" pos:column="18">=</op:operator> <op:operator pos:line="73" pos:column="20">new</op:operator> <call><name pos:line="73" pos:column="24">JProgressBar</name><argument_list pos:line="73" pos:column="36">()</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="74" pos:column="9">progress</name><op:operator pos:line="74" pos:column="17">.</op:operator><name pos:line="74" pos:column="18">setPreferredSize</name></name><argument_list pos:line="74" pos:column="34">( <argument><expr><op:operator pos:line="74" pos:column="36">new</op:operator> <call><name pos:line="74" pos:column="40">Dimension</name><argument_list pos:line="74" pos:column="49">(<argument><expr><lit:literal type="number" pos:line="74" pos:column="50">700</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="74" pos:column="55">20</lit:literal></expr></argument> )</argument_list></call></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="75" pos:column="9">progress</name><op:operator pos:line="75" pos:column="17">.</op:operator><name pos:line="75" pos:column="18">setMinimum</name></name><argument_list pos:line="75" pos:column="28">( <argument><expr><lit:literal type="number" pos:line="75" pos:column="30">0</lit:literal></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="76" pos:column="9">progress</name><op:operator pos:line="76" pos:column="17">.</op:operator><name pos:line="76" pos:column="18">setMaximum</name></name><argument_list pos:line="76" pos:column="28">( <argument><expr><lit:literal type="number" pos:line="76" pos:column="30">100</lit:literal></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="77" pos:column="9">progress</name><op:operator pos:line="77" pos:column="17">.</op:operator><name pos:line="77" pos:column="18">setValue</name></name><argument_list pos:line="77" pos:column="26">( <argument><expr><lit:literal type="number" pos:line="77" pos:column="28">0</lit:literal></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="78" pos:column="9">progress</name><op:operator pos:line="78" pos:column="17">.</op:operator><name pos:line="78" pos:column="18">setBounds</name></name><argument_list pos:line="78" pos:column="27">( <argument><expr><lit:literal type="number" pos:line="78" pos:column="29">20</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="78" pos:column="33">35</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="78" pos:column="37">260</lit:literal></expr></argument>, <argument><expr><lit:literal type="number" pos:line="78" pos:column="42">20</lit:literal></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="79" pos:column="9">progress</name><op:operator pos:line="79" pos:column="17">.</op:operator><name pos:line="79" pos:column="18">setIndeterminate</name></name><argument_list pos:line="79" pos:column="34">(<argument><expr><lit:literal type="boolean" pos:line="79" pos:column="35">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="80" pos:column="9">topPanel</name><op:operator pos:line="80" pos:column="17">.</op:operator><name pos:line="80" pos:column="18">add</name></name><argument_list pos:line="80" pos:column="21">( <argument><expr><name pos:line="80" pos:column="23">progress</name></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+    }</block></constructor>
+    
+    
+    <function><type><specifier pos:line="84" pos:column="5">private</specifier> <name pos:line="84" pos:column="13">void</name></type> <name pos:line="84" pos:column="18">setProgress</name><parameter_list pos:line="84" pos:column="29">(<param><decl><type><name pos:line="84" pos:column="30">int</name></type> <name pos:line="84" pos:column="34">p</name></decl></param>)</parameter_list><block pos:line="84" pos:column="36">{
+        <comment type="line" pos:line="85" pos:column="9">// Update the progress indicator </comment>
+        
+        <expr_stmt><expr><call><name><name pos:line="87" pos:column="9">progress</name><op:operator pos:line="87" pos:column="17">.</op:operator><name pos:line="87" pos:column="18">setValue</name></name><argument_list pos:line="87" pos:column="26">( <argument><expr><name pos:line="87" pos:column="28">p</name></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="88" pos:column="9">progress</name><op:operator pos:line="88" pos:column="17">.</op:operator><name pos:line="88" pos:column="18">setStringPainted</name></name><argument_list pos:line="88" pos:column="34">(<argument><expr><lit:literal type="boolean" pos:line="88" pos:column="35">true</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="89" pos:column="9">progress</name><op:operator pos:line="89" pos:column="17">.</op:operator><name pos:line="89" pos:column="18">setString</name></name><argument_list pos:line="89" pos:column="27">(<argument><expr><name pos:line="89" pos:column="28">p</name> <op:operator pos:line="89" pos:column="30">+</op:operator> <lit:literal type="string" pos:line="89" pos:column="32">"%"</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <decl_stmt><decl><type><name pos:line="90" pos:column="9">Rectangle</name></type> <name pos:line="90" pos:column="19">progressRect</name> <init pos:line="90" pos:column="32">= <expr><call><name><name pos:line="90" pos:column="34">progress</name><op:operator pos:line="90" pos:column="42">.</op:operator><name pos:line="90" pos:column="43">getBounds</name></name><argument_list pos:line="90" pos:column="52">()</argument_list></call></expr></init></decl>;</decl_stmt>
+        <expr_stmt><expr><name><name pos:line="91" pos:column="9">progressRect</name><op:operator pos:line="91" pos:column="21">.</op:operator><name pos:line="91" pos:column="22">x</name></name> <op:operator pos:line="91" pos:column="24">=</op:operator> <lit:literal type="number" pos:line="91" pos:column="26">0</lit:literal></expr>;</expr_stmt>
+        <expr_stmt><expr><name><name pos:line="92" pos:column="9">progressRect</name><op:operator pos:line="92" pos:column="21">.</op:operator><name pos:line="92" pos:column="22">y</name></name> <op:operator pos:line="92" pos:column="24">=</op:operator> <lit:literal type="number" pos:line="92" pos:column="26">0</lit:literal></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="93" pos:column="9">progress</name><op:operator pos:line="93" pos:column="17">.</op:operator><name pos:line="93" pos:column="18">paintImmediately</name></name><argument_list pos:line="93" pos:column="34">( <argument><expr><name pos:line="93" pos:column="36">progressRect</name></expr></argument> )</argument_list></call></expr>;</expr_stmt>
+        <if pos:line="94" pos:column="9">if<condition pos:line="94" pos:column="11">(<expr><name pos:line="94" pos:column="12">p</name><op:operator pos:line="94" pos:column="13">==</op:operator><call><name><name pos:line="94" pos:column="15">progress</name><op:operator pos:line="94" pos:column="23">.</op:operator><name pos:line="94" pos:column="24">getMaximum</name></name><argument_list pos:line="94" pos:column="34">()</argument_list></call></expr>)</condition><then pos:line="94" pos:column="37">
+            <expr_stmt><expr><call><name><name pos:line="95" pos:column="13">this</name><op:operator pos:line="95" pos:column="17">.</op:operator><name pos:line="95" pos:column="18">setVisible</name></name><argument_list pos:line="95" pos:column="28">(<argument><expr><lit:literal type="boolean" pos:line="95" pos:column="29">false</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt></then></if>
+    }</block></function>
+}</block></class>
+</unit>

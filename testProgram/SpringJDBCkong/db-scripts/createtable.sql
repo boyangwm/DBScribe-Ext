@@ -1,0 +1,25 @@
+CREATE TABLE citius_schema.Employee (Empid INTEGER NOT NULL,
+    Age INTEGER NOT NULL,
+    Address VARCHAR(20) NOT NULL,
+    PRIMARY KEY (Empid)); 
+    
+    CREATE TABLE citius_schema.FORUMS (FORUM_ID INTEGER NOT NULL,
+    FORUM_NAME varchar(20) NOT NULL,
+    FORUM_DESC VARCHAR(20) NOT NULL,
+    PRIMARY KEY (FORUM_ID)); 
+    
+     CREATE TABLE sample_citi.FORUMS (FORUM_ID INTEGER NOT NULL,
+    FORUM_NAME varchar(20) NOT NULL,
+    FORUM_DESC VARCHAR(20) NOT NULL,
+    PRIMARY KEY (FORUM_ID)); 
+    
+    
+    drop schema citius_schema;
+    org_SCHEMA
+    
+    CREATE TABLE org_SCHEMA.FORUMS (FORUM_ID INTEGER NOT NULL,
+    FORUM_NAME varchar(20) NOT NULL,
+    FORUM_DESC VARCHAR(20) NOT NULL,
+    PRIMARY KEY (FORUM_ID)); 
+    
+     

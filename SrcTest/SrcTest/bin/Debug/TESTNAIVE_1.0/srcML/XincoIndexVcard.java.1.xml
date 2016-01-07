@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\xinco\src\com\bluecubs\xinco\index\filetypes\XincoIndexVcard.java" pos:tabs="8"><comment type="block" format="javadoc" pos:line="1" pos:column="1">/**
+ *Copyright 2007 blueCubs.com
+ *
+ *Licensed under the Apache License, Version 2.0 (the "License");
+ *you may not use this file except in compliance with the License.
+ *You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *Unless required by applicable law or agreed to in writing, software
+ *distributed under the License is distributed on an "AS IS" BASIS,
+ *WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *See the License for the specific language governing permissions and
+ *limitations under the License.
+ *
+ *************************************************************
+ * This project supports the blueCubs vision of giving back
+ * to the community in exchange for free software!
+ * More information on: http://www.bluecubs.org
+ *************************************************************
+ *
+ * Name:            XincoIndexVcard
+ *
+ * Description:     convert XincoCoreData to Lucene Documents
+ *
+ * Original Author: Alexander Manes
+ * Date:            2004/10/31
+ *
+ * Modifications:
+ *
+ * Who?             When?             What?
+ * -                -                 -
+ *
+ *************************************************************
+ */</comment>
+
+<package pos:line="37" pos:column="1">package <name><name pos:line="37" pos:column="9">com</name><op:operator pos:line="37" pos:column="12">.</op:operator><name pos:line="37" pos:column="13">bluecubs</name><op:operator pos:line="37" pos:column="21">.</op:operator><name pos:line="37" pos:column="22">xinco</name><op:operator pos:line="37" pos:column="27">.</op:operator><name pos:line="37" pos:column="28">index</name><op:operator pos:line="37" pos:column="33">.</op:operator><name pos:line="37" pos:column="34">filetypes</name></name>;</package>
+
+<import pos:line="39" pos:column="1">import <name><name pos:line="39" pos:column="8">java</name><op:operator pos:line="39" pos:column="12">.</op:operator><name pos:line="39" pos:column="13">io</name><op:operator pos:line="39" pos:column="15">.</op:operator><name pos:line="39" pos:column="16">File</name></name>;</import>
+<import pos:line="40" pos:column="1">import <name><name pos:line="40" pos:column="8">java</name><op:operator pos:line="40" pos:column="12">.</op:operator><name pos:line="40" pos:column="13">io</name><op:operator pos:line="40" pos:column="15">.</op:operator><name pos:line="40" pos:column="16">Reader</name></name>;</import>
+<import pos:line="41" pos:column="1">import <name><name pos:line="41" pos:column="8">lius</name><op:operator pos:line="41" pos:column="12">.</op:operator><name pos:line="41" pos:column="13">index</name><op:operator pos:line="41" pos:column="18">.</op:operator><name pos:line="41" pos:column="19">application</name><op:operator pos:line="41" pos:column="30">.</op:operator><name pos:line="41" pos:column="31">VCardIndexer</name></name>;</import>
+
+<comment type="block" format="javadoc" pos:line="43" pos:column="1">/**
+ * Class: VCardIndexer &lt;br&gt;
+ * 
+ * This Indexer reads .vcf and .vcard files as exported by various email and PIM
+ * applications (e.g. Mozilla Mail, Evolution, KMail). Fields which can be
+ * indexed are:
+ * 
+ * &lt;ul&gt;
+ * &lt;li&gt;&lt;code&gt;name&lt;/code&gt;: The contact's full name&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;title&lt;/code&gt;: Title (e.g. 'Dr.')&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;nickname&lt;/code&gt;: nickname&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;birthday&lt;/code&gt;: user notes&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;email&lt;/code&gt;: email addresses&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;phone&lt;/code&gt;: all available phone numbers&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;homephone&lt;/code&gt;: home phone number&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;workphone&lt;/code&gt;: work phone number&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;cellphone&lt;/code&gt;: cell phone number&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;categories&lt;/code&gt;: categories as used by the creator-application
+ * &lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;address&lt;/code&gt;: all available addresses&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;homeaddress&lt;/code&gt;: the home address&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;workaddress&lt;/code&gt;: the work address&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;url&lt;/code&gt;: the URL (usually an http address)&lt;/li&gt;
+ * &lt;li&gt;&lt;code&gt;organization&lt;/code&gt;: the organization&lt;/li&gt;
+ * &lt;/ul&gt;
+ * &lt;br/&gt;
+ * 
+ * Changelog:
+ * &lt;ul&gt;
+ * &lt;li&gt;02.06.2005: Initial implementation (jf)&lt;/li&gt;
+ * &lt;/ul&gt;
+ * 
+ * @author &lt;a href="mailto:jf@teamskill.de"&gt;Jens Fendler &lt;/a&gt;
+ */</comment>
+<comment type="block" format="javadoc" pos:line="77" pos:column="1">/**
+ *Adapted by Javier Ortiz
+ */</comment>
+<class><specifier pos:line="80" pos:column="1">public</specifier> class <name pos:line="80" pos:column="14">XincoIndexVcard</name> <super><extends pos:line="80" pos:column="30">extends <name pos:line="80" pos:column="38">VCardIndexer</name></extends> <implements pos:line="80" pos:column="51">implements <name pos:line="80" pos:column="62">XincoIndexFileType</name></implements></super><block pos:line="80" pos:column="80">{
+
+    <function><type><specifier pos:line="82" pos:column="5">public</specifier> <name pos:line="82" pos:column="12">Reader</name></type> <name pos:line="82" pos:column="19">getFileContentReader</name><parameter_list pos:line="82" pos:column="39">(<param><decl><type><name pos:line="82" pos:column="40">File</name></type> <name pos:line="82" pos:column="45">f</name></decl></param>)</parameter_list> <block pos:line="82" pos:column="48">{
+        <throw pos:line="83" pos:column="9">throw <expr><op:operator pos:line="83" pos:column="15">new</op:operator> <call><name pos:line="83" pos:column="19">UnsupportedOperationException</name><argument_list pos:line="83" pos:column="48">(<argument><expr><lit:literal type="string" pos:line="83" pos:column="49">"Not supported yet."</lit:literal></expr></argument>)</argument_list></call></expr>;</throw>
+    }</block></function>
+
+    <function><type><specifier pos:line="86" pos:column="5">public</specifier> <name pos:line="86" pos:column="12">String</name></type> <name pos:line="86" pos:column="19">getFileContentString</name><parameter_list pos:line="86" pos:column="39">(<param><decl><type><name pos:line="86" pos:column="40">File</name></type> <name pos:line="86" pos:column="45">f</name></decl></param>)</parameter_list> <block pos:line="86" pos:column="48">{
+        <throw pos:line="87" pos:column="9">throw <expr><op:operator pos:line="87" pos:column="15">new</op:operator> <call><name pos:line="87" pos:column="19">UnsupportedOperationException</name><argument_list pos:line="87" pos:column="48">(<argument><expr><lit:literal type="string" pos:line="87" pos:column="49">"Not supported yet."</lit:literal></expr></argument>)</argument_list></call></expr>;</throw>
+    }</block></function>
+
+}</block></class>
+</unit>

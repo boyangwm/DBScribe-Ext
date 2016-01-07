@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\xinco\src\com\bluecubs\xinco\core\XincoException.java" pos:tabs="8"><comment type="block" format="javadoc" pos:line="1" pos:column="1">/**
+ *Copyright 2009 blueCubs.com
+ *
+ *Licensed under the Apache License, Version 2.0 (the "License");
+ *you may not use this file except in compliance with the License.
+ *You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *Unless required by applicable law or agreed to in writing, software
+ *distributed under the License is distributed on an "AS IS" BASIS,
+ *WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *See the License for the specific language governing permissions and
+ *limitations under the License.
+ *
+ *************************************************************
+ * This project supports the blueCubs vision of giving back
+ * to the community in exchange for free software!
+ * More information on: http://www.bluecubs.org
+ *************************************************************
+ *
+ * Name:            XincoException
+ *
+ * Description:     custom exception
+ *
+ * Original Author: Alexander Manes
+ * Date:            2004
+ *
+ * Modifications:
+ * 
+ * Who?             When?             What?
+ * -                -                 -
+ *
+ *************************************************************
+ */</comment>
+
+<package pos:line="37" pos:column="1">package <name><name pos:line="37" pos:column="9">com</name><op:operator pos:line="37" pos:column="12">.</op:operator><name pos:line="37" pos:column="13">bluecubs</name><op:operator pos:line="37" pos:column="21">.</op:operator><name pos:line="37" pos:column="22">xinco</name><op:operator pos:line="37" pos:column="27">.</op:operator><name pos:line="37" pos:column="28">core</name></name>;</package>
+
+<class><specifier pos:line="39" pos:column="1">public</specifier> class <name pos:line="39" pos:column="14">XincoException</name> <super><extends pos:line="39" pos:column="29">extends <name pos:line="39" pos:column="37">Exception</name></extends></super> <block pos:line="39" pos:column="47">{
+
+	<decl_stmt><decl><type><name pos:line="41" pos:column="9">String</name></type> <name pos:line="41" pos:column="16">xinco_message</name> <init pos:line="41" pos:column="30">= <expr><lit:literal type="string" pos:line="41" pos:column="32">""</lit:literal></expr></init></decl>;</decl_stmt>
+	
+	<constructor><specifier pos:line="43" pos:column="9">public</specifier> <name pos:line="43" pos:column="16">XincoException</name><parameter_list pos:line="43" pos:column="30">()</parameter_list> <block pos:line="43" pos:column="33">{
+		<expr_stmt><expr><call><name pos:line="44" pos:column="17">super</name><argument_list pos:line="44" pos:column="22">()</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name pos:line="45" pos:column="17">xinco_message</name> <op:operator pos:line="45" pos:column="31">=</op:operator> <lit:literal type="string" pos:line="45" pos:column="33">""</lit:literal></expr>;</expr_stmt>
+	}</block></constructor>
+
+	<constructor><specifier pos:line="48" pos:column="9">public</specifier> <name pos:line="48" pos:column="16">XincoException</name><parameter_list pos:line="48" pos:column="30">(<param><decl><type><name pos:line="48" pos:column="31">String</name></type> <name pos:line="48" pos:column="38">s</name></decl></param>)</parameter_list> <block pos:line="48" pos:column="41">{
+		<expr_stmt><expr><call><name pos:line="49" pos:column="17">super</name><argument_list pos:line="49" pos:column="22">(<argument><expr><name pos:line="49" pos:column="23">s</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+		<expr_stmt><expr><name pos:line="50" pos:column="17">xinco_message</name> <op:operator pos:line="50" pos:column="31">=</op:operator> <name pos:line="50" pos:column="33">s</name></expr>;</expr_stmt>
+	}</block></constructor>
+	
+	<function><type><specifier pos:line="53" pos:column="9">public</specifier> <name pos:line="53" pos:column="16">String</name></type> <name pos:line="53" pos:column="23">toString</name><parameter_list pos:line="53" pos:column="31">()</parameter_list> <block pos:line="53" pos:column="34">{
+		<return pos:line="54" pos:column="17">return <expr><name pos:line="54" pos:column="24">xinco_message</name></expr>;</return>
+	}</block></function>
+
+}</block></class>
+</unit>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\xinco\src\com\bluecubs\xinco\client\object\abstractObject\AbstractDialog.java" pos:tabs="8"><comment type="block" format="javadoc" pos:line="1" pos:column="1">/**
+ *Copyright 2008 blueCubs.com
+ *
+ *Licensed under the Apache License, Version 2.0 (the "License");
+ *you may not use this file except in compliance with the License.
+ *You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *Unless required by applicable law or agreed to in writing, software
+ *distributed under the License is distributed on an "AS IS" BASIS,
+ *WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *See the License for the specific language governing permissions and
+ *limitations under the License.
+ *
+ *************************************************************
+ * This project supports the blueCubs vision of giving back
+ * to the community in exchange for free software!
+ * More information on: http://www.bluecubs.org
+ *************************************************************
+ *
+ * Name:            AbstractDialog
+ *
+ * Description:     Abstract class with common methods for Dialogs within Xinco Explorer.
+ *
+ * Original Author: Javier A. Ortiz
+ * Date:            2008
+ *
+ * Modifications:
+ *
+ * Who?             When?             What?
+ * -                -                 -
+ *
+ *************************************************************
+ */</comment>
+<package pos:line="36" pos:column="1">package <name><name pos:line="36" pos:column="9">com</name><op:operator pos:line="36" pos:column="12">.</op:operator><name pos:line="36" pos:column="13">bluecubs</name><op:operator pos:line="36" pos:column="21">.</op:operator><name pos:line="36" pos:column="22">xinco</name><op:operator pos:line="36" pos:column="27">.</op:operator><name pos:line="36" pos:column="28">client</name><op:operator pos:line="36" pos:column="34">.</op:operator><name pos:line="36" pos:column="35">object</name><op:operator pos:line="36" pos:column="41">.</op:operator><name pos:line="36" pos:column="42">abstractObject</name></name>;</package>
+
+<import pos:line="38" pos:column="1">import <name><name pos:line="38" pos:column="8">java</name><op:operator pos:line="38" pos:column="12">.</op:operator><name pos:line="38" pos:column="13">util</name><op:operator pos:line="38" pos:column="17">.</op:operator><name pos:line="38" pos:column="18">Vector</name></name>;</import>
+<import pos:line="39" pos:column="1">import <name><name pos:line="39" pos:column="8">javax</name><op:operator pos:line="39" pos:column="13">.</op:operator><name pos:line="39" pos:column="14">swing</name><op:operator pos:line="39" pos:column="19">.</op:operator><name pos:line="39" pos:column="20">JTable</name></name>;</import>
+<import pos:line="40" pos:column="1">import <name><name pos:line="40" pos:column="8">javax</name><op:operator pos:line="40" pos:column="13">.</op:operator><name pos:line="40" pos:column="14">swing</name><op:operator pos:line="40" pos:column="19">.</op:operator><name pos:line="40" pos:column="20">JTextArea</name></name>;</import>
+<import pos:line="41" pos:column="1">import <name><name pos:line="41" pos:column="8">javax</name><op:operator pos:line="41" pos:column="13">.</op:operator><name pos:line="41" pos:column="14">swing</name><op:operator pos:line="41" pos:column="19">.</op:operator><name pos:line="41" pos:column="20">JTextField</name></name>;</import>
+<import pos:line="42" pos:column="1">import <name><name pos:line="42" pos:column="8">javax</name><op:operator pos:line="42" pos:column="13">.</op:operator><name pos:line="42" pos:column="14">swing</name><op:operator pos:line="42" pos:column="19">.</op:operator><name pos:line="42" pos:column="20">table</name><op:operator pos:line="42" pos:column="25">.</op:operator><name pos:line="42" pos:column="26">DefaultTableModel</name></name>;</import>
+
+<comment type="block" format="javadoc" pos:line="44" pos:column="1">/**
+ *
+ * @author Javier A. Ortiz
+ */</comment>
+<class><specifier pos:line="48" pos:column="1">public</specifier> <specifier pos:line="48" pos:column="8">abstract</specifier> class <name pos:line="48" pos:column="23">AbstractDialog</name> <super><extends pos:line="48" pos:column="38">extends <name><name pos:line="48" pos:column="46">javax</name><op:operator pos:line="48" pos:column="51">.</op:operator><name pos:line="48" pos:column="52">swing</name><op:operator pos:line="48" pos:column="57">.</op:operator><name pos:line="48" pos:column="58">JDialog</name></name></extends></super> <block pos:line="48" pos:column="66">{
+
+    <decl_stmt><decl><type><specifier pos:line="50" pos:column="5">private</specifier> <name pos:line="50" pos:column="13">Vector</name></type> <name pos:line="50" pos:column="20">textFields</name> <init pos:line="50" pos:column="31">= <expr><op:operator pos:line="50" pos:column="33">new</op:operator> <call><name pos:line="50" pos:column="37">Vector</name><argument_list pos:line="50" pos:column="43">()</argument_list></call></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="51" pos:column="5">private</specifier> <name pos:line="51" pos:column="13">Vector</name></type> <name pos:line="51" pos:column="20">textAreas</name> <init pos:line="51" pos:column="30">= <expr><op:operator pos:line="51" pos:column="32">new</op:operator> <call><name pos:line="51" pos:column="36">Vector</name><argument_list pos:line="51" pos:column="42">()</argument_list></call></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="52" pos:column="5">private</specifier> <name pos:line="52" pos:column="13">Vector</name></type> <name pos:line="52" pos:column="20">tables</name> <init pos:line="52" pos:column="27">= <expr><op:operator pos:line="52" pos:column="29">new</op:operator> <call><name pos:line="52" pos:column="33">Vector</name><argument_list pos:line="52" pos:column="39">()</argument_list></call></expr></init></decl>;</decl_stmt>
+
+    <comment type="block" format="javadoc" pos:line="54" pos:column="5">/**
+     * Constructor
+     * @param parent
+     * @param modal
+     */</comment>
+    <constructor><specifier pos:line="59" pos:column="5">public</specifier> <name pos:line="59" pos:column="12">AbstractDialog</name><parameter_list pos:line="59" pos:column="26">(<param><decl><type><name><name pos:line="59" pos:column="27">java</name><op:operator pos:line="59" pos:column="31">.</op:operator><name pos:line="59" pos:column="32">awt</name><op:operator pos:line="59" pos:column="35">.</op:operator><name pos:line="59" pos:column="36">Frame</name></name></type> <name pos:line="59" pos:column="42">parent</name></decl></param>, <param><decl><type><name pos:line="59" pos:column="50">boolean</name></type> <name pos:line="59" pos:column="58">modal</name></decl></param>)</parameter_list> <block pos:line="59" pos:column="65">{
+        <expr_stmt><expr><call><name pos:line="60" pos:column="9">super</name><argument_list pos:line="60" pos:column="14">(<argument><expr><name pos:line="60" pos:column="15">parent</name></expr></argument>, <argument><expr><name pos:line="60" pos:column="23">modal</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></constructor>
+
+    <comment type="block" format="javadoc" pos:line="63" pos:column="5">/**
+     * Get a vector containing the fields of this Dialog
+     * @return Vector containing the fields of this Dialog
+     */</comment>
+    <function><type><specifier pos:line="67" pos:column="5">public</specifier> <name pos:line="67" pos:column="12">Vector</name></type> <name pos:line="67" pos:column="19">getTextFields</name><parameter_list pos:line="67" pos:column="32">()</parameter_list> <block pos:line="67" pos:column="35">{
+        <return pos:line="68" pos:column="9">return <expr><name pos:line="68" pos:column="16">textFields</name></expr>;</return>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="71" pos:column="5">/**
+     * Set text fields
+     * @param textFields 
+     */</comment>
+    <function><type><specifier pos:line="75" pos:column="5">public</specifier> <name pos:line="75" pos:column="12">void</name></type> <name pos:line="75" pos:column="17">setTextFields</name><parameter_list pos:line="75" pos:column="30">(<param><decl><type><name pos:line="75" pos:column="31">Vector</name></type> <name pos:line="75" pos:column="38">textFields</name></decl></param>)</parameter_list> <block pos:line="75" pos:column="50">{
+        <expr_stmt><expr><name><name pos:line="76" pos:column="9">this</name><op:operator pos:line="76" pos:column="13">.</op:operator><name pos:line="76" pos:column="14">textFields</name></name> <op:operator pos:line="76" pos:column="25">=</op:operator> <name pos:line="76" pos:column="27">textFields</name></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="79" pos:column="5">/**
+     * Get a vector containing the text areas of this Dialog
+     * @return Vector containing the text areas of this Dialog
+     */</comment>
+    <function><type><specifier pos:line="83" pos:column="5">public</specifier> <name pos:line="83" pos:column="12">Vector</name></type> <name pos:line="83" pos:column="19">getTextAreas</name><parameter_list pos:line="83" pos:column="31">()</parameter_list> <block pos:line="83" pos:column="34">{
+        <return pos:line="84" pos:column="9">return <expr><name pos:line="84" pos:column="16">textAreas</name></expr>;</return>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="87" pos:column="5">/**
+     * Set text areas
+     * @param textAreas
+     */</comment>
+    <function><type><specifier pos:line="91" pos:column="5">public</specifier> <name pos:line="91" pos:column="12">void</name></type> <name pos:line="91" pos:column="17">setTextAreas</name><parameter_list pos:line="91" pos:column="29">(<param><decl><type><name pos:line="91" pos:column="30">Vector</name></type> <name pos:line="91" pos:column="37">textAreas</name></decl></param>)</parameter_list> <block pos:line="91" pos:column="48">{
+        <expr_stmt><expr><name><name pos:line="92" pos:column="9">this</name><op:operator pos:line="92" pos:column="13">.</op:operator><name pos:line="92" pos:column="14">textAreas</name></name> <op:operator pos:line="92" pos:column="24">=</op:operator> <name pos:line="92" pos:column="26">textAreas</name></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="95" pos:column="5">/**
+     * Get a vector containing the tables of this Dialog
+     * @return Vector containing the tables of this Dialog
+     */</comment>
+    <function><type><specifier pos:line="99" pos:column="5">public</specifier> <name pos:line="99" pos:column="12">Vector</name></type> <name pos:line="99" pos:column="19">getTables</name><parameter_list pos:line="99" pos:column="28">()</parameter_list> <block pos:line="99" pos:column="31">{
+        <return pos:line="100" pos:column="9">return <expr><name pos:line="100" pos:column="16">tables</name></expr>;</return>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="103" pos:column="5">/**
+     * Set tables
+     * @param tables
+     */</comment>
+    <function><type><specifier pos:line="107" pos:column="5">public</specifier> <name pos:line="107" pos:column="12">void</name></type> <name pos:line="107" pos:column="17">setTables</name><parameter_list pos:line="107" pos:column="26">(<param><decl><type><name pos:line="107" pos:column="27">Vector</name></type> <name pos:line="107" pos:column="34">tables</name></decl></param>)</parameter_list> <block pos:line="107" pos:column="42">{
+        <expr_stmt><expr><name><name pos:line="108" pos:column="9">this</name><op:operator pos:line="108" pos:column="13">.</op:operator><name pos:line="108" pos:column="14">tables</name></name> <op:operator pos:line="108" pos:column="21">=</op:operator> <name pos:line="108" pos:column="23">tables</name></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="111" pos:column="5">/**
+     * Add a text field or password field
+     * @param field
+     */</comment>
+    <function><type><annotation pos:line="115" pos:column="5">@<name pos:line="115" pos:column="6">SuppressWarnings</name><argument_list pos:line="115" pos:column="22">(<argument><expr><lit:literal type="string" pos:line="115" pos:column="23">"unchecked"</lit:literal></expr></argument>)</argument_list></annotation>
+    <specifier pos:line="116" pos:column="5">public</specifier> <name pos:line="116" pos:column="12">void</name></type> <name pos:line="116" pos:column="17">addTextField</name><parameter_list pos:line="116" pos:column="29">(<param><decl><type><name pos:line="116" pos:column="30">JTextField</name></type> <name pos:line="116" pos:column="41">field</name></decl></param>)</parameter_list> <block pos:line="116" pos:column="48">{
+        <expr_stmt><expr><call><name pos:line="117" pos:column="9">getTextFields</name><argument_list pos:line="117" pos:column="22">()</argument_list></call><op:operator pos:line="117" pos:column="24">.</op:operator><call><name pos:line="117" pos:column="25">add</name><argument_list pos:line="117" pos:column="28">(<argument><expr><name pos:line="117" pos:column="29">field</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="120" pos:column="5">/**
+     * Add a text area
+     * @param area
+     */</comment>
+    <function><type><annotation pos:line="124" pos:column="5">@<name pos:line="124" pos:column="6">SuppressWarnings</name><argument_list pos:line="124" pos:column="22">(<argument><expr><lit:literal type="string" pos:line="124" pos:column="23">"unchecked"</lit:literal></expr></argument>)</argument_list></annotation>
+    <specifier pos:line="125" pos:column="5">public</specifier> <name pos:line="125" pos:column="12">void</name></type> <name pos:line="125" pos:column="17">addTextArea</name><parameter_list pos:line="125" pos:column="28">(<param><decl><type><name pos:line="125" pos:column="29">JTextArea</name></type> <name pos:line="125" pos:column="39">area</name></decl></param>)</parameter_list> <block pos:line="125" pos:column="45">{
+        <expr_stmt><expr><call><name pos:line="126" pos:column="9">getTextAreas</name><argument_list pos:line="126" pos:column="21">()</argument_list></call><op:operator pos:line="126" pos:column="23">.</op:operator><call><name pos:line="126" pos:column="24">add</name><argument_list pos:line="126" pos:column="27">(<argument><expr><name pos:line="126" pos:column="28">area</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="129" pos:column="5">/**
+     * Add a table
+     * @param table 
+     */</comment>
+    <function><type><annotation pos:line="133" pos:column="5">@<name pos:line="133" pos:column="6">SuppressWarnings</name><argument_list pos:line="133" pos:column="22">(<argument><expr><lit:literal type="string" pos:line="133" pos:column="23">"unchecked"</lit:literal></expr></argument>)</argument_list></annotation>
+    <specifier pos:line="134" pos:column="5">public</specifier> <name pos:line="134" pos:column="12">void</name></type> <name pos:line="134" pos:column="17">addTable</name><parameter_list pos:line="134" pos:column="25">(<param><decl><type><name pos:line="134" pos:column="26">JTable</name></type> <name pos:line="134" pos:column="33">table</name></decl></param>)</parameter_list> <block pos:line="134" pos:column="40">{
+        <expr_stmt><expr><call><name pos:line="135" pos:column="9">getTables</name><argument_list pos:line="135" pos:column="18">()</argument_list></call><op:operator pos:line="135" pos:column="20">.</op:operator><call><name pos:line="135" pos:column="21">add</name><argument_list pos:line="135" pos:column="24">(<argument><expr><name pos:line="135" pos:column="25">table</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+    }</block></function>
+
+    <comment type="block" format="javadoc" pos:line="138" pos:column="5">/**
+     * Clear contents of all fields and/or areas in the dialog
+     */</comment>
+    <function><type><annotation pos:line="141" pos:column="5">@<name pos:line="141" pos:column="6">SuppressWarnings</name><argument_list pos:line="141" pos:column="22">(<argument><expr><lit:literal type="string" pos:line="141" pos:column="23">"unchecked"</lit:literal></expr></argument>)</argument_list></annotation>
+    <specifier pos:line="142" pos:column="5">public</specifier> <name pos:line="142" pos:column="12">void</name></type> <name pos:line="142" pos:column="17">clearDialog</name><parameter_list pos:line="142" pos:column="28">()</parameter_list> <block pos:line="142" pos:column="31">{
+        <for pos:line="143" pos:column="9">for (<init><decl><type><name pos:line="143" pos:column="14">int</name></type> <name pos:line="143" pos:column="18">i</name> <init pos:line="143" pos:column="20">= <expr><lit:literal type="number" pos:line="143" pos:column="22">0</lit:literal></expr></init></decl>;</init> <condition><expr><name pos:line="143" pos:column="25">i</name> <op:operator pos:line="143" pos:column="27">&lt;</op:operator> <call><name pos:line="143" pos:column="29">getTextFields</name><argument_list pos:line="143" pos:column="42">()</argument_list></call><op:operator pos:line="143" pos:column="44">.</op:operator><call><name pos:line="143" pos:column="45">size</name><argument_list pos:line="143" pos:column="49">()</argument_list></call></expr>;</condition> <incr><expr><name pos:line="143" pos:column="53">i</name><op:operator pos:line="143" pos:column="54">++</op:operator></expr></incr>) <block pos:line="143" pos:column="58">{
+            <expr_stmt><expr><op:operator pos:line="144" pos:column="13">(</op:operator><op:operator pos:line="144" pos:column="14">(</op:operator><name pos:line="144" pos:column="15">JTextField</name><op:operator pos:line="144" pos:column="25">)</op:operator> <call><name pos:line="144" pos:column="27">getTextFields</name><argument_list pos:line="144" pos:column="40">()</argument_list></call><op:operator pos:line="144" pos:column="42">.</op:operator><call><name pos:line="144" pos:column="43">get</name><argument_list pos:line="144" pos:column="46">(<argument><expr><name pos:line="144" pos:column="47">i</name></expr></argument>)</argument_list></call><op:operator pos:line="144" pos:column="49">)</op:operator><op:operator pos:line="144" pos:column="50">.</op:operator><call><name pos:line="144" pos:column="51">setText</name><argument_list pos:line="144" pos:column="58">(<argument><expr><lit:literal type="string" pos:line="144" pos:column="59">""</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        }</block></for>
+        <for pos:line="146" pos:column="9">for (<init><decl><type><name pos:line="146" pos:column="14">int</name></type> <name pos:line="146" pos:column="18">i</name> <init pos:line="146" pos:column="20">= <expr><lit:literal type="number" pos:line="146" pos:column="22">0</lit:literal></expr></init></decl>;</init> <condition><expr><name pos:line="146" pos:column="25">i</name> <op:operator pos:line="146" pos:column="27">&lt;</op:operator> <call><name pos:line="146" pos:column="29">getTextAreas</name><argument_list pos:line="146" pos:column="41">()</argument_list></call><op:operator pos:line="146" pos:column="43">.</op:operator><call><name pos:line="146" pos:column="44">size</name><argument_list pos:line="146" pos:column="48">()</argument_list></call></expr>;</condition> <incr><expr><name pos:line="146" pos:column="52">i</name><op:operator pos:line="146" pos:column="53">++</op:operator></expr></incr>) <block pos:line="146" pos:column="57">{
+            <expr_stmt><expr><op:operator pos:line="147" pos:column="13">(</op:operator><op:operator pos:line="147" pos:column="14">(</op:operator><name pos:line="147" pos:column="15">JTextArea</name><op:operator pos:line="147" pos:column="24">)</op:operator> <call><name pos:line="147" pos:column="26">getTextAreas</name><argument_list pos:line="147" pos:column="38">()</argument_list></call><op:operator pos:line="147" pos:column="40">.</op:operator><call><name pos:line="147" pos:column="41">get</name><argument_list pos:line="147" pos:column="44">(<argument><expr><name pos:line="147" pos:column="45">i</name></expr></argument>)</argument_list></call><op:operator pos:line="147" pos:column="47">)</op:operator><op:operator pos:line="147" pos:column="48">.</op:operator><call><name pos:line="147" pos:column="49">setText</name><argument_list pos:line="147" pos:column="56">(<argument><expr><lit:literal type="string" pos:line="147" pos:column="57">""</lit:literal></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        }</block></for>
+        <for pos:line="149" pos:column="9">for (<init><decl><type><name pos:line="149" pos:column="14">int</name></type> <name pos:line="149" pos:column="18">i</name> <init pos:line="149" pos:column="20">= <expr><lit:literal type="number" pos:line="149" pos:column="22">0</lit:literal></expr></init></decl>;</init> <condition><expr><name pos:line="149" pos:column="25">i</name> <op:operator pos:line="149" pos:column="27">&lt;</op:operator> <call><name pos:line="149" pos:column="29">getTables</name><argument_list pos:line="149" pos:column="38">()</argument_list></call><op:operator pos:line="149" pos:column="40">.</op:operator><call><name pos:line="149" pos:column="41">size</name><argument_list pos:line="149" pos:column="45">()</argument_list></call></expr>;</condition> <incr><expr><name pos:line="149" pos:column="49">i</name><op:operator pos:line="149" pos:column="50">++</op:operator></expr></incr>) <block pos:line="149" pos:column="54">{
+            <decl_stmt><decl><type><name pos:line="150" pos:column="13">DefaultTableModel</name></type> <name pos:line="150" pos:column="31">dm</name> <init pos:line="150" pos:column="34">= <expr><call pos:line="150" pos:column="36">(<name pos:line="150" pos:column="37">DefaultTableModel</name>) <argument_list pos:line="150" pos:column="56">(<argument><expr><op:operator pos:line="150" pos:column="57">(</op:operator><name pos:line="150" pos:column="58">JTable</name><op:operator pos:line="150" pos:column="64">)</op:operator> <call><name pos:line="150" pos:column="66">getTables</name><argument_list pos:line="150" pos:column="75">()</argument_list></call><op:operator pos:line="150" pos:column="77">.</op:operator><call><name pos:line="150" pos:column="78">get</name><argument_list pos:line="150" pos:column="81">(<argument><expr><name pos:line="150" pos:column="82">i</name></expr></argument>)</argument_list></call></expr></argument>)</argument_list></call><op:operator pos:line="150" pos:column="85">.</op:operator><call><name pos:line="150" pos:column="86">getModel</name><argument_list pos:line="150" pos:column="94">()</argument_list></call></expr></init></decl>;</decl_stmt>
+            <expr_stmt><expr><call><name><name pos:line="151" pos:column="13">dm</name><op:operator pos:line="151" pos:column="15">.</op:operator><name pos:line="151" pos:column="16">getDataVector</name></name><argument_list pos:line="151" pos:column="29">()</argument_list></call><op:operator pos:line="151" pos:column="31">.</op:operator><call><name pos:line="151" pos:column="32">removeAllElements</name><argument_list pos:line="151" pos:column="49">()</argument_list></call></expr>;</expr_stmt>
+        }</block></for>
+    }</block></function>
+}</block></class>
+</unit>

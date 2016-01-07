@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\xinco\src\com\bluecubs\xinco\client\object\timer\XincoActivityTimer.java" pos:tabs="8"><comment type="block" format="javadoc" pos:line="1" pos:column="1">/**
+ *Copyright 2007 blueCubs.com
+ *
+ *Licensed under the Apache License, Version 2.0 (the "License");
+ *you may not use this file except in compliance with the License.
+ *You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *Unless required by applicable law or agreed to in writing, software
+ *distributed under the License is distributed on an "AS IS" BASIS,
+ *WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *See the License for the specific language governing permissions and
+ *limitations under the License.
+ *
+ *************************************************************
+ * This project supports the blueCubs vision of giving back
+ * to the community in exchange for free software!
+ * More information on: http://www.bluecubs.org
+ *************************************************************
+ *
+ * Name:            XincoActivityTimer
+ *
+ * Description:     XincoActivityTimer
+ *
+ * Original Author: Javier A. Ortiz
+ * Date:            March 12, 2007, 10:44 AM
+ *
+ * Modifications:
+ *
+ * Who?             When?             What?
+ *
+ *
+ *************************************************************
+ */</comment>
+<package pos:line="36" pos:column="1">package <name><name pos:line="36" pos:column="9">com</name><op:operator pos:line="36" pos:column="12">.</op:operator><name pos:line="36" pos:column="13">bluecubs</name><op:operator pos:line="36" pos:column="21">.</op:operator><name pos:line="36" pos:column="22">xinco</name><op:operator pos:line="36" pos:column="27">.</op:operator><name pos:line="36" pos:column="28">client</name><op:operator pos:line="36" pos:column="34">.</op:operator><name pos:line="36" pos:column="35">object</name><op:operator pos:line="36" pos:column="41">.</op:operator><name pos:line="36" pos:column="42">timer</name></name>;</package>
+
+<import pos:line="38" pos:column="1">import <name><name pos:line="38" pos:column="8">com</name><op:operator pos:line="38" pos:column="11">.</op:operator><name pos:line="38" pos:column="12">bluecubs</name><op:operator pos:line="38" pos:column="20">.</op:operator><name pos:line="38" pos:column="21">xinco</name><op:operator pos:line="38" pos:column="26">.</op:operator><name pos:line="38" pos:column="27">client</name><op:operator pos:line="38" pos:column="33">.</op:operator><name pos:line="38" pos:column="34">XincoExplorer</name></name>;</import>
+<import pos:line="39" pos:column="1">import <name><name pos:line="39" pos:column="8">java</name><op:operator pos:line="39" pos:column="12">.</op:operator><name pos:line="39" pos:column="13">awt</name><op:operator pos:line="39" pos:column="16">.</op:operator><name pos:line="39" pos:column="17">event</name><op:operator pos:line="39" pos:column="22">.</op:operator><name pos:line="39" pos:column="23">ActionListener</name></name>;</import>
+<import pos:line="40" pos:column="1">import <name><name pos:line="40" pos:column="8">javax</name><op:operator pos:line="40" pos:column="13">.</op:operator><name pos:line="40" pos:column="14">swing</name><op:operator pos:line="40" pos:column="19">.</op:operator><name pos:line="40" pos:column="20">Timer</name></name>;</import>
+
+<comment type="block" format="javadoc" pos:line="42" pos:column="1">/**
+ *
+ * @author Javier A. Ortiz
+ */</comment>
+<class><specifier pos:line="46" pos:column="1">public</specifier> class <name pos:line="46" pos:column="14">XincoActivityTimer</name> <block pos:line="46" pos:column="33">{
+
+    <decl_stmt><decl><type><specifier pos:line="48" pos:column="5">private</specifier> <name pos:line="48" pos:column="13">XincoExplorer</name></type> <name pos:line="48" pos:column="27">explorer</name> <init pos:line="48" pos:column="36">= <expr><lit:literal type="null" pos:line="48" pos:column="38">null</lit:literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="49" pos:column="5">private</specifier> <name pos:line="49" pos:column="13">Timer</name></type> <name pos:line="49" pos:column="19">activityTimer</name> <init pos:line="49" pos:column="33">= <expr><lit:literal type="null" pos:line="49" pos:column="35">null</lit:literal></expr></init></decl>;</decl_stmt>
+
+    <comment type="block" format="javadoc" pos:line="51" pos:column="5">/** Creates a new instance of XincoActivityTimer
+     * @param e
+     * @param delay 
+     */</comment>
+    <constructor><specifier pos:line="55" pos:column="5">public</specifier> <name pos:line="55" pos:column="12">XincoActivityTimer</name><parameter_list pos:line="55" pos:column="30">(<param><decl><type><name pos:line="55" pos:column="31">XincoExplorer</name></type> <name pos:line="55" pos:column="45">e</name></decl></param>, <param><decl><type><name pos:line="55" pos:column="48">int</name></type> <name pos:line="55" pos:column="52">delay</name></decl></param>)</parameter_list> <block pos:line="55" pos:column="59">{
+        <expr_stmt><expr><name><name pos:line="56" pos:column="9">this</name><op:operator pos:line="56" pos:column="13">.</op:operator><name pos:line="56" pos:column="14">explorer</name></name> <op:operator pos:line="56" pos:column="23">=</op:operator> <name pos:line="56" pos:column="25">e</name></expr>;</expr_stmt>
+        <decl_stmt><decl><type><name pos:line="57" pos:column="9">ActionListener</name></type> <name pos:line="57" pos:column="24">lockExplorer</name> <init pos:line="57" pos:column="37">= <expr><op:operator pos:line="57" pos:column="39">new</op:operator> <call><name pos:line="57" pos:column="43">XincoActivityActionListener</name><argument_list pos:line="57" pos:column="70">(<argument><expr><name><name pos:line="57" pos:column="71">this</name><op:operator pos:line="57" pos:column="75">.</op:operator><name pos:line="57" pos:column="76">explorer</name></name></expr></argument>, <argument><expr><name pos:line="57" pos:column="86">this</name></expr></argument>)</argument_list></call></expr></init></decl>;</decl_stmt>
+        <comment type="line" pos:line="58" pos:column="9">//Use delay as minute value</comment>
+        <expr_stmt><expr><name><name pos:line="59" pos:column="9">this</name><op:operator pos:line="59" pos:column="13">.</op:operator><name pos:line="59" pos:column="14">activityTimer</name></name> <op:operator pos:line="59" pos:column="28">=</op:operator> <op:operator pos:line="59" pos:column="30">new</op:operator> <call><name pos:line="59" pos:column="34">Timer</name><argument_list pos:line="59" pos:column="39">(<argument><expr><name pos:line="59" pos:column="40">delay</name> <op:operator pos:line="59" pos:column="46">*</op:operator> <lit:literal type="number" pos:line="59" pos:column="48">1000</lit:literal> <op:operator pos:line="59" pos:column="53">*</op:operator> <lit:literal type="number" pos:line="59" pos:column="55">60</lit:literal></expr></argument>, <argument><expr><name pos:line="59" pos:column="59">lockExplorer</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+        <expr_stmt><expr><call><name><name pos:line="60" pos:column="9">this</name><op:operator pos:line="60" pos:column="13">.</op:operator><name pos:line="60" pos:column="14">getActivityTimer</name></name><argument_list pos:line="60" pos:column="30">()</argument_list></call><op:operator pos:line="60" pos:column="32">.</op:operator><call><name pos:line="60" pos:column="33">start</name><argument_list pos:line="60" pos:column="38">()</argument_list></call></expr>;</expr_stmt>
+    }</block></constructor>
+
+    <comment type="block" format="javadoc" pos:line="63" pos:column="5">/**
+     * 
+     * @return
+     */</comment>
+    <function><type><specifier pos:line="67" pos:column="5">public</specifier> <name pos:line="67" pos:column="12">Timer</name></type> <name pos:line="67" pos:column="18">getActivityTimer</name><parameter_list pos:line="67" pos:column="34">()</parameter_list> <block pos:line="67" pos:column="37">{
+        <return pos:line="68" pos:column="9">return <expr><name pos:line="68" pos:column="16">activityTimer</name></expr>;</return>
+    }</block></function>
+}</block></class>
+</unit>

@@ -127,7 +127,7 @@ namespace WM.UnitTestScribe.sqlAnalyzer{
       stmtList.Rule = MakePlusRule(stmtList, stmtLine);
 
       //ID
-      Id.Rule = MakePlusRule(Id, dot, Id_simple);
+      Id.Rule = MakePlusRule(Id, dot, Id_simple) | "'" + Id + "'";
 
       stmt.Rule = createTableStmt | createIndexStmt | alterStmt 
                 | dropTableStmt | dropIndexStmt 
@@ -178,7 +178,7 @@ namespace WM.UnitTestScribe.sqlAnalyzer{
       //Update stmt
       updateStmt.Rule = UPDATE + Id + SET + assignList + whereClauseOpt;
       assignList.Rule = MakePlusRule(assignList, comma, assignment);
-      assignment.Rule = Id + "=" + expression;
+      assignment.Rule = Id + "=" + expression | Id;
 
       //Delete stmt
       deleteStmt.Rule = DELETE + FROM + Id + whereClauseOpt;
@@ -187,7 +187,7 @@ namespace WM.UnitTestScribe.sqlAnalyzer{
       selectStmt.Rule = SELECT + selRestrOpt + selList + intoClauseOpt + fromClauseOpt + whereClauseOpt +
                         groupClauseOpt + havingClauseOpt + orderClauseOpt;
       selRestrOpt.Rule = Empty | "ALL" | "DISTINCT";
-      selList.Rule = columnItemList | "*";
+      selList.Rule = columnItemList | "*" | Id | number;
       columnItemList.Rule = MakePlusRule(columnItemList, comma, columnItem);
       columnItem.Rule = columnSource + aliasOpt;
       aliasOpt.Rule = Empty | asOpt + Id; 

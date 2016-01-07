@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\xinco\src\com\bluecubs\xinco\index\XincoIndexOptimizeThread.java" pos:tabs="8"><comment type="block" format="javadoc" pos:line="1" pos:column="1">/**
+ *Copyright 2009 blueCubs.com
+ *
+ *Licensed under the Apache License, Version 2.0 (the "License");
+ *you may not use this file except in compliance with the License.
+ *You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *Unless required by applicable law or agreed to in writing, software
+ *distributed under the License is distributed on an "AS IS" BASIS,
+ *WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *See the License for the specific language governing permissions and
+ *limitations under the License.
+ *
+ *************************************************************
+ * This project supports the blueCubs vision of giving back
+ * to the community in exchange for free software!
+ * More information on: http://www.bluecubs.org
+ *************************************************************
+ *
+ * Name:            XincoIndexOptimizeThread
+ *
+ * Description:     handle optimizing in thread 
+ *
+ * Original Author: Alexander Manes
+ * Date:            2005/01/19
+ *
+ * Modifications:
+ * 
+ * Who?             When?             What?
+ * -                -                 -
+ *
+ *************************************************************
+ */</comment>
+<package pos:line="36" pos:column="1">package <name><name pos:line="36" pos:column="9">com</name><op:operator pos:line="36" pos:column="12">.</op:operator><name pos:line="36" pos:column="13">bluecubs</name><op:operator pos:line="36" pos:column="21">.</op:operator><name pos:line="36" pos:column="22">xinco</name><op:operator pos:line="36" pos:column="27">.</op:operator><name pos:line="36" pos:column="28">index</name></name>;</package>
+
+<import pos:line="38" pos:column="1">import <name><name pos:line="38" pos:column="8">java</name><op:operator pos:line="38" pos:column="12">.</op:operator><name pos:line="38" pos:column="13">util</name><op:operator pos:line="38" pos:column="17">.</op:operator><name pos:line="38" pos:column="18">Calendar</name></name>;</import>
+<import pos:line="39" pos:column="1">import <name><name pos:line="39" pos:column="8">java</name><op:operator pos:line="39" pos:column="12">.</op:operator><name pos:line="39" pos:column="13">util</name><op:operator pos:line="39" pos:column="17">.</op:operator><name pos:line="39" pos:column="18">GregorianCalendar</name></name>;</import>
+
+<import pos:line="41" pos:column="1">import <name><name pos:line="41" pos:column="8">com</name><op:operator pos:line="41" pos:column="11">.</op:operator><name pos:line="41" pos:column="12">bluecubs</name><op:operator pos:line="41" pos:column="20">.</op:operator><name pos:line="41" pos:column="21">xinco</name><op:operator pos:line="41" pos:column="26">.</op:operator><name pos:line="41" pos:column="27">core</name><op:operator pos:line="41" pos:column="31">.</op:operator><name pos:line="41" pos:column="32">server</name><op:operator pos:line="41" pos:column="38">.</op:operator><name pos:line="41" pos:column="39">XincoDBManager</name></name>;</import>
+
+<comment type="block" format="javadoc" pos:line="43" pos:column="1">/**
+ * This class runs index optimizing in a separate thread
+ * (only one thread is allowed)
+ */</comment>
+<class><specifier pos:line="47" pos:column="1">public</specifier> class <name pos:line="47" pos:column="14">XincoIndexOptimizeThread</name> <super><extends pos:line="47" pos:column="39">extends <name pos:line="47" pos:column="47">Thread</name></extends></super> <block pos:line="47" pos:column="54">{
+
+    <decl_stmt><decl><type><specifier pos:line="49" pos:column="5">public</specifier> <specifier pos:line="49" pos:column="12">static</specifier> <name pos:line="49" pos:column="19">XincoIndexOptimizeThread</name></type> <name pos:line="49" pos:column="44">instance</name> <init pos:line="49" pos:column="53">= <expr><lit:literal type="null" pos:line="49" pos:column="55">null</lit:literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="50" pos:column="5">public</specifier> <name pos:line="50" pos:column="12">Calendar</name></type> <name pos:line="50" pos:column="21">firstRun</name> <init pos:line="50" pos:column="30">= <expr><lit:literal type="null" pos:line="50" pos:column="32">null</lit:literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="51" pos:column="5">public</specifier> <name pos:line="51" pos:column="12">Calendar</name></type> <name pos:line="51" pos:column="21">lastRun</name> <init pos:line="51" pos:column="29">= <expr><lit:literal type="null" pos:line="51" pos:column="31">null</lit:literal></expr></init></decl>;</decl_stmt>
+    <decl_stmt><decl><type><specifier pos:line="52" pos:column="5">public</specifier> <name pos:line="52" pos:column="12">long</name></type> <name pos:line="52" pos:column="17">index_period</name> <init pos:line="52" pos:column="30">= <expr><lit:literal type="number" pos:line="52" pos:column="32">604800000</lit:literal></expr></init></decl>;</decl_stmt> <comment type="line" pos:line="52" pos:column="43">//Weekly</comment>
+
+    <function><type><annotation pos:line="54" pos:column="5">@<name pos:line="54" pos:column="6">Override</name></annotation>
+    <specifier pos:line="55" pos:column="5">public</specifier> <name pos:line="55" pos:column="12">void</name></type> <name pos:line="55" pos:column="17">run</name><parameter_list pos:line="55" pos:column="20">()</parameter_list> <block pos:line="55" pos:column="23">{
+        <expr_stmt><expr><name pos:line="56" pos:column="9">firstRun</name> <op:operator pos:line="56" pos:column="18">=</op:operator> <op:operator pos:line="56" pos:column="20">new</op:operator> <call><name pos:line="56" pos:column="24">GregorianCalendar</name><argument_list pos:line="56" pos:column="41">()</argument_list></call></expr>;</expr_stmt>
+        <while pos:line="57" pos:column="9">while <condition pos:line="57" pos:column="15">(<expr><lit:literal type="boolean" pos:line="57" pos:column="16">true</lit:literal></expr>)</condition> <block pos:line="57" pos:column="22">{
+            <try pos:line="58" pos:column="13">try <block pos:line="58" pos:column="17">{
+                <decl_stmt><decl><type><name pos:line="59" pos:column="17">XincoDBManager</name></type> <name pos:line="59" pos:column="32">DBM</name> <init pos:line="59" pos:column="36">= <expr><lit:literal type="null" pos:line="59" pos:column="38">null</lit:literal></expr></init></decl>;</decl_stmt>
+                <expr_stmt><expr><name pos:line="60" pos:column="17">DBM</name> <op:operator pos:line="60" pos:column="21">=</op:operator> <op:operator pos:line="60" pos:column="23">new</op:operator> <call><name pos:line="60" pos:column="27">XincoDBManager</name><argument_list pos:line="60" pos:column="41">()</argument_list></call></expr>;</expr_stmt>
+                <expr_stmt><expr><name pos:line="61" pos:column="17">index_period</name> <op:operator pos:line="61" pos:column="30">=</op:operator> <call><name><name pos:line="61" pos:column="32">DBM</name><op:operator pos:line="61" pos:column="35">.</op:operator><name pos:line="61" pos:column="36">config</name><op:operator pos:line="61" pos:column="42">.</op:operator><name pos:line="61" pos:column="43">getFileIndexOptimizerPeriod</name></name><argument_list pos:line="61" pos:column="70">()</argument_list></call></expr>;</expr_stmt>
+                <comment type="line" pos:line="62" pos:column="17">//exit indexer if period = 0</comment>
+                <if pos:line="63" pos:column="17">if <condition pos:line="63" pos:column="20">(<expr><name pos:line="63" pos:column="21">index_period</name> <op:operator pos:line="63" pos:column="34">==</op:operator> <lit:literal type="number" pos:line="63" pos:column="37">0</lit:literal></expr>)</condition><then pos:line="63" pos:column="39"> <block pos:line="63" pos:column="40">{
+                    <break pos:line="64" pos:column="21">break;</break>
+                }</block></then></if>
+                <expr_stmt><expr><call><name><name pos:line="66" pos:column="17">XincoIndexer</name><op:operator pos:line="66" pos:column="29">.</op:operator><name pos:line="66" pos:column="30">optimizeIndex</name></name><argument_list pos:line="66" pos:column="43">(<argument><expr><name pos:line="66" pos:column="44">DBM</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+                <expr_stmt><expr><name pos:line="67" pos:column="17">lastRun</name> <op:operator pos:line="67" pos:column="25">=</op:operator> <op:operator pos:line="67" pos:column="27">new</op:operator> <call><name pos:line="67" pos:column="31">GregorianCalendar</name><argument_list pos:line="67" pos:column="48">()</argument_list></call></expr>;</expr_stmt>
+                <expr_stmt><expr><call><name><name pos:line="68" pos:column="17">DBM</name><op:operator pos:line="68" pos:column="20">.</op:operator><name pos:line="68" pos:column="21">con</name><op:operator pos:line="68" pos:column="24">.</op:operator><name pos:line="68" pos:column="25">close</name></name><argument_list pos:line="68" pos:column="30">()</argument_list></call></expr>;</expr_stmt>
+                <expr_stmt><expr><name pos:line="69" pos:column="17">DBM</name> <op:operator pos:line="69" pos:column="21">=</op:operator> <lit:literal type="null" pos:line="69" pos:column="23">null</lit:literal></expr>;</expr_stmt>
+            }</block> <catch pos:line="70" pos:column="15">catch <parameter_list pos:line="70" pos:column="21">(<param><decl><type><name pos:line="70" pos:column="22">Exception</name></type> <name pos:line="70" pos:column="32">e</name></decl></param>)</parameter_list> <block pos:line="70" pos:column="35">{
+            <comment type="line" pos:line="71" pos:column="13">//continue, wait and try again...</comment>
+            }</block></catch></try>
+            <try pos:line="73" pos:column="13">try <block pos:line="73" pos:column="17">{
+                <expr_stmt><expr><call><name><name pos:line="74" pos:column="17">Thread</name><op:operator pos:line="74" pos:column="23">.</op:operator><name pos:line="74" pos:column="24">sleep</name></name><argument_list pos:line="74" pos:column="29">(<argument><expr><name pos:line="74" pos:column="30">index_period</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+            }</block> <catch pos:line="75" pos:column="15">catch <parameter_list pos:line="75" pos:column="21">(<param><decl><type><name pos:line="75" pos:column="22">Exception</name></type> <name pos:line="75" pos:column="32">se</name></decl></param>)</parameter_list> <block pos:line="75" pos:column="36">{
+                <break pos:line="76" pos:column="17">break;</break>
+            }</block></catch></try>
+        }</block></while>
+    }</block></function>
+
+    <function><type><specifier pos:line="81" pos:column="5">public</specifier> <specifier pos:line="81" pos:column="12">static</specifier> <name pos:line="81" pos:column="19">XincoIndexOptimizeThread</name></type> <name pos:line="81" pos:column="44">getInstance</name><parameter_list pos:line="81" pos:column="55">()</parameter_list> <block pos:line="81" pos:column="58">{
+        <if pos:line="82" pos:column="9">if <condition pos:line="82" pos:column="12">(<expr><name pos:line="82" pos:column="13">instance</name> <op:operator pos:line="82" pos:column="22">==</op:operator> <lit:literal type="null" pos:line="82" pos:column="25">null</lit:literal></expr>)</condition><then pos:line="82" pos:column="30"> <block pos:line="82" pos:column="31">{
+            <expr_stmt><expr><name pos:line="83" pos:column="13">instance</name> <op:operator pos:line="83" pos:column="22">=</op:operator> <op:operator pos:line="83" pos:column="24">new</op:operator> <call><name pos:line="83" pos:column="28">XincoIndexOptimizeThread</name><argument_list pos:line="83" pos:column="52">()</argument_list></call></expr>;</expr_stmt>
+        }</block></then></if>
+        <return pos:line="85" pos:column="9">return <expr><name pos:line="85" pos:column="16">instance</name></expr>;</return>
+    }</block></function>
+
+    <constructor><specifier pos:line="88" pos:column="5">private</specifier> <name pos:line="88" pos:column="13">XincoIndexOptimizeThread</name><parameter_list pos:line="88" pos:column="37">()</parameter_list> <block pos:line="88" pos:column="40">{
+    }</block></constructor>
+}</block></class>
+</unit>

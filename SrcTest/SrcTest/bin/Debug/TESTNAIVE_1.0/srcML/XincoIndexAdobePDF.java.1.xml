@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<unit xmlns="http://www.sdml.info/srcML/src" xmlns:lit="http://www.sdml.info/srcML/literal" xmlns:op="http://www.sdml.info/srcML/operator" xmlns:type="http://www.sdml.info/srcML/modifier" xmlns:pos="http://www.sdml.info/srcML/position" language="Java" filename="C:\GitHub\testProgram\xinco\src\com\bluecubs\xinco\index\filetypes\XincoIndexAdobePDF.java" pos:tabs="8"><comment type="block" format="javadoc" pos:line="1" pos:column="1">/**
+*Copyright 2005 blueCubs.com
+*
+*Licensed under the Apache License, Version 2.0 (the "License");
+*you may not use this file except in compliance with the License.
+*You may obtain a copy of the License at
+*
+*   http://www.apache.org/licenses/LICENSE-2.0
+*
+*Unless required by applicable law or agreed to in writing, software
+*distributed under the License is distributed on an "AS IS" BASIS,
+*WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*See the License for the specific language governing permissions and
+*limitations under the License.
+*
+*************************************************************
+* This project supports the blueCubs vision of giving back
+* to the community in exchange for free software!
+* More information on: http://www.bluecubs.org
+*************************************************************
+*
+* Name:            XincoIndexText
+*
+* Description:     indexing Adobe PDF files 
+*
+* Original Author: Alexander Manes
+* Date:            2005/02/05
+*
+* Modifications:
+* 
+* Who?             When?             What?
+* -                -                 -
+*
+*************************************************************
+*/</comment>
+
+<package pos:line="37" pos:column="1">package <name><name pos:line="37" pos:column="9">com</name><op:operator pos:line="37" pos:column="12">.</op:operator><name pos:line="37" pos:column="13">bluecubs</name><op:operator pos:line="37" pos:column="21">.</op:operator><name pos:line="37" pos:column="22">xinco</name><op:operator pos:line="37" pos:column="27">.</op:operator><name pos:line="37" pos:column="28">index</name><op:operator pos:line="37" pos:column="33">.</op:operator><name pos:line="37" pos:column="34">filetypes</name></name>;</package>
+
+<import pos:line="39" pos:column="1">import <name><name pos:line="39" pos:column="8">java</name><op:operator pos:line="39" pos:column="12">.</op:operator><name pos:line="39" pos:column="13">io</name><op:operator pos:line="39" pos:column="15">.</op:operator><name pos:line="39" pos:column="16">File</name></name>;</import>
+<import pos:line="40" pos:column="1">import <name><name pos:line="40" pos:column="8">java</name><op:operator pos:line="40" pos:column="12">.</op:operator><name pos:line="40" pos:column="13">io</name><op:operator pos:line="40" pos:column="15">.</op:operator><name pos:line="40" pos:column="16">Reader</name></name>;</import>
+<import pos:line="41" pos:column="1">import <name><name pos:line="41" pos:column="8">org</name><op:operator pos:line="41" pos:column="11">.</op:operator><name pos:line="41" pos:column="12">pdfbox</name><op:operator pos:line="41" pos:column="18">.</op:operator><name pos:line="41" pos:column="19">searchengine</name><op:operator pos:line="41" pos:column="31">.</op:operator><name pos:line="41" pos:column="32">lucene</name><op:operator pos:line="41" pos:column="38">.</op:operator><name pos:line="41" pos:column="39">LucenePDFDocument</name></name>;</import>
+<import pos:line="42" pos:column="1">import <name><name pos:line="42" pos:column="8">org</name><op:operator pos:line="42" pos:column="11">.</op:operator><name pos:line="42" pos:column="12">apache</name><op:operator pos:line="42" pos:column="18">.</op:operator><name pos:line="42" pos:column="19">lucene</name><op:operator pos:line="42" pos:column="25">.</op:operator><name pos:line="42" pos:column="26">document</name><op:operator pos:line="42" pos:column="34">.</op:operator><name pos:line="42" pos:column="35">Document</name></name>;</import>
+
+<class><specifier pos:line="44" pos:column="1">public</specifier> class <name pos:line="44" pos:column="14">XincoIndexAdobePDF</name> <super><implements pos:line="44" pos:column="33">implements <name pos:line="44" pos:column="44">XincoIndexFileType</name></implements></super> <block pos:line="44" pos:column="63">{
+
+	<constructor><specifier pos:line="46" pos:column="9">public</specifier> <name pos:line="46" pos:column="16">XincoIndexAdobePDF</name><parameter_list pos:line="46" pos:column="34">()</parameter_list> <block pos:line="46" pos:column="37">{
+		<expr_stmt><expr><call><name pos:line="47" pos:column="17">super</name><argument_list pos:line="47" pos:column="22">()</argument_list></call></expr>;</expr_stmt>
+	}</block></constructor>
+
+	<function><type><specifier pos:line="50" pos:column="9">public</specifier> <name pos:line="50" pos:column="16">Reader</name></type> <name pos:line="50" pos:column="23">getFileContentReader</name><parameter_list pos:line="50" pos:column="43">(<param><decl><type><name pos:line="50" pos:column="44">File</name></type> <name pos:line="50" pos:column="49">f</name></decl></param>)</parameter_list> <block pos:line="50" pos:column="52">{
+		<decl_stmt><decl><type><name pos:line="51" pos:column="17">Reader</name></type> <name pos:line="51" pos:column="24">reader</name> <init pos:line="51" pos:column="31">= <expr><lit:literal type="null" pos:line="51" pos:column="33">null</lit:literal></expr></init></decl>;</decl_stmt>
+		<decl_stmt><decl><type><name pos:line="52" pos:column="17">Document</name></type> <name pos:line="52" pos:column="26">temp_doc</name> <init pos:line="52" pos:column="35">= <expr><lit:literal type="null" pos:line="52" pos:column="37">null</lit:literal></expr></init></decl>;</decl_stmt>
+		<try pos:line="53" pos:column="17">try <block pos:line="53" pos:column="21">{
+			<expr_stmt><expr><name pos:line="54" pos:column="25">temp_doc</name> <op:operator pos:line="54" pos:column="34">=</op:operator> <call><name><name pos:line="54" pos:column="36">LucenePDFDocument</name><op:operator pos:line="54" pos:column="53">.</op:operator><name pos:line="54" pos:column="54">getDocument</name></name><argument_list pos:line="54" pos:column="65">(<argument><expr><name pos:line="54" pos:column="66">f</name></expr></argument>)</argument_list></call></expr>;</expr_stmt>
+			<expr_stmt><expr><name pos:line="55" pos:column="25">reader</name> <op:operator pos:line="55" pos:column="32">=</op:operator> <call><name><name pos:line="55" pos:column="34">temp_doc</name><op:operator pos:line="55" pos:column="42">.</op:operator><name pos:line="55" pos:column="43">getField</name></name><argument_list pos:line="55" pos:column="51">(<argument><expr><lit:literal type="string" pos:line="55" pos:column="52">"contents"</lit:literal></expr></argument>)</argument_list></call><op:operator pos:line="55" pos:column="63">.</op:operator><call><name pos:line="55" pos:column="64">readerValue</name><argument_list pos:line="55" pos:column="75">()</argument_list></call></expr>;</expr_stmt>
+		}</block> <catch pos:line="56" pos:column="19">catch <parameter_list pos:line="56" pos:column="25">(<param><decl><type><name pos:line="56" pos:column="26">Exception</name></type> <name pos:line="56" pos:column="36">pdfe</name></decl></param>)</parameter_list> <block pos:line="56" pos:column="42">{
+			<expr_stmt><expr><name pos:line="57" pos:column="25">reader</name> <op:operator pos:line="57" pos:column="32">=</op:operator> <lit:literal type="null" pos:line="57" pos:column="34">null</lit:literal></expr>;</expr_stmt>
+		}</block></catch></try>
+		<return pos:line="59" pos:column="17">return <expr><name pos:line="59" pos:column="24">reader</name></expr>;</return>
+	}</block></function>
+
+	<function><type><specifier pos:line="62" pos:column="9">public</specifier> <name pos:line="62" pos:column="16">String</name></type> <name pos:line="62" pos:column="23">getFileContentString</name><parameter_list pos:line="62" pos:column="43">(<param><decl><type><name pos:line="62" pos:column="44">File</name></type> <name pos:line="62" pos:column="49">f</name></decl></param>)</parameter_list> <block pos:line="62" pos:column="52">{
+		<return pos:line="63" pos:column="17">return <expr><lit:literal type="null" pos:line="63" pos:column="24">null</lit:literal></expr>;</return>
+	}</block></function>
+
+}</block></class>
+</unit>

@@ -77,8 +77,15 @@ namespace WM.UnitTestScribe.MethodInfo{
         public bool CompareTest(string mname)
         {
             List<string> forTestMethods = new List<string>(); //define a list for test
-            forTestMethods.Add("getValues");
-            forTestMethods.Add("FindTopIndustryCode");
+            //forTestMethods.Add("getValues");
+            //forTestMethods.Add("FindTopIndustryCode");
+
+            //forTestMethods.Add("XincoCoreACEServer");
+            //forTestMethods.Add("getXincoCoreACL");
+            //forTestMethods.Add("isLanguageUsed");
+
+            //forTestMethods.Add("com.bluecubs.xinco.core.server.XincoCoreUserServer.write2DB");
+            forTestMethods.Add("XincoCoreUserServer");
             foreach (var vari in forTestMethods)
             {
                 if (vari == mname) { return true; }
@@ -87,6 +94,7 @@ namespace WM.UnitTestScribe.MethodInfo{
         }
         public void GoThroughMethods(IEnumerable<MethodDefinition> methods)
         {
+            string methodNameForTest = "";
             int previoussql = 0;
             /* Code for checking unknown case*/
             foreach (MethodDefinition m in methods)
@@ -100,8 +108,11 @@ namespace WM.UnitTestScribe.MethodInfo{
                 foreach (var stat in stats) //checking each statement in the method
                 {
                     if (stat.Content == null) continue;
-                    if (stat is DeclarationStatement) { statIsDeclaration(m, stat, variables); }
-                    else { statIsOthers(m, stat, variables); }
+                    if (stat is DeclarationStatement) 
+                    { 
+                        statIsDeclaration(m, stat, variables); 
+                    }
+                    statIsOthers(m, stat, variables); 
                 }   
                 if (variables.Count > 0) //means this method might contain sql string
                 {
@@ -124,11 +135,24 @@ namespace WM.UnitTestScribe.MethodInfo{
                     {
                         allDirectMethods.Add(getMethodInfo(m));
                         Console.WriteLine(m.GetFullName());
+                        methodNameForTest += m.GetFullName() + "\r\n";
                         Console.WriteLine("============================");
                         previoussql = sqlCount;
                     }
                 }
             }
+            /*Write the methods we found for debugging
+             * try
+            {
+                FileStream stream = new FileStream(@"C:\temp\test.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(stream);
+                sw.WriteLine(methodNameForTest);
+                sw.Close();
+                stream.Close();
+            }
+            catch (IOException e)
+            {
+            }*/
         }
 
         public void statIsDeclaration(MethodDefinition m, Statement stat, List<string[]> variables)
@@ -150,35 +174,57 @@ namespace WM.UnitTestScribe.MethodInfo{
 
         public void statIsOthers(MethodDefinition m, Statement stat, List<string[]> variables)
         {
-            foreach (var exp in stat.Content.GetDescendantsAndSelf())
+            if (stat.Content == null) return;
+            IEnumerable<Expression> exps = stat.Content.GetDescendants();
+
+            foreach (var exp in exps)
             {
                 if (exp is MethodCall)
                 {
-                    MethodCall mc = (MethodCall)exp;
-                    if (mc.Arguments.Count == 0) continue;
-                    var arg = mc.Arguments[0];
-                    if (arg.Components.Count == 0) continue;
-                    var exps = arg.Components;
-                    string callPara = "";
-                    for (int i = 0; i < exps.Count; i++)
-                    {
-                        var texp = exps.ElementAt(i);
-                        if (texp is LiteralUse || texp is VariableUse)
-                        {
-                            callPara += GetExpCont(texp, variables);
-                            continue;
-                        }
-                        if ((texp is OperatorUse) && texp.ToString() == "+" && i + 1 < exps.Count)
-                        {
-                            i = i + 1; callPara += GetExpCont(exps.ElementAt(i), variables); continue;
-                        }
-                    }
-                    UpdateVariable("argument", variables, callPara);
+                    handleFunctionCall(exp, variables);
                 }
                 if (exp.GetDescendants().Count() > 0) continue;
                 if ((exp is LiteralUse) == false) continue;
-                UpdateVariable("pureString", variables, TakeQuotOff(exp.ToString()));
+                var testString=TakeQuotOff(exp.ToString());
+                if (testString!="") UpdateVariable("pureString", variables, testString);
             }
+
+            //handle the assignment statement
+            if (exps.Count<Expression>() <= 1) return;
+            var firstexp = exps.First<Expression>();
+            if (!(firstexp is NameUse)) return;
+            if (!(exps.ElementAt(1) is OperatorUse)) return;
+            OperatorUse opt = (OperatorUse)exps.ElementAt(1);
+            string targetstring = Rebuildstring(firstexp.ToString(), stat, variables);
+            if (targetstring != "") UpdateVariable("pureString", variables, targetstring);
+        }
+
+        public string handleFunctionCall(Expression exp, List<string[]> variables)
+        {
+            string returnResult = "FunctionCall";
+            MethodCall mc = (MethodCall)exp;
+            if (mc.Arguments.Count == 0) return returnResult;
+            var arg = mc.Arguments[0];
+            if (arg.Components.Count == 0) return returnResult;
+            var exps = arg.Components;
+            string callPara = "";
+            for (int i = 0; i < exps.Count; i++)
+            {
+                var texp = exps.ElementAt(i);
+                if (texp is LiteralUse || texp is VariableUse)
+                {
+                    callPara += GetExpCont(texp, variables);
+                    continue;
+                }
+                if ((texp is OperatorUse) && texp.ToString() == "+" && i + 1 < exps.Count)
+                {
+                    i = i + 1; 
+                    callPara += GetExpCont(exps.ElementAt(i), variables); 
+                    continue;
+                }
+            }
+            UpdateVariable("argument", variables, callPara);
+            return returnResult;
         }
 
         public desMethod getMethodInfo(MethodDefinition m)
@@ -277,6 +323,8 @@ namespace WM.UnitTestScribe.MethodInfo{
         public string GetExpCont(Expression exp, List<string[]> variables)
         {
             string teststring = "";
+
+            if (exp is MethodCall) return "FunctionCall";
 
             if (exp is LiteralUse)
             {

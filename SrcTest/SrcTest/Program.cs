@@ -21,16 +21,16 @@ namespace WM.UnitTestScribe
 {
     public class Program
     {
-        public static readonly string LocalProj = @"C:\GitHub\testProgram\RiskIt";
+        public static readonly string LocalProj = @"C:\GitHub\testProgram\xinco";
         public static readonly string SrcmlLoc = @"C:\GitHub\tool\SrcML";
-        public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=riskit;";
+        public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=xinco;";
 
         static void Main()
         {
             var theDB = new dataSchemer(myConnectionString);
             Console.WriteLine("Connecting database success!");
             Console.WriteLine();
-            
+
             var extractor = new ExtractMethodSQL(LocalProj, SrcmlLoc, theDB);
             extractor.run();
             Console.WriteLine("Building callGraph and extracting SQL sequences success!");
