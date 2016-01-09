@@ -8,7 +8,6 @@ using ABB.SrcML.Data;
 using System.Text.RegularExpressions;
 using Irony;
 using Irony.Parsing;
-using Microsoft.SqlServer.TransactSql.ScriptDom;
 using WM.UnitTestScribe.Summary;
 using WM.UnitTestScribe.CallGraph;
 using WM.UnitTestScribe.DatabaseInfo;
@@ -80,8 +79,8 @@ namespace WM.UnitTestScribe.MethodInfo{
             //forTestMethods.Add("getValues");
             //forTestMethods.Add("FindTopIndustryCode");
 
-            //forTestMethods.Add("XincoCoreACEServer");
-            //forTestMethods.Add("getXincoCoreACL");
+            forTestMethods.Add("XincoCoreACEServer");
+            forTestMethods.Add("getXincoCoreACL");
             //forTestMethods.Add("isLanguageUsed");
 
             //forTestMethods.Add("com.bluecubs.xinco.core.server.XincoCoreUserServer.write2DB");
@@ -141,18 +140,6 @@ namespace WM.UnitTestScribe.MethodInfo{
                     }
                 }
             }
-            /*Write the methods we found for debugging
-             * try
-            {
-                FileStream stream = new FileStream(@"C:\temp\test.txt", FileMode.Create, FileAccess.Write);
-                StreamWriter sw = new StreamWriter(stream);
-                sw.WriteLine(methodNameForTest);
-                sw.Close();
-                stream.Close();
-            }
-            catch (IOException e)
-            {
-            }*/
         }
 
         public void statIsDeclaration(MethodDefinition m, Statement stat, List<string[]> variables)

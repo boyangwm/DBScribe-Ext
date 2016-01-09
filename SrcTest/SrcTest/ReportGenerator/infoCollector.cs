@@ -15,14 +15,16 @@ namespace WM.UnitTestScribe.ReportGenerator {
         public HashSet<SingleSummary> AllTableSummary;
         public HashSet<SingleSummary> AllColumnSummary;
         public ExtractMethodSQL extractor;
+        public string outputLoc;
         dataSchemer db;
 
-        public infoCollector(ExtractMethodSQL ex, dataSchemer dbsche)
+        public infoCollector(ExtractMethodSQL ex, dataSchemer dbsche, string reportLoc)
         {
             this.AllTableSummary = new HashSet<SingleSummary>();
             this.AllColumnSummary = new HashSet<SingleSummary>();
             this.extractor = ex;
             this.db = dbsche;
+            this.outputLoc = reportLoc;
         }
 
         public void run()
@@ -77,7 +79,7 @@ namespace WM.UnitTestScribe.ReportGenerator {
                 st.SetAttribute("MethodName", me.methodself.Name);
             }
             FinalGenerator homePageGenerator = new FinalGenerator(this.AllTableSummary, this.AllColumnSummary,st.ToString(),stsum);
-            homePageGenerator.Generate(@"c:\temp\test.html");
+            homePageGenerator.Generate(outputLoc);
         }
         public string TakePointOff(string ori)
         {
