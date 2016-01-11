@@ -23,16 +23,16 @@ namespace WM.UnitTestScribe
     {
         //Before running program, please guarantee your device has installed MySQL and you already run the database script of your target project.
 
-        //Foreach project, we need change these three variables
+        //Foreach project, we might need to change these four variables
         public static readonly string ProjLoc = @"\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\";
-        public static readonly string testProj = @"xinco";
-        public static readonly string databaseSchemaName = @"xinco";
+        public static readonly string testProj = @"SIGULAB";
+        public static readonly string databaseSchemaName = @"modulo2";
+        public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=" + databaseSchemaName + ";";
 
         //These locations are just auto-generated, you don't need change them.
         public static string SrcmlLoc = ProjLoc + @"tool\SrcML";
         public static string testLoc = ProjLoc + @"testProgram\" + testProj;
         public static string reportLoc = ProjLoc + @"reports\report_of_" + testProj + ".html";
-        public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=" + databaseSchemaName + ";";
 
         static void Main()
         {

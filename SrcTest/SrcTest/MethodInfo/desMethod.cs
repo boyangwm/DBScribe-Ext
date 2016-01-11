@@ -30,6 +30,7 @@ namespace WM.UnitTestScribe.MethodInfo
             this.sqlStmts = new List<sqlStmtParser>();
         }
 
+        //For each SQL invocation, our "sqlStmtParser" only could return a simple typle like "selectStmt" and this method would translate the type into human languages.
         public string translateStmt(string stmt, string TorC)
         {
             string fullSentence = "";
@@ -105,6 +106,8 @@ namespace WM.UnitTestScribe.MethodInfo
             }
             return fullSentence;
         }
+
+        //This method would generate the description of this method and we could show the description in the final report.
         public string getHtmlDescribe(List<string> allSql, string TorC)
         {
             string htmlText = "";

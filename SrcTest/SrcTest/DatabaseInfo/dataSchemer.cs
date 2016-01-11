@@ -22,6 +22,7 @@ namespace WM.UnitTestScribe.DatabaseInfo
             buildTables();
         }
 
+        //This method would build new dbTable classes for each table and new dbColumn classes for each column. After executing this method, the class dataSchemer would contain all the information about tables and columns.
         public void buildTables()
         {
             foreach (var tableName in getTableName())
@@ -35,6 +36,7 @@ namespace WM.UnitTestScribe.DatabaseInfo
             }
         }
 
+        //This method would return all tables' names in the target schema.
         public List<string> getTableName()
         {
             List<string> tableList=new List<string>();
@@ -63,6 +65,7 @@ namespace WM.UnitTestScribe.DatabaseInfo
             return tableList;
         }
 
+        //This method would return all columns' names in one table.
         public List<string> getColumnName(string tableName)
         {
             List<string> columnList = new List<string>();
@@ -91,6 +94,7 @@ namespace WM.UnitTestScribe.DatabaseInfo
             return columnList;
         }
 
+        //This method could return one attribute of one column. "desireAttribute" means which attribute we want to know.. The grammer refers to the link https://dev.mysql.com/doc/refman/5.7/en/columns-table.html.
         public string GetOneColumnInfo(string tableName, string columnName, string desireAttribute)
         {
             string info="";
@@ -119,6 +123,7 @@ namespace WM.UnitTestScribe.DatabaseInfo
             return info;
         }
 
+        //This method could return one attibute of one table. The grammer of desireAttribute refers to the link https://dev.mysql.com/doc/refman/5.7/en/tables-table.html.
         public string GetOneTableInfo(string tableName, string desireAttribute)
         {
             string info = "";
@@ -146,6 +151,5 @@ namespace WM.UnitTestScribe.DatabaseInfo
             conn.Close();
             return info;
         }
-        //cmd.CommandText = "SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, CHARACTER_OCTET_LENGTH, NUMERIC_PRECISION, NUMERIC_SCALE AS SCALE, COLUMN_DEFAULT, IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS;";
     }
 }

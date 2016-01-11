@@ -34,12 +34,14 @@ namespace WM.UnitTestScribe.DatabaseInfo{
             this.relationships = new List<dbMethodSql>();
         }
 
+        //This method is used to return the relationship between the table and the method has the name same as variable "name". We need this method when we are generating final reports.
         public List<string> getRelationships(string name)
         {
             dbMethodSql tempMS = relationships.Find(x => x.methodName == name);
             return tempMS.sqlSequence;
         }
 
+        //This method is used to handle a new relationship we found between a method "name" and this table.
         public void insertRelationships(string name, string sql)
         {
             if (relationships.Find(x => x.methodName == name) == null)
@@ -54,6 +56,7 @@ namespace WM.UnitTestScribe.DatabaseInfo{
             return;
         }
 
+        //This function would delete the last space of a string. When we are generating final report some strings contain useless spaces in the last position so I delete them with this method.
         public string TakeSpaceOff(string ori)
         {
             string result = "";
@@ -62,6 +65,7 @@ namespace WM.UnitTestScribe.DatabaseInfo{
             return result;
         }
 
+        //This method is used to generate the index of this table and the index is put in the left side of the report. With this index we could put the table and the columns belong to this table together.
         public string generateLeftIndex ()
         {
             StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");
@@ -78,6 +82,7 @@ namespace WM.UnitTestScribe.DatabaseInfo{
             return finalstring;
         }
 
+        //This function would generate the description about this table and the description is saved in attribute.
         public void generateDescription (dataSchemer db)
         {
             attribute = "This table contains columns: ";
@@ -116,6 +121,8 @@ namespace WM.UnitTestScribe.DatabaseInfo{
                         }
                     }
         }
+
+        //This method is used to handle a new SQL statements "opt" that we found in the method "m". The instruction could be "direct","follow" and "final" so we could relatively insert the method into three lists of methods.
         public void insertMethod(desMethod m, string opt, string instruction)
         {
             if (instruction == "direct")
@@ -150,19 +157,3 @@ namespace WM.UnitTestScribe.DatabaseInfo{
     }
     
 }
-
-/*string description = "Method: " + m.name + ", function: " + m.swumsummary + ";";
-                            if (tablesInfo[i].directMethods.Find(x => x == description) == null)
-                            {
-                                tablesInfo[i].directMethods.Add(description);
-                            }
-                            foreach(var mm in m.followmethods)
-                            {
-                                var mmdes = getMethodInfo(mm, cgm);
-                                string mmdescription = "Method: " + mmdes.name + ", function: " + mmdes.swumsummary + ";";
-                                if (tablesInfo[i].followMehtods.Find(x => x == mmdescription) == null)
-                                {
-                                    tablesInfo[i].followMehtods.Add(mmdescription);
-                                }
-                            }
-                            break;*/

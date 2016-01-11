@@ -17,15 +17,12 @@ namespace WM.UnitTestScribe.ReportGenerator {
         public string AllShiftFunction;
         public string projectSum;
 
-
         public FinalGenerator(HashSet<SingleSummary> allTableSummary, HashSet<SingleSummary> allColumnSummary, string allShiftFunction, string projSum) {
             this.AllTableSummary = allTableSummary;
             this.AllColumnSummary = allColumnSummary;
             this.AllShiftFunction = allShiftFunction;
             this.projectSum = projSum;
         }
-
-
 
         public void Generate(string path) {
             StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");

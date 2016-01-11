@@ -27,6 +27,7 @@ namespace WM.UnitTestScribe.ReportGenerator {
             this.outputLoc = reportLoc;
         }
 
+        //This method would generate the summary for the project and prepare all the other data for final report.
         public void run()
         {
             Console.WriteLine("Starting collecting data for reporter");
@@ -49,6 +50,7 @@ namespace WM.UnitTestScribe.ReportGenerator {
             GenerateSummary(stsum.ToString());
         }
 
+        //This function is used to generate the summary of whole target projet. The summary is showed in the left part of our report, the details is defined in the two HashSet above.
         public void GenerateSummary(string stsum)
         {
             Console.WriteLine("Now let's generate summary..");
@@ -81,6 +83,7 @@ namespace WM.UnitTestScribe.ReportGenerator {
             FinalGenerator homePageGenerator = new FinalGenerator(this.AllTableSummary, this.AllColumnSummary,st.ToString(),stsum);
             homePageGenerator.Generate(outputLoc);
         }
+
         public string TakePointOff(string ori)
         {
             string result = "";

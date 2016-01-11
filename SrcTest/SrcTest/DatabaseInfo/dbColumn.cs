@@ -10,6 +10,7 @@ namespace WM.UnitTestScribe.DatabaseInfo
 {
     class dbColumn
     {
+        //this method could directly refer to dbTable, I create two classes just because I want to handle table and columns seperately and their descriptions are different.
         public List<desMethod> directMethods;
         public List<desMethod> followMehtods;
         public List<desMethod> finalMethods;

@@ -24,7 +24,7 @@ namespace WM.UnitTestScribe.CallGraph {
                 if (path.Count == 1) continue;
                 foreach (MethodDefinition mc in path)
                 {
-                    if (mc.GetFullName() != m.GetFullName() && mc.GetFullName() != path.Last().GetFullName())
+                    if ((mc.GetFullName() != m.GetFullName()) && (mc.GetFullName() != path.Last().GetFullName()))
                     {
                         if (relatedM.Find(x => x.GetFullName() == mc.GetFullName()) == null) relatedM.Add(mc);
                     }

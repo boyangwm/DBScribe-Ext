@@ -1,0 +1,3009 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>DBSchemaScribe Report</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+   <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?lang=css&skin=desert"> </script>
+ <style>
+.modal.modal-wide .modal-dialog {
+  width: 90%;
+}
+.modal-wide .modal-body {
+  overflow-y: auto;
+  overflow-x: auto;
+}
+p {word-wrap: break-word; }
+</style>
+<script>
+$(".modal-wide").on("show.bs.modal", function() {
+  var height = $(window).height() - 200;
+  $(this).find(".modal-body").css("max-height", height);
+});
+</script>
+<style>
+div.tooltip-inner {
+    max-width: 1500px;
+}
+</style>
+<script>
+$(document).ready(function () {
+  $("a").tooltip({
+    'selector': '',
+    'placement': 'bottom',
+    'container':'body'
+  });
+});
+</script>
+ </head>
+ <body>
+  <script>
+  function clickhrmitbeansBlagajnasave(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Blagajna.save"?"save":"hr.mit.beans.Blagajna.save";
+  }
+  function clickhrmitbeansBlagajnagetNextStevilka(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Blagajna.getNextStevilka"?"getNextStevilka":"hr.mit.beans.Blagajna.getNextStevilka";
+  }
+  function clickhrmitbeanscloseObracun(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.closeObracun"?"closeObracun":"hr.mit.beans.closeObracun";
+  }
+  function clickhrmitbeansPopustsetKartaStupac(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Popust.setKartaStupac"?"setKartaStupac":"hr.mit.beans.Popust.setKartaStupac";
+  }
+  function clickhrmitbeansPostajaGetZapStPostajePolaskaZaStupac(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Postaja.GetZapStPostajePolaskaZaStupac"?"GetZapStPostajePolaskaZaStupac":"hr.mit.beans.Postaja.GetZapStPostajePolaskaZaStupac";
+  }
+  function clickhrmitbeansPostajaGetZapStPostajeDolaskaZaStupac(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Postaja.GetZapStPostajeDolaskaZaStupac"?"GetZapStPostajeDolaskaZaStupac":"hr.mit.beans.Postaja.GetZapStPostajeDolaskaZaStupac";
+  }
+  function clickhrmitbeansPostajagetByID(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Postaja.getByID"?"getByID":"hr.mit.beans.Postaja.getByID";
+  }
+  function clickhrmitutilsCijenaKarteizracunajDistancaLinije(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.utils.CijenaKarte.izracunajDistancaLinije"?"izracunajDistancaLinije":"hr.mit.utils.CijenaKarte.izracunajDistancaLinije";
+  }
+  function clickhrmitutilsCijenaKarteizracunajDistancaRelacije(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.utils.CijenaKarte.izracunajDistancaRelacije"?"izracunajDistancaRelacije":"hr.mit.utils.CijenaKarte.izracunajDistancaRelacije";
+  }
+  function clickhrmitutilsCijenaKartegetSqlDistancaCenika(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.utils.CijenaKarte.getSqlDistancaCenika"?"getSqlDistancaCenika":"hr.mit.utils.CijenaKarte.getSqlDistancaCenika";
+  }
+  function clickhrmitBaseMakerdoPTVozniRedi(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTVozniRedi"?"doPTVozniRedi":"hr.mit.BaseMaker.doPTVozniRedi";
+  }
+  function clickhrmitBaseMakerdoPTVarijanteVR(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTVarijanteVR"?"doPTVarijanteVR":"hr.mit.BaseMaker.doPTVarijanteVR";
+  }
+  function clickhrmitBaseMakerdoPTStupciVR(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTStupciVR"?"doPTStupciVR":"hr.mit.BaseMaker.doPTStupciVR";
+  }
+  function clickhrmitBaseMakerdoPTStupciVRMirovanja(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTStupciVRMirovanja"?"doPTStupciVRMirovanja":"hr.mit.BaseMaker.doPTStupciVRMirovanja";
+  }
+  function clickhrmitBaseMakerdoPTPostajeVarijantVR(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTPostajeVarijantVR"?"doPTPostajeVarijantVR":"hr.mit.BaseMaker.doPTPostajeVarijantVR";
+  }
+  function clickhrmitBaseMakerdoPTPostajeVR(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTPostajeVR"?"doPTPostajeVR":"hr.mit.BaseMaker.doPTPostajeVR";
+  }
+  function clickhrmitBaseMakerdoPTPostaje(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTPostaje"?"doPTPostaje":"hr.mit.BaseMaker.doPTPostaje";
+  }
+  function clickhrmitBaseMakerdoPTCasiVoznjeVR(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTCasiVoznjeVR"?"doPTCasiVoznjeVR":"hr.mit.BaseMaker.doPTCasiVoznjeVR";
+  }
+  function clickhrmitBaseMakerdoPTKTVozneKarte(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTKTVozneKarte"?"doPTKTVozneKarte":"hr.mit.BaseMaker.doPTKTVozneKarte";
+  }
+  function clickhrmitBaseMakerdoPTVozaci(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTVozaci"?"doPTVozaci":"hr.mit.BaseMaker.doPTVozaci";
+  }
+  function clickhrmitBaseMakerdoSkValute(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doSkValute"?"doSkValute":"hr.mit.BaseMaker.doSkValute";
+  }
+  function clickhrmitBaseMakerdoPTKTTarifniRazrediCenik(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTKTTarifniRazrediCenik"?"doPTKTTarifniRazrediCenik":"hr.mit.BaseMaker.doPTKTTarifniRazrediCenik";
+  }
+  function clickhrmitBaseMakerdoPTKTVrstePopustov(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTKTVrstePopustov"?"doPTKTVrstePopustov":"hr.mit.BaseMaker.doPTKTVrstePopustov";
+  }
+  function clickhrmitBaseMakerdoPTIzjemeCenikaVR(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTIzjemeCenikaVR"?"doPTIzjemeCenikaVR":"hr.mit.BaseMaker.doPTIzjemeCenikaVR";
+  }
+  function clickhrmitBaseMakerdoPTKTPopusti(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTKTPopusti"?"doPTKTPopusti":"hr.mit.BaseMaker.doPTKTPopusti";
+  }
+  function clickhrmitBaseMakerdoPTKTTipiKarti(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTKTTipiKarti"?"doPTKTTipiKarti":"hr.mit.BaseMaker.doPTKTTipiKarti";
+  }
+  function clickhrmitBaseMakerdoPromVozila(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPromVozila"?"doPromVozila":"hr.mit.BaseMaker.doPromVozila";
+  }
+  function clickhrmitBaseMakerdoPromAlmexMasine(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPromAlmexMasine"?"doPromAlmexMasine":"hr.mit.BaseMaker.doPromAlmexMasine";
+  }
+  function clickhrmitBaseMakerdoPTProdajnaMesta(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTProdajnaMesta"?"doPTProdajnaMesta":"hr.mit.BaseMaker.doPTProdajnaMesta";
+  }
+  function clickhrmitBaseMakerdoPTPrevozniki(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTPrevozniki"?"doPTPrevozniki":"hr.mit.BaseMaker.doPTPrevozniki";
+  }
+  function clickhrmitBaseMakerdoPTDneviVoznje(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTDneviVoznje"?"doPTDneviVoznje":"hr.mit.BaseMaker.doPTDneviVoznje";
+  }
+  function clickhrmitBaseMakerdoPTMesRelacije(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTMesRelacije"?"doPTMesRelacije":"hr.mit.BaseMaker.doPTMesRelacije";
+  }
+  function clickhrmitBaseMakerdoPTMesOsebe(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTMesOsebe"?"doPTMesOsebe":"hr.mit.BaseMaker.doPTMesOsebe";
+  }
+  function clickhrmitBaseMakerdoPTMesCode(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTMesCode"?"doPTMesCode":"hr.mit.BaseMaker.doPTMesCode";
+  }
+  function clickhrmitBaseMakerdoPTMesProdaja(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTMesProdaja"?"doPTMesProdaja":"hr.mit.BaseMaker.doPTMesProdaja";
+  }
+  function clickhrmitBaseMakerdoPTVerzija(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTVerzija"?"doPTVerzija":"hr.mit.BaseMaker.doPTVerzija";
+  }
+  function clickhrmitBaseMakerdoPTMobilnaZaduzenja(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.doPTMobilnaZaduzenja"?"doPTMobilnaZaduzenja":"hr.mit.BaseMaker.doPTMobilnaZaduzenja";
+  }
+  function clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.PrintButtonListener.widgetSelected"?"widgetSelected":"hr.mit.windows.ProdajaWindow.PrintButtonListener.widgetSelected";
+  }
+  function clickhrmitwindowsPrelazBtnDummySelectionListenerwidgetDefaultSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.Prelaz.BtnDummySelectionListener.widgetDefaultSelected"?"widgetDefaultSelected":"hr.mit.windows.Prelaz.BtnDummySelectionListener.widgetDefaultSelected";
+  }
+  function clickhrmitwindowsPrelazBtnDummySelectionListenerwidgetSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.Prelaz.BtnDummySelectionListener.widgetSelected"?"widgetSelected":"hr.mit.windows.Prelaz.BtnDummySelectionListener.widgetSelected";
+  }
+  function clickhrmitutilsCijenaKarteCijenaKarte(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.utils.CijenaKarte.CijenaKarte"?"CijenaKarte":"hr.mit.utils.CijenaKarte.CijenaKarte";
+  }
+  function clickhrmitbeansStavkaStavka(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Stavka.Stavka"?"Stavka":"hr.mit.beans.Stavka.Stavka";
+  }
+  function clickhrmitwindowsPrelazopen(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.Prelaz.open"?"open":"hr.mit.windows.Prelaz.open";
+  }
+  function clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.BtnPrelazSelectionListener.widgetDefaultSelected"?"widgetDefaultSelected":"hr.mit.windows.ProdajaWindow.BtnPrelazSelectionListener.widgetDefaultSelected";
+  }
+  function clickhrmitwindowsProdajaWindowopen(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.open"?"open":"hr.mit.windows.ProdajaWindow.open";
+  }
+  function clickhrmitbeansStavkasetOdPostaje(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Stavka.setOdPostaje"?"setOdPostaje":"hr.mit.beans.Stavka.setOdPostaje";
+  }
+  function clickhrmitwindowsProdajaWindowscreenToStavka(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.screenToStavka"?"screenToStavka":"hr.mit.windows.ProdajaWindow.screenToStavka";
+  }
+  function clickhrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.PickerListener.widgetDefaultSelected"?"widgetDefaultSelected":"hr.mit.windows.ProdajaWindow.PickerListener.widgetDefaultSelected";
+  }
+  function clickhrmitbeansStavkasetDoPostaje(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Stavka.setDoPostaje"?"setDoPostaje":"hr.mit.beans.Stavka.setDoPostaje";
+  }
+  function clickhrmitbeansStavkasetKarta(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.beans.Stavka.setKarta"?"setKarta":"hr.mit.beans.Stavka.setKarta";
+  }
+  function clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.BtnPrelazSelectionListener.widgetSelected"?"widgetSelected":"hr.mit.windows.ProdajaWindow.BtnPrelazSelectionListener.widgetSelected";
+  }
+  function clickhrmitwindowsLoginWindowNextButtonListenerwidgetSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.LoginWindow.NextButtonListener.widgetSelected"?"widgetSelected":"hr.mit.windows.LoginWindow.NextButtonListener.widgetSelected";
+  }
+  function clickhrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.PlusButtonListener.widgetSelected"?"widgetSelected":"hr.mit.windows.ProdajaWindow.PlusButtonListener.widgetSelected";
+  }
+  function clickhrmitwindowsProdajaWindowTMouseListenermouseDown(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.TMouseListener.mouseDown"?"mouseDown":"hr.mit.windows.ProdajaWindow.TMouseListener.mouseDown";
+  }
+  function clickhrmitwindowsProdajaWindowPickerListenerwidgetSelected(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.windows.ProdajaWindow.PickerListener.widgetSelected"?"widgetSelected":"hr.mit.windows.ProdajaWindow.PickerListener.widgetSelected";
+  }
+  function clickhrmitutilsCijenaKarteizracunajDistancoCenika(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.utils.CijenaKarte.izracunajDistancoCenika"?"izracunajDistancoCenika":"hr.mit.utils.CijenaKarte.izracunajDistancoCenika";
+  }
+  function clickhrmitBaseMakermain(obj){
+  obj.innerHTML = obj.innerHTML == "hr.mit.BaseMaker.main"?"main":"hr.mit.BaseMaker.main";
+  }
+
+  </script>
+  
+<div class="container">
+	<div class="row">
+		<div class="col-xs-3" style="position:fixed;float:left;left:0px"><h2> DBScribeSchema Report</h2> 
+			<div><p>Summary:
+						This project contains <b>13</b> tables. <b>62</b> tables or columns are accessed with code.
+						<b>37</b> methods contain SQL local invocations.
+
+						
+			</p></div>
+			<div class="panel panel-default">
+			<div class="panel-heading">DataBase Information</div><div class="panel-body" style="max-height:550px;overflow-x: scroll;overflow-y: scroll">
+
+						<a href="#Table: ptcasivoznjevr">Table: ptcasivoznjevr</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: ID, Table: ptcasivoznjevr">Column:ID</option>
+						      <option value="#Column: StupacVRID, Table: ptcasivoznjevr">Column:StupacVRID</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptizjemecenikavr">Table: ptizjemecenikavr</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptktprodaja">Table: ptktprodaja</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: Firma, Table: ptktprodaja">Column:Firma</option>
+						      <option value="#Column: Datum, Table: ptktprodaja">Column:Datum</option>
+						      <option value="#Column: VoznaKartaID, Table: ptktprodaja">Column:VoznaKartaID</option>
+						      <option value="#Column: Code, Table: ptktprodaja">Column:Code</option>
+						      <option value="#Column: BRVoznji, Table: ptktprodaja">Column:BRVoznji</option>
+						      <option value="#Column: Cena, Table: ptktprodaja">Column:Cena</option>
+						      <option value="#Column: Popust1ID, Table: ptktprodaja">Column:Popust1ID</option>
+						      <option value="#Column: PCenaKarte, Table: ptktprodaja">Column:PCenaKarte</option>
+						      <option value="#Column: NCenaKarte, Table: ptktprodaja">Column:NCenaKarte</option>
+						      <option value="#Column: Popust, Table: ptktprodaja">Column:Popust</option>
+						      <option value="#Column: ZaPlatiti, Table: ptktprodaja">Column:ZaPlatiti</option>
+						      <option value="#Column: Vozac1ID, Table: ptktprodaja">Column:Vozac1ID</option>
+						      <option value="#Column: StupacID, Table: ptktprodaja">Column:StupacID</option>
+						      <option value="#Column: OdPostajeID, Table: ptktprodaja">Column:OdPostajeID</option>
+						      <option value="#Column: DoPostajeID, Table: ptktprodaja">Column:DoPostajeID</option>
+						      <option value="#Column: VoziloID, Table: ptktprodaja">Column:VoziloID</option>
+						      <option value="#Column: StatusZK, Table: ptktprodaja">Column:StatusZK</option>
+						      <option value="#Column: KmLinijeVR, Table: ptktprodaja">Column:KmLinijeVR</option>
+						      <option value="#Column: KmDomaci, Table: ptktprodaja">Column:KmDomaci</option>
+						      <option value="#Column: KmIno, Table: ptktprodaja">Column:KmIno</option>
+						      <option value="#Column: BRPutnika, Table: ptktprodaja">Column:BRPutnika</option>
+						      <option value="#Column: BRKarata, Table: ptktprodaja">Column:BRKarata</option>
+						      <option value="#Column: MobStrojID, Table: ptktprodaja">Column:MobStrojID</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptkttarifnirazredicenik">Table: ptkttarifnirazredicenik</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: IDRazreda, Table: ptkttarifnirazredicenik">Column:IDRazreda</option>
+						      <option value="#Column: VeljaOd, Table: ptkttarifnirazredicenik">Column:VeljaOd</option>
+						      <option value="#Column: OdKM, Table: ptkttarifnirazredicenik">Column:OdKM</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptktvoznekarte">Table: ptktvoznekarte</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: TarifniRazredID, Table: ptktvoznekarte">Column:TarifniRazredID</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptktvrstepopustov">Table: ptktvrstepopustov</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptpostaje">Table: ptpostaje</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: ID, Table: ptpostaje">Column:ID</option>
+						      <option value="#Column: Naziv, Table: ptpostaje">Column:Naziv</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptpostajevarijantvr">Table: ptpostajevarijantvr</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: ID, Table: ptpostajevarijantvr">Column:ID</option>
+						      <option value="#Column: VarijantaID, Table: ptpostajevarijantvr">Column:VarijantaID</option>
+						      <option value="#Column: ZapSt, Table: ptpostajevarijantvr">Column:ZapSt</option>
+						      <option value="#Column: DistancaM, Table: ptpostajevarijantvr">Column:DistancaM</option>
+						      <option value="#Column: Vozel, Table: ptpostajevarijantvr">Column:Vozel</option>
+						      <option value="#Column: Staje, Table: ptpostajevarijantvr">Column:Staje</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptpostajevr">Table: ptpostajevr</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: ID, Table: ptpostajevr">Column:ID</option>
+						      <option value="#Column: VozniRedID, Table: ptpostajevr">Column:VozniRedID</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptstupcivr">Table: ptstupcivr</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: ID, Table: ptstupcivr">Column:ID</option>
+						      <option value="#Column: VozniRedID, Table: ptstupcivr">Column:VozniRedID</option>
+						      <option value="#Column: VarijantaVRID, Table: ptstupcivr">Column:VarijantaVRID</option>
+						      <option value="#Column: ZapSt, Table: ptstupcivr">Column:ZapSt</option>
+						      <option value="#Column: VeljaDo, Table: ptstupcivr">Column:VeljaDo</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptvarijantevr">Table: ptvarijantevr</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: ID, Table: ptvarijantevr">Column:ID</option>
+						      <option value="#Column: VozniRedID, Table: ptvarijantevr">Column:VozniRedID</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptvozaci">Table: ptvozaci</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+						<a href="#Table: ptvozniredi">Table: ptvozniredi</a><br><select name="" id="" onchange="window.location.href=value;">
+						  <option value="">Select Column</option>
+						    <option value="#Column: ID, Table: ptvozniredi">Column:ID</option>
+						      <option value="#Column: VeljaDo, Table: ptvozniredi">Column:VeljaDo</option>
+						      <option value="#Column: VrstaVR, Table: ptvozniredi">Column:VrstaVR</option>
+						    
+						</select>
+						<hr style="height:2px;border:none;border-top:2px solid royalblue;" />
+						
+			</div>
+			</div>
+		</div>
+		<div class="col-xs-9" style="float:right;right:0px">
+		
+
+						<div class="panel panel-primary"><a id="Table: ptcasivoznjevr"></a>
+							<div class="panel-heading"><b>1. &nbsp;Table: ptcasivoznjevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="1" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptcasivoznjevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: ID, Table: ptcasivoznjevr">ID</a>, <a href="#Column: StupacVRID, Table: ptcasivoznjevr">StupacVRID</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ID, Table: ptcasivoznjevr"></a>
+							<div class="panel-heading"><b>2. &nbsp;Column: ID, Table: ptcasivoznjevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="2" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ID, Table: ptcasivoznjevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptcasivoznjevr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: StupacVRID, Table: ptcasivoznjevr"></a>
+							<div class="panel-heading"><b>3. &nbsp;Column: StupacVRID, Table: ptcasivoznjevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="3" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: StupacVRID, Table: ptcasivoznjevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptcasivoznjevr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptizjemecenikavr"></a>
+							<div class="panel-heading"><b>4. &nbsp;Table: ptizjemecenikavr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="4" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptizjemecenikavr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns:  etc.  This table is created at2016/1/10 17:41:41. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTIzjemeCenikaVR" onclick="clickhrmitBaseMakerdoPTIzjemeCenikaVR(this);">doPTIzjemeCenikaVR</u>. This method could do pt izjeme cenika vr.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>5. &nbsp;Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="5" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: Firma, Table: ptktprodaja">Firma</a>, <a href="#Column: Datum, Table: ptktprodaja">Datum</a>, <a href="#Column: VoznaKartaID, Table: ptktprodaja">VoznaKartaID</a>, <a href="#Column: Code, Table: ptktprodaja">Code</a>, <a href="#Column: BRVoznji, Table: ptktprodaja">BRVoznji</a>, <a href="#Column: Cena, Table: ptktprodaja">Cena</a>, <a href="#Column: Popust1ID, Table: ptktprodaja">Popust1ID</a>, <a href="#Column: PCenaKarte, Table: ptktprodaja">PCenaKarte</a>, <a href="#Column: NCenaKarte, Table: ptktprodaja">NCenaKarte</a>, <a href="#Column: Popust, Table: ptktprodaja">Popust</a>, <a href="#Column: ZaPlatiti, Table: ptktprodaja">ZaPlatiti</a>, <a href="#Column: Vozac1ID, Table: ptktprodaja">Vozac1ID</a>, <a href="#Column: StupacID, Table: ptktprodaja">StupacID</a>, <a href="#Column: OdPostajeID, Table: ptktprodaja">OdPostajeID</a>, <a href="#Column: DoPostajeID, Table: ptktprodaja">DoPostajeID</a>, <a href="#Column: VoziloID, Table: ptktprodaja">VoziloID</a>, <a href="#Column: StatusZK, Table: ptktprodaja">StatusZK</a>, <a href="#Column: KmLinijeVR, Table: ptktprodaja">KmLinijeVR</a>, <a href="#Column: KmDomaci, Table: ptktprodaja">KmDomaci</a>, <a href="#Column: KmIno, Table: ptktprodaja">KmIno</a>, <a href="#Column: BRPutnika, Table: ptktprodaja">BRPutnika</a>, <a href="#Column: BRKarata, Table: ptktprodaja">BRKarata</a>, <a href="#Column: MobStrojID, Table: ptktprodaja">MobStrojID</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitbeansBlagajnagetNextStevilka" onclick="clickhrmitbeansBlagajnagetNextStevilka(this);">getNextStevilka</u>. This method could get next stevilka.
+
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Firma, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>6. &nbsp;Column: Firma, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="6" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Firma, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Datum, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>7. &nbsp;Column: Datum, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="7" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Datum, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>datetime</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VoznaKartaID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>8. &nbsp;Column: VoznaKartaID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="8" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VoznaKartaID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Code, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>9. &nbsp;Column: Code, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="9" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Code, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>varchar</b>. The max length of data is 50. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: BRVoznji, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>10. &nbsp;Column: BRVoznji, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="10" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: BRVoznji, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Cena, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>11. &nbsp;Column: Cena, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="11" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Cena, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>float</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Popust1ID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>12. &nbsp;Column: Popust1ID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="12" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Popust1ID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: PCenaKarte, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>13. &nbsp;Column: PCenaKarte, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="13" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: PCenaKarte, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>float</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: NCenaKarte, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>14. &nbsp;Column: NCenaKarte, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="14" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: NCenaKarte, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>float</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Popust, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>15. &nbsp;Column: Popust, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="15" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Popust, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>float</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ZaPlatiti, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>16. &nbsp;Column: ZaPlatiti, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="16" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ZaPlatiti, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>float</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Vozac1ID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>17. &nbsp;Column: Vozac1ID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="17" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Vozac1ID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: StupacID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>18. &nbsp;Column: StupacID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="18" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: StupacID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: OdPostajeID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>19. &nbsp;Column: OdPostajeID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="19" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: OdPostajeID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: DoPostajeID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>20. &nbsp;Column: DoPostajeID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="20" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: DoPostajeID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VoziloID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>21. &nbsp;Column: VoziloID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="21" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VoziloID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: StatusZK, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>22. &nbsp;Column: StatusZK, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="22" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: StatusZK, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: KmLinijeVR, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>23. &nbsp;Column: KmLinijeVR, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="23" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: KmLinijeVR, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: KmDomaci, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>24. &nbsp;Column: KmDomaci, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="24" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: KmDomaci, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: KmIno, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>25. &nbsp;Column: KmIno, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="25" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: KmIno, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: BRPutnika, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>26. &nbsp;Column: BRPutnika, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="26" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: BRPutnika, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: BRKarata, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>27. &nbsp;Column: BRKarata, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="27" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: BRKarata, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: MobStrojID, Table: ptktprodaja"></a>
+							<div class="panel-heading"><b>28. &nbsp;Column: MobStrojID, Table: ptktprodaja</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="28" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: MobStrojID, Table: ptktprodaja</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktprodaja. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansBlagajnasave" onclick="clickhrmitbeansBlagajnasave(this);">save</u>. This method could save vozac.
+
+							This method would insert data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPrintButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would insert data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptkttarifnirazredicenik"></a>
+							<div class="panel-heading"><b>29. &nbsp;Table: ptkttarifnirazredicenik</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="29" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptkttarifnirazredicenik</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: IDRazreda, Table: ptkttarifnirazredicenik">IDRazreda</a>, <a href="#Column: VeljaOd, Table: ptkttarifnirazredicenik">VeljaOd</a>, <a href="#Column: OdKM, Table: ptkttarifnirazredicenik">OdKM</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTKTTarifniRazrediCenik" onclick="clickhrmitBaseMakerdoPTKTTarifniRazrediCenik(this);">doPTKTTarifniRazrediCenik</u>. This method could do ptkt tarifni razredi cenik.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: IDRazreda, Table: ptkttarifnirazredicenik"></a>
+							<div class="panel-heading"><b>30. &nbsp;Column: IDRazreda, Table: ptkttarifnirazredicenik</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="30" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: IDRazreda, Table: ptkttarifnirazredicenik</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptkttarifnirazredicenik. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTKTTarifniRazrediCenik" onclick="clickhrmitBaseMakerdoPTKTTarifniRazrediCenik(this);">doPTKTTarifniRazrediCenik</u>. This method could do ptkt tarifni razredi cenik.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VeljaOd, Table: ptkttarifnirazredicenik"></a>
+							<div class="panel-heading"><b>31. &nbsp;Column: VeljaOd, Table: ptkttarifnirazredicenik</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="31" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VeljaOd, Table: ptkttarifnirazredicenik</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptkttarifnirazredicenik. It contains data with type <b>datetime</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTKTTarifniRazrediCenik" onclick="clickhrmitBaseMakerdoPTKTTarifniRazrediCenik(this);">doPTKTTarifniRazrediCenik</u>. This method could do ptkt tarifni razredi cenik.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: OdKM, Table: ptkttarifnirazredicenik"></a>
+							<div class="panel-heading"><b>32. &nbsp;Column: OdKM, Table: ptkttarifnirazredicenik</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="32" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: OdKM, Table: ptkttarifnirazredicenik</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptkttarifnirazredicenik. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTKTTarifniRazrediCenik" onclick="clickhrmitBaseMakerdoPTKTTarifniRazrediCenik(this);">doPTKTTarifniRazrediCenik</u>. This method could do ptkt tarifni razredi cenik.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptktvoznekarte"></a>
+							<div class="panel-heading"><b>33. &nbsp;Table: ptktvoznekarte</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="33" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptktvoznekarte</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: TarifniRazredID, Table: ptktvoznekarte">TarifniRazredID</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTKTVozneKarte" onclick="clickhrmitBaseMakerdoPTKTVozneKarte(this);">doPTKTVozneKarte</u>. This method could do ptkt vozne karte.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTKTTarifniRazrediCenik" onclick="clickhrmitBaseMakerdoPTKTTarifniRazrediCenik(this);">doPTKTTarifniRazrediCenik</u>. This method could do ptkt tarifni razredi cenik.
+
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: TarifniRazredID, Table: ptktvoznekarte"></a>
+							<div class="panel-heading"><b>34. &nbsp;Column: TarifniRazredID, Table: ptktvoznekarte</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="34" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: TarifniRazredID, Table: ptktvoznekarte</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptktvoznekarte. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTKTTarifniRazrediCenik" onclick="clickhrmitBaseMakerdoPTKTTarifniRazrediCenik(this);">doPTKTTarifniRazrediCenik</u>. This method could do ptkt tarifni razredi cenik.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptktvrstepopustov"></a>
+							<div class="panel-heading"><b>35. &nbsp;Table: ptktvrstepopustov</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="35" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptktvrstepopustov</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns:  etc.  This table is created at2016/1/10 17:41:41. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTKTVrstePopustov" onclick="clickhrmitBaseMakerdoPTKTVrstePopustov(this);">doPTKTVrstePopustov</u>. This method could do ptkt vrste popustov.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptpostaje"></a>
+							<div class="panel-heading"><b>36. &nbsp;Table: ptpostaje</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="36" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptpostaje</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: ID, Table: ptpostaje">ID</a>, <a href="#Column: Naziv, Table: ptpostaje">Naziv</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitbeansPostajagetByID" onclick="clickhrmitbeansPostajagetByID(this);">getByID</u>. This method could get postaja by id|id.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostaje" onclick="clickhrmitBaseMakerdoPTPostaje(this);">doPTPostaje</u>. This method could do pt postaje.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ID, Table: ptpostaje"></a>
+							<div class="panel-heading"><b>37. &nbsp;Column: ID, Table: ptpostaje</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="37" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ID, Table: ptpostaje</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostaje. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansPostajagetByID" onclick="clickhrmitbeansPostajagetByID(this);">getByID</u>. This method could get postaja by id|id.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Naziv, Table: ptpostaje"></a>
+							<div class="panel-heading"><b>38. &nbsp;Column: Naziv, Table: ptpostaje</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="38" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Naziv, Table: ptpostaje</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostaje. It contains data with type <b>varchar</b>. The max length of data is 50. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansPostajagetByID" onclick="clickhrmitbeansPostajagetByID(this);">getByID</u>. This method could get postaja by id|id.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptpostajevarijantvr"></a>
+							<div class="panel-heading"><b>39. &nbsp;Table: ptpostajevarijantvr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="39" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptpostajevarijantvr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: ID, Table: ptpostajevarijantvr">ID</a>, <a href="#Column: VarijantaID, Table: ptpostajevarijantvr">VarijantaID</a>, <a href="#Column: ZapSt, Table: ptpostajevarijantvr">ZapSt</a>, <a href="#Column: DistancaM, Table: ptpostajevarijantvr">DistancaM</a>, <a href="#Column: Vozel, Table: ptpostajevarijantvr">Vozel</a>, <a href="#Column: Staje, Table: ptpostajevarijantvr">Staje</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaLinije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaLinije(this);">izracunajDistancaLinije</u>. This method could izracunaj distanca linije.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaRelacije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaRelacije(this);">izracunajDistancaRelacije</u>. This method could izracunaj distanca relacije.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitutilsCijenaKartegetSqlDistancaCenika" onclick="clickhrmitutilsCijenaKartegetSqlDistancaCenika(this);">getSqlDistancaCenika</u>. This method could get sql distanca cenika.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table:</b><br> Method: <u id="hrmitutilsCijenaKarteCijenaKarte" onclick="clickhrmitutilsCijenaKarteCijenaKarte(this);">CijenaKarte</u>. This method could Instantiate cijenakarte.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitbeansStavkaStavka" onclick="clickhrmitbeansStavkaStavka(this);">Stavka</u>. This method could Instantiate stavka.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsPrelazopen" onclick="clickhrmitwindowsPrelazopen(this);">open</u>. This method could open stavka.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowopen" onclick="clickhrmitwindowsProdajaWindowopen(this);">open</u>. This method could open prodaja window.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitbeansStavkasetOdPostaje" onclick="clickhrmitbeansStavkasetOdPostaje(this);">setOdPostaje</u>. This method could set od postaje.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowscreenToStavka" onclick="clickhrmitwindowsProdajaWindowscreenToStavka(this);">screenToStavka</u>. This method could screen prodaja window to stavka.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitbeansStavkasetDoPostaje" onclick="clickhrmitbeansStavkasetDoPostaje(this);">setDoPostaje</u>. This method could set do postaje.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitbeansStavkasetKarta" onclick="clickhrmitbeansStavkasetKarta(this);">setKarta</u>. This method could set karta.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancoCenika" onclick="clickhrmitutilsCijenaKarteizracunajDistancoCenika(this);">izracunajDistancoCenika</u>. This method could izracunaj distanco cenika.
+
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsLoginWindowNextButtonListenerwidgetSelected" onclick="clickhrmitwindowsLoginWindowNextButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowTMouseListenermouseDown" onclick="clickhrmitwindowsProdajaWindowTMouseListenermouseDown(this);">mouseDown</u>. This method could handle mouse down.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ID, Table: ptpostajevarijantvr"></a>
+							<div class="panel-heading"><b>40. &nbsp;Column: ID, Table: ptpostajevarijantvr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="40" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ID, Table: ptpostajevarijantvr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevarijantvr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VarijantaID, Table: ptpostajevarijantvr"></a>
+							<div class="panel-heading"><b>41. &nbsp;Column: VarijantaID, Table: ptpostajevarijantvr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="41" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VarijantaID, Table: ptpostajevarijantvr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevarijantvr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaLinije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaLinije(this);">izracunajDistancaLinije</u>. This method could izracunaj distanca linije.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaRelacije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaRelacije(this);">izracunajDistancaRelacije</u>. This method could izracunaj distanca relacije.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKartegetSqlDistancaCenika" onclick="clickhrmitutilsCijenaKartegetSqlDistancaCenika(this);">getSqlDistancaCenika</u>. This method could get sql distanca cenika.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteCijenaKarte" onclick="clickhrmitutilsCijenaKarteCijenaKarte(this);">CijenaKarte</u>. This method could Instantiate cijenakarte.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkaStavka" onclick="clickhrmitbeansStavkaStavka(this);">Stavka</u>. This method could Instantiate stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsPrelazopen" onclick="clickhrmitwindowsPrelazopen(this);">open</u>. This method could open stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowopen" onclick="clickhrmitwindowsProdajaWindowopen(this);">open</u>. This method could open prodaja window.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetOdPostaje" onclick="clickhrmitbeansStavkasetOdPostaje(this);">setOdPostaje</u>. This method could set od postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowscreenToStavka" onclick="clickhrmitwindowsProdajaWindowscreenToStavka(this);">screenToStavka</u>. This method could screen prodaja window to stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetDoPostaje" onclick="clickhrmitbeansStavkasetDoPostaje(this);">setDoPostaje</u>. This method could set do postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetKarta" onclick="clickhrmitbeansStavkasetKarta(this);">setKarta</u>. This method could set karta.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancoCenika" onclick="clickhrmitutilsCijenaKarteizracunajDistancoCenika(this);">izracunajDistancoCenika</u>. This method could izracunaj distanco cenika.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsLoginWindowNextButtonListenerwidgetSelected" onclick="clickhrmitwindowsLoginWindowNextButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowTMouseListenermouseDown" onclick="clickhrmitwindowsProdajaWindowTMouseListenermouseDown(this);">mouseDown</u>. This method could handle mouse down.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ZapSt, Table: ptpostajevarijantvr"></a>
+							<div class="panel-heading"><b>42. &nbsp;Column: ZapSt, Table: ptpostajevarijantvr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="42" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ZapSt, Table: ptpostajevarijantvr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevarijantvr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaLinije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaLinije(this);">izracunajDistancaLinije</u>. This method could izracunaj distanca linije.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaRelacije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaRelacije(this);">izracunajDistancaRelacije</u>. This method could izracunaj distanca relacije.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKartegetSqlDistancaCenika" onclick="clickhrmitutilsCijenaKartegetSqlDistancaCenika(this);">getSqlDistancaCenika</u>. This method could get sql distanca cenika.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteCijenaKarte" onclick="clickhrmitutilsCijenaKarteCijenaKarte(this);">CijenaKarte</u>. This method could Instantiate cijenakarte.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkaStavka" onclick="clickhrmitbeansStavkaStavka(this);">Stavka</u>. This method could Instantiate stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsPrelazopen" onclick="clickhrmitwindowsPrelazopen(this);">open</u>. This method could open stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowopen" onclick="clickhrmitwindowsProdajaWindowopen(this);">open</u>. This method could open prodaja window.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetOdPostaje" onclick="clickhrmitbeansStavkasetOdPostaje(this);">setOdPostaje</u>. This method could set od postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowscreenToStavka" onclick="clickhrmitwindowsProdajaWindowscreenToStavka(this);">screenToStavka</u>. This method could screen prodaja window to stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetDoPostaje" onclick="clickhrmitbeansStavkasetDoPostaje(this);">setDoPostaje</u>. This method could set do postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetKarta" onclick="clickhrmitbeansStavkasetKarta(this);">setKarta</u>. This method could set karta.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancoCenika" onclick="clickhrmitutilsCijenaKarteizracunajDistancoCenika(this);">izracunajDistancoCenika</u>. This method could izracunaj distanco cenika.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsLoginWindowNextButtonListenerwidgetSelected" onclick="clickhrmitwindowsLoginWindowNextButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowTMouseListenermouseDown" onclick="clickhrmitwindowsProdajaWindowTMouseListenermouseDown(this);">mouseDown</u>. This method could handle mouse down.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: DistancaM, Table: ptpostajevarijantvr"></a>
+							<div class="panel-heading"><b>43. &nbsp;Column: DistancaM, Table: ptpostajevarijantvr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="43" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: DistancaM, Table: ptpostajevarijantvr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevarijantvr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaLinije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaLinije(this);">izracunajDistancaLinije</u>. This method could izracunaj distanca linije.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaRelacije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaRelacije(this);">izracunajDistancaRelacije</u>. This method could izracunaj distanca relacije.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKartegetSqlDistancaCenika" onclick="clickhrmitutilsCijenaKartegetSqlDistancaCenika(this);">getSqlDistancaCenika</u>. This method could get sql distanca cenika.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteCijenaKarte" onclick="clickhrmitutilsCijenaKarteCijenaKarte(this);">CijenaKarte</u>. This method could Instantiate cijenakarte.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkaStavka" onclick="clickhrmitbeansStavkaStavka(this);">Stavka</u>. This method could Instantiate stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsPrelazopen" onclick="clickhrmitwindowsPrelazopen(this);">open</u>. This method could open stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowopen" onclick="clickhrmitwindowsProdajaWindowopen(this);">open</u>. This method could open prodaja window.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetOdPostaje" onclick="clickhrmitbeansStavkasetOdPostaje(this);">setOdPostaje</u>. This method could set od postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowscreenToStavka" onclick="clickhrmitwindowsProdajaWindowscreenToStavka(this);">screenToStavka</u>. This method could screen prodaja window to stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetDoPostaje" onclick="clickhrmitbeansStavkasetDoPostaje(this);">setDoPostaje</u>. This method could set do postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetKarta" onclick="clickhrmitbeansStavkasetKarta(this);">setKarta</u>. This method could set karta.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancoCenika" onclick="clickhrmitutilsCijenaKarteizracunajDistancoCenika(this);">izracunajDistancoCenika</u>. This method could izracunaj distanco cenika.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsLoginWindowNextButtonListenerwidgetSelected" onclick="clickhrmitwindowsLoginWindowNextButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowTMouseListenermouseDown" onclick="clickhrmitwindowsProdajaWindowTMouseListenermouseDown(this);">mouseDown</u>. This method could handle mouse down.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Vozel, Table: ptpostajevarijantvr"></a>
+							<div class="panel-heading"><b>44. &nbsp;Column: Vozel, Table: ptpostajevarijantvr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="44" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Vozel, Table: ptpostajevarijantvr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevarijantvr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitutilsCijenaKartegetSqlDistancaCenika" onclick="clickhrmitutilsCijenaKartegetSqlDistancaCenika(this);">getSqlDistancaCenika</u>. This method could get sql distanca cenika.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancoCenika" onclick="clickhrmitutilsCijenaKarteizracunajDistancoCenika(this);">izracunajDistancoCenika</u>. This method could izracunaj distanco cenika.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteCijenaKarte" onclick="clickhrmitutilsCijenaKarteCijenaKarte(this);">CijenaKarte</u>. This method could Instantiate cijenakarte.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkaStavka" onclick="clickhrmitbeansStavkaStavka(this);">Stavka</u>. This method could Instantiate stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsPrelazopen" onclick="clickhrmitwindowsPrelazopen(this);">open</u>. This method could open stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowopen" onclick="clickhrmitwindowsProdajaWindowopen(this);">open</u>. This method could open prodaja window.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetOdPostaje" onclick="clickhrmitbeansStavkasetOdPostaje(this);">setOdPostaje</u>. This method could set od postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowscreenToStavka" onclick="clickhrmitwindowsProdajaWindowscreenToStavka(this);">screenToStavka</u>. This method could screen prodaja window to stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetDoPostaje" onclick="clickhrmitbeansStavkasetDoPostaje(this);">setDoPostaje</u>. This method could set do postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetKarta" onclick="clickhrmitbeansStavkasetKarta(this);">setKarta</u>. This method could set karta.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsLoginWindowNextButtonListenerwidgetSelected" onclick="clickhrmitwindowsLoginWindowNextButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowTMouseListenermouseDown" onclick="clickhrmitwindowsProdajaWindowTMouseListenermouseDown(this);">mouseDown</u>. This method could handle mouse down.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: Staje, Table: ptpostajevarijantvr"></a>
+							<div class="panel-heading"><b>45. &nbsp;Column: Staje, Table: ptpostajevarijantvr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="45" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: Staje, Table: ptpostajevarijantvr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevarijantvr. It contains data with type <b>char</b>. The max length of data is 1. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaLinije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaLinije(this);">izracunajDistancaLinije</u>. This method could izracunaj distanca linije.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitutilsCijenaKarteizracunajDistancaRelacije" onclick="clickhrmitutilsCijenaKarteizracunajDistancaRelacije(this);">izracunajDistancaRelacije</u>. This method could izracunaj distanca relacije.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column:</b><br> Method: <u id="hrmitutilsCijenaKarteCijenaKarte" onclick="clickhrmitutilsCijenaKarteCijenaKarte(this);">CijenaKarte</u>. This method could Instantiate cijenakarte.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkaStavka" onclick="clickhrmitbeansStavkaStavka(this);">Stavka</u>. This method could Instantiate stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsPrelazopen" onclick="clickhrmitwindowsPrelazopen(this);">open</u>. This method could open stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowopen" onclick="clickhrmitwindowsProdajaWindowopen(this);">open</u>. This method could open prodaja window.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetOdPostaje" onclick="clickhrmitbeansStavkasetOdPostaje(this);">setOdPostaje</u>. This method could set od postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowscreenToStavka" onclick="clickhrmitwindowsProdajaWindowscreenToStavka(this);">screenToStavka</u>. This method could screen prodaja window to stavka.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetDoPostaje" onclick="clickhrmitbeansStavkasetDoPostaje(this);">setDoPostaje</u>. This method could set do postaje.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansStavkasetKarta" onclick="clickhrmitbeansStavkasetKarta(this);">setKarta</u>. This method could set karta.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowBtnPrelazSelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsLoginWindowNextButtonListenerwidgetSelected" onclick="clickhrmitwindowsLoginWindowNextButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPlusButtonListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowTMouseListenermouseDown" onclick="clickhrmitwindowsProdajaWindowTMouseListenermouseDown(this);">mouseDown</u>. This method could handle mouse down.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitwindowsProdajaWindowPickerListenerwidgetSelected" onclick="clickhrmitwindowsProdajaWindowPickerListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptpostajevr"></a>
+							<div class="panel-heading"><b>46. &nbsp;Table: ptpostajevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="46" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptpostajevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: ID, Table: ptpostajevr">ID</a>, <a href="#Column: VozniRedID, Table: ptpostajevr">VozniRedID</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTPostajeVR" onclick="clickhrmitBaseMakerdoPTPostajeVR(this);">doPTPostajeVR</u>. This method could do pt postaje vr.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ID, Table: ptpostajevr"></a>
+							<div class="panel-heading"><b>47. &nbsp;Column: ID, Table: ptpostajevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="47" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ID, Table: ptpostajevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTPostajeVR" onclick="clickhrmitBaseMakerdoPTPostajeVR(this);">doPTPostajeVR</u>. This method could do pt postaje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VozniRedID, Table: ptpostajevr"></a>
+							<div class="panel-heading"><b>48. &nbsp;Column: VozniRedID, Table: ptpostajevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="48" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VozniRedID, Table: ptpostajevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptpostajevr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTPostajeVR" onclick="clickhrmitBaseMakerdoPTPostajeVR(this);">doPTPostajeVR</u>. This method could do pt postaje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptstupcivr"></a>
+							<div class="panel-heading"><b>49. &nbsp;Table: ptstupcivr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="49" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptstupcivr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: ID, Table: ptstupcivr">ID</a>, <a href="#Column: VozniRedID, Table: ptstupcivr">VozniRedID</a>, <a href="#Column: VarijantaVRID, Table: ptstupcivr">VarijantaVRID</a>, <a href="#Column: ZapSt, Table: ptstupcivr">ZapSt</a>, <a href="#Column: VeljaDo, Table: ptstupcivr">VeljaDo</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitbeansPostajaGetZapStPostajePolaskaZaStupac" onclick="clickhrmitbeansPostajaGetZapStPostajePolaskaZaStupac(this);">GetZapStPostajePolaskaZaStupac</u>. This method could Get zap st postaje polaska za stupac.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitbeansPostajaGetZapStPostajeDolaskaZaStupac" onclick="clickhrmitbeansPostajaGetZapStPostajeDolaskaZaStupac(this);">GetZapStPostajeDolaskaZaStupac</u>. This method could Get zap st postaje dolaska za stupac.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table:</b><br> Method: <u id="hrmitwindowsPrelazBtnDummySelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsPrelazBtnDummySelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitwindowsPrelazBtnDummySelectionListenerwidgetSelected" onclick="clickhrmitwindowsPrelazBtnDummySelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ID, Table: ptstupcivr"></a>
+							<div class="panel-heading"><b>50. &nbsp;Column: ID, Table: ptstupcivr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="50" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ID, Table: ptstupcivr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptstupcivr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VozniRedID, Table: ptstupcivr"></a>
+							<div class="panel-heading"><b>51. &nbsp;Column: VozniRedID, Table: ptstupcivr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="51" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VozniRedID, Table: ptstupcivr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptstupcivr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VarijantaVRID, Table: ptstupcivr"></a>
+							<div class="panel-heading"><b>52. &nbsp;Column: VarijantaVRID, Table: ptstupcivr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="52" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VarijantaVRID, Table: ptstupcivr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptstupcivr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ZapSt, Table: ptstupcivr"></a>
+							<div class="panel-heading"><b>53. &nbsp;Column: ZapSt, Table: ptstupcivr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="53" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ZapSt, Table: ptstupcivr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptstupcivr. It contains data with type <b>varchar</b>. The max length of data is 50. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitbeansPostajaGetZapStPostajePolaskaZaStupac" onclick="clickhrmitbeansPostajaGetZapStPostajePolaskaZaStupac(this);">GetZapStPostajePolaskaZaStupac</u>. This method could Get zap st postaje polaska za stupac.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitbeansPostajaGetZapStPostajeDolaskaZaStupac" onclick="clickhrmitbeansPostajaGetZapStPostajeDolaskaZaStupac(this);">GetZapStPostajeDolaskaZaStupac</u>. This method could Get zap st postaje dolaska za stupac.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column:</b><br> Method: <u id="hrmitwindowsPrelazBtnDummySelectionListenerwidgetDefaultSelected" onclick="clickhrmitwindowsPrelazBtnDummySelectionListenerwidgetDefaultSelected(this);">widgetDefaultSelected</u>. This method could handle widget default selected.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitwindowsPrelazBtnDummySelectionListenerwidgetSelected" onclick="clickhrmitwindowsPrelazBtnDummySelectionListenerwidgetSelected(this);">widgetSelected</u>. This method could handle widget selected.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VeljaDo, Table: ptstupcivr"></a>
+							<div class="panel-heading"><b>54. &nbsp;Column: VeljaDo, Table: ptstupcivr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="54" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VeljaDo, Table: ptstupcivr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptstupcivr. It contains data with type <b>datetime</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptvarijantevr"></a>
+							<div class="panel-heading"><b>55. &nbsp;Table: ptvarijantevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="55" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptvarijantevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: ID, Table: ptvarijantevr">ID</a>, <a href="#Column: VozniRedID, Table: ptvarijantevr">VozniRedID</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTVarijanteVR" onclick="clickhrmitBaseMakerdoPTVarijanteVR(this);">doPTVarijanteVR</u>. This method could do pt varijante vr.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ID, Table: ptvarijantevr"></a>
+							<div class="panel-heading"><b>56. &nbsp;Column: ID, Table: ptvarijantevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="56" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ID, Table: ptvarijantevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptvarijantevr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTVarijanteVR" onclick="clickhrmitBaseMakerdoPTVarijanteVR(this);">doPTVarijanteVR</u>. This method could do pt varijante vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VozniRedID, Table: ptvarijantevr"></a>
+							<div class="panel-heading"><b>57. &nbsp;Column: VozniRedID, Table: ptvarijantevr</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="57" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VozniRedID, Table: ptvarijantevr</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptvarijantevr. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTVarijanteVR" onclick="clickhrmitBaseMakerdoPTVarijanteVR(this);">doPTVarijanteVR</u>. This method could do pt varijante vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptvozaci"></a>
+							<div class="panel-heading"><b>58. &nbsp;Table: ptvozaci</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="58" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptvozaci</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns:  etc.  This table is created at2016/1/10 17:41:41. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTVozaci" onclick="clickhrmitBaseMakerdoPTVozaci(this);">doPTVozaci</u>. This method could do pt vozaci.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Table: ptvozniredi"></a>
+							<div class="panel-heading"><b>59. &nbsp;Table: ptvozniredi</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="59" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Table: ptvozniredi</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This table contains columns: <a href="#Column: ID, Table: ptvozniredi">ID</a>, <a href="#Column: VeljaDo, Table: ptvozniredi">VeljaDo</a>, <a href="#Column: VrstaVR, Table: ptvozniredi">VrstaVR</a>,  etc.  This table is created at2016/1/10 17:41:40. It contails 0  items totally. </p><br><b>Methods directly access this table:</b><br> Method: <u id="hrmitBaseMakerdoPTVozniRedi" onclick="clickhrmitBaseMakerdoPTVozniRedi(this);">doPTVozniRedi</u>. This method could do pt vozni redi.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTVarijanteVR" onclick="clickhrmitBaseMakerdoPTVarijanteVR(this);">doPTVarijanteVR</u>. This method could do pt varijante vr.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVR" onclick="clickhrmitBaseMakerdoPTPostajeVR(this);">doPTPostajeVR</u>. This method could do pt postaje vr.
+
+							This method would select some data from this table. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select some data from this table. 
+
+							<br><br><b>Methods might access this table and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would insert data into this table. 
+							This method would select some data from this table. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: ID, Table: ptvozniredi"></a>
+							<div class="panel-heading"><b>60. &nbsp;Column: ID, Table: ptvozniredi</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="60" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: ID, Table: ptvozniredi</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptvozniredi. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTVarijanteVR" onclick="clickhrmitBaseMakerdoPTVarijanteVR(this);">doPTVarijanteVR</u>. This method could do pt varijante vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVR" onclick="clickhrmitBaseMakerdoPTPostajeVR(this);">doPTPostajeVR</u>. This method could do pt postaje vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VeljaDo, Table: ptvozniredi"></a>
+							<div class="panel-heading"><b>61. &nbsp;Column: VeljaDo, Table: ptvozniredi</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="61" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VeljaDo, Table: ptvozniredi</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptvozniredi. It contains data with type <b>datetime</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTVozniRedi" onclick="clickhrmitBaseMakerdoPTVozniRedi(this);">doPTVozniRedi</u>. This method could do pt vozni redi.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTVarijanteVR" onclick="clickhrmitBaseMakerdoPTVarijanteVR(this);">doPTVarijanteVR</u>. This method could do pt varijante vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVR" onclick="clickhrmitBaseMakerdoPTPostajeVR(this);">doPTPostajeVR</u>. This method could do pt postaje vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+						<div class="panel panel-primary"><a id="Column: VrstaVR, Table: ptvozniredi"></a>
+							<div class="panel-heading"><b>62. &nbsp;Column: VrstaVR, Table: ptvozniredi</b></div>
+							<div class="panel-body">
+												<p align="right">
+													<div id="62" class="modal modal-wide fade">
+													  <div class="modal-dialog">
+														<div class="modal-content">
+														  <div class="modal-header">
+															<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+															<h4 class="modal-title">Column: VrstaVR, Table: ptvozniredi</h4>
+														  </div>
+														  <div class="modal-footer">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+														  </div>
+														</div><!-- /.modal-content -->
+													  </div><!-- /.modal-dialog -->
+													</div><!-- /.modal -->
+													</p>
+							<p>
+							<span class="glyphicon glyphicon-comment"></span> <b> Attributes: </b>
+							This column belongs to Table: ptvozniredi. It contains data with type <b>int</b>. </p><br><b>Methods directly access this column:</b><br> Method: <u id="hrmitBaseMakerdoPTVozniRedi" onclick="clickhrmitBaseMakerdoPTVozniRedi(this);">doPTVozniRedi</u>. This method could do pt vozni redi.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTVarijanteVR" onclick="clickhrmitBaseMakerdoPTVarijanteVR(this);">doPTVarijanteVR</u>. This method could do pt varijante vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTStupciVR" onclick="clickhrmitBaseMakerdoPTStupciVR(this);">doPTStupciVR</u>. This method could do pt stupci vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVarijantVR" onclick="clickhrmitBaseMakerdoPTPostajeVarijantVR(this);">doPTPostajeVarijantVR</u>. This method could do pt postaje varijant vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTPostajeVR" onclick="clickhrmitBaseMakerdoPTPostajeVR(this);">doPTPostajeVR</u>. This method could do pt postaje vr.
+
+							This method would select data which is related to this column. 
+
+							<br> Method: <u id="hrmitBaseMakerdoPTCasiVoznjeVR" onclick="clickhrmitBaseMakerdoPTCasiVoznjeVR(this);">doPTCasiVoznjeVR</u>. This method could do pt casi voznje vr.
+
+							This method would select data which is related to this column. 
+
+							<br><br> <b>Methods might access this column and in the highest level:</b><br> Method: <u id="hrmitBaseMakermain" onclick="clickhrmitBaseMakermain(this);">main</u>. This method could main args.
+
+							This method would select data which is related to this column. 
+
+
+							</p>
+							</div>
+						</div>
+						
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
+</body>
+</html>

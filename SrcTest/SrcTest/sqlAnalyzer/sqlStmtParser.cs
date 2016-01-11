@@ -32,33 +32,14 @@ namespace WM.UnitTestScribe.sqlAnalyzer{
                 
             }
         }
+
+        //This method is used to replace the question mark in a statement. For some target project, their sql invocation looks like "insert (?,?,?) into tableName" but this is not acceptable for the grammar of Irony, so I replace these "?" by this method.
         public string ReplaceQues(string beforestring)
         {
             return beforestring.Replace("?", "1");
         }
 
-        /*public List<string> CheckTree(ParseTreeNode node, string targetText)
-        {
-            List<string> ids = new List<string>();
-            if (node == null) return ids;
-            if (node.ChildNodes == null) return ids;
-            foreach (ParseTreeNode child in node.ChildNodes)
-            {
-                if (node.Term.Name == targetText) 
-                { 
-                    foreach (var target in node.ChildNodes)
-                    {
-                        if (target.Token != null) ids.Add(target.Token.Text);
-                    } 
-                }
-                foreach (var subid in CheckTree(child, targetText))
-                {
-                    ids.Add(subid);
-                }
-            }
-            return ids;
-        }*/
-
+        //Irony does not provide a method to check all the nodes in their parse tree so I wrote this method to check all the nodes.
         public List<string> CheckEntireTree(ParseTreeNode node, string targetText)
         {
             List<string> ids = new List<string>();
@@ -84,6 +65,7 @@ namespace WM.UnitTestScribe.sqlAnalyzer{
             return ids;
         }
 
+        //When we get a new Id in getAllIds we need this method to add them into list.
         public List<string> AddList(List<string> mainList, List<string> addList)
         {
             foreach(var term in addList)
@@ -92,20 +74,8 @@ namespace WM.UnitTestScribe.sqlAnalyzer{
             }
             return mainList;
         }
-        /*public List<string> getTableId()
-        {
-            List<string> ids = new List<string>();
-            if (stmtPoints == null) return ids;
-            var point = stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "fromClauseOpt");
-            if (point != null) return CheckTree(point, "Id");
-            point = stmtPoints.Find((ParseTreeNode pfrom) => (pfrom.Term.Name == "FROM" || pfrom.Term.Name == "TABLE"));
-            if (point != null || stmtType.Term.Name == "insertStmt" || stmtType.Term.Name == "updateStmt" || stmtType.Term.Name == "deleteStmt")
-            {
-                ids.Add(stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "Id").ChildNodes.First().Token.Text);
-            }
-            return ids;
-        }*/
 
+        //Get all the parse node with mark "Id" in the parse tree. In Irony, all the table names and column names would be marked as "Id" so this method could get them together and we would seperate them in the class "dbMethodMapper".
         public List<string> getAllIds()
         {
             List<string> ids = new List<string>();
@@ -114,21 +84,6 @@ namespace WM.UnitTestScribe.sqlAnalyzer{
             return ids;
         }
 
-        /*public List<string> getColumnId()
-        {
-            List<string> ids = new List<string>();
-            List<string> ids2 = new List<string>();
-
-            if (stmtPoints == null) return ids;
-            var point = stmtPoints.Find((ParseTreeNode pfrom) => pfrom.Term.Name == "whereClauseOpt" || pfrom.Term.Name == "fieldDefList");
-            ids=CheckTree(point, "Id");
-            ids2 = CheckTree(point, "string");
-            foreach(var tempId in ids2)
-            {
-                ids.Add(tempId);
-            }
-            return ids;
-        }*/
     }
     
 }

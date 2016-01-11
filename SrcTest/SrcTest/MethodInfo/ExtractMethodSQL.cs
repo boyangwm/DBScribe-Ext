@@ -15,9 +15,7 @@ using WM.UnitTestScribe.sqlAnalyzer;
 
 namespace WM.UnitTestScribe.MethodInfo{
     class ExtractMethodSQL {
-        /// <summary> Subject application location </summary>
         public string LocalProj;
-        /// <summary> SrcML directory location </summary>
         public string SrcmlLoc;
         public List<desMethod> methodsInfo;
         public List<desMethod> allDirectMethods;
@@ -34,6 +32,8 @@ namespace WM.UnitTestScribe.MethodInfo{
             this.allDirectMethods = new List<desMethod>();
             this.sqlCount = 0;
         }
+
+        //This method is running after we generate the class and it contains two parts: 1. generating call graph of the target project; 2. calling GoThroughMethods to check taht does each method contain SQL local invocation or not.
         public void run() {
             Console.WriteLine("Invoke method sql extractor");
             string dataDir = @"TESTNAIVE_1.0";
@@ -73,33 +73,13 @@ namespace WM.UnitTestScribe.MethodInfo{
             }
         }
 
-        public bool CompareTest(string mname)
-        {
-            List<string> forTestMethods = new List<string>(); //define a list for test
-            //forTestMethods.Add("getValues");
-            //forTestMethods.Add("FindTopIndustryCode");
-
-            forTestMethods.Add("XincoCoreACEServer");
-            forTestMethods.Add("getXincoCoreACL");
-            //forTestMethods.Add("isLanguageUsed");
-
-            //forTestMethods.Add("com.bluecubs.xinco.core.server.XincoCoreUserServer.write2DB");
-            forTestMethods.Add("XincoCoreUserServer");
-            foreach (var vari in forTestMethods)
-            {
-                if (vari == mname) { return true; }
-            }
-            return false;
-        }
+        //Checking each method to figure out all SQL local invocations. The analysis contains: 1. finding all the variables that SQL invocation like variable with type "String" (The details about handle these variables are achieved in method "statIsDeclaration"); 2. finding all the string usage directly like "Select * from tableName (This is achieved by statIsOthers.)
         public void GoThroughMethods(IEnumerable<MethodDefinition> methods)
         {
             string methodNameForTest = "";
             int previoussql = 0;
-            /* Code for checking unknown case*/
             foreach (MethodDefinition m in methods)
             {
-                //if (CompareTest(m.Name) == false) continue; //only check some methods to speed up the program for testing
-
                 List<string[]> variables = new List<string[]>();
                 variables.Clear();
                 var stats = m.GetDescendants<Statement>();
@@ -142,6 +122,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             }
         }
 
+        //Finding all the variables that SQL invocation. At first we check the variable's type, if it could not save string like type "int" then we do not check it. Then we figure out all the statement that are related to this variable by method "FindRelated" and then rebuild this variable based on these statements by calling "Rebuldstring". Finally for each variable that could save string, we would know it's final status.
         public void statIsDeclaration(MethodDefinition m, Statement stat, List<string[]> variables)
         {
             DeclarationStatement ds = (DeclarationStatement)stat;
@@ -159,6 +140,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             }
         }
 
+        //For all the other statement, we directly check all the expression in the statment to see is it a sql invocation or not. One special case is that the expression is a "MethodCall". In this case, the variable passed into the method also could be a sql invocation and we handle this case by method "handleFunctionCall".
         public void statIsOthers(MethodDefinition m, Statement stat, List<string[]> variables)
         {
             if (stat.Content == null) return;
@@ -186,6 +168,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             if (targetstring != "") UpdateVariable("pureString", variables, targetstring);
         }
 
+        //When we know an expression is a "MethodCall", we check it's arguments and handle the case like argument is m.call(string1 + string2). String1 plus string2 might be a invocation.
         public string handleFunctionCall(Expression exp, List<string[]> variables)
         {
             string returnResult = "FunctionCall";
@@ -214,6 +197,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             return returnResult;
         }
 
+        //This would return the class desMethod of the method "m". The details of class desMethod is written below this class.
         public desMethod getMethodInfo(MethodDefinition m)
         {
             desMethod typeM;
@@ -228,6 +212,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             return typeM;
         }
 
+        //When the list "methodsInfo" does not contain the information of a method "m", we could generate a new "desMethod" class for "m" and save the new class into lists.
         public desMethod newMethodInfo(MethodDefinition m)
         {
             desMethod typeM;
@@ -244,6 +229,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             return typeM;
         }
 
+        //This method would check the variables for us. For some variables, it might be defined as: variable1 = variable2 + variable3. Then we need to check what is variable2 and variable3 to help us rebuild variable1.
         public int CheckVariableExist(string Name, List<string[]> variables)
         {
             int i = 0;
@@ -255,6 +241,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             return -1;
         }
 
+        //If list "variables" contian the variable of "Name" then we would return it's value.
         public string GetVariableCont(string Name, List<string[]> variables)
         {
             foreach (var vari in variables)
@@ -265,6 +252,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             return "";
         }
 
+        //This would update the list "variables" with variable "Nmae" whose content is "cont".
         public void UpdateVariable(string Name, List<string[]> variables, string cont)
         {
             int vno = 0;
@@ -280,11 +268,12 @@ namespace WM.UnitTestScribe.MethodInfo{
                 variables.Add(new string[] { Name, cont });
             }
         }
+
+        //This method is used to find all the statement related the the statement "declcont".
         public void FindRelated(MethodDefinition m, VariableDeclaration declcont, List<string[]> variables)
         {
             foreach (var stat in m.GetDescendants<Statement>())
             {
-                //m.GetAncestors<TypeDefinition>
                 if (stat is DeclarationStatement || stat is SwitchStatement || stat is ABB.SrcML.Data.ThrowStatement || stat is ABB.SrcML.Data.ReturnStatement) continue;
                 if (stat.Content == null) continue;
                 IEnumerable<Expression> exps = stat.Content.GetDescendants();
@@ -299,6 +288,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             }
         }
 
+        //This method is remove the quote of a string. For some cases, if the string is wrapped by the quote then our sql analyzer could not find it.
         public string TakeQuotOff(string ori)
         {
             string result = "";
@@ -307,6 +297,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             return result;
         }
 
+        //This method is used to return the value of an expression. For example, a "MethodCall" expression would return "FunctionCall" for rebuild a string.
         public string GetExpCont(Expression exp, List<string[]> variables)
         {
             string teststring = "";
@@ -330,6 +321,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             return "codeexpression";
         }
 
+        //This is used for rebuilding a complete string for the variable with name "varname".
         public string Rebuildstring(string varname, Statement targetstat, List<string[]> variables)
         {
             string teststring = "";
