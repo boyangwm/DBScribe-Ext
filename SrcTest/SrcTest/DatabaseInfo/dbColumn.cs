@@ -60,6 +60,7 @@ namespace WM.UnitTestScribe.DatabaseInfo
             }
             return;
         }
+
         public void generateDescription(dataSchemer db)
         {
             attribute += "This column belongs to Table: " + tableName +". It contains data with type <b>" + TakeSpaceOff(db.GetOneColumnInfo(tableName ,name, "DATA_TYPE"))+"</b>. ";
@@ -73,14 +74,14 @@ namespace WM.UnitTestScribe.DatabaseInfo
             methodsDes = "<br><b>Methods directly access this column:</b>";
             foreach (var m in directMethods)
             {
-                methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column");
+                methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column", "directly");
             }
             if (followMehtods.Count > 0)
             {
                 methodsDes += "<br><br> <b>Methods might access this column:</b>";
                 foreach (var m in followMehtods)
                 {
-                    methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column");
+                    methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column", "via delegation");
                 }
             }
             if (finalMethods.Count > 0)
@@ -88,10 +89,11 @@ namespace WM.UnitTestScribe.DatabaseInfo
                 methodsDes += "<br><br> <b>Methods might access this column and in the highest level:</b>";
                 foreach (var m in finalMethods)
                 {
-                    methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column");
+                    methodsDes += m.getHtmlDescribe(getRelationships(m.name), "column", "via delegation");
                 }
             }
         }
+
         public void insertMethod(desMethod m, string opt, string instruction)
         {
             if (instruction == "direct")

@@ -4,7 +4,7 @@ MethodFullName,
 MethodName,
 MethodSum:
 {fn,mf,mn,ms|
-<br> Method: <u id="$fn$" onclick="click$fn$(this);">$mn$</u>. This method could $ms$.
+<br> <u id="$fn$" onclick="click$fn$(this);">$mn$</u>. This method could $ms$.
 }
 $
 $

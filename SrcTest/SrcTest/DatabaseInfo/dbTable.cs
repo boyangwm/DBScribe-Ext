@@ -102,14 +102,14 @@ namespace WM.UnitTestScribe.DatabaseInfo{
             methodsDes = "<br><b>Methods directly access this table:</b>";
                     foreach (var m in directMethods)
                     {
-                        methodsDes += m.getHtmlDescribe(getRelationships(m.name),"table");
+                        methodsDes += m.getHtmlDescribe(getRelationships(m.name),"table", "directly");
                     }
                     if (followMehtods.Count>0)
                     {
                         methodsDes += "<br><br><b>Methods might access this table:</b>";
                         foreach (var m in followMehtods)
                         {
-                            methodsDes += m.getHtmlDescribe(getRelationships(m.name), "table");
+                            methodsDes += m.getHtmlDescribe(getRelationships(m.name), "table", "via delegation");
                         }
                     }
                     if (finalMethods.Count > 0)
@@ -117,7 +117,7 @@ namespace WM.UnitTestScribe.DatabaseInfo{
                         methodsDes += "<br><br><b>Methods might access this table and in the highest level:</b>";
                         foreach (var m in finalMethods)
                         {
-                            methodsDes += m.getHtmlDescribe(getRelationships(m.name), "table");
+                            methodsDes += m.getHtmlDescribe(getRelationships(m.name), "table", "via delegation");
                         }
                     }
         }

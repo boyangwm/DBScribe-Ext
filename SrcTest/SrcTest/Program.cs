@@ -25,8 +25,8 @@ namespace WM.UnitTestScribe
 
         //Foreach project, we might need to change these four variables
         public static readonly string ProjLoc = @"\\vmware-host\Shared Folders\Documents\Visual Studio 2013\Projects\";
-        public static readonly string testProj = @"SIGULAB";
-        public static readonly string databaseSchemaName = @"modulo2";
+        public static readonly string testProj = @"RiskIt";
+        public static readonly string databaseSchemaName = @"riskit";
         public static string myConnectionString = "server=127.0.0.1;uid=root;" + "pwd=12345;database=" + databaseSchemaName + ";";
 
         //These locations are just auto-generated, you don't need change them.

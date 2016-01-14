@@ -31,7 +31,7 @@ namespace WM.UnitTestScribe.MethodInfo
         }
 
         //For each SQL invocation, our "sqlStmtParser" only could return a simple typle like "selectStmt" and this method would translate the type into human languages.
-        public string translateStmt(string stmt, string TorC)
+        public string translateStmt(string stmt, string TorC, string optType)
         {
             string fullSentence = "";
             if (TorC == "table")
@@ -39,31 +39,31 @@ namespace WM.UnitTestScribe.MethodInfo
                 switch (stmt)
                 {
                     case "createTableStmt":
-                        fullSentence = "This method would create this table. ";
+                        fullSentence = "This method would <i><b>create</i></b> this table " + optType + ". ";
                         break;
                     case "createIndexStmt":
-                        fullSentence = "This method would create the index of this table. ";
+                        fullSentence = "This method would <i><b>create the index</i></b> of this table " + optType + ". ";
                         break;
                     case "alterStmt":
-                        fullSentence = "This method would modify the columns of this table. ";
+                        fullSentence = "This method would <i><b>modify the columns</i></b> of this table " + optType + ". ";
                         break;
                     case "dropTableStmt":
-                        fullSentence = "This method would delete tis table. ";
+                        fullSentence = "This method would <i><b>delete</i></b> this table " + optType + ". ";
                         break;
                     case "dropIndexStmt":
-                        fullSentence = "This method would delete the index of this table. ";
+                        fullSentence = "This method would <i><b>delete the index</i></b> of this table " + optType + ". ";
                         break;
                     case "selectStmt":
-                        fullSentence = "This method would select some data from this table. ";
+                        fullSentence = "This method would <i><b>select</i></b> some data from this table " + optType + ". ";
                         break;
                     case "insertStmt":
-                        fullSentence = "This method would insert data into this table. ";
+                        fullSentence = "This method would <i><b>insert</i></b> data into this table " + optType + ". ";
                         break;
                     case "updateStmt":
-                        fullSentence = "This method would update this table. ";
+                        fullSentence = "This method would <i><b>update</i></b> this table " + optType + ". ";
                         break;
                     case "deleteStmt":
-                        fullSentence = "This method would delete data of this table. ";
+                        fullSentence = "This method would <i><b>delete</i></b> data of this table " + optType + ". ";
                         break;
                     default:
                         fullSentence = "This method aceess this function with an unkown statement. ";
@@ -77,27 +77,27 @@ namespace WM.UnitTestScribe.MethodInfo
                     case "createTableStmt":
                         break;
                     case "createIndexStmt":
-                        fullSentence = "This method would create index of this column. ";
+                        fullSentence = "This method would <i><b>create index</i></b> of this column " + optType + ". ";
                         break;
                     case "alterStmt":
-                        fullSentence = "This method would modify the attribute of this column. ";
+                        fullSentence = "This method would <i><b>modify the attribute</i></b> of this column " + optType + ". ";
                         break;
                     case "dropTableStmt":
                         break;
                     case "dropIndexStmt":
-                        fullSentence = "This method would delete the index of this column. ";
+                        fullSentence = "This method would <i><b>delete the index</i></b> of this column " + optType + ". ";
                         break;
                     case "selectStmt":
-                        fullSentence = "This method would select data which is related to this column. ";
+                        fullSentence = "This method would <i><b>select</i></b> data which is related to this column " + optType + ". ";
                         break;
                     case "insertStmt":
-                        fullSentence = "This method would insert data which is related to this column. ";
+                        fullSentence = "This method would <i><b>insert</i></b> data which is related to this column " + optType + ". ";
                         break;
                     case "updateStmt":
-                        fullSentence = "This method would update data which is related to this column. ";
+                        fullSentence = "This method would <i><b>update</i></b> data which is related to this column " + optType + ". ";
                         break;
                     case "deleteStmt":
-                        fullSentence = "This method would delete data which is related to this column. ";
+                        fullSentence = "This method would <i><b>delete</i></b> data which is related to this column " + optType + ". ";
                         break;
                     default:
                         fullSentence = "This method aceess this function with an unkown statement. ";
@@ -108,7 +108,7 @@ namespace WM.UnitTestScribe.MethodInfo
         }
 
         //This method would generate the description of this method and we could show the description in the final report.
-        public string getHtmlDescribe(List<string> allSql, string TorC)
+        public string getHtmlDescribe(List<string> allSql, string TorC, string optType)
         {
             string htmlText = "";
             StringTemplateGroup group = new StringTemplateGroup("myGroup", @".\Templet");
@@ -121,9 +121,9 @@ namespace WM.UnitTestScribe.MethodInfo
             {
                 foreach (var singleSql in allSql)
                 {
-                    var tempText = translateStmt(singleSql, TorC);
+                    var tempText = translateStmt(singleSql, TorC, optType);
                     if (tempText == "") continue;
-                    st.SetAttribute("SQLs", translateStmt(singleSql, TorC));
+                    st.SetAttribute("SQLs", translateStmt(singleSql, TorC, optType));
                 }
             }
             htmlText = st.ToString();

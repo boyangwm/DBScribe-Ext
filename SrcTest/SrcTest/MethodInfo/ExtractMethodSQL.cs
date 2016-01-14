@@ -73,6 +73,20 @@ namespace WM.UnitTestScribe.MethodInfo{
             }
         }
 
+        //This method is designed for skipped most of the methods incase to speed up for testing.
+        //This could be used in the method GoTrhoughMethods();
+        public bool CompareTest(string mname)
+        {
+            List<string> forTestMethods = new List<string>(); //define a list for test
+            forTestMethods.Add("XincoCoreACEServer");
+            forTestMethods.Add("getXincoCoreACL");
+            foreach (var vari in forTestMethods)
+            {
+                if (vari == mname) { return true; }
+            }
+            return false;
+        }
+
         //Checking each method to figure out all SQL local invocations. The analysis contains: 1. finding all the variables that SQL invocation like variable with type "String" (The details about handle these variables are achieved in method "statIsDeclaration"); 2. finding all the string usage directly like "Select * from tableName (This is achieved by statIsOthers.)
         public void GoThroughMethods(IEnumerable<MethodDefinition> methods)
         {
@@ -80,6 +94,7 @@ namespace WM.UnitTestScribe.MethodInfo{
             int previoussql = 0;
             foreach (MethodDefinition m in methods)
             {
+                //if (CompareTest(m.Name) == false) continue;
                 List<string[]> variables = new List<string[]>();
                 variables.Clear();
                 var stats = m.GetDescendants<Statement>();

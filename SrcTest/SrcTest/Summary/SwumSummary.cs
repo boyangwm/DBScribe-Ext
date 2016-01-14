@@ -17,8 +17,6 @@ namespace WM.UnitTestScribe.Summary {
         /// </summary>
         public MethodDefinition Method { get; private set; }
 
-
-
         public String ClassName { get; private set; }
 
         /// <summary>
@@ -30,8 +28,6 @@ namespace WM.UnitTestScribe.Summary {
         /// Rule builder in Swum
         /// </summary>
         private readonly UnigramSwumBuilder _builder;
-
-
 
         private string _verb = "";
         private string _firstObj = "";
@@ -95,7 +91,7 @@ namespace WM.UnitTestScribe.Summary {
                 this._verb = "Instantiate";
                 this._firstObj = this.Method.Name;
             } else {
-                this._verb = _mDeclarationNode.Action.ToPlainString();
+                this._verb = _mDeclarationNode.Action.ToPlainString();         
                 this._firstObj = ParseSwumNodeToString(_mDeclarationNode.Theme);
                 //update the secondObj if Mdn has secondary argument
                 if (_mDeclarationNode.SecondaryArguments != null && _mDeclarationNode.SecondaryArguments.Count != 0) {
@@ -104,7 +100,6 @@ namespace WM.UnitTestScribe.Summary {
                     this._secondObj = argNode.ToPlainString();
                 }
             }
-
         }
 
 
@@ -125,6 +120,16 @@ namespace WM.UnitTestScribe.Summary {
             }
 
             //(Extra action) + Verb + firstObj + (ObjConnector) + (secondObj)
+            //special handle for the main function
+            if (this._verb.Equals("main", StringComparison.OrdinalIgnoreCase) || this._verb.ToLower().Contains("main") == true)
+            {
+                string specialMainCase = "be the main entry of ";
+                var methodAnc = Method.GetAncestors();
+                var methodParent = (TypeDefinition) methodAnc.ElementAt(0);
+                specialMainCase += methodParent.Kind.ToString().ToLower() +" " + methodParent.Name.ToString();
+                return specialMainCase;
+            }
+                
             if (description.Length == 0)
                 description.Append(this._verb);
             else
@@ -135,10 +140,7 @@ namespace WM.UnitTestScribe.Summary {
             //description.Append(" (Type: " + Method.ListMatchedStereotypes[0].GetStereotypeName() + ")");
             return description.ToString();
         }
-
-
-
-      
+     
 
         /// <summary>
         /// Parse <param name="nd"></param> to a string using in the summary

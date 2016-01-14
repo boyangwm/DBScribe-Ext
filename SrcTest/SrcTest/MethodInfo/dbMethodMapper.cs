@@ -21,7 +21,7 @@ namespace WM.UnitTestScribe.MethodInfo {
             this.tablesInfo = db.tablesInfo;
         }
 
-        //This method would analyze all the methods" saved in the extractor and mapping these methods with correct table or column.
+        //This method would analyze all the methods saved in the extractor and mapping these methods with correct table or column.
         public void run()
         {
             Console.WriteLine("Mapping method information with database items");
